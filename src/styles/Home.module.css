@@ -1,0 +1,12 @@
+.container {
+  padding: 2rem;
+}
+
+.info_grid {
+  width: 50%;
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-rows: max-content repeat(3, 20rem);
+  gap: 4rem;
+}

@@ -1,0 +1,27 @@
+.card_container {
+  background-color: var(--color-primary);
+  padding: 3.5rem;
+  border-radius: 1.5rem;
+  width: 100%;
+  z-index: 5;
+}
+
+.title_card_container {
+  grid-column: 1 / -1;
+  grid-row:  1 / 2;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.message {
+  font-size: 1.6rem;
+  color: var(--color-grey-light-1);
+  margin-top: 2rem;
+}
+
+.info_title {
+  font-size: 2rem;
+  color: var(--color-grey-light-2);
+}
