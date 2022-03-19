@@ -1,0 +1,17 @@
+.leaflet_tile_pane {
+  /* -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); */
+}
+
+.map_container {
+  height: 100%; 
+  width: 100%;
+  z-index: 1; 
+  /* border-radius: 1.5rem; */
+
+  /* height: 100%; 
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; */
+}

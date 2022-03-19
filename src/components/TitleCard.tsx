@@ -8,7 +8,7 @@ export const TitleCard: React.FC<TitleCardProps> = ({}) => {
     <div
       className={`${styles.title_card_container} ${styles.card_container} ${styles.title}`}
     >
-      <h1 className={styles.title}>Welcome, this is MissingLink</h1>
+      <h1 className={styles.title}>Welcome, this is MissingLink!</h1>
       <p className={styles.message}>
         I wanted to make a site to visualise the ‘health’ status of all the
         MetLink buses in Wellington, this is is my attempt.

@@ -2,14 +2,16 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  height: 100%;
+  font-family: Averta CY, -apple-system, BlinkMacSystemFont, Segoe UI, 
+    Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, serif;
+    /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+    height: 100%;
   font-size: 62.5%;
 }
 
 body {
-  line-height: 1.5;
+  line-height: 1.2;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -38,6 +40,19 @@ input, button, textarea, select {
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
+
+/* .CircularProgressbar-path {
+  stroke: red !important;
+}
+.CircularProgressbar-trail {
+  stroke: gray !important;
+}
+.CircularProgressbar-text {
+  fill: yellow !important;
+}
+.CircularProgressbar-background {
+  fill: green !important;
+} */
 
 @media (max-width: 1200px) {
   html {
@@ -68,7 +83,10 @@ p, h1, h2, h3, h4, h5, h6 {
 
   --color-primary: #F7F8FA;
   --color-secondary: #6394f9;
+  --color-tertiary: #c9cacb;
 
   --color-grey-light-1: #4f4e4e;
   --color-grey-light-2: #787777;
+  --color-grey-light-3: #acabab;
+  --color-grey-light-4: #e1dfdf;
 }
