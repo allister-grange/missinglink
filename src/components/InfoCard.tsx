@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../styles/CardStyles.module.css";
-import "react-circular-progressbar/dist/styles.css";
 import Tilt from "react-parallax-tilt";
 
 interface InfoCardProps {
