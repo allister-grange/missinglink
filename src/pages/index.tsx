@@ -27,7 +27,7 @@ const Home: NextPage = () => {
         <div className={styles.info_grid}>
           <TitleCard />
 
-          <InfoCard title={"Late"} numbers={true} />
+          <InfoCard title={"Late"}  />
           <InfoCard title={"Early"} />
           <InfoCard title={"On time"} />
           <InfoCard title={"Cancelled"} />
@@ -61,9 +61,9 @@ const Home: NextPage = () => {
           </h3>
 
           <div className={styles.card_container}>
-            <InfoCard title={"Late Buses"} numbers={true} blueColor={true} />
+            <InfoCard title={"Late Buses"} blueColor={true} />
             <div style={{ marginTop: "-15rem" }}>
-              <InfoCard title={"Early"} numbers={true} />
+              <InfoCard title={"Early"} />
             </div>
           </div>
         </div>
@@ -74,13 +74,12 @@ const Home: NextPage = () => {
 
         <div className={styles.center_container}>
           <div className={styles.card_container}>
-            <InfoCard title={"Late Buses"} numbers={true} blueColor={true} />
+            <InfoCard title={"Late Buses"} blueColor={true} />
             <div style={{ marginTop: "-15rem" }}>
-              <InfoCard title={"Early"} numbers={true} />
+              <InfoCard title={"Early"} />
             </div>
           </div>
         </div>
-
       </main>
     </div>
   );

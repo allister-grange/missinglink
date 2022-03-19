@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "../styles/CardStyles.module.css";
 import "react-circular-progressbar/dist/styles.css";
-import { CircularProgressbar } from "react-circular-progressbar";
 import Tilt from "react-parallax-tilt";
 
 interface InfoCardProps {
@@ -12,7 +11,6 @@ interface InfoCardProps {
 
 export const InfoCard: React.FC<InfoCardProps> = ({
   title,
-  numbers = false,
   blueColor = false,
 }) => {
   const value = 0.66;
@@ -64,40 +62,31 @@ export const InfoCard: React.FC<InfoCardProps> = ({
           blueColor && styles.blue_background
         }`}
       >
-        {numbers ? (
-          <h3
-            className={`${styles.info_number} && ${
-              blueColor && styles.info_number_blue
-            }`}
+        <h3
+          className={`${styles.info_number} && ${
+            blueColor && styles.info_number_blue
+          }`}
+        >
+          72{" "}
+          <span
+            style={{
+              fontSize: "3rem",
+              marginLeft: ".5rem",
+              color: "var(--color-grey-light-1)",
+            }}
           >
-            72{" "}
-            <span
-              style={{
-                fontSize: "3rem",
-                marginLeft: ".5rem",
-                color: "var(--color-grey-light-1)",
-              }}
-            >
-              /
-            </span>
-            <span
-              style={{
-                fontSize: "3rem",
-                marginLeft: ".5rem",
-                color: "var(--color-grey-light-1)",
-              }}
-            >
-              256
-            </span>
-          </h3>
-        ) : (
-          <CircularProgressbar
-            value={value}
-            maxValue={1}
-            text={`${value * 100}%`}
-            className={styles.progress_bar}
-          />
-        )}
+            /
+          </span>
+          <span
+            style={{
+              fontSize: "3rem",
+              marginLeft: ".5rem",
+              color: "var(--color-grey-light-1)",
+            }}
+          >
+            256
+          </span>
+        </h3>
         <h2
           className={`${styles.info_title} ${
             blueColor && styles.info_title_blue
