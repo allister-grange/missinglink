@@ -1,0 +1,26 @@
+.nav {
+  width: 30%;
+  list-style: none; 
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 1.6rem;
+  color: var(--color-grey-light-1);
+}
+
+.side_nav {
+  height: 13rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  list-style: none;
+  text-decoration: none;
+  font-size: 1.8rem;
+  color: var(--color-grey-light-1);
+}
+
+.nav_link:hover {
+  transition: .3s all;
+  transform: translateY(-2px);
+}

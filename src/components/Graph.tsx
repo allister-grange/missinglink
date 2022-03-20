@@ -1,5 +1,5 @@
 import React from "react";
-import { CartesianGrid, XAxis, YAxis, Legend, Line, LineChart } from "recharts";
+import { CartesianGrid, XAxis, YAxis, Legend, Line, LineChart, ResponsiveContainer } from "recharts";
 
 interface GraphProps {}
 
@@ -50,18 +50,17 @@ const data = [
 
 export const Graph: React.FC<GraphProps> = ({}) => {
   return (
-    <LineChart
-      width={730}
-      height={400}
-      data={data}
-      margin={{ top: 70, right: 30, bottom: 5 }}
-    >
-      {/* <CartesianGrid strokeDasharray="3 3" /> */}
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Legend />
-      <Line type="monotone" dataKey="pv" stroke="#8884d8" />
-      <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-    </LineChart>
+    <ResponsiveContainer>
+      <LineChart
+        data={data}
+        margin={{ top: 70, right: 30, bottom: 5 }}
+      >
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Legend />
+        <Line type="monotone" dataKey="pv" stroke="#8884d8" />
+        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+      </LineChart>
+    </ResponsiveContainer>
   );
 };

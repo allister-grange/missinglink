@@ -9,7 +9,8 @@
 
   display: flex;
   flex-direction: column;
-  height: 48rem;
+  height: 50rem;
+  max-width: 65rem;
 }
 
 .padding {

@@ -7,6 +7,8 @@ import dynamic from "next/dynamic";
 import { Graph } from "@/components/Graph";
 import useScrollPosition from "@react-hook/window-scroll";
 import useMetlinkApi from "@/hooks/useMetlinkApi";
+import { SideBarNav } from "@/components/SideBarNav";
+import { TopNav } from "@/components/TopNav";
 
 const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
   ssr: false,
@@ -23,8 +25,6 @@ const Home: NextPage = () => {
     setError,
   } = useMetlinkApi();
 
-  console.log(buses);
-
   return (
     <div className={styles.container}>
       <Head>
@@ -36,22 +36,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.new_main}>
-        <nav className={styles.nav_top_container}>
-          <ul className={styles.nav}>
-            <li className={styles.nav_link}>
-              <a href="#">At a glance</a>
-            </li>
-            <li className={styles.nav_link}>
-              <a href="#">Map</a>
-            </li>
-            <li className={styles.nav_link}>
-              <a href="#">Stats</a>
-            </li>
-            <li className={styles.nav_link}>
-              <a href="#">Tables</a>
-            </li>
-          </ul>
-        </nav>
+        <div className={styles.nav_top_container}>
+          <TopNav />
+        </div>
 
         <div className={styles.center_container}>
           <h1 className={styles.heading}>Missing Link ✌</h1>
@@ -81,30 +68,18 @@ const Home: NextPage = () => {
           <BusMapClientSide buses={buses} />
         </div>
 
-        <div className={styles.center_container}>
+        <div className={styles.graph_container}>
+          <h1 className={styles.graph_title}>Statistics baby </h1>
           <Graph />
         </div>
 
-        <nav
+        <div
           className={`${styles.side_nav_container} ${
             scrollY > 60 && styles.side_nav_container_show
           }`}
         >
-          <ul className={styles.side_nav}>
-            <li className={styles.nav_link}>
-              <a href="#">At a glance</a>
-            </li>
-            <li className={styles.nav_link}>
-              <a href="#">Map</a>
-            </li>
-            <li className={styles.nav_link}>
-              <a href="#">Stats</a>
-            </li>
-            <li className={styles.nav_link}>
-              <a href="#">Tables</a>
-            </li>
-          </ul>
-        </nav>
+          <SideBarNav scrollY={scrollY} />
+        </div>
       </main>
     </div>
   );
