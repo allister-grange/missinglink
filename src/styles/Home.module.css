@@ -1,38 +1,4 @@
-/* .container {
-
-}
-
-.main {
-  display: flex;
-  height: 100%;
-  padding: 2rem;
-}
-
-.info_grid {
-  width: 40%;
-  display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  grid-template-rows: max-content repeat(2, 16rem);
-  gap: 4rem;
-}
-
-.display_grid {
-  margin-left: 2rem;
-  height: 45vh;
-  flex: 1;
-}
-
-.divide {
-  width: 1px;
-  background-color: var(--color-grey-light-3);
-  margin-left: 2rem;
-  min-height: 90%;
-} */
-
-/* ---------------------------------------------------------- */
-
-.nav_container {
+.nav_top_container {
   margin-left: 18%;
   padding-top: 3rem;
 }
@@ -45,7 +11,30 @@
   flex-direction: row;
   justify-content: space-around;
   font-size: 1.6rem;
-  color: black;
+  color: var(--color-grey-light-1);
+}
+
+.side_nav_container {
+  position: fixed;
+  left: 4rem;
+  top: 30vh;
+  opacity: 0;
+  transition: all .3s ease;
+}
+
+.side_nav_container_show {
+  opacity: 1;
+}
+
+.side_nav {
+  height: 13rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  list-style: none; 
+  text-decoration: none;
+  font-size: 1.8rem;
+  color: var(--color-grey-light-1);
 }
 
 .center_container {
@@ -71,7 +60,7 @@
   display: grid;
   margin-top: 14rem;
   grid-template-columns: repeat(2, minmax(30rem, 1fr));
-  gap: 4rem;
+  gap: 8rem;
 }
 
 .map_container {

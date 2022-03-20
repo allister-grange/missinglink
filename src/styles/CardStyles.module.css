@@ -9,7 +9,11 @@
 
   display: flex;
   flex-direction: column;
-  height: 50rem;
+  height: 48rem;
+}
+
+.padding {
+  margin-left: 4rem;
 }
 
 .blue_background {
@@ -34,7 +38,6 @@
 .info_number {
   font-size: 10rem;
   margin-top: 2rem;
-  margin-left: 4rem;
   color: black;
 }
 
@@ -45,6 +48,12 @@
 .title_card_container {
   grid-column: 1 / -1;
   grid-row: 1 / 2;
+}
+
+.line_divider {
+  width: 75%;
+  height: 2px; 
+  margin-top: 3rem;
 }
 
 .title {
@@ -59,8 +68,7 @@
 
 .info_title {
   font-size: 5rem;
-  margin-left: 4rem;
-  margin-top: auto;
+  margin-top: 7.5rem;
   color: var(--color-grey-light-1);
 }
 
@@ -75,7 +83,6 @@
 
 .info_description {
   font-size: 2.3rem;
-  margin-left: 4rem;
   color: var(--color-grey-light-2);
   width: 80%;
   margin-top: 2rem;

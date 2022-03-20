@@ -6,12 +6,15 @@ import { InfoCard } from "@/components/InfoCard";
 import { BusContainer } from "@/types/BusTypes";
 import dynamic from "next/dynamic";
 import { Graph } from "@/components/Graph";
+import useScrollPosition from "@react-hook/window-scroll";
 
 const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
   ssr: false,
 });
 
 const Home: NextPage = () => {
+  const scrollY = useScrollPosition(10 /*fps*/);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -22,29 +25,8 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* 
-      <main className={styles.main}>
-        <div className={styles.info_grid}>
-          <TitleCard />
-
-          <InfoCard title={"Late"}  />
-          <InfoCard title={"Early"} />
-          <InfoCard title={"On time"} />
-          <InfoCard title={"Cancelled"} />
-          <InfoCard title={"All Buses"} />
-          <InfoCard title={"Cancelled"} />
-        </div>
-
-        <div className={styles.divide} />
-
-        <div className={styles.display_grid}>
-          <BusMapClientSide buses={{} as BusContainer} />
-          <Graph />
-        </div>
-      </main> */}
-
       <main className={styles.new_main}>
-        <nav className={styles.nav_container}>
+        <nav className={styles.nav_top_container}>
           <ul className={styles.nav}>
             <li>At a glance</li>
             <li>Map</li>
@@ -61,9 +43,9 @@ const Home: NextPage = () => {
           </h3>
 
           <div className={styles.card_container}>
-            <InfoCard title={"Late Buses"} blueColor={true} />
-            <div style={{ marginTop: "-15rem" }}>
-              <InfoCard title={"Early"} />
+            <InfoCard title={"Late Buses"} blueColor={true} busesNumber={67} totalBusesNumber={234}/>
+            <div style={{ marginTop: "-25rem" }}>
+              <InfoCard title={"Early"} busesNumber={10} totalBusesNumber={234}/>
             </div>
           </div>
         </div>
@@ -73,13 +55,21 @@ const Home: NextPage = () => {
         </div>
 
         <div className={styles.center_container}>
-          <div className={styles.card_container}>
-            <InfoCard title={"Late Buses"} blueColor={true} />
-            <div style={{ marginTop: "-15rem" }}>
-              <InfoCard title={"Early"} />
-            </div>
-          </div>
+          <Graph />
         </div>
+
+        <nav
+          className={`${styles.side_nav_container} ${
+            scrollY > 60 && styles.side_nav_container_show
+          }`}
+        >
+          <ul className={styles.side_nav}>
+            <li>At a glance</li>
+            <li>Map</li>
+            <li>Stats</li>
+            <li>Tables</li>
+          </ul>
+        </nav>
       </main>
     </div>
   );
