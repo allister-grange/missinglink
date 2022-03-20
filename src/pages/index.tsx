@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
-import { TitleCard } from "@/components/TitleCard";
 import { InfoCard } from "@/components/InfoCard";
 import { BusContainer } from "@/types/BusTypes";
 import dynamic from "next/dynamic";
 import { Graph } from "@/components/Graph";
 import useScrollPosition from "@react-hook/window-scroll";
+import useMetlinkApi from "@/hooks/useMetlinkApi";
 
 const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
   ssr: false,
@@ -14,6 +14,16 @@ const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
 
 const Home: NextPage = () => {
   const scrollY = useScrollPosition(10 /*fps*/);
+  const {
+    buses,
+    refreshAPIBusData,
+    isRefreshingData,
+    isLoadingInitialData,
+    error,
+    setError,
+  } = useMetlinkApi();
+
+  console.log(buses);
 
   return (
     <div className={styles.container}>
@@ -28,10 +38,18 @@ const Home: NextPage = () => {
       <main className={styles.new_main}>
         <nav className={styles.nav_top_container}>
           <ul className={styles.nav}>
-            <li>At a glance</li>
-            <li>Map</li>
-            <li>Stats</li>
-            <li>Tables</li>
+            <li className={styles.nav_link}>
+              <a href="#">At a glance</a>
+            </li>
+            <li className={styles.nav_link}>
+              <a href="#">Map</a>
+            </li>
+            <li className={styles.nav_link}>
+              <a href="#">Stats</a>
+            </li>
+            <li className={styles.nav_link}>
+              <a href="#">Tables</a>
+            </li>
           </ul>
         </nav>
 
@@ -43,15 +61,24 @@ const Home: NextPage = () => {
           </h3>
 
           <div className={styles.card_container}>
-            <InfoCard title={"Late Buses"} blueColor={true} busesNumber={67} totalBusesNumber={234}/>
-            <div style={{ marginTop: "-25rem" }}>
-              <InfoCard title={"Early"} busesNumber={10} totalBusesNumber={234}/>
+            <InfoCard
+              title={"Late Buses"}
+              blueColor={true}
+              busesNumber={67}
+              totalBusesNumber={234}
+            />
+            <div className={styles.card_move_up}>
+              <InfoCard
+                title={"Early"}
+                busesNumber={10}
+                totalBusesNumber={234}
+              />
             </div>
           </div>
         </div>
 
         <div className={styles.map_container}>
-          <BusMapClientSide buses={{} as BusContainer} />
+          <BusMapClientSide buses={buses} />
         </div>
 
         <div className={styles.center_container}>
@@ -64,10 +91,18 @@ const Home: NextPage = () => {
           }`}
         >
           <ul className={styles.side_nav}>
-            <li>At a glance</li>
-            <li>Map</li>
-            <li>Stats</li>
-            <li>Tables</li>
+            <li className={styles.nav_link}>
+              <a href="#">At a glance</a>
+            </li>
+            <li className={styles.nav_link}>
+              <a href="#">Map</a>
+            </li>
+            <li className={styles.nav_link}>
+              <a href="#">Stats</a>
+            </li>
+            <li className={styles.nav_link}>
+              <a href="#">Tables</a>
+            </li>
           </ul>
         </nav>
       </main>

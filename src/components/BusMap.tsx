@@ -91,7 +91,7 @@ const BusMap: React.FC<BusMapProps> = ({ buses }: BusMapProps) => {
   return (
     <MapContainer
       center={[-41.276825, 174.7787]}
-      zoom={12}
+      zoom={11}
       zoomControl={false}
       scrollWheelZoom={false}
       className={styles.map_container}
@@ -103,7 +103,7 @@ const BusMap: React.FC<BusMapProps> = ({ buses }: BusMapProps) => {
         className={styles.leaflet_tile_pane}
       />
       <ZoomControl position="topright" />
-      {/* {buses.allBuses.map((bus) => getMapMarker(bus))} */}
+      {buses.allBuses.map((bus) => getMapMarker(bus))}
     </MapContainer>
   );
 };

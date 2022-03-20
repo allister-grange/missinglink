@@ -21,7 +21,7 @@ export const InfoCard: React.FC<InfoCardProps> = ({
   let dividerBarColor;
 
   if (busPercentage <= 10) {
-    dividerBarColor = "blue";
+    dividerBarColor = "var(--color-secondary)";
   } else if (busPercentage > 10 && busPercentage <= 20) {
     dividerBarColor = "coral";
   } else {
