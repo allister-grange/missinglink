@@ -9,6 +9,7 @@ import useScrollPosition from "@react-hook/window-scroll";
 import useMetlinkApi from "@/hooks/useMetlinkApi";
 import { SideBarNav } from "@/components/SideBarNav";
 import { TopNav } from "@/components/TopNav";
+import { useRef } from "react";
 
 const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
   ssr: false,
@@ -25,8 +26,13 @@ const Home: NextPage = () => {
     setError,
   } = useMetlinkApi();
 
+  const atAGlanceRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const tablesRef = useRef<HTMLDivElement>(null);
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={atAGlanceRef}>
       <Head>
         <title>MissingLink</title>
         <meta
@@ -37,7 +43,12 @@ const Home: NextPage = () => {
       </Head>
       <main className={styles.new_main}>
         <div className={styles.nav_top_container}>
-          <TopNav />
+          <TopNav
+            atAGlanceRef={atAGlanceRef}
+            mapRef={mapRef}
+            statsRef={statsRef}
+            tablesRef={tablesRef}
+          />
         </div>
 
         <div className={styles.center_container}>
@@ -64,11 +75,11 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <div className={styles.map_container}>
+        <div className={styles.map_container} ref={mapRef}>
           <BusMapClientSide buses={buses} />
         </div>
 
-        <div className={styles.graph_container}>
+        <div className={styles.graph_container} ref={statsRef}>
           <h1 className={styles.graph_title}>Statistics baby </h1>
           <Graph />
         </div>
@@ -78,7 +89,13 @@ const Home: NextPage = () => {
             scrollY > 60 && styles.side_nav_container_show
           }`}
         >
-          <SideBarNav scrollY={scrollY} />
+          <SideBarNav
+            scrollY={scrollY}
+            atAGlanceRef={atAGlanceRef}
+            mapRef={mapRef}
+            statsRef={statsRef}
+            tablesRef={tablesRef}
+          />
         </div>
       </main>
     </div>

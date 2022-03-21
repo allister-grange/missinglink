@@ -7,6 +7,7 @@
   justify-content: space-around;
   font-size: 1.6rem;
   color: var(--color-grey-light-1);
+  cursor: pointer;
 }
 
 .side_nav {
@@ -18,6 +19,7 @@
   text-decoration: none;
   font-size: 1.8rem;
   color: var(--color-grey-light-1);
+  cursor: pointer;
 }
 
 .nav_link:hover {
