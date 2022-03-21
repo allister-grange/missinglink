@@ -53,4 +53,24 @@ export type Bus = {
   bearing: number;
 };
 
+export type BusStatistic = {
+  batchId: number;
+  delayedBuses: number;
+  totalBuses: number;
+  cancelledBuses: number;
+  earlyBuses: number;
+  onTimeBuses: number;
+  notReportingTimeBuses: number;
+  timestamp: string;
+};
+
+export type BusType =
+  | "totalBuses"
+  | "cancelledBuses"
+  | "delayedBuses"
+  | "earlyBuses"
+  | "onTimeBuses"
+  | "notReportingTimeBuses"
+  | "totalDisruptedServices";
+
 export default BusStop;

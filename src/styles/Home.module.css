@@ -1,3 +1,7 @@
+.container {
+  padding-bottom: 5rem;
+}
+
 .nav_top_container {
   margin-left: 18%;
   padding-top: 3rem;
@@ -41,30 +45,45 @@
 }
 
 .card_move_up {
-  margin-top: -25rem;
+  margin-top: -19rem;
 }
 
 .map_container {
-  width: 100%;
+  width: 90%;
   height: 80vh;
   padding-top: 12rem;
+  padding-left: 28rem;
 }
 
 .graph_container {
-  height: 80vh;
+  height: 80rem;
   padding: 16rem;
   padding-top: 6rem;
+  padding-left: 28rem;
+  margin-bottom: 10rem;
+}
+
+.graph_title_container {
+  margin-left: 5rem;
+  margin-bottom: 3rem;
+  margin-top: 4rem;
 }
 
 .graph_title {
-  font-size: 4.5rem;
-  margin-left: 5rem;
+  font-size: 7rem;
+}
+
+.graph_description {
+  margin-top: .7rem;
+  font-size: 2.2rem;
+  color: var(--color-grey-light-2)
 }
 
 @media (max-width: 1100px) {
   .card_container {
     grid-template-columns: 57rem;
   }
+
   .card_move_up {
     margin-top: 0;
   }
@@ -80,6 +99,7 @@
   .side_nav_container {
     display: none;
   }
+
   .center_container {
     padding: 2rem;
     margin: 0rem auto;
@@ -87,6 +107,5 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* width: 100%; */
-  } 
+  }
 }

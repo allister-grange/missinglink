@@ -72,6 +72,15 @@ const Home: NextPage = () => {
                 totalBusesNumber={234}
               />
             </div>
+            <InfoCard title={"Early"} busesNumber={10} totalBusesNumber={234} />
+            <div className={styles.card_move_up}>
+              <InfoCard
+                title={"Early"}
+                blueColor={true}
+                busesNumber={10}
+                totalBusesNumber={234}
+              />
+            </div>
           </div>
         </div>
 
@@ -80,7 +89,13 @@ const Home: NextPage = () => {
         </div>
 
         <div className={styles.graph_container} ref={statsRef}>
-          <h1 className={styles.graph_title}>Statistics baby </h1>
+          <div className={styles.graph_title_container}>
+            <h1 className={styles.graph_title}>Statistics&nbsp;&nbsp;✍️</h1>
+            <p className={styles.graph_description}>
+              Every 20 minutes I take a sit-rep of how MetLink&apos;s buses are
+              doing
+            </p>
+          </div>
           <Graph />
         </div>
 

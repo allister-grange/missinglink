@@ -4,7 +4,8 @@
 }
 
 .map_container {
-  height: 100%; 
-  width: 100%;
   z-index: 1; 
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: .5rem .5rem 2rem rgba(0, 0, 0, .1);
 }
