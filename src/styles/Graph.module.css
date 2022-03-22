@@ -1,0 +1,17 @@
+.color_legend_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(4rem, 15rem));
+  gap: 2rem;
+  white-space: pre;
+  margin-bottom: 2rem;
+  margin-top: 8rem;
+  justify-content: center;
+}
+
+.color_association {
+  font-size: 1.5rem;
+  padding: .5rem 1rem;
+  border-radius: 1.5rem;
+  color: white;
+  display: inline;
+}

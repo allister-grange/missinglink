@@ -5,6 +5,7 @@ import { Line } from "react-chartjs-2";
 import useBusStatisticApi from "@/hooks/useBusStatisticApi";
 import { BusStatistic, BusType } from "@/types/BusTypes";
 import { DataPoint } from "@/types/types";
+import styles from "@/styles/Graph.module.css";
 
 const options: ChartOptions = {
   maintainAspectRatio: false,
@@ -24,16 +25,10 @@ const options: ChartOptions = {
   },
   plugins: {
     legend: {
-      display: false
-      // labels: {
-      //   font: {
-      //     size: 20,
-      //   },
-      // },
+      display: false,
     },
   },
 };
-
 
 export const Graph: React.FC = ({}) => {
   const { busStatistics, isLoading, getBusStatsData } = useBusStatisticApi();
@@ -75,7 +70,7 @@ export const Graph: React.FC = ({}) => {
         data: allBuses,
         fill: false,
         backgroundColor: "#999",
-        borderColor: "blue",
+        borderColor: "#a2d2ff",
         borderWidth: 2,
         pointRadius: 2,
       },
@@ -84,7 +79,7 @@ export const Graph: React.FC = ({}) => {
         data: cancelledBuses,
         fill: false,
         backgroundColor: "#999",
-        borderColor: "green",
+        borderColor: "#3f37c9",
         borderWidth: 2,
         pointRadius: 2,
       },
@@ -93,7 +88,7 @@ export const Graph: React.FC = ({}) => {
         data: delayedBuses,
         fill: false,
         backgroundColor: "#999",
-        borderColor: "blue",
+        borderColor: "#d62828",
         borderWidth: 2,
         pointRadius: 2,
       },
@@ -102,7 +97,7 @@ export const Graph: React.FC = ({}) => {
         data: onTimeBuses,
         fill: false,
         backgroundColor: "#999",
-        borderColor: "cyan",
+        borderColor: "#fcbf49",
         borderWidth: 2,
         pointRadius: 2,
       },
@@ -111,7 +106,7 @@ export const Graph: React.FC = ({}) => {
         data: earlyBuses,
         fill: false,
         backgroundColor: "#999",
-        borderColor: "magenta",
+        borderColor: "#87986a",
         borderWidth: 2,
         pointRadius: 2,
       },
@@ -120,7 +115,7 @@ export const Graph: React.FC = ({}) => {
         data: notReportingTimeBuses,
         fill: false,
         backgroundColor: "#999",
-        borderColor: "yellow",
+        borderColor: "#dda15e",
         borderWidth: 2,
         pointRadius: 2,
       },
@@ -129,7 +124,7 @@ export const Graph: React.FC = ({}) => {
         data: totalDisruptedServices,
         fill: false,
         backgroundColor: "#999",
-        borderColor: "red",
+        borderColor: "#8ac926",
         borderWidth: 2,
         pointRadius: 2,
       },
@@ -147,6 +142,64 @@ export const Graph: React.FC = ({}) => {
         height: "100%",
       }}
     >
+      <div className={styles.color_legend_container}>
+        <p style={{ width: "min-content" }}>
+          <span
+            className={styles.color_association}
+            style={{ background: "#a2d2ff" }}
+          >
+            total buses
+          </span>
+        </p>
+        <p style={{ width: "min-content" }}>
+          <span
+            className={styles.color_association}
+            style={{ background: "#d62828" }}
+          >
+            late buses
+          </span>
+        </p>
+        <p style={{ width: "min-content" }}>
+          <span
+            className={styles.color_association}
+            style={{ background: "#3f37c9" }}
+          >
+            cancelled services
+          </span>
+        </p>
+        <p style={{ width: "min-content" }}>
+          <span
+            className={styles.color_association}
+            style={{ background: "#fcbf49" }}
+          >
+            on time buses
+          </span>{" "}
+        </p>
+        <p>
+          <span
+            className={styles.color_association}
+            style={{ background: "#87986a" }}
+          >
+            early buses
+          </span>
+        </p>
+        <p>
+          <span
+            className={styles.color_association}
+            style={{ background: "#dda15e" }}
+          >
+            not reporting time
+          </span>{" "}
+        </p>
+        <p>
+          <span
+            className={styles.color_association}
+            style={{ background: "#8ac926" }}
+          >
+            total disrupted services
+          </span>
+        </p>
+      </div>
       <Line data={data} options={options} />
     </div>
   );
