@@ -7,7 +7,7 @@ import { BusStatistic, BusType } from "@/types/BusTypes";
 import { DataPoint } from "@/types/types";
 import styles from "@/styles/Graph.module.css";
 
-const options: ChartOptions = {
+const options: any = {
   maintainAspectRatio: false,
   color: "blue",
   scales: {
