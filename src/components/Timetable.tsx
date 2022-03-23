@@ -2,7 +2,7 @@ import { Bus } from "@/types/BusTypes";
 import React from "react";
 import styles from "@/styles/Timetable.module.css";
 import convertSecondsToMinutes from "@/helpers/convertSecondsToMinutes";
-import { useTable } from "react-table";
+import { useTable, useSortBy } from "react-table";
 
 interface TimetableProps {
   busDataToDisplay: Bus[];
@@ -43,7 +43,7 @@ export const Timetable: React.FC<TimetableProps> = ({ busDataToDisplay }) => {
     []
   );
 
-  const tableInstance = useTable({ columns, data });
+  const tableInstance = useTable({ columns, data }, useSortBy);
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;
 
@@ -52,18 +52,25 @@ export const Timetable: React.FC<TimetableProps> = ({ busDataToDisplay }) => {
       <thead>
         {
           // Loop over the header rows
-          headerGroups.map((headerGroup, idx) => (
+          headerGroups.map((headerGroup) => (
             // Apply the header row props
             <tr {...headerGroup.getHeaderGroupProps()}>
               {
                 // Loop over the headers in each row
-                headerGroup.headers.map((column, idx) => (
+                headerGroup.headers.map((column) => (
                   // Apply the header cell props
-                  <th {...column.getHeaderProps()}>
+                  <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                     {
                       // Render the header
                       column.render("Header")
                     }
+                    <span>
+                      {column.isSorted
+                        ? column.isSortedDesc
+                          ? ' ↓'
+                          : ' ↑'
+                        : ""}
+                    </span>
                   </th>
                 ))
               }
