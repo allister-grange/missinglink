@@ -74,7 +74,7 @@ const getMapMarker = (bus: Bus) => {
   return (
     <Marker
       position={[bus.lat, bus.long]}
-      key={JSON.stringify([bus.lat, bus.long])}
+      key={bus.vehicleId}
       icon={icon}
     >
       <Popup>

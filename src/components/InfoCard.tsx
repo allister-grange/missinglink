@@ -8,11 +8,13 @@ interface InfoCardProps {
   blueColor?: boolean;
   busesNumber: number;
   totalBusesNumber: number;
+  includeSubNumber?: false;
 }
 
 export const InfoCard: React.FC<InfoCardProps> = ({
   title,
   blueColor = false,
+  includeSubNumber = true,
   busesNumber,
   totalBusesNumber,
 }) => {
@@ -36,31 +38,35 @@ export const InfoCard: React.FC<InfoCardProps> = ({
         }`}
       >
         <div className={styles.padding}>
-          <div style={{ transform: `translateY(${scrollY / 30}%)` }}>
+          <div>
             <h3
               className={`${styles.info_number} && ${
                 blueColor && styles.info_number_blue
               }`}
             >
               {busesNumber}
-              <span
-                style={{
-                  fontSize: "3rem",
-                  marginLeft: ".5rem",
-                  color: "var(--color-grey-light-1)",
-                }}
-              >
-                /
-              </span>
-              <span
-                style={{
-                  fontSize: "3rem",
-                  marginLeft: ".5rem",
-                  color: "var(--color-grey-light-1)",
-                }}
-              >
-                {totalBusesNumber}
-              </span>
+              {includeSubNumber && (
+                <>
+                  <span
+                    style={{
+                      fontSize: "3rem",
+                      marginLeft: ".5rem",
+                      color: "var(--color-grey-light-1)",
+                    }}
+                  >
+                    /
+                  </span>
+                  <span
+                    style={{
+                      fontSize: "3rem",
+                      marginLeft: ".5rem",
+                      color: "var(--color-grey-light-1)",
+                    }}
+                  >
+                    {totalBusesNumber}
+                  </span>
+                </>
+              )}
             </h3>
             <div
               className={styles.line_divider}

@@ -63,23 +63,24 @@ const Home: NextPage = () => {
             <InfoCard
               title={"Late Buses"}
               blueColor={true}
-              busesNumber={67}
-              totalBusesNumber={234}
+              busesNumber={buses.lateBuses.length}
+              totalBusesNumber={buses.allBuses.length}
             />
             <div className={styles.card_move_up}>
               <InfoCard
-                title={"Early"}
-                busesNumber={10}
-                totalBusesNumber={234}
+                title={"Cancelled"}
+                busesNumber={buses.cancelledBuses.length}
+                totalBusesNumber={buses.allBuses.length}
+                includeSubNumber={false}
               />
             </div>
             <InfoCard title={"Early"} busesNumber={10} totalBusesNumber={234} />
             <div className={styles.card_move_up}>
               <InfoCard
-                title={"Early"}
+                title={"Not Reporting"}
                 blueColor={true}
-                busesNumber={10}
-                totalBusesNumber={234}
+                busesNumber={buses.unknownBuses.length}
+                totalBusesNumber={buses.allBuses.length}
               />
             </div>
           </div>
@@ -98,7 +99,7 @@ const Home: NextPage = () => {
             <Graph />
           </div>
 
-          <div className={styles.table_container} ref={statsRef}>
+          <div className={styles.table_container} ref={tablesRef}>
             <div className={styles.table_title_container}>
               <h1 className={styles.sub_title}>Timetables&nbsp;&nbsp;🔎</h1>
               <p className={styles.description}>

@@ -66,9 +66,12 @@
   margin-top: 4rem;
 }
 
+.table_container {
+  margin-top: 38rem;
+}
+
 .table_title_container {
   margin-bottom: 3rem;
-  margin-top: 38rem;
 }
 
 .sub_title {
@@ -81,10 +84,14 @@
   color: var(--color-grey-light-2)
 }
 
-
 @media (max-width: 1100px) {
   .card_container {
-    grid-template-columns: 57rem;
+    gap: 2rem;
+  }
+
+  .center_container {
+    padding-right: 0;
+    width: 95%;
   }
 
   .card_move_up {
@@ -110,5 +117,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .heading {
+    margin-top: 4rem;
+  }
+
+  .card_move_up {
+    margin-left: auto;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .card_container {
+    grid-template-columns: 35rem;
+    margin-top: 8rem;
+  }
+  .table_container {
+    margin-top: 27rem;
   }
 }

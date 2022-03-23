@@ -32,17 +32,21 @@ export const SideBarNav: React.FC<SideBarNavProps> = ({
       <ul className={styles.side_nav}>
         <li className={styles.nav_link}>
           <a onClick={atAGlanceScroll}>
-            At a glance{scrollY < 1050 && leftArrow}
+            At a glance{scrollY < 1300 && leftArrow}
           </a>
         </li>
         <li className={styles.nav_link}>
-          <a onClick={mapScroll}>Map</a>
+          <a onClick={mapScroll}>
+            Map{scrollY > 1300 && scrollY < 2350 && leftArrow}
+          </a>
         </li>
         <li className={styles.nav_link}>
-          <a onClick={statsScroll}>Stats{scrollY > 1200 && leftArrow}</a>
+          <a onClick={statsScroll}>
+            Stats{scrollY > 2350 && scrollY < 3250 && leftArrow}
+          </a>
         </li>
         <li className={styles.nav_link}>
-          <a onClick={tablesScroll}>Timetable</a>
+          <a onClick={tablesScroll}>Timetable{scrollY > 3250 && leftArrow}</a>
         </li>
       </ul>
     </nav>
