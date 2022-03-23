@@ -1,0 +1,49 @@
+.timetable {
+  width: 100%;
+  margin-top: 5rem;
+  font-size: 1.5rem;
+  background-color: var(--color-primary);
+  padding: 2.5rem 1rem;
+  border-radius: 1.5rem;
+  box-shadow: .5rem .5rem 2rem rgba(0, 0, 0, .1);
+}
+
+.timetable th,
+.timetable td {
+  padding: 12px 15px;
+  border-radius: 1.5rem;
+}
+
+.timetable tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.timetable tbody tr:nth-of-type(even) {
+  background-color: var(--color-secondary);
+  color: white;
+  /* background-color: #baeaf8; */
+}
+
+.timetable thead tr {
+  background-color: var(--color-quad);
+  /* background-color: #65ABC1; */
+  color: #ffffff;
+  text-align: left;
+}
+
+.timetable tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+  /* border-bottom: 2px solid #009879; */
+}
+
+.timetable tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+@media (max-width: 768px) {
+  .timetable {
+    height: 70vh;
+    width: 80vw;
+  }
+}

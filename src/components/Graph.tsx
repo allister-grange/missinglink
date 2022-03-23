@@ -143,7 +143,7 @@ export const Graph: React.FC = ({}) => {
       }}
     >
       <div className={styles.color_legend_container}>
-        <p style={{ width: "min-content" }}>
+        <p>
           <span
             className={styles.color_association}
             style={{ background: "#a2d2ff" }}
@@ -151,7 +151,7 @@ export const Graph: React.FC = ({}) => {
             total buses
           </span>
         </p>
-        <p style={{ width: "min-content" }}>
+        <p>
           <span
             className={styles.color_association}
             style={{ background: "#d62828" }}
@@ -159,7 +159,7 @@ export const Graph: React.FC = ({}) => {
             late buses
           </span>
         </p>
-        <p style={{ width: "min-content" }}>
+        <p>
           <span
             className={styles.color_association}
             style={{ background: "#3f37c9" }}
@@ -167,7 +167,7 @@ export const Graph: React.FC = ({}) => {
             cancelled services
           </span>
         </p>
-        <p style={{ width: "min-content" }}>
+        <p>
           <span
             className={styles.color_association}
             style={{ background: "#fcbf49" }}

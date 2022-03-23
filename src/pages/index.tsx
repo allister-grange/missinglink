@@ -10,6 +10,7 @@ import useMetlinkApi from "@/hooks/useMetlinkApi";
 import { SideBarNav } from "@/components/SideBarNav";
 import { TopNav } from "@/components/TopNav";
 import { useRef } from "react";
+import { Timetable } from "@/components/Timetable";
 
 const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
   ssr: false,
@@ -82,21 +83,32 @@ const Home: NextPage = () => {
               />
             </div>
           </div>
-        </div>
-
-        <div className={styles.map_container} ref={mapRef}>
-          <BusMapClientSide buses={buses} />
-        </div>
-
-        <div className={styles.graph_container} ref={statsRef}>
-          <div className={styles.graph_title_container}>
-            <h1 className={styles.graph_title}>Statistics&nbsp;&nbsp;✍️</h1>
-            <p className={styles.graph_description}>
-              Every 20 minutes I take a sit-rep of how MetLink&apos;s buses are
-              doing
-            </p>
+          <div className={styles.map_container} ref={mapRef}>
+            <BusMapClientSide buses={buses} />
           </div>
-          <Graph />
+
+          <div className={styles.graph_container} ref={statsRef}>
+            <div className={styles.graph_title_container}>
+              <h1 className={styles.sub_title}>Statistics&nbsp;&nbsp;✍️</h1>
+              <p className={styles.description}>
+                Every 20 minutes I take a sit-rep of how MetLink&apos;s buses
+                are doing
+              </p>
+            </div>
+            <Graph />
+          </div>
+
+          <div className={styles.table_container} ref={statsRef}>
+            <div className={styles.table_title_container}>
+              <h1 className={styles.sub_title}>Timetables&nbsp;&nbsp;🔎</h1>
+              <p className={styles.description}>
+                A quick view of the status of all the buses currently running, if the time is 0m:00s
+                on a bus, it usually means that it&apos;s not reporting
+                it&apos;s time
+              </p>
+              <Timetable busDataToDisplay={buses.allBuses} />
+            </div>
+          </div>
         </div>
 
         <div

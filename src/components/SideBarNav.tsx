@@ -42,7 +42,7 @@ export const SideBarNav: React.FC<SideBarNavProps> = ({
           <a onClick={statsScroll}>Stats{scrollY > 1200 && leftArrow}</a>
         </li>
         <li className={styles.nav_link}>
-          <a onClick={tablesScroll}>Tables</a>
+          <a onClick={tablesScroll}>Timetable</a>
         </li>
       </ul>
     </nav>

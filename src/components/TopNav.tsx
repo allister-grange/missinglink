@@ -36,7 +36,7 @@ export const TopNav: React.FC<TopNavProps> = ({
           <a onClick={statsScroll}>Stats</a>
         </li>
         <li className={styles.nav_link}>
-          <a onClick={tablesScroll}>Tables</a>
+          <a onClick={tablesScroll}>Timetable</a>
         </li>
       </ul>
     </nav>
