@@ -9,6 +9,7 @@ interface InfoCardProps {
   busesNumber: number;
   totalBusesNumber: number;
   includeSubNumber?: false;
+  description: string;
 }
 
 export const InfoCard: React.FC<InfoCardProps> = ({
@@ -17,6 +18,7 @@ export const InfoCard: React.FC<InfoCardProps> = ({
   includeSubNumber = true,
   busesNumber,
   totalBusesNumber,
+  description
 }) => {
   const scrollY = useScrollPosition(60 /*fps*/);
   const busPercentage = (busesNumber / totalBusesNumber) * 100;
@@ -87,8 +89,7 @@ export const InfoCard: React.FC<InfoCardProps> = ({
               blueColor && styles.info_description_blue
             }`}
           >
-            A late bus is a bus that is running over 2 minutes late and is
-            reporting it&apos;s time
+            {description}
           </p>
         </div>
       </div>

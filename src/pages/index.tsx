@@ -11,6 +11,7 @@ import { SideBarNav } from "@/components/SideBarNav";
 import { TopNav } from "@/components/TopNav";
 import { useRef } from "react";
 import { Timetable } from "@/components/Timetable";
+import { ClipLoader } from "react-spinners";
 
 const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
   ssr: false,
@@ -59,12 +60,26 @@ const Home: NextPage = () => {
             MetLink&apos;s services are doing, today and in the past
           </h3>
 
+          <button
+            className={styles.refresh_data_button}
+            onClick={refreshAPIBusData}
+          >
+            {isRefreshingData ? (
+              <ClipLoader color="var(--color-secondary)" size={20} />
+            ) : (
+              "refresh data"
+            )}
+          </button>
+
           <div className={styles.card_container}>
             <InfoCard
               title={"Late Buses"}
               blueColor={true}
               busesNumber={buses.lateBuses.length}
               totalBusesNumber={buses.allBuses.length}
+              description={`${Math.floor(
+                (buses.lateBuses.length / buses.allBuses.length) * 100
+              )}% of buses are running over 2 minutes late`}
             />
             <div className={styles.card_move_up}>
               <InfoCard
@@ -72,15 +87,28 @@ const Home: NextPage = () => {
                 busesNumber={buses.cancelledBuses.length}
                 totalBusesNumber={buses.allBuses.length}
                 includeSubNumber={false}
+                description={
+                  "This is the number of how many services of Metlink's are cancelled right now (incl buses and trains)"
+                }
               />
             </div>
-            <InfoCard title={"Early"} busesNumber={10} totalBusesNumber={234} />
+            <InfoCard
+              title={"Early"}
+              busesNumber={buses.earlyBuses.length}
+              totalBusesNumber={buses.allBuses.length}
+              description={`${Math.floor(
+                (buses.earlyBuses.length / buses.allBuses.length) * 100
+              )}% of buses are running at least a minute and a half ahead of schedule`}
+            />
             <div className={styles.card_move_up}>
               <InfoCard
                 title={"Not Reporting"}
                 blueColor={true}
                 busesNumber={buses.unknownBuses.length}
                 totalBusesNumber={buses.allBuses.length}
+                description={`${Math.floor(
+                  (buses.unknownBuses.length / buses.allBuses.length) * 100
+                )}% of buses are not reporting their delay or location`}
               />
             </div>
           </div>
@@ -103,9 +131,9 @@ const Home: NextPage = () => {
             <div className={styles.table_title_container}>
               <h1 className={styles.sub_title}>Timetables&nbsp;&nbsp;🔎</h1>
               <p className={styles.description}>
-                A quick view of the status of all the buses currently running, if the time is 0m:00s
-                on a bus, it usually means that it&apos;s not reporting
-                it&apos;s time
+                A quick view of the status of all the buses currently running,
+                if the time is 0m:00s on a bus, it usually means that it&apos;s
+                not reporting it&apos;s time
               </p>
               <Timetable busDataToDisplay={buses.allBuses} />
             </div>
@@ -126,6 +154,27 @@ const Home: NextPage = () => {
           />
         </div>
       </main>
+      <footer className={styles.footer}>
+        <div>
+          <h2 className={styles.copyright}>
+            &copy; whatever year it is lol; all rights reserved
+          </h2>
+          <h3 className={styles.copyright_name}>Allister Grange</h3>
+        </div>
+        <ul className={styles.footer_list}>
+          <li className={styles.footer_link}>
+            <a href="https://opendata.metlink.org.nz/apis">MetLink API</a>
+          </li>
+          <li className={styles.footer_link}>
+            <a href="https://github.com/allister-grange/missinglink">
+              Code for this site
+            </a>
+          </li>
+          <li className={styles.footer_link}>
+            <a href="https://allistergrange.com">My Website</a>
+          </li>
+        </ul>
+      </footer>
     </div>
   );
 };

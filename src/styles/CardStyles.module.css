@@ -52,6 +52,8 @@
   width: 75%;
   height: 2px; 
   margin-top: 3rem;
+  background-color: white !important;
+  background-color: #F6C334 !important;
 }
 
 .title {
