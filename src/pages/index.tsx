@@ -77,6 +77,7 @@ const Home: NextPage = () => {
               blueColor={true}
               busesNumber={buses.lateBuses.length}
               totalBusesNumber={buses.allBuses.length}
+              isLoading={isLoadingInitialData}
               description={`${Math.floor(
                 (buses.lateBuses.length / buses.allBuses.length) * 100
               )}% of buses are running over 2 minutes late`}
@@ -87,6 +88,7 @@ const Home: NextPage = () => {
                 busesNumber={buses.cancelledBuses.length}
                 totalBusesNumber={buses.allBuses.length}
                 includeSubNumber={false}
+                isLoading={isLoadingInitialData}
                 description={
                   "This is the number of how many services of Metlink's are cancelled right now (incl buses and trains)"
                 }
@@ -96,6 +98,7 @@ const Home: NextPage = () => {
               title={"Early"}
               busesNumber={buses.earlyBuses.length}
               totalBusesNumber={buses.allBuses.length}
+              isLoading={isLoadingInitialData}
               description={`${Math.floor(
                 (buses.earlyBuses.length / buses.allBuses.length) * 100
               )}% of buses are running at least a minute and a half ahead of schedule`}
@@ -105,6 +108,7 @@ const Home: NextPage = () => {
                 title={"Not Reporting"}
                 blueColor={true}
                 busesNumber={buses.unknownBuses.length}
+                isLoading={isLoadingInitialData}
                 totalBusesNumber={buses.allBuses.length}
                 description={`${Math.floor(
                   (buses.unknownBuses.length / buses.allBuses.length) * 100

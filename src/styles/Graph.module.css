@@ -17,3 +17,14 @@
   display: inline;
   margin-top: 1.5rem;
 }
+
+.datepicker_wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.9rem;
+  margin-top: 1.5rem;
+  color: var(--color-grey-light-1);
+  margin-left: 3rem;
+}

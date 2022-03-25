@@ -1,73 +1,38 @@
-import React from "react";
-import { ChartOptions } from "chart.js/auto";
+import React, { useState } from "react";
+import chartOptions, {
+  parseBusStatsIntoTimeArrays
+} from "@/helpers/chartHelpers";
+import useBusStatisticApi from "@/hooks/useBusStatisticApi";
+import styles from "@/styles/Graph.module.css";
 import "chartjs-adapter-moment";
 import { Line } from "react-chartjs-2";
-import useBusStatisticApi from "@/hooks/useBusStatisticApi";
-import { BusStatistic, BusType } from "@/types/BusTypes";
-import { DataPoint } from "@/types/types";
-import styles from "@/styles/Graph.module.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { GraphColorLegend } from "./GraphColorLegend";
 
-const options: any = {
-  maintainAspectRatio: false,
-  color: "blue",
-  scales: {
-    x: {
-      type: "time",
-      grid: {
-        display: false,
-      },
-      ticks: {
-        font: {
-          size: 15,
-        },
-      },
-    },
-  },
-  plugins: {
-    legend: {
-      display: false,
-    },
-  },
-};
+const yesterdayDate = new Date();
+yesterdayDate.setDate(yesterdayDate.getDate() - 1);
 
 export const Graph: React.FC = ({}) => {
   const { busStatistics, isLoading, getBusStatsData } = useBusStatisticApi();
+  const [startDate, setStartDate] = useState<Date>(yesterdayDate);
+  const [endDate, setEndDate] = useState<Date | null>(new Date());
 
-  // TODO think of a better way to do the following two methods
-  const parseBusStats = (busType: BusType): DataPoint[] => {
-    const res = [] as DataPoint[];
-    type BusKey = keyof BusStatistic;
+  const {
+    totalBuses,
+    cancelledBuses,
+    delayedBuses,
+    earlyBuses,
+    notReportingTimeBuses,
+    onTimeBuses,
+    totalDisruptedServices,
+  } = parseBusStatsIntoTimeArrays(busStatistics);
 
-    busStatistics.forEach((stat) => {
-      if (busType === "totalDisruptedServices") {
-        res.push({
-          x: stat.timestamp,
-          y: stat.cancelledBuses + stat.delayedBuses + stat.earlyBuses,
-        });
-      } else {
-        res.push({
-          x: stat.timestamp,
-          y: stat[busType as BusKey] as number,
-        });
-      }
-    });
-
-    return res;
-  };
-
-  const allBuses = parseBusStats("totalBuses");
-  const cancelledBuses = parseBusStats("cancelledBuses");
-  const delayedBuses = parseBusStats("delayedBuses");
-  const earlyBuses = parseBusStats("earlyBuses");
-  const notReportingTimeBuses = parseBusStats("notReportingTimeBuses");
-  const onTimeBuses = parseBusStats("onTimeBuses");
-  const totalDisruptedServices = parseBusStats("totalDisruptedServices");
-
-  const data = {
+  const graphData = {
     datasets: [
       {
         label: "Total Buses",
-        data: allBuses,
+        data: totalBuses,
         fill: false,
         backgroundColor: "#999",
         borderColor: "#a2d2ff",
@@ -131,8 +96,6 @@ export const Graph: React.FC = ({}) => {
     ],
   };
 
-  // want the data in this format: const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, ...];
-
   return (
     <div
       style={{
@@ -142,65 +105,36 @@ export const Graph: React.FC = ({}) => {
         height: "100%",
       }}
     >
-      <div className={styles.color_legend_container}>
-        <p>
-          <span
-            className={styles.color_association}
-            style={{ background: "#a2d2ff" }}
-          >
-            total buses
-          </span>
-        </p>
-        <p>
-          <span
-            className={styles.color_association}
-            style={{ background: "#d62828" }}
-          >
-            late buses
-          </span>
-        </p>
-        <p>
-          <span
-            className={styles.color_association}
-            style={{ background: "#3f37c9" }}
-          >
-            cancelled services
-          </span>
-        </p>
-        <p>
-          <span
-            className={styles.color_association}
-            style={{ background: "#fcbf49" }}
-          >
-            on time buses
-          </span>{" "}
-        </p>
-        <p>
-          <span
-            className={styles.color_association}
-            style={{ background: "#87986a" }}
-          >
-            early buses
-          </span>
-        </p>
-        <p>
-          <span
-            className={styles.color_association}
-            style={{ background: "#dda15e" }}
-          >
-            not reporting time
-          </span>{" "}
-        </p>
-        <p>
-          <span
-            className={styles.color_association}
-            style={{ background: "#8ac926" }}
-          >
-            total disrupted services
-          </span>
-        </p>
+      <GraphColorLegend />
+      <Line data={graphData} options={chartOptions} />
+      <div className={styles.datepicker_wrapper}>
+        <p>showing data from </p>
+        <DatePicker
+          wrapperClassName="date_picker"
+          selected={startDate}
+          dateFormat="dd/MM/yyyy p"
+          showTimeSelect
+          onChange={(date: Date | null) => {
+            if (date && endDate) {
+              getBusStatsData(date, endDate);
+              setStartDate(date);
+            }
+          }}
+        />
+        <p>to</p>
+        <DatePicker
+          wrapperClassName="date_picker"
+          selected={endDate}
+          dateFormat="dd/MM/yyyy p"
+          showTimeSelect
+          onChange={(date: Date | null) => {
+            if (date && startDate) {
+              getBusStatsData(startDate, date);
+              setEndDate(date);
+            }
+          }}
+        />
       </div>
-      <Line data={data} options={options} />
     </div>
   );
 };

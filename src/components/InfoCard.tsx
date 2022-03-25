@@ -1,7 +1,8 @@
 import React from "react";
-import styles from "../styles/CardStyles.module.css";
+import styles from "@/styles/CardStyles.module.css";
 import Tilt from "react-parallax-tilt";
-import { useSpring, config, animated, Interpolation } from "react-spring";
+import { useSpring, config, animated } from "react-spring";
+import { ClipLoader } from "react-spinners";
 
 interface InfoCardProps {
   title: string;
@@ -10,6 +11,7 @@ interface InfoCardProps {
   totalBusesNumber: number;
   includeSubNumber?: false;
   description: string;
+  isLoading: boolean;
 }
 
 export const InfoCard: React.FC<InfoCardProps> = ({
@@ -19,17 +21,9 @@ export const InfoCard: React.FC<InfoCardProps> = ({
   busesNumber,
   totalBusesNumber,
   description,
+  isLoading,
 }) => {
   const busPercentage = (busesNumber / totalBusesNumber) * 100;
-  let dividerBarColor;
-
-  if (busPercentage <= 10) {
-    dividerBarColor = blueColor ? "white" : "var(--color-secondary)";
-  } else if (busPercentage > 10 && busPercentage <= 20) {
-    dividerBarColor = "coral";
-  } else {
-    dividerBarColor = "red";
-  }
 
   const { number } = useSpring({
     from: { number: 0 },
@@ -37,6 +31,14 @@ export const InfoCard: React.FC<InfoCardProps> = ({
     delay: Math.random() * 300 + 50,
     config: config.molasses,
   });
+
+  let numberToDisplay;
+
+  if (busesNumber < 30) {
+    numberToDisplay = busesNumber;
+  } else {
+    numberToDisplay = number.to((val) => Math.floor(val));
+  }
 
   const includeSubNumberElement = includeSubNumber && (
     <span>/ {totalBusesNumber}</span>
@@ -56,13 +58,26 @@ export const InfoCard: React.FC<InfoCardProps> = ({
                 blueColor && styles.info_number_blue
               }`}
             >
-              {number.to((val) => Math.floor(val))}
+              {isLoading ? (
+                <ClipLoader size={65} color={blueColor ? "white" : "black"} />
+              ) : (
+                numberToDisplay
+              )}
             </animated.h3>
-            <h3 className={styles.sub_number}>{includeSubNumberElement}</h3>
+            <h3
+              className={styles.sub_number}
+              style={{
+                color: blueColor
+                  ? "var(--color-grey-light-1)"
+                  : "var(--color-grey-light-2)",
+              }}
+            >
+              {includeSubNumberElement}
+            </h3>
             <div
               className={styles.line_divider}
               style={{
-                backgroundColor: dividerBarColor,
+                backgroundColor: blueColor ? "white" : "var(--color-secondary)",
               }}
             ></div>
           </div>
