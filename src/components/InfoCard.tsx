@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/CardStyles.module.css";
 import Tilt from "react-parallax-tilt";
-import useScrollPosition from "@react-hook/window-scroll";
+import { useSpring, config, animated, Interpolation } from "react-spring";
 
 interface InfoCardProps {
   title: string;
@@ -18,9 +18,8 @@ export const InfoCard: React.FC<InfoCardProps> = ({
   includeSubNumber = true,
   busesNumber,
   totalBusesNumber,
-  description
+  description,
 }) => {
-  const scrollY = useScrollPosition(60 /*fps*/);
   const busPercentage = (busesNumber / totalBusesNumber) * 100;
   let dividerBarColor;
 
@@ -32,6 +31,17 @@ export const InfoCard: React.FC<InfoCardProps> = ({
     dividerBarColor = "red";
   }
 
+  const { number } = useSpring({
+    from: { number: 0 },
+    number: busesNumber,
+    delay: Math.random() * 300 + 50,
+    config: config.molasses,
+  });
+
+  const includeSubNumberElement = includeSubNumber && (
+    <span>/ {totalBusesNumber}</span>
+  );
+
   return (
     <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5}>
       <div
@@ -41,35 +51,14 @@ export const InfoCard: React.FC<InfoCardProps> = ({
       >
         <div className={styles.padding}>
           <div>
-            <h3
+            <animated.h3
               className={`${styles.info_number} && ${
                 blueColor && styles.info_number_blue
               }`}
             >
-              {busesNumber}
-              {includeSubNumber && (
-                <>
-                  <span
-                    style={{
-                      fontSize: "3rem",
-                      marginLeft: ".5rem",
-                      color: "var(--color-grey-light-1)",
-                    }}
-                  >
-                    /
-                  </span>
-                  <span
-                    style={{
-                      fontSize: "3rem",
-                      marginLeft: ".5rem",
-                      color: "var(--color-grey-light-1)",
-                    }}
-                  >
-                    {totalBusesNumber}
-                  </span>
-                </>
-              )}
-            </h3>
+              {number.to((val) => Math.floor(val))}
+            </animated.h3>
+            <h3 className={styles.sub_number}>{includeSubNumberElement}</h3>
             <div
               className={styles.line_divider}
               style={{

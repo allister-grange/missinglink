@@ -23,7 +23,7 @@
 }
 
 .timetable tbody tr:nth-of-type(even) {
-  background-color: var(--color-secondary);
+  background-color: var(--color-fifth);
   color: white;
 }
 
@@ -31,15 +31,6 @@
   background-color: var(--color-quad);
   color: #ffffff;
   text-align: left;
-}
-
-.timetable tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
-}
-
-.timetable tbody tr.active-row {
-  font-weight: bold;
-  color: #009879;
 }
 
 .pagination {

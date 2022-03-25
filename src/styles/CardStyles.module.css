@@ -37,6 +37,14 @@
   font-size: 10rem;
   margin-top: 2rem;
   color: black;
+  display: inline-block !important;
+}
+
+.sub_number {
+  display: inline-block !important;
+  font-size: 3rem;
+  margin-left: .5rem;
+  color: var(--color-grey-light-1);
 }
 
 .info_number_blue {
