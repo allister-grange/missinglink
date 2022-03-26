@@ -68,9 +68,12 @@
   border-radius: .6rem;
 }
 
-@media (max-width: 768px) {
-  .timetable {
-    height: 70vh;
-    width: 80vw;
+@media (max-width: 500px) {
+  .pagination_page_select {
+    padding: .4rem .8rem;
+  }
+
+  .pagination_button {
+    padding: .4rem .8rem;
   }
 }

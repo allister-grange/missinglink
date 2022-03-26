@@ -6,7 +6,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  font-size: 1.6rem;
+  font-size: inherit;
   color: var(--color-grey-light-1);
 }
 
@@ -47,4 +47,10 @@
 
 .theme_picker:hover {
   cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .nav {
+    width: 100%;
+  }
 }

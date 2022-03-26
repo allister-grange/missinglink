@@ -121,14 +121,7 @@ export const Graph: React.FC = ({}) => {
   };
 
   return (
-    <div
-      style={{
-        maxWidth: "1300px",
-        marginLeft: "auto",
-        marginRight: "auto",
-        height: "100%",
-      }}
-    >
+    <div>
       <GraphColorLegend setHoveringLegendBadge={setHoveringLegendBadge} />
       <Line data={graphData} options={chartOptions} />
       <div className={styles.datepicker_wrapper}>

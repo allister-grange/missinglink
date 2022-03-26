@@ -1,6 +1,7 @@
 .nav_top_container {
   margin-left: 18%;
   padding-top: 3rem;
+  font-size: 1.6rem;
 }
 
 .side_nav_container {
@@ -51,10 +52,8 @@
 }
 
 .graph_container {
-  height: 60rem;
   padding-top: 6rem;
-  padding-left: 0;
-  margin-bottom: 10rem;
+  margin-bottom: 8rem;
 }
 
 .graph_title_container {
@@ -63,7 +62,6 @@
 }
 
 .table_container {
-  margin-top: 42rem;
   margin-bottom: 10rem;
 }
 
@@ -161,6 +159,7 @@
 @media (max-width: 800px) {
   .card_container {
     grid-template-columns: 45rem;
+    justify-content: center;
   }
 }
 
@@ -188,12 +187,25 @@
 }
 
 @media (max-width: 500px) {
+  .nav_top_container {
+    font-size: 2rem;
+    margin-left: 0;
+    padding-right: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   .card_container {
-    grid-template-columns: 35rem;
+    grid-template-columns: 40rem;
     margin-top: 8rem;
   }
 
-  .table_container {
-    margin-top: 27rem;
+  .graph_container {
+    width: 100%;
+  }
+
+  .center_container {
+    width: 100%;
   }
 }

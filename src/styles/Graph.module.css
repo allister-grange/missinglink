@@ -28,3 +28,11 @@
   color: var(--color-grey-light-1);
   margin-left: 3rem;
 }
+
+
+@media (max-width: 500px) {
+  .datepicker_wrapper {
+    flex-direction: column;
+    line-height: 1.6;
+  }
+}

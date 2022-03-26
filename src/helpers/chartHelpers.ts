@@ -2,7 +2,6 @@ import { BusStatistic } from "@/types/BusTypes";
 import { DataPoint } from "@/types/types";
 
 export const chartOptions: any = {
-  maintainAspectRatio: false,
   scales: {
     x: {
       type: "time",
