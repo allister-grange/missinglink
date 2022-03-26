@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import chartOptions, {
-  parseBusStatsIntoTimeArrays
+  parseBusStatsIntoTimeArrays,
 } from "@/helpers/chartHelpers";
 import useBusStatisticApi from "@/hooks/useBusStatisticApi";
 import styles from "@/styles/Graph.module.css";
@@ -17,6 +17,9 @@ export const Graph: React.FC = ({}) => {
   const { busStatistics, isLoading, getBusStatsData } = useBusStatisticApi();
   const [startDate, setStartDate] = useState<Date>(yesterdayDate);
   const [endDate, setEndDate] = useState<Date | null>(new Date());
+  const [hoveringLegendBadge, setHoveringLegendBadge] = useState<
+    string | undefined
+  >();
 
   const {
     totalBuses,
@@ -34,8 +37,11 @@ export const Graph: React.FC = ({}) => {
         label: "Total Buses",
         data: totalBuses,
         fill: false,
-        backgroundColor: "#999",
-        borderColor: "#a2d2ff",
+        backgroundColor: "white",
+        borderColor:
+          hoveringLegendBadge && hoveringLegendBadge != "totalBuses"
+            ? "#acabab"
+            : "#a2d2ff",
         borderWidth: 2,
         pointRadius: 2,
       },
@@ -43,8 +49,11 @@ export const Graph: React.FC = ({}) => {
         label: "Cancelled Services",
         data: cancelledBuses,
         fill: false,
-        backgroundColor: "#999",
-        borderColor: "#3f37c9",
+        backgroundColor: "white",
+        borderColor:
+          hoveringLegendBadge && hoveringLegendBadge != "cancelledBuses"
+            ? "#acabab"
+            : "#3f37c9",
         borderWidth: 2,
         pointRadius: 2,
       },
@@ -52,8 +61,11 @@ export const Graph: React.FC = ({}) => {
         label: "Late Buses",
         data: delayedBuses,
         fill: false,
-        backgroundColor: "#999",
-        borderColor: "#d62828",
+        backgroundColor: "white",
+        borderColor:
+          hoveringLegendBadge && hoveringLegendBadge != "lateBuses"
+            ? "#acabab"
+            : "#d62828",
         borderWidth: 2,
         pointRadius: 2,
       },
@@ -61,8 +73,11 @@ export const Graph: React.FC = ({}) => {
         label: "On Time Buses",
         data: onTimeBuses,
         fill: false,
-        backgroundColor: "#999",
-        borderColor: "#fcbf49",
+        backgroundColor: "white",
+        borderColor:
+          hoveringLegendBadge && hoveringLegendBadge != "onTimeBuses"
+            ? "#acabab"
+            : "#fcbf49",
         borderWidth: 2,
         pointRadius: 2,
       },
@@ -70,8 +85,11 @@ export const Graph: React.FC = ({}) => {
         label: "Early Buses",
         data: earlyBuses,
         fill: false,
-        backgroundColor: "#999",
-        borderColor: "#87986a",
+        backgroundColor: "white",
+        borderColor:
+          hoveringLegendBadge && hoveringLegendBadge != "earlyBuses"
+            ? "#acabab"
+            : "#87986a",
         borderWidth: 2,
         pointRadius: 2,
       },
@@ -79,8 +97,11 @@ export const Graph: React.FC = ({}) => {
         label: "Not Reporting Time Buses",
         data: notReportingTimeBuses,
         fill: false,
-        backgroundColor: "#999",
-        borderColor: "#dda15e",
+        backgroundColor: "white",
+        borderColor:
+          hoveringLegendBadge && hoveringLegendBadge != "unknownBuses"
+            ? "#acabab"
+            : "#dda15e",
         borderWidth: 2,
         pointRadius: 2,
       },
@@ -88,8 +109,11 @@ export const Graph: React.FC = ({}) => {
         label: "Total Disrupted Services",
         data: totalDisruptedServices,
         fill: false,
-        backgroundColor: "#999",
-        borderColor: "#8ac926",
+        backgroundColor: "white",
+        borderColor:
+          hoveringLegendBadge && hoveringLegendBadge != "disruptedBuses"
+            ? "#acabab"
+            : "#8ac926",
         borderWidth: 2,
         pointRadius: 2,
       },
@@ -105,7 +129,7 @@ export const Graph: React.FC = ({}) => {
         height: "100%",
       }}
     >
-      <GraphColorLegend />
+      <GraphColorLegend setHoveringLegendBadge={setHoveringLegendBadge} />
       <Line data={graphData} options={chartOptions} />
       <div className={styles.datepicker_wrapper}>
         <p>showing data from </p>

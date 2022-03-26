@@ -1,9 +1,9 @@
 .color_legend_container {
   display: flex;
   gap: 2rem;
+  row-gap: 1.5rem;
   white-space: pre;
   margin-bottom: 2rem;
-  margin-top: 4rem;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -15,7 +15,7 @@
   border-radius: 1.5rem;
   color: var(--color-primary);
   display: inline;
-  margin-top: 1.5rem;
+  cursor: pointer;
 }
 
 .datepicker_wrapper {
