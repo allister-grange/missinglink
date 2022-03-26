@@ -1,7 +1,6 @@
 import { Graph } from "@/components/Graph";
 import { InfoCard } from "@/components/InfoCard";
 import { SideBarNav } from "@/components/SideBarNav";
-import { ThemeChanger } from "@/components/ThemeChanger";
 import { Timetable } from "@/components/Timetable";
 import { TopNav } from "@/components/TopNav";
 import useMetlinkApi from "@/hooks/useMetlinkApi";
@@ -54,7 +53,6 @@ const Home: NextPage = () => {
         </div>
 
         <div className={styles.center_container}>
-          <ThemeChanger />
           <h1 className={styles.heading}>Missing Link ✌</h1>
           <h3 className={styles.sub_heading}>
             A site to provide you with statistics, graphs and maps on how

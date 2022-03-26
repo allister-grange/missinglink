@@ -42,6 +42,7 @@
   border: none;
   color: var(--color-grey-light-1);
   margin-bottom: .2rem;
+  transform: translateX(-.5rem);
 }
 
 .theme_picker:hover {

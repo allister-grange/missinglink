@@ -16,7 +16,7 @@ export const ThemeChanger: React.FC = () => {
       {theme === "dark" ? (
         <button className={styles.theme_picker} onClick={() => setTheme('light')}>&#9728;</button>
       ) : (
-        <button className={styles.theme_picker} onClick={() => setTheme('dark')}>&#9790;</button>
+        <button className={styles.theme_picker} onClick={() => setTheme('dark')}>🌚</button>
       )}
     </div>
   );
