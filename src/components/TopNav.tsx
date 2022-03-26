@@ -1,5 +1,6 @@
 import React, { RefObject } from "react";
 import styles from "@/styles/NavStyles.module.css";
+import { ThemeChanger } from "./ThemeChanger";
 
 interface TopNavProps {
   atAGlanceRef: RefObject<HTMLDivElement>;
@@ -37,6 +38,9 @@ export const TopNav: React.FC<TopNavProps> = ({
         </li>
         <li className={styles.nav_link}>
           <a onClick={tablesScroll}>Timetable</a>
+        </li>
+        <li className={styles.nav_link}>
+          <ThemeChanger />
         </li>
       </ul>
     </nav>

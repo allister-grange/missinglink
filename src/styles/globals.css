@@ -2,12 +2,11 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Averta CY, -apple-system, BlinkMacSystemFont, Segoe UI, 
+  font-family: Averta CY, -apple-system, BlinkMacSystemFont, Segoe UI,
     Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, serif;
-    /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
-    height: 100%;
+  height: 100%;
   font-size: 62.5%;
+  background-color: var(--color-background);
 }
 
 body {
@@ -58,12 +57,12 @@ p, h1, h2, h3, h4, h5, h6 {
   padding-top: 0.8em !important;
 }
 
-.react-datepicker__input-container > input {
+.react-datepicker__input-container>input {
   border-radius: 1.3rem;
   padding: .6rem 1.2rem;
   text-align: center;
   border: 1px var(--color-grey-light-3) solid;
-  background-color: rgba(99,148,249, .1);
+  background-color: rgba(99, 148, 249, .1);
 }
 
 .react-datepicker__month {
@@ -118,7 +117,7 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 :root {
-  --color-background: #ffffff;
+  --color-background: white;
 
   --color-primary: #F7F8FA;
   --color-secondary: #6394f9;
@@ -130,4 +129,21 @@ p, h1, h2, h3, h4, h5, h6 {
   --color-grey-light-2: #787777;
   --color-grey-light-3: #acabab;
   --color-grey-light-4: #e1dfdf;
+  --color-grey-light-5: #f5f4f4;
+}
+
+[data-theme='dark'] {
+  --color-background: #0E131B;
+
+  --color-primary: #171F28;
+  --color-secondary: #1855ce;
+  --color-tertiary: #c9cacb;
+  --color-quad: #1855ce;
+  --color-fifth: #598cf4;
+
+  --color-grey-light-1: #e1dfdf;
+  --color-grey-light-2: #acabab;
+  --color-grey-light-3: #787777;
+  --color-grey-light-4: #4f4e4e;
+  --color-grey-light-5: #e1dfdf;
 }

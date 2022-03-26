@@ -1,5 +1,6 @@
 import React, { RefObject } from "react";
 import styles from "@/styles/NavStyles.module.css";
+import { ThemeChanger } from "./ThemeChanger";
 
 interface SideBarNavProps {
   scrollY: number;
@@ -47,6 +48,9 @@ export const SideBarNav: React.FC<SideBarNavProps> = ({
         </li>
         <li className={styles.nav_link}>
           <a onClick={tablesScroll}>Timetable{scrollY > 3250 && leftArrow}</a>
+        </li>
+        <li className={styles.nav_link}>
+          <ThemeChanger />
         </li>
       </ul>
     </nav>

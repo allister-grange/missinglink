@@ -1,16 +1,16 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import styles from "@/styles/Home.module.css";
-import { InfoCard } from "@/components/InfoCard";
-import { BusContainer } from "@/types/BusTypes";
-import dynamic from "next/dynamic";
 import { Graph } from "@/components/Graph";
-import useScrollPosition from "@react-hook/window-scroll";
-import useMetlinkApi from "@/hooks/useMetlinkApi";
+import { InfoCard } from "@/components/InfoCard";
 import { SideBarNav } from "@/components/SideBarNav";
-import { TopNav } from "@/components/TopNav";
-import { useRef } from "react";
+import { ThemeChanger } from "@/components/ThemeChanger";
 import { Timetable } from "@/components/Timetable";
+import { TopNav } from "@/components/TopNav";
+import useMetlinkApi from "@/hooks/useMetlinkApi";
+import styles from "@/styles/Home.module.css";
+import useScrollPosition from "@react-hook/window-scroll";
+import type { NextPage } from "next";
+import dynamic from "next/dynamic";
+import Head from "next/head";
+import { useRef } from "react";
 import { ClipLoader } from "react-spinners";
 
 const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
@@ -54,6 +54,7 @@ const Home: NextPage = () => {
         </div>
 
         <div className={styles.center_container}>
+          <ThemeChanger />
           <h1 className={styles.heading}>Missing Link ✌</h1>
           <h3 className={styles.sub_heading}>
             A site to provide you with statistics, graphs and maps on how
@@ -135,8 +136,8 @@ const Home: NextPage = () => {
             <div className={styles.table_title_container}>
               <h1 className={styles.sub_title}>Timetables&nbsp;&nbsp;🔎</h1>
               <p className={styles.description}>
-                A quick view of the status of all the buses currently running,
-                if the time is 0m:00s on a bus, it usually means that it&apos;s
+                A quick view of the status of all the buses currently running.
+                If the time is 0m:00s on a bus, it usually means that it&apos;s
                 not reporting it&apos;s time
               </p>
               <Timetable busDataToDisplay={buses.allBuses} />

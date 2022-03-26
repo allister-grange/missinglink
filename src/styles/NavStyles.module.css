@@ -5,9 +5,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   font-size: 1.6rem;
   color: var(--color-grey-light-1);
-  cursor: pointer;
 }
 
 .side_nav {
@@ -19,11 +19,13 @@
   text-decoration: none;
   font-size: 1.8rem;
   color: var(--color-grey-light-1);
-  cursor: pointer;
 }
 
 .nav_link {
   white-space: pre;
+  width: max-content;
+  cursor: pointer;
+  display: inline-block;
 }
 
 .nav_link:not(:last-child) {
@@ -33,4 +35,15 @@
 .nav_link:hover {
   transition: .3s all;
   transform: translateY(-2px);
+}
+
+.theme_picker {
+  background-color: transparent;
+  border: none;
+  color: var(--color-grey-light-1);
+  margin-bottom: .2rem;
+}
+
+.theme_picker:hover {
+  cursor: pointer;
 }

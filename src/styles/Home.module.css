@@ -63,7 +63,7 @@
 }
 
 .table_container {
-  margin-top: 38rem;
+  margin-top: 42rem;
   margin-bottom: 10rem;
 }
 
@@ -98,7 +98,7 @@
 }
 
 .copyright_name {
-  color: black;
+  color: var(--color-grey-light-2);
   margin-top: 1rem;
   line-height: 1.7;
   font-size: 1.6rem;
@@ -123,7 +123,7 @@
   min-width: 19rem;
   min-height: 6rem;
   border: 2px solid var(--color-secondary);
-  color: black;
+  color: var(--color-grey-light-1);
   font-weight: 600;
   font-size: 2rem;
   padding: 2rem 4rem;
@@ -141,7 +141,6 @@
 .refresh_data_button:active {
   transform: translateY(calc(5rem - 1px));
   background-color: var(--color-secondary);
-  color: white;
 }
 
 @media (max-width: 1100px) {

@@ -13,7 +13,7 @@
   font-size: 1.5rem;
   padding: .5rem 1rem;
   border-radius: 1.5rem;
-  color: white;
+  color: var(--color-primary);
   display: inline;
   margin-top: 1.5rem;
 }

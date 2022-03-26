@@ -23,8 +23,6 @@ export const InfoCard: React.FC<InfoCardProps> = ({
   description,
   isLoading,
 }) => {
-  const busPercentage = (busesNumber / totalBusesNumber) * 100;
-
   const { number } = useSpring({
     from: { number: 0 },
     number: busesNumber,
@@ -48,7 +46,7 @@ export const InfoCard: React.FC<InfoCardProps> = ({
     <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5}>
       <div
         className={`${styles.card_container} ${styles.info_container} ${
-          blueColor && styles.blue_background
+          blueColor && styles.card_container_blue
         }`}
       >
         <div className={styles.padding}>

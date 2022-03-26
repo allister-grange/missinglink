@@ -1,9 +1,8 @@
-import { BusStatistic, BusType } from "@/types/BusTypes";
+import { BusStatistic } from "@/types/BusTypes";
 import { DataPoint } from "@/types/types";
 
 export const chartOptions: any = {
   maintainAspectRatio: false,
-  color: "blue",
   scales: {
     x: {
       type: "time",
@@ -24,9 +23,7 @@ export const chartOptions: any = {
   },
 };
 
-export const parseBusStatsIntoTimeArrays = (
-  busStatistics: BusStatistic[]
-) => {
+export const parseBusStatsIntoTimeArrays = (busStatistics: BusStatistic[]) => {
   type BusKey = keyof BusStatistic;
 
   const totalBuses = [] as DataPoint[];
@@ -76,7 +73,7 @@ export const parseBusStatsIntoTimeArrays = (
     notReportingTimeBuses,
     onTimeBuses,
     totalDisruptedServices,
-  }
+  };
 };
 
 export default chartOptions;

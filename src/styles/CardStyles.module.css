@@ -4,6 +4,7 @@
   width: 100%;
   z-index: 5;
   box-shadow: .5rem .5rem 2rem rgba(0, 0, 0, .1);
+  transition: all .2s;
 
   display: flex;
   flex-direction: column;
@@ -15,28 +16,18 @@
   margin-left: 4rem;
 }
 
-.blue_background {
+.card_container_blue {
   background-color: var(--color-secondary);
 }
 
-.info_container {
-  transition: all .2s;
-}
-
-.info_container:active {
+.card_container:active {
   transform: translateY(-2px);
-  background-color: var(--color-secondary);
-  color: white;
-}
-
-.info_container:active * {
-  color: white !important;
 }
 
 .info_number {
   font-size: 10rem;
   margin-top: 2rem;
-  color: black;
+  color: var(--color-grey-light-1);
   display: inline-block !important;
 }
 
@@ -78,7 +69,7 @@
 }
 
 .info_title_blue {
-  color: var(--color-primary);
+  color: white;
 }
 
 .progress_bar {
@@ -95,7 +86,7 @@
 }
 
 .info_description_blue {
-  color: var(--color-grey-light-4);
+  color: var(--color-grey-light-5);
 }
 
 @media (max-width: 500px) {
