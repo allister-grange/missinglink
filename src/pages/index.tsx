@@ -11,10 +11,14 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useRef } from "react";
 import { ClipLoader } from "react-spinners";
+import ReactGA from "react-ga";
 
 const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
   ssr: false,
 });
+
+ReactGA.initialize("UA-185842430-1");
+ReactGA.pageview(window.location.pathname);
 
 const Home: NextPage = () => {
   const scrollY = useScrollPosition(10 /*fps*/);

@@ -1,8 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
 import { Bus, BusContainer } from "../types/BusTypes";
 import fetchData from "./fetchData";
+const API_URL = "https://missinglink.backend.allistergrange.com";
 
-const API_URL = "http://localhost:5002";
 const sortBusArrayByRoute = (buses: Bus[]) => {
   buses.sort((a, b) => {
     if (!a.routeShortName || !b.routeShortName) {
