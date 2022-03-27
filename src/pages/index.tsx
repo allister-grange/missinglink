@@ -9,16 +9,13 @@ import useScrollPosition from "@react-hook/window-scroll";
 import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ClipLoader } from "react-spinners";
 import ReactGA from "react-ga";
 
 const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
   ssr: false,
 });
-
-ReactGA.initialize("UA-185842430-1");
-ReactGA.pageview(window.location.pathname);
 
 const Home: NextPage = () => {
   const scrollY = useScrollPosition(10 /*fps*/);
@@ -30,6 +27,14 @@ const Home: NextPage = () => {
     error,
     setError,
   } = useMetlinkApi();
+  const [isClientSide, setIsClientSide] = useState(false);
+
+  useEffect(() => setIsClientSide(true), []);
+
+  if (isClientSide) {
+    ReactGA.initialize("UA-185842430-1");
+    ReactGA.pageview(window.location.pathname);
+  }
 
   const atAGlanceRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
