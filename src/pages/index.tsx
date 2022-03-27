@@ -47,7 +47,12 @@ const Home: NextPage = () => {
         <title>MissingLink</title>
         <meta
           name="description"
-          content="A visualisation tool for MetLink's bus times"
+          content="A visualisation tool for MetLink's bus services times"
+        />
+        <meta property="og:image" content={"./preview.png"} />
+        <meta
+          property="og:title"
+          content="MissingLink - A pulse on MetService"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
