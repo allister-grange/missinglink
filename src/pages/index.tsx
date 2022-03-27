@@ -135,7 +135,7 @@ const Home: NextPage = () => {
 
           <div className={styles.graph_container} ref={statsRef}>
             <div className={styles.graph_title_container}>
-              <h1 className={styles.sub_title}>Statistics&nbsp;&nbsp;✍️</h1>
+              <h1 className={styles.sub_title}>Statistics ✍️</h1>
               <p className={styles.description}>
                 Every 20 minutes I take a sit-rep of how MetLink&apos;s buses
                 are doing
@@ -146,7 +146,7 @@ const Home: NextPage = () => {
 
           <div className={styles.table_container} ref={tablesRef}>
             <div className={styles.table_title_container}>
-              <h1 className={styles.sub_title}>Timetables&nbsp;&nbsp;🔎</h1>
+              <h1 className={styles.sub_title}>Timetables 🔎</h1>
               <p className={styles.description}>
                 A quick view of the status of all the buses currently running.
                 If the time is 0m:00s on a bus, it usually means that it&apos;s
