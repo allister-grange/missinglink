@@ -46,10 +46,10 @@ const Home: NextPage = () => {
       <Head>
         <title>MissingLink</title>
         <meta
-          name="description"
+          name="og:description"
           content="A visualisation tool for MetLink's bus services times"
         />
-        <meta property="og:image" content={"./preview.png"} />
+        <meta property="og:image" content={"/preview.png"} />
         <meta
           property="og:title"
           content="MissingLink - A pulse on MetService"
