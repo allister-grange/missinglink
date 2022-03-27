@@ -18,7 +18,7 @@
 
 .center_container {
   padding-left: 28rem;
-  padding-top: 17rem;
+  padding-top: 14rem;
   width: 90%;
 }
 
@@ -100,6 +100,7 @@
   margin-top: 1rem;
   line-height: 1.7;
   font-size: 1.6rem;
+  width: 18rem;
 }
 
 .footer_list {
@@ -107,6 +108,7 @@
   color: inherit;
   list-style: none;
   line-height: 1.7;
+  white-space: pre;
 }
 
 .footer_link {
