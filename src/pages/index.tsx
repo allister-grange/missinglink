@@ -12,6 +12,8 @@ import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import ReactGA from "react-ga";
 import { RefreshButton } from "@/components/RefreshButton";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
   ssr: false,
@@ -29,6 +31,12 @@ const Home: NextPage = () => {
   } = useMetlinkApi();
   const [isClientSide, setIsClientSide] = useState(false);
 
+  const atAGlanceRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const tablesRef = useRef<HTMLDivElement>(null);
+  const toastId = useRef<React.ReactText | null>(null);
+
   useEffect(() => setIsClientSide(true), []);
 
   if (isClientSide) {
@@ -36,10 +44,21 @@ const Home: NextPage = () => {
     ReactGA.pageview(window.location.pathname);
   }
 
-  const atAGlanceRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
-  const tablesRef = useRef<HTMLDivElement>(null);
+  if (error) {
+    toastId.current = toast.info(
+      "There's an error with either my API or Metlink's, please try again later",
+      {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }
+    );
+    setError(false);
+  }
 
   return (
     <div className={styles.container} ref={atAGlanceRef}>
@@ -57,6 +76,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.new_main}>
+        <ToastContainer limit={1} style={{fontSize: "1.8rem"}}/>
+
         <div className={styles.nav_top_container}>
           <TopNav
             atAGlanceRef={atAGlanceRef}
