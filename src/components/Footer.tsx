@@ -1,0 +1,28 @@
+import React from "react";
+import styles from "@/styles/FooterStyles.module.css";
+
+export const Footer: React.FC = () => {
+  return (
+    <footer className={styles.footer}>
+      <div>
+        <h2 className={styles.copyright}>
+          &copy; whatever year it is lol; all rights reserved
+        </h2>
+        <h3 className={styles.copyright_name}>Allister Grange</h3>
+      </div>
+      <ul className={styles.footer_list}>
+        <li className={styles.footer_link}>
+          <a href="https://opendata.metlink.org.nz/apis">MetLink API</a>
+        </li>
+        <li className={styles.footer_link}>
+          <a href="https://github.com/allister-grange/missinglink">
+            Code for this site
+          </a>
+        </li>
+        <li className={styles.footer_link}>
+          <a href="https://allistergrange.com">My Website</a>
+        </li>
+      </ul>
+    </footer>
+  );
+};

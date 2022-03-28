@@ -14,6 +14,8 @@ import ReactGA from "react-ga";
 import { RefreshButton } from "@/components/RefreshButton";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { InfoCardsContainer } from "@/components/InfoCardsContainer";
+import { Footer } from "@/components/Footer";
 
 const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
   ssr: false,
@@ -76,7 +78,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.new_main}>
-        <ToastContainer limit={1} style={{fontSize: "1.8rem"}}/>
+        <ToastContainer limit={1} style={{ fontSize: "1.8rem" }} />
 
         <div className={styles.nav_top_container}>
           <TopNav
@@ -100,49 +102,10 @@ const Home: NextPage = () => {
           />
 
           <div className={styles.card_container}>
-            <InfoCard
-              title={"Late Buses"}
-              blueColor={true}
-              busesNumber={buses.lateBuses.length}
-              totalBusesNumber={buses.allBuses.length}
-              isLoading={isLoadingInitialData}
-              description={`${Math.floor(
-                (buses.lateBuses.length / buses.allBuses.length) * 100
-              )}% of buses are running over 2 minutes late`}
+            <InfoCardsContainer
+              buses={buses}
+              isLoadingInitialData={isLoadingInitialData}
             />
-            <div className={styles.card_move_up}>
-              <InfoCard
-                title={"Cancelled"}
-                busesNumber={buses.cancelledBuses.length}
-                totalBusesNumber={buses.allBuses.length}
-                includeSubNumber={false}
-                isLoading={isLoadingInitialData}
-                description={
-                  "This is the number of how many services of Metlink's are cancelled right now (incl buses and trains)"
-                }
-              />
-            </div>
-            <InfoCard
-              title={"Early"}
-              busesNumber={buses.earlyBuses.length}
-              totalBusesNumber={buses.allBuses.length}
-              isLoading={isLoadingInitialData}
-              description={`${Math.floor(
-                (buses.earlyBuses.length / buses.allBuses.length) * 100
-              )}% of buses are running at least a minute and a half ahead of schedule`}
-            />
-            <div className={styles.card_move_up}>
-              <InfoCard
-                title={"Not Reporting"}
-                blueColor={true}
-                busesNumber={buses.unknownBuses.length}
-                isLoading={isLoadingInitialData}
-                totalBusesNumber={buses.allBuses.length}
-                description={`${Math.floor(
-                  (buses.unknownBuses.length / buses.allBuses.length) * 100
-                )}% of buses are not reporting their delay or location`}
-              />
-            </div>
           </div>
           <div className={styles.map_container} ref={mapRef}>
             <BusMapClientSide buses={buses} />
@@ -186,27 +149,8 @@ const Home: NextPage = () => {
           />
         </div>
       </main>
-      <footer className={styles.footer}>
-        <div>
-          <h2 className={styles.copyright}>
-            &copy; whatever year it is lol; all rights reserved
-          </h2>
-          <h3 className={styles.copyright_name}>Allister Grange</h3>
-        </div>
-        <ul className={styles.footer_list}>
-          <li className={styles.footer_link}>
-            <a href="https://opendata.metlink.org.nz/apis">MetLink API</a>
-          </li>
-          <li className={styles.footer_link}>
-            <a href="https://github.com/allister-grange/missinglink">
-              Code for this site
-            </a>
-          </li>
-          <li className={styles.footer_link}>
-            <a href="https://allistergrange.com">My Website</a>
-          </li>
-        </ul>
-      </footer>
+      
+      <Footer />
     </div>
   );
 };
