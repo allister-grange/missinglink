@@ -1,7 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
 import { Bus, BusContainer } from "../types/BusTypes";
 import fetchData from "./fetchData";
-const API_URL = "https://backend.missinglink.link";
+const API_URL = "http://localhost:5002";
+// const API_URL = "https://backend.missinglink.link";
 
 const sortBusArrayByRoute = (buses: Bus[]) => {
   buses.sort((a, b) => {

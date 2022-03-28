@@ -1,0 +1,22 @@
+.refresh_data_button {
+  min-width: 19rem;
+  min-height: 6rem;
+  border: 2px solid var(--color-secondary);
+  color: var(--color-grey-light-1);
+  font-weight: 600;
+  font-size: 2rem;
+  padding: 2rem 4rem;
+  border-radius: 1.5rem;
+  background-color: transparent;
+  transition: all .2s;
+  box-shadow: .5rem .5rem 2rem rgba(0, 0, 0, .1);
+  transform: translateY(5rem);
+}
+
+.refresh_data_button:hover {
+  transform: translateY(calc(5rem - 3px));
+}
+
+.refresh_data_button:active {
+  transform: translateY(calc(5rem - 1px));
+}

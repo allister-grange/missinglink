@@ -10,8 +10,8 @@ import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
-import { ClipLoader } from "react-spinners";
 import ReactGA from "react-ga";
+import { RefreshButton } from "@/components/RefreshButton";
 
 const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
   ssr: false,
@@ -73,16 +73,10 @@ const Home: NextPage = () => {
             MetLink&apos;s services are doing, today and in the past
           </h3>
 
-          <button
-            className={styles.refresh_data_button}
-            onClick={refreshAPIBusData}
-          >
-            {isRefreshingData ? (
-              <ClipLoader color="var(--color-secondary)" size={20} />
-            ) : (
-              "refresh data"
-            )}
-          </button>
+          <RefreshButton
+            refreshAPIBusData={refreshAPIBusData}
+            isRefreshingData={isRefreshingData}
+          />
 
           <div className={styles.card_container}>
             <InfoCard

@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { BusStatistic } from "../types/BusTypes";
-const API_URL = "https://backend.missinglink.link";
+const API_URL = "http://localhost:5002";
+// const API_URL = "https://backend.missinglink.link";
 
 const useMetlinkApi = () => {
   const [busStatistics, setBusStatistics] = useState<BusStatistic[]>([]);
