@@ -13,7 +13,7 @@ import { GraphColorLegend } from "./GraphColorLegend";
 const yesterdayDate = new Date();
 yesterdayDate.setDate(yesterdayDate.getDate() - 1);
 
-export const Graph: React.FC = ({}) => {
+const Graph: React.FC = ({}) => {
   const { busStatistics, isLoading, getBusStatsData } = useBusStatisticApi();
   const [startDate, setStartDate] = useState<Date>(yesterdayDate);
   const [endDate, setEndDate] = useState<Date | null>(new Date());
@@ -155,3 +155,5 @@ export const Graph: React.FC = ({}) => {
     </div>
   );
 };
+
+export default React.memo(Graph);
