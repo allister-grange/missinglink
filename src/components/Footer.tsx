@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
         <h2 className={styles.copyright}>
           &copy; whatever year it is lol; all rights reserved
         </h2>
-        <h3 className={styles.copyright_name}>Allister Grange</h3>
+        <h3 className={styles.copyright_name}>Missing Link</h3>
       </div>
       <ul className={styles.footer_list}>
         <li className={styles.footer_link}>
