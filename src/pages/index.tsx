@@ -1,5 +1,7 @@
-import { Graph } from "@/components/Graph";
-import { InfoCard } from "@/components/InfoCard";
+import { Footer } from "@/components/Footer";
+import Graph from "@/components/Graph";
+import { InfoCardsContainer } from "@/components/InfoCardsContainer";
+import { RefreshButton } from "@/components/RefreshButton";
 import { SideBarNav } from "@/components/SideBarNav";
 import { Timetable } from "@/components/Timetable";
 import { TopNav } from "@/components/TopNav";
@@ -11,11 +13,8 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import ReactGA from "react-ga";
-import { RefreshButton } from "@/components/RefreshButton";
-import { ToastContainer, toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { InfoCardsContainer } from "@/components/InfoCardsContainer";
-import { Footer } from "@/components/Footer";
 
 const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
   ssr: false,
@@ -149,7 +148,7 @@ const Home: NextPage = () => {
           />
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );
