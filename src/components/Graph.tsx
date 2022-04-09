@@ -77,7 +77,7 @@ const Graph: React.FC = ({}) => {
         borderColor:
           hoveringLegendBadge && hoveringLegendBadge != "onTimeBuses"
             ? "#acabab"
-            : "#fcbf49",
+            : "#8ac926",
         borderWidth: 2,
         pointRadius: 2,
       },
@@ -113,7 +113,7 @@ const Graph: React.FC = ({}) => {
         borderColor:
           hoveringLegendBadge && hoveringLegendBadge != "disruptedBuses"
             ? "#acabab"
-            : "#8ac926",
+            : "#fcbf49",
         borderWidth: 2,
         pointRadius: 2,
       },
