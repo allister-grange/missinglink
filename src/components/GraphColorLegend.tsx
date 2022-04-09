@@ -44,7 +44,7 @@ export const GraphColorLegend: React.FC<GraphColorLegendProps> = ({
       </p>
       <p
         className={styles.color_association}
-        style={{ background: "#fcbf49" }}
+        style={{ background: "#8ac926" }}
         onMouseEnter={() => onHoverBadge("onTimeBuses")}
         onMouseLeave={onLeaveBadge}
       >
@@ -68,7 +68,7 @@ export const GraphColorLegend: React.FC<GraphColorLegendProps> = ({
       </p>
       <p
         className={styles.color_association}
-        style={{ background: "#8ac926" }}
+        style={{ background: "#fcbf49" }}
         onMouseEnter={() => onHoverBadge("disruptedBuses")}
         onMouseLeave={onLeaveBadge}
       >
