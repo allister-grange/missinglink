@@ -20,6 +20,7 @@
   padding-left: 28rem;
   padding-top: 14rem;
   width: 90%;
+  max-width: 150rem;
 }
 
 .heading {
@@ -142,5 +143,12 @@
 
   .center_container {
     width: 100%;
+  }
+}
+
+@media (min-width: 2000px) {
+  .center_container {
+    max-width: 130rem;
+    margin: 0 auto;
   }
 }
