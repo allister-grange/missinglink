@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useCallback, useReducer } from "react";
 import { Bus, BusContainer } from "@/types/BusTypes";
 import fetchData from "./fetchData";
 import { API_URL } from "@/constants";
@@ -27,32 +27,71 @@ const sortBuses = (buses: BusContainer): BusContainer => {
   return buses;
 };
 
-const useMetlinkApi = () => {
-  const [buses, setBuses] = useState<BusContainer>({
-    cancelledBuses: [],
-    earlyBuses: [],
-    onTimeBuses: [],
-    unknownBuses: [],
-    allBuses: [],
-    lateBuses: [],
-  });
-  const [isRefreshingData, setIsRefreshingData] = useState(false);
-  const [isLoadingInitialData, setIsLoadingInitialData] = useState(false);
-  const [error, setError] = useState<boolean>(false);
+type State = {
+  buses: BusContainer;
+  status: "IDLE" | "LOADING" | "REJECTED" | "RESOLVED" | "REFRESHING";
+  error?: boolean;
+};
 
-  const fetchBuses = useCallback(async () => {
-    setIsLoadingInitialData(true);
+type Action =
+  | { type: "IDLE" }
+  | { type: "LOADING" }
+  | { type: "RESOLVED"; results: BusContainer }
+  | { type: "REJECTED"; error: boolean }
+  | { type: "REFRESHING" };
+
+const asyncReducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case "IDLE": {
+      return { status: "IDLE", buses: state.buses };
+    }
+    case "LOADING": {
+      return { status: "LOADING", buses: state.buses };
+    }
+    case "REFRESHING": {
+      return { status: "REFRESHING", buses: state.buses };
+    }
+    case "RESOLVED": {
+      return { status: "RESOLVED", buses: action.results };
+    }
+    case "REJECTED": {
+      return { status: "REJECTED", error: action.error, buses: state.buses };
+    }
+    default: {
+      throw new Error(`Unhandled action: ${action}`);
+    }
+  }
+};
+
+const useMetlinkApi = () => {
+  const [state, dispatch] = useReducer(asyncReducer, {
+    status: "IDLE",
+    buses: {
+      cancelledBuses: [],
+      earlyBuses: [],
+      onTimeBuses: [],
+      unknownBuses: [],
+      allBuses: [],
+      lateBuses: [],
+    },
+  });
+
+  const fetchBuses = useCallback(async (isRefreshing: boolean) => {
+    if(!isRefreshing) {
+      dispatch({ type: "LOADING" });
+    }
     const response = await fetchData<Bus>(
       `${API_URL}/BusPredictions/busTripUpdates`
     );
 
     if (response.error) {
-      setError(true);
+      dispatch({ type: "REJECTED", error: response.error });
+      return;
     }
 
     const { data } = response;
     if (!data) {
-      setError(true);
+      dispatch({ type: "REJECTED", error: true });
       return;
     }
 
@@ -86,42 +125,31 @@ const useMetlinkApi = () => {
     }
 
     const sortedBuses = sortBuses(busesHolder);
-    setBuses(sortedBuses);
-    setIsLoadingInitialData(false);
+    dispatch({ type: "RESOLVED", results: sortedBuses });
   }, []);
 
   const refreshAPIBusData = useCallback(async () => {
-    setIsRefreshingData(true);
+    dispatch({type: "REFRESHING"});
     try {
       const res = await fetch(`${API_URL}/BusPredictions/busTripUpdates`, {
         method: "POST",
       });
       if (res.ok) {
-        fetchBuses();
+        fetchBuses(true);
       } else {
-        setError(true);
+        dispatch({ type: "REJECTED", error: true });
         return;
       }
-    } catch (err) {
-      setError(true);
-    } finally {
-      setIsRefreshingData(false);
+    } catch {
+      dispatch({ type: "REJECTED", error: true });
     }
-    setIsRefreshingData(false);
   }, [fetchBuses]);
 
   useEffect(() => {
-    fetchBuses();
+    fetchBuses(false);
   }, [fetchBuses]);
 
-  return {
-    buses,
-    refreshAPIBusData,
-    isRefreshingData,
-    isLoadingInitialData,
-    error,
-    setError,
-  };
+  return { ...state, refreshAPIBusData, dispatch };
 };
 
 export default useMetlinkApi;

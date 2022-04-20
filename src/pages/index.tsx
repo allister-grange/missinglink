@@ -25,10 +25,9 @@ const Home: NextPage = () => {
   const {
     buses,
     refreshAPIBusData,
-    isRefreshingData,
-    isLoadingInitialData,
     error,
-    setError,
+    status,
+    dispatch
   } = useMetlinkApi();
   const [isClientSide, setIsClientSide] = useState(false);
 
@@ -58,7 +57,7 @@ const Home: NextPage = () => {
         progress: undefined,
       }
     );
-    setError(false);
+    dispatch({ type: "REJECTED", error: false });
   }
 
   return (
@@ -97,13 +96,13 @@ const Home: NextPage = () => {
 
           <RefreshButton
             refreshAPIBusData={refreshAPIBusData}
-            isRefreshingData={isRefreshingData}
+            isRefreshingData={status === "REFRESHING"}
           />
 
           <div className={styles.card_container}>
             <InfoCardsContainer
               buses={buses}
-              isLoadingInitialData={isLoadingInitialData}
+              isLoadingInitialData={status === "LOADING"}
             />
           </div>
           <div className={styles.map_container} ref={mapRef}>
