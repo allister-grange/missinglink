@@ -1,6 +1,6 @@
 import React, { RefObject } from "react";
 import styles from "@/styles/NavStyles.module.css";
-import { ThemeChanger } from "./ThemeChanger";
+import { ThemeChanger } from "@/components/ThemeChanger";
 
 interface TopNavProps {
   atAGlanceRef: RefObject<HTMLDivElement>;

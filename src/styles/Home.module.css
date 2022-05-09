@@ -130,6 +130,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    height: 8rem;
   }
 
   .card_container {
