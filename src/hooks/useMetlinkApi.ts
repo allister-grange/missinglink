@@ -81,7 +81,7 @@ const useMetlinkApi = () => {
       dispatch({ type: "LOADING" });
     }
     const response = await fetchData<Bus>(
-      `${API_URL}/BusPredictions/busTripUpdates`
+      `${API_URL}/updates`
     );
 
     if (response.error) {
@@ -131,7 +131,7 @@ const useMetlinkApi = () => {
   const refreshAPIBusData = useCallback(async () => {
     dispatch({type: "REFRESHING"});
     try {
-      const res = await fetch(`${API_URL}/BusPredictions/busTripUpdates`, {
+      const res = await fetch(`${API_URL}/updates`, {
         method: "POST",
       });
       if (res.ok) {
