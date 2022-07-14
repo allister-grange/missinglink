@@ -15,6 +15,7 @@
 
 .refresh_data_button:hover {
   transform: translateY(calc(5rem - 3px));
+  cursor: pointer;
 }
 
 .refresh_data_button:active {

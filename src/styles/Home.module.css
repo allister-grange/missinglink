@@ -76,15 +76,6 @@
   color: var(--color-grey-light-2)
 }
 
-.refresh_data_button:hover {
-  transform: translateY(calc(5rem - 3px));
-}
-
-.refresh_data_button:active {
-  transform: translateY(calc(5rem - 1px));
-  background-color: var(--color-secondary);
-}
-
 @media (max-width: 1100px) {
   .card_container {
     gap: 2rem;
