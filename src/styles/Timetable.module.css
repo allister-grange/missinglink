@@ -49,6 +49,7 @@
   font-size: 2rem;
   border-radius: .5rem;
   padding: .6rem 1.2rem;
+  cursor: pointer;
 }
 
 .pagination_button:not(:last-child) {
@@ -66,6 +67,7 @@
   color: white;
   padding: .6rem 1.2rem;
   border-radius: .6rem;
+  cursor: pointer;
 }
 
 @media (max-width: 500px) {
