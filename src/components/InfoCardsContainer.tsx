@@ -8,6 +8,11 @@ interface InfoCardsContainerProps {
   isLoadingInitialData: boolean;
 }
 
+function getPercentage(denominator: number, numerator: number) {
+  const percentage = Math.floor((denominator / numerator) * 100);
+  return Number.isNaN(percentage) ? 0 : percentage;
+}
+
 export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
   buses,
   isLoadingInitialData,
@@ -31,8 +36,9 @@ export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
           busesNumber={buses.lateBuses.length}
           totalBusesNumber={buses.allBuses.length}
           isLoading={isLoadingInitialData}
-          description={`${Math.floor(
-            (buses.lateBuses.length / buses.allBuses.length) * 100
+          description={`${getPercentage(
+            buses.lateBuses.length,
+            buses.allBuses.length
           )}% of buses are running over 2 minutes late`}
         />
       </div>
@@ -41,8 +47,9 @@ export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
         busesNumber={buses.earlyBuses.length}
         totalBusesNumber={buses.allBuses.length}
         isLoading={isLoadingInitialData}
-        description={`${Math.floor(
-          (buses.earlyBuses.length / buses.allBuses.length) * 100
+        description={`${getPercentage(
+          buses.earlyBuses.length,
+          buses.allBuses.length
         )}% of buses are running at least a minute and a half ahead of schedule`}
       />
       <div className={styles.card_move_up}>
@@ -52,8 +59,9 @@ export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
           busesNumber={buses.unknownBuses.length}
           isLoading={isLoadingInitialData}
           totalBusesNumber={buses.allBuses.length}
-          description={`${Math.floor(
-            (buses.unknownBuses.length / buses.allBuses.length) * 100
+          description={`${getPercentage(
+            buses.unknownBuses.length,
+            buses.allBuses.length
           )}% of buses are not reporting their delay or location`}
         />
       </div>
