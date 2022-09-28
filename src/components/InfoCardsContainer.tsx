@@ -15,25 +15,25 @@ export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
   return (
     <>
       <InfoCard
-        title={"Late Buses"}
-        blueColor={true}
-        busesNumber={buses.lateBuses.length}
+        title={"Cancelled"}
+        busesNumber={buses.cancelledBuses.length}
         totalBusesNumber={buses.allBuses.length}
+        includeSubNumber={false}
         isLoading={isLoadingInitialData}
-        description={`${Math.floor(
-          (buses.lateBuses.length / buses.allBuses.length) * 100
-        )}% of buses are running over 2 minutes late`}
+        description={
+          "This is the number of how many services of Metlink's are cancelled right now (incl buses and trains)"
+        }
       />
       <div className={styles.card_move_up}>
         <InfoCard
-          title={"Cancelled"}
-          busesNumber={buses.cancelledBuses.length}
+          title={"Late Buses"}
+          blueColor={true}
+          busesNumber={buses.lateBuses.length}
           totalBusesNumber={buses.allBuses.length}
-          includeSubNumber={false}
           isLoading={isLoadingInitialData}
-          description={
-            "This is the number of how many services of Metlink's are cancelled right now (incl buses and trains)"
-          }
+          description={`${Math.floor(
+            (buses.lateBuses.length / buses.allBuses.length) * 100
+          )}% of buses are running over 2 minutes late`}
         />
       </div>
       <InfoCard
