@@ -22,13 +22,7 @@ const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
 
 const Home: NextPage = () => {
   const scrollY = useScrollPosition(10 /*fps*/);
-  const {
-    buses,
-    refreshAPIBusData,
-    error,
-    status,
-    dispatch
-  } = useMetlinkApi();
+  const { buses, refreshAPIBusData, error, status, dispatch } = useMetlinkApi();
   const [isClientSide, setIsClientSide] = useState(false);
 
   const atAGlanceRef = useRef<HTMLDivElement>(null);
@@ -75,7 +69,7 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.new_main}>
+      <main className={styles.main}>
         <ToastContainer limit={1} style={{ fontSize: "1.8rem" }} />
 
         <div className={styles.nav_top_container}>
