@@ -17,8 +17,7 @@
 }
 
 .padding {
-  margin-left: 4rem;
-  margin-right: 2rem;
+  margin-inline: 3rem;
 }
 
 .card_container_blue {
@@ -85,7 +84,7 @@
 .info_description {
   font-size: 2.3rem;
   color: var(--color-grey-light-2);
-  width: 80%;
+  width: 100%;
   margin-top: 2rem;
   margin-bottom: 4rem;
 }
@@ -103,5 +102,14 @@
 @media (max-width: 700px) {
   .card_move_up {
     margin-left: auto;
+  }
+}
+
+/* 500px or down */
+@media (max-width: 500px) {
+  .line_divider {
+    margin-inline: auto;
+    height: 2px;
+    margin-top: 3rem;
   }
 }

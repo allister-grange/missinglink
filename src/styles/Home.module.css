@@ -174,9 +174,8 @@
 
   .center_container {
     width: 100%;
-    padding: 0rem;
+    padding: .5rem;
   }
-
 }
 
 @media (min-width: 2000px) {
