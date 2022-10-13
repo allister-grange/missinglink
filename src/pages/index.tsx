@@ -67,12 +67,6 @@ const Home: NextPage = () => {
           property="og:title"
           content="MissingLink - A pulse on MetService"
         />
-        <meta
-          name="viewport"
-          content={`width=device-width${
-            isClientSide && `, initial-scale=${window.devicePixelRatio}`
-          }`}
-        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>

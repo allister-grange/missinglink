@@ -18,6 +18,7 @@
 
 .padding {
   margin-left: 4rem;
+  margin-right: 2rem;
 }
 
 .card_container_blue {
@@ -98,7 +99,6 @@
     margin-top: 0;
   }
 }
-
 
 @media (max-width: 700px) {
   .card_move_up {
