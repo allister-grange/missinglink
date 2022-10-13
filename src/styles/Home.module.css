@@ -161,6 +161,7 @@
 
   .main {
     width: 100%;
+    padding-inline: 1rem;
   }
 
   .card_container {
@@ -174,7 +175,9 @@
 
   .center_container {
     width: 100%;
+    padding: 0rem;
   }
+
 }
 
 @media (min-width: 2000px) {
