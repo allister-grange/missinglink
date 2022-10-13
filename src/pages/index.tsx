@@ -34,12 +34,6 @@ const Home: NextPage = () => {
   useEffect(() => setIsClientSide(true), []);
 
   if (isClientSide) {
-    document
-      .querySelector("meta[name=viewport]")!
-      .setAttribute(
-        "content",
-        "width=device-width, initial-scale=" + 1 / window.devicePixelRatio
-      );
     ReactGA.initialize("UA-185842430-1");
     ReactGA.pageview(window.location.pathname);
   }
@@ -72,6 +66,12 @@ const Home: NextPage = () => {
         <meta
           property="og:title"
           content="MissingLink - A pulse on MetService"
+        />
+        <meta
+          name="viewport"
+          content={`width=device-width${
+            isClientSide && `, initial-scale=${window.devicePixelRatio}`
+          }`}
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
