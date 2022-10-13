@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   height: max-content;
-  max-width: 65rem;
+  max-width: 40rem;
 }
 
 .card_move_up {
