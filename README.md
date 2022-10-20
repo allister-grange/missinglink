@@ -10,6 +10,8 @@ There's quite a few days when the backend wasn't recording data, this was due to
   <img src="public/preview.png">
 </p>
 
+https://user-images.githubusercontent.com/18430086/196853160-8ed89ae5-3da6-40d3-b974-b0166b4c0391.mp4
+
 ## Tech
 
 ### Front End
