@@ -80,6 +80,12 @@
 
 /* 1100px or down */
 @media (max-width: 1100px) {
+  .nav_top_container {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+
   .card_container {
     gap: 2rem;
   }
@@ -151,12 +157,6 @@
 
 /* 500px or down */
 @media (max-width: 500px) {
-  .nav_top_container {
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
-  }
-
   .main {
     width: 100%;
     padding-inline: 1rem;
