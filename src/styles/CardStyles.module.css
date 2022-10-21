@@ -97,6 +97,10 @@
   .card_move_up {
     margin-top: 0;
   }
+
+  .card_container {
+    margin-inline: auto;
+  }
 }
 
 @media (max-width: 700px) {

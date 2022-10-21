@@ -19,9 +19,6 @@ export const Footer: React.FC = () => {
             Code for this site
           </a>
         </li>
-        <li className={styles.footer_link}>
-          <a href="https://allistergrange.com">My Website</a>
-        </li>
       </ul>
     </footer>
   );

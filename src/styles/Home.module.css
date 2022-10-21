@@ -42,6 +42,7 @@
   margin-top: 14rem;
   grid-template-columns: repeat(2, minmax(35rem, 1fr));
   gap: 8rem;
+  margin-inline: auto;
 }
 
 .map_container {
