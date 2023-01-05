@@ -80,18 +80,18 @@ const Home: NextPage = () => {
             tablesRef={tablesRef}
           />
         </div>
-
         <div className={styles.center_container}>
-          <h1 className={styles.heading}>Missing Link ✌</h1>
-          <h3 className={styles.sub_heading}>
-            A site to provide you with statistics, graphs and maps on how
-            MetLink&apos;s services are doing, today and in the past
-          </h3>
-
-          <RefreshButton
-            refreshAPIBusData={refreshAPIBusData}
-            isRefreshingData={status === "REFRESHING"}
-          />
+          <div className={styles.heading_container}>
+            <h1 className={styles.heading}>Missing Link ✌</h1>
+            <h3 className={styles.sub_heading}>
+              A site to provide you with statistics, graphs and maps on how
+              MetLink&apos;s services are doing, today and in the past
+            </h3>
+            <RefreshButton
+              refreshAPIBusData={refreshAPIBusData}
+              isRefreshingData={status === "REFRESHING"}
+            />
+          </div>
 
           <div className={styles.card_container}>
             <InfoCardsContainer
