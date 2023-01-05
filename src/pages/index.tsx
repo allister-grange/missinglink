@@ -80,6 +80,7 @@ const Home: NextPage = () => {
             tablesRef={tablesRef}
           />
         </div>
+
         <div className={styles.center_container}>
           <div className={styles.heading_container}>
             <h1 className={styles.heading}>Missing Link ✌</h1>
