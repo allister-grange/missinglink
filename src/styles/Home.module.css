@@ -43,7 +43,7 @@
 
 .card_container {
   display: grid;
-  margin-top: 14rem;
+  margin-top: 10rem;
   grid-template-columns: repeat(2, minmax(35rem, 1fr));
   gap: 8rem;
   margin-inline: auto;
@@ -142,11 +142,6 @@
   .card_container {
     grid-template-columns: 45rem;
   }
-
-  .heading {
-    margin-top: 4rem;
-  }
-
 }
 
 /* 700px or down */
@@ -180,7 +175,7 @@
   }
 
   .card_container {
-    margin-top: 16rem;
+    margin-top: 6rem;
   }
 
   .heading {

@@ -2,29 +2,62 @@ import { useEffect, useCallback, useReducer } from "react";
 import { Bus, BusContainer } from "@/types/BusTypes";
 import fetchData from "./fetchData";
 import { API_URL } from "@/constants";
+import { HubConnectionBuilder } from "@microsoft/signalr";
 
-const sortBusArrayByRoute = (buses: Bus[]) => {
-  buses.sort((a, b) => {
-    if (!a.routeShortName || !b.routeShortName) {
-      return Number.MAX_VALUE;
-    }
-    return a.routeShortName.localeCompare(b.routeShortName, undefined, {
-      numeric: true,
-      sensitivity: "base",
+const sortBusesByRoute = (buses: BusContainer): BusContainer => {
+  const sort = (busArray: Bus[]) => {
+    busArray.sort((a, b) => {
+      if (!a.routeShortName || !b.routeShortName) {
+        return Number.MAX_VALUE;
+      }
+      return a.routeShortName.localeCompare(b.routeShortName, undefined, {
+        numeric: true,
+        sensitivity: "base",
+      });
     });
-  });
-};
-
-const sortBuses = (buses: BusContainer): BusContainer => {
-  sortBusArrayByRoute(buses.allBuses);
-  sortBusArrayByRoute(buses.cancelledBuses);
-  sortBusArrayByRoute(buses.earlyBuses);
-  sortBusArrayByRoute(buses.lateBuses);
-  sortBusArrayByRoute(buses.onTimeBuses);
-  sortBusArrayByRoute(buses.unknownBuses);
-  sortBusArrayByRoute(buses.unknownBuses);
+  };
+  sort(buses.allBuses);
+  sort(buses.cancelledBuses);
+  sort(buses.earlyBuses);
+  sort(buses.lateBuses);
+  sort(buses.onTimeBuses);
+  sort(buses.unknownBuses);
 
   return buses;
+};
+
+const sortBusResponseByStatus = (data: Bus[]) => {
+  const busesHolder: BusContainer = {
+    cancelledBuses: [],
+    earlyBuses: [],
+    onTimeBuses: [],
+    unknownBuses: [],
+    allBuses: [],
+    lateBuses: [],
+  };
+
+  for (let i = 0; i < data.length; i += 1) {
+    const bus = data[i];
+    bus.vehicleId = bus.vehicle_id;
+    if (bus.status === "EARLY") {
+      busesHolder.earlyBuses.push(bus);
+    } else if (bus.status === "LATE") {
+      busesHolder.lateBuses.push(bus);
+    } else if (bus.status === "ONTIME") {
+      busesHolder.onTimeBuses.push(bus);
+    } else if (bus.status === "UNKNOWN") {
+      busesHolder.unknownBuses.push(bus);
+    } else if (bus.status === "CANCELLED") {
+      busesHolder.cancelledBuses.push(bus);
+    }
+
+    if (bus.status !== "CANCELLED") {
+      busesHolder.allBuses.push(bus);
+    }
+  }
+
+  const sortedBuses = sortBusesByRoute(busesHolder);
+  return sortedBuses;
 };
 
 type State = {
@@ -77,12 +110,10 @@ const useMetlinkApi = () => {
   });
 
   const fetchBuses = useCallback(async (isRefreshing: boolean) => {
-    if(!isRefreshing) {
+    if (!isRefreshing) {
       dispatch({ type: "LOADING" });
     }
-    const response = await fetchData<Bus>(
-      `${API_URL}/updates`
-    );
+    const response = await fetchData<Bus>(`${API_URL}/api/v1/updates`);
 
     if (response.error) {
       dispatch({ type: "REJECTED", error: response.error });
@@ -95,43 +126,14 @@ const useMetlinkApi = () => {
       return;
     }
 
-    const busesHolder: BusContainer = {
-      cancelledBuses: [],
-      earlyBuses: [],
-      onTimeBuses: [],
-      unknownBuses: [],
-      allBuses: [],
-      lateBuses: [],
-    };
-
-    for (let i = 0; i < data.length; i += 1) {
-      const bus = data[i];
-      bus.vehicleId = bus.vehicle_id;
-      if (bus.status === "EARLY") {
-        busesHolder.earlyBuses.push(bus);
-      } else if (bus.status === "LATE") {
-        busesHolder.lateBuses.push(bus);
-      } else if (bus.status === "ONTIME") {
-        busesHolder.onTimeBuses.push(bus);
-      } else if (bus.status === "UNKNOWN") {
-        busesHolder.unknownBuses.push(bus);
-      } else if (bus.status === "CANCELLED") {
-        busesHolder.cancelledBuses.push(bus);
-      }
-
-      if (bus.status !== "CANCELLED") {
-        busesHolder.allBuses.push(bus);
-      }
-    }
-
-    const sortedBuses = sortBuses(busesHolder);
+    const sortedBuses = sortBusResponseByStatus(data);
     dispatch({ type: "RESOLVED", results: sortedBuses });
   }, []);
 
   const refreshAPIBusData = useCallback(async () => {
-    dispatch({type: "REFRESHING"});
+    dispatch({ type: "REFRESHING" });
     try {
-      const res = await fetch(`${API_URL}/updates`, {
+      const res = await fetch(`${API_URL}/api/v1/updates`, {
         method: "POST",
       });
       if (res.ok) {
@@ -148,6 +150,24 @@ const useMetlinkApi = () => {
   useEffect(() => {
     fetchBuses(false);
   }, [fetchBuses]);
+
+  useEffect(() => {
+    const connectToHub = async () => {
+      const connection = await new HubConnectionBuilder()
+        .withUrl(`${API_URL}/bushub`)
+        .withAutomaticReconnect()
+        .build();
+
+      connection.on("BusUpdates", (data: Bus[]) => {
+        const sortedBuses = sortBusResponseByStatus(data);
+        dispatch({ type: "RESOLVED", results: sortedBuses });
+      });
+
+      await connection.start();
+    };
+
+    connectToHub();
+  }, []);
 
   return { ...state, refreshAPIBusData, dispatch };
 };

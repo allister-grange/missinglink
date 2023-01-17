@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@microsoft/signalr": "^7.0.2",
     "@react-hook/window-scroll": "^1.3.0",
     "chart.js": "^3.5.0",
     "chartjs-adapter-moment": "^1.0.0",

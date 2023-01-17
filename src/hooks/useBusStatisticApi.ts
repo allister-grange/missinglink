@@ -21,7 +21,7 @@ const useMetlinkApi = () => {
     let res: any;
     try {
       res = await fetch(
-        `${API_URL}/statistics?startDate=${earlierDateString}&endDate=${laterDateString}`
+        `${API_URL}/api/v1/statistics?startDate=${earlierDateString}&endDate=${laterDateString}`
       );
     } catch {
       return;
@@ -45,7 +45,7 @@ const useMetlinkApi = () => {
     let res: any;
     try {
       res = await fetch(
-        `${API_URL}/statistics?startDate=${startDateString}&endDate=${endDateString}`
+        `${API_URL}/api/v1/statistics?startDate=${startDateString}&endDate=${endDateString}`
       );
     } catch {
       return;

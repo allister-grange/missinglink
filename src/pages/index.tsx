@@ -23,20 +23,12 @@ const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
 const Home: NextPage = () => {
   const scrollY = useScrollPosition(10 /*fps*/);
   const { buses, refreshAPIBusData, error, status, dispatch } = useMetlinkApi();
-  const [isClientSide, setIsClientSide] = useState(false);
 
   const atAGlanceRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const tablesRef = useRef<HTMLDivElement>(null);
   const toastId = useRef<React.ReactText | null>(null);
-
-  useEffect(() => setIsClientSide(true), []);
-
-  if (isClientSide) {
-    ReactGA.initialize("UA-185842430-1");
-    ReactGA.pageview(window.location.pathname);
-  }
 
   if (error) {
     toastId.current = toast.info(
@@ -88,10 +80,11 @@ const Home: NextPage = () => {
               A site to provide you with statistics, graphs and maps on how
               MetLink&apos;s services are doing, today and in the past
             </h3>
-            <RefreshButton
+            {/* No longer needed as I moved to SSE (keeping in case it uses too much data) */}
+            {/* <RefreshButton
               refreshAPIBusData={refreshAPIBusData}
               isRefreshingData={status === "REFRESHING"}
-            />
+            /> */}
           </div>
 
           <div className={styles.card_container}>

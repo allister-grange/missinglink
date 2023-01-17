@@ -10,6 +10,7 @@
   flex-direction: column;
   height: max-content;
   max-width: 40rem;
+  border: 2px solid var(--color-secondary);
 }
 
 .card_move_up {
@@ -22,6 +23,7 @@
 
 .card_container_blue {
   background-color: var(--color-secondary);
+  border: 2px solid white;
 }
 
 .card_container:active {

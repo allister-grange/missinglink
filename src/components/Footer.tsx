@@ -6,7 +6,7 @@ export const Footer: React.FC = () => {
     <footer className={styles.footer}>
       <div>
         <h2 className={styles.copyright}>
-          &copy; whatever year it is lol; all rights reserved
+          &copy; 2021-2023; all rights reserved
         </h2>
         <h3 className={styles.copyright_name}>Missing Link</h3>
       </div>
