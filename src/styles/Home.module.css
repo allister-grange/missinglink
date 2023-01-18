@@ -39,6 +39,7 @@
   font-size: 1.7rem;
   color: var(--color-grey-light-2);
   font-weight: 400;
+  margin-top: 1rem;
 }
 
 .card_container {
@@ -119,7 +120,6 @@
   .sub_heading {
     width: 100%;
     text-align: center;
-    margin-top: 1rem;
     font-size: 2.7rem;
   }
 
