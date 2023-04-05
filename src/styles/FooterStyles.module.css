@@ -1,7 +1,7 @@
 .footer {
   background-color: var(--color-primary);
   height: 15rem;
-  padding: 6rem 10rem;
+  padding: 8rem 10rem;
   color: var(--color-grey-light-1);
 
   display: flex;
@@ -21,6 +21,7 @@
   line-height: 1.7;
   font-size: 1.5rem;
   width: 60%;
+  max-width: 100rem;
 }
 
 .footer_list {
@@ -43,12 +44,13 @@
 /* 500px or down */
 @media (max-width: 750px) {
   .copyright_name {
-    width: 70%;
+    width: 90%;
+    max-width: 55rem;
   }
 
   .footer {
     flex-direction: column;
-    padding: 6rem 3rem;
+    padding: 5rem 3rem;
     height: unset;
     justify-content: none;
     align-items: flex-start;

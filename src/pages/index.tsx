@@ -101,6 +101,16 @@ const Home: NextPage = () => {
                 Every 20 minutes I take a sit-rep of how Metlink&apos;s buses
                 are doing
               </p>
+              <p className={styles.sub_description}>
+                *The cancelled services are hard to calculate. It&apos;s
+                currently done by scanning the service announcements and
+                includes trains and buses. These are then included in the
+                &quot;total buses&quot; stats, which is why there&apos;s 200 odd
+                buses running at night, these are all the cancelled services for
+                the following day that Metlink post at midnight. This
+                wasn&apos;t an issue until we went from 10 odd services
+                cancelled a day to the hundereds.
+              </p>
             </div>
             <Graph />
           </div>

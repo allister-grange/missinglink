@@ -9,8 +9,8 @@ export const Footer: React.FC = () => {
           &copy; 2021-2023; all rights reserved
         </h2>
         <h3 className={styles.copyright_name}>
-          Missing Link is built to be a representation of the state of the buses
-          in Wellington and as is only as accurate as Metlink&apos;s APIs
+          Missing Link is only as accurate as Metlink&apos;s APIs, the data has
+          been interpreted in some cases and may not be perfect
         </h3>
       </div>
       <ul className={styles.footer_list}>
