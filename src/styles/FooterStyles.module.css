@@ -12,14 +12,15 @@
 .copyright {
   font-size: 1.8rem;
   color: inherit;
+  font-weight: bold;
 }
 
 .copyright_name {
   color: var(--color-grey-light-2);
   margin-top: 1rem;
   line-height: 1.7;
-  font-size: 1.6rem;
-  width: 18rem;
+  font-size: 1.5rem;
+  width: 60%;
 }
 
 .footer_list {
@@ -36,4 +37,27 @@
 
 .footer_link:hover {
   transform: translateY(-2px);
+}
+
+
+/* 500px or down */
+@media (max-width: 750px) {
+  .copyright_name {
+    width: 70%;
+  }
+
+  .footer {
+    flex-direction: column;
+    padding: 6rem 3rem;
+    height: unset;
+    justify-content: none;
+    align-items: flex-start;
+  }
+
+  .footer_list {
+    padding: 0;
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    font-weight: bold;
+  }
 }

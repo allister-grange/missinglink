@@ -8,7 +8,10 @@ export const Footer: React.FC = () => {
         <h2 className={styles.copyright}>
           &copy; 2021-2023; all rights reserved
         </h2>
-        <h3 className={styles.copyright_name}>Missing Link</h3>
+        <h3 className={styles.copyright_name}>
+          Missing Link is built to be a representation of the state of the buses
+          in Wellington and as is only as accurate as Metlink&apos;s APIs
+        </h3>
       </div>
       <ul className={styles.footer_list}>
         <li className={styles.footer_link}>
