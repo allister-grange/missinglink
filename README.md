@@ -18,4 +18,4 @@ The back-end is built in C# using .Net Core and Postgres for the database, hoste
 
 ## Challenges
 
-There's quite a few days when the backend wasn't recording data, this was due to the MetLink API being down during COVID lockdowns, or just plain broken. They obviously use an untyped language on their backed as a few times they had strings in number fields returned in their API which occasionaly took down the C# backend in the early days, this is now handled more gracefully on my end of the API. 
+There's quite a few days when the backend wasn't recording data, this was due to the Metlink API being down during COVID lockdowns, or just plain broken. They obviously use an untyped language on their backed as a few times they had strings in number fields returned in their API which occasionaly took down the C# backend in the early days, this is now handled more gracefully on my end of the API. 

@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
       </div>
       <ul className={styles.footer_list}>
         <li className={styles.footer_link}>
-          <a href="https://opendata.metlink.org.nz/apis">MetLink API</a>
+          <a href="https://opendata.metlink.org.nz/apis">Metlink API</a>
         </li>
         <li className={styles.footer_link}>
           <a href="https://github.com/allister-grange/missinglink">

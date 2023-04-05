@@ -52,13 +52,10 @@ const Home: NextPage = () => {
         <title>Missing Link</title>
         <meta
           name="og:description"
-          content="A visualisation tool for MetLink's bus services times"
+          content="A visualisation tool for Metlink's bus services times"
         />
         <meta property="og:image" content={"/preview.png"} />
-        <meta
-          property="og:title"
-          content="MissingLink - A pulse on MetService"
-        />
+        <meta property="og:title" content="MissingLink - A pulse on Metlink" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
@@ -78,7 +75,7 @@ const Home: NextPage = () => {
             <h1 className={styles.heading}>Missing Link ✌</h1>
             <h3 className={styles.sub_heading}>
               A site to provide you with statistics, graphs and maps on how
-              MetLink&apos;s services are doing, today and in the past
+              Metlink&apos;s services are doing, today and in the past
             </h3>
             {/* No longer needed as I moved to SSE (keeping in case it uses too much data) */}
             {/* <RefreshButton
@@ -101,7 +98,7 @@ const Home: NextPage = () => {
             <div className={styles.graph_title_container}>
               <h1 className={styles.sub_title}>Statistics ✍️</h1>
               <p className={styles.description}>
-                Every 20 minutes I take a sit-rep of how MetLink&apos;s buses
+                Every 20 minutes I take a sit-rep of how Metlink&apos;s buses
                 are doing
               </p>
             </div>

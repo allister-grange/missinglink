@@ -26,7 +26,7 @@ export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
         includeSubNumber={false}
         isLoading={isLoadingInitialData}
         description={
-          "How many MetLink services are reported on their alerts as cancelled today (incl buses and trains)"
+          "How many Metlink services are reported on their alerts as cancelled today (incl buses and trains)"
         }
       />
       <div className={styles.card_move_up}>
