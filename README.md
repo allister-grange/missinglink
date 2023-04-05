@@ -1,10 +1,8 @@
 # [MissingLink](https://missinglink.link)
 
-I wanted to see what Metlink's performance looked like over time, so I initially built an API to poll Metlink's buses every 20 minutes.
+MissingLink is a project designed to track the performance of Metlink's buses over time. It consists of a back-end that polls Metlink's APIs every 20 minutes to collect and display data on Metlink's bus movements and performance.
 
-I found the stats interesting and thought they should be shared with the world, so I built a front end to display the information.
-
-There's quite a few days when the backend wasn't recording data, this was due to the MetLink API being down during COVID lockdowns, or just plain broken. They obviously use an untyped language on their backed as a few times they had strings in number fields returned in their API which was messing with my C# backend.
+I found the stats interesting and thought they should be shared with the world, so I built a site to display the information.
 
 <p align="center">
   <img src="public/preview.png">
@@ -14,14 +12,10 @@ https://user-images.githubusercontent.com/18430086/196853160-8ed89ae5-3da6-40d3-
 
 ## Tech
 
-### Front End
+The front-end is built with React using the NextJS framework and it's hosted on Vercel.
 
-The front end is written with React using the [NextJS](https://nextjs.org/) framework, I absolutely love it. It's hosted up in Vercel as it's integrated and much easier than me spinning anything myself.
+The back-end is built in C# using .Net Core and Postgres for the database, hosted on an EC2 instance in AWS, with Nginx in front.
 
-I didn't use any component libraries or anything, for something as small as this site I prefer to personally style the site to keep my css sharp.
+## Challenges
 
-### Backend
-
-The back end is written in C# in dotnet core. It's hosted in an EC2 instance in AWS, with Nginx in front. The database is Postgres. It's all packed into one little micro EC2 haha. I don't plan on open-sourcing the backend but can if anyone expresses interest.
-
-It's a pretty simple backend, just the one controller. In saying that, to pull together the info that I need for the front end from MetLink's API, I have to make 6 calls I believe, it's pretty convoluted.
+There's quite a few days when the backend wasn't recording data, this was due to the MetLink API being down during COVID lockdowns, or just plain broken. They obviously use an untyped language on their backed as a few times they had strings in number fields returned in their API which occasionaly took down the C# backend in the early days, this is now handled more gracefully on my end of the API. 
