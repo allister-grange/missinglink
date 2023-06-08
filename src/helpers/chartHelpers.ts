@@ -1,4 +1,4 @@
-import { BusStatistic } from "@/types/BusTypes";
+import { BusStatistic } from "@/types/ServiceTypes";
 import { DataPoint } from "@/types/types";
 
 export const chartOptions: any = {

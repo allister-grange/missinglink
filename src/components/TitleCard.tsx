@@ -11,7 +11,7 @@ export const TitleCard: React.FC<TitleCardProps> = ({}) => {
       <h1 className={styles.title}>Welcome, this is MissingLink!</h1>
       <p className={styles.message}>
         I wanted to make a site to visualise the ‘health’ status of all the
-        Metlink buses in Wellington, this is is my attempt.
+        Metlink services in Wellington, this is is my attempt.
         <br />
         <br />
         You can see the code for the site here.

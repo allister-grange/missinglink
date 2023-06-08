@@ -1,3 +1,9 @@
+import { convertSecondsToMinutesSentence } from "@/helpers/convertSecondsToMinutes";
+import styles from "@/styles/Map.module.css";
+import { Bus, BusContainer } from "@/types/ServiceTypes";
+import * as L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import React from "react";
 import {
   MapContainer,
   Marker,
@@ -5,14 +11,6 @@ import {
   TileLayer,
   ZoomControl,
 } from "react-leaflet";
-import React from "react";
-import styles from "@/styles/Map.module.css";
-import "leaflet/dist/leaflet.css";
-import * as L from "leaflet";
-import { Bus, BusContainer } from "@/types/BusTypes";
-import convertSecondsToMinutes, {
-  convertSecondsToMinutesSentence,
-} from "@/helpers/convertSecondsToMinutes";
 
 interface BusMapProps {
   buses: BusContainer;
@@ -72,11 +70,7 @@ const getMapMarker = (bus: Bus) => {
   });
 
   return (
-    <Marker
-      position={[bus.lat, bus.long]}
-      key={bus.vehicleId}
-      icon={icon}
-    >
+    <Marker position={[bus.lat, bus.long]} key={bus.vehicleId} icon={icon}>
       <Popup>
         <h1>
           {bus.routeShortName} | {bus.routeLongName}
@@ -87,7 +81,7 @@ const getMapMarker = (bus: Bus) => {
   );
 };
 
-const BusMap: React.FC<BusMapProps> = ({ buses }: BusMapProps) => {
+const ServicesMap: React.FC<BusMapProps> = ({ buses }: BusMapProps) => {
   return (
     <MapContainer
       center={[-41.276825, 174.7787]}
@@ -95,7 +89,7 @@ const BusMap: React.FC<BusMapProps> = ({ buses }: BusMapProps) => {
       zoomControl={false}
       scrollWheelZoom={false}
       className={styles.map_container}
-      style={{ height: "100%", width: "100%", zIndex: 1}}
+      style={{ height: "100%", width: "100%", zIndex: 1 }}
     >
       <TileLayer
         url={URL}
@@ -108,4 +102,4 @@ const BusMap: React.FC<BusMapProps> = ({ buses }: BusMapProps) => {
   );
 };
 
-export default BusMap;
+export default ServicesMap;

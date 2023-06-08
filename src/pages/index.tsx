@@ -1,7 +1,6 @@
 import { Footer } from "@/components/Footer";
 import Graph from "@/components/Graph";
 import { InfoCardsContainer } from "@/components/InfoCardsContainer";
-import { RefreshButton } from "@/components/RefreshButton";
 import { SideBarNav } from "@/components/SideBarNav";
 import { Timetable } from "@/components/Timetable";
 import { TopNav } from "@/components/TopNav";
@@ -11,14 +10,16 @@ import useScrollPosition from "@react-hook/window-scroll";
 import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import { useEffect, useRef, useState } from "react";
-import ReactGA from "react-ga";
-import { toast, ToastContainer } from "react-toastify";
+import { useRef } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const BusMapClientSide = dynamic(() => import("@/components/BusMap"), {
-  ssr: false,
-});
+const ServicesMapClientSide = dynamic(
+  () => import("@/components/ServicesMap"),
+  {
+    ssr: false,
+  }
+);
 
 const Home: NextPage = () => {
   const scrollY = useScrollPosition(10 /*fps*/);
@@ -52,7 +53,7 @@ const Home: NextPage = () => {
         <title>Missing Link</title>
         <meta
           name="og:description"
-          content="A visualisation tool for Metlink's bus services times"
+          content="A visualisation tool for Metlink's services times"
         />
         <meta property="og:image" content={"/preview.png"} />
         <meta property="og:title" content="MissingLink - A pulse on Metlink" />
@@ -91,25 +92,24 @@ const Home: NextPage = () => {
             />
           </div>
           <div className={styles.map_container} ref={mapRef}>
-            <BusMapClientSide buses={buses} />
+            <ServicesMapClientSide buses={buses} />
           </div>
 
           <div className={styles.graph_container} ref={statsRef}>
             <div className={styles.graph_title_container}>
               <h1 className={styles.sub_title}>Statistics ✍️</h1>
               <p className={styles.description}>
-                Every 20 minutes I take a sit-rep of how Metlink&apos;s buses
+                Every 20 minutes I take a sit-rep of how Metlink&apos;s services
                 are doing
               </p>
               <p className={styles.sub_description}>
                 *Determining the number of cancelled services is a bit tricky.
-                Presently, I&apos;m using service announcements that relate to
-                both trains and buses. The cancelled services are then
-                incorporated into the &quot;total buses&quot; statistics, which
-                explains why there are approximately 200 buses operating during
-                the night. These 200 buses represent all the services that
-                Metlink cancelled for the next day, that are then announced at
-                midnight.
+                Presently, I&apos;m using service announcements to calculate the
+                total. The cancelled services are then incorporated into the
+                &quot;total services&quot; statistic, which explains why there
+                are approximately 200 services operating during the night. These
+                200 services represent all the services that Metlink cancelled
+                for the next day, that are being announced at midnight.
               </p>
             </div>
             <Graph />
@@ -120,8 +120,8 @@ const Home: NextPage = () => {
               <h1 className={styles.sub_title}>Timetables 🔎</h1>
               <p className={styles.description}>
                 A quick view of the status of all the buses currently running.
-                If the time is 0m:00s on a bus, it usually means that it&apos;s
-                not reporting it&apos;s time
+                If the time is 0m:00s on a service, it usually means that
+                it&apos;s not reporting it&apos;s time
               </p>
               <Timetable busDataToDisplay={buses.allBuses} />
             </div>

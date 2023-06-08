@@ -53,7 +53,7 @@ export type Bus = {
   bearing: number;
 };
 
-export type BusStatistic = {
+export type ServiceStatistic = {
   batchId: number;
   delayedBuses: number;
   totalBuses: number;

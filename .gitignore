@@ -35,3 +35,10 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+/backend/obj/
+/backend/bin/
+/backend/callStatisticsAPI.sh
+/backend/README.md
+
+todo.md

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import chartOptions, {
   parseBusStatsIntoTimeArrays,
 } from "@/helpers/chartHelpers";
-import useBusStatisticApi from "@/hooks/useBusStatisticApi";
+import useBusStatisticApi from "@/hooks/useServiceStatisticApi";
 import styles from "@/styles/Graph.module.css";
 import "chartjs-adapter-moment";
 import { Line } from "react-chartjs-2";
@@ -14,7 +14,8 @@ const yesterdayDate = new Date();
 yesterdayDate.setDate(yesterdayDate.getDate() - 1);
 
 const Graph: React.FC = ({}) => {
-  const { busStatistics, isLoading, getBusStatsData } = useBusStatisticApi();
+  const { serviceStatistics, isLoading, getServiceStatsData } =
+    useBusStatisticApi();
   const [startDate, setStartDate] = useState<Date>(yesterdayDate);
   const [endDate, setEndDate] = useState<Date | null>(new Date());
   const [hoveringLegendBadge, setHoveringLegendBadge] = useState<
@@ -29,7 +30,7 @@ const Graph: React.FC = ({}) => {
     notReportingTimeBuses,
     onTimeBuses,
     totalDisruptedServices,
-  } = parseBusStatsIntoTimeArrays(busStatistics);
+  } = parseBusStatsIntoTimeArrays(serviceStatistics);
 
   const graphData = {
     datasets: [
@@ -133,7 +134,7 @@ const Graph: React.FC = ({}) => {
           showTimeSelect
           onChange={(date: Date | null) => {
             if (date && endDate) {
-              getBusStatsData(date, endDate);
+              getServiceStatsData(date, endDate);
               setStartDate(date);
             }
           }}
@@ -146,7 +147,7 @@ const Graph: React.FC = ({}) => {
           showTimeSelect
           onChange={(date: Date | null) => {
             if (date && startDate) {
-              getBusStatsData(startDate, date);
+              getServiceStatsData(startDate, date);
               setEndDate(date);
             }
           }}

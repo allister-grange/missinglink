@@ -1,4 +1,4 @@
-import { Bus } from "@/types/BusTypes";
+import { Bus } from "@/types/ServiceTypes";
 import React from "react";
 import styles from "@/styles/Timetable.module.css";
 import convertSecondsToMinutes from "@/helpers/convertSecondsToMinutes";
@@ -28,11 +28,11 @@ export const Timetable: React.FC<TimetableProps> = ({ busDataToDisplay }) => {
   const columns = React.useMemo(
     () => [
       {
-        Header: "Bus Route Number",
+        Header: "Route Number",
         accessor: "routeShortName" as const,
       },
       {
-        Header: "Bus Route Description",
+        Header: "Route Description",
         accessor: "routeLongName" as const,
       },
       {

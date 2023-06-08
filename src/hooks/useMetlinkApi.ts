@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useReducer } from "react";
-import { Bus, BusContainer } from "@/types/BusTypes";
+import { Bus, BusContainer } from "@/types/ServiceTypes";
 import fetchData from "./fetchData";
 import { API_URL } from "@/constants";
 import { HubConnectionBuilder } from "@microsoft/signalr";

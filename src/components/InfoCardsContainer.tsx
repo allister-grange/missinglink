@@ -1,5 +1,5 @@
 import React from "react";
-import { BusContainer } from "@/types/BusTypes";
+import { BusContainer } from "@/types/ServiceTypes";
 import { InfoCard } from "./InfoCard";
 import styles from "@/styles/CardStyles.module.css";
 
@@ -26,12 +26,12 @@ export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
         includeSubNumber={false}
         isLoading={isLoadingInitialData}
         description={
-          "How many Metlink services are reported on their alerts as cancelled today (incl buses and trains)"
+          "How many Metlink services are reported on their alerts as cancelled today"
         }
       />
       <div className={styles.card_move_up}>
         <InfoCard
-          title={"Late Buses"}
+          title={"Late"}
           blueColor={true}
           busesNumber={buses.lateBuses.length}
           totalBusesNumber={buses.allBuses.length}
@@ -39,18 +39,18 @@ export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
           description={`${getPercentage(
             buses.lateBuses.length,
             buses.allBuses.length
-          )}% of buses are running over 2 minutes late`}
+          )}% of services are running over 2 minutes late`}
         />
       </div>
       <InfoCard
-        title={"Early Buses"}
+        title={"Early"}
         busesNumber={buses.earlyBuses.length}
         totalBusesNumber={buses.allBuses.length}
         isLoading={isLoadingInitialData}
         description={`${getPercentage(
           buses.earlyBuses.length,
           buses.allBuses.length
-        )}% of buses are running at least a minute and a half ahead of schedule`}
+        )}% of services are running at least a minute and a half ahead of schedule`}
       />
       <div className={styles.card_move_up}>
         <InfoCard
@@ -62,7 +62,7 @@ export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
           description={`${getPercentage(
             buses.unknownBuses.length,
             buses.allBuses.length
-          )}% of buses are not reporting their delay or location`}
+          )}% of services are not reporting their delay or location`}
         />
       </div>
     </>

@@ -2,7 +2,9 @@ import React from "react";
 import styles from "@/styles/Graph.module.css";
 
 interface GraphColorLegendProps {
-  setHoveringLegendBadge: React.Dispatch<React.SetStateAction<string | undefined>>;
+  setHoveringLegendBadge: React.Dispatch<
+    React.SetStateAction<string | undefined>
+  >;
 }
 
 export const GraphColorLegend: React.FC<GraphColorLegendProps> = ({
@@ -24,7 +26,7 @@ export const GraphColorLegend: React.FC<GraphColorLegendProps> = ({
         onMouseEnter={() => onHoverBadge("totalBuses")}
         onMouseLeave={onLeaveBadge}
       >
-        total buses
+        total services
       </p>
       <p
         className={styles.color_association}
@@ -32,7 +34,7 @@ export const GraphColorLegend: React.FC<GraphColorLegendProps> = ({
         onMouseEnter={() => onHoverBadge("lateBuses")}
         onMouseLeave={onLeaveBadge}
       >
-        late buses
+        late services
       </p>
       <p
         className={styles.color_association}
@@ -48,7 +50,7 @@ export const GraphColorLegend: React.FC<GraphColorLegendProps> = ({
         onMouseEnter={() => onHoverBadge("onTimeBuses")}
         onMouseLeave={onLeaveBadge}
       >
-        on time buses
+        on time services
       </p>
       <p
         className={styles.color_association}
@@ -56,7 +58,7 @@ export const GraphColorLegend: React.FC<GraphColorLegendProps> = ({
         onMouseEnter={() => onHoverBadge("earlyBuses")}
         onMouseLeave={onLeaveBadge}
       >
-        early buses
+        early services
       </p>
       <p
         className={styles.color_association}
