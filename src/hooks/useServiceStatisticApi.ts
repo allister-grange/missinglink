@@ -1,12 +1,14 @@
 import { API_URL } from "@/constants";
 import { useEffect, useState, useCallback } from "react";
-import { BusStatistic } from "@/types/BusTypes";
+import { ServiceStatistic } from "@/types/ServiceTypes";
 
 const useMetlinkApi = () => {
-  const [busStatistics, setBusStatistics] = useState<BusStatistic[]>([]);
+  const [serviceStatistics, setServiceStatistics] = useState<
+    ServiceStatistic[]
+  >([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchBusStatistics = useCallback(async () => {
+  const fetchServiceStatistics = useCallback(async () => {
     setIsLoading(true);
 
     const tzoffset = new Date().getTimezoneOffset() * 60000; // offset in milliseconds
@@ -28,11 +30,11 @@ const useMetlinkApi = () => {
     }
     const data = await res.json();
 
-    setBusStatistics(data);
+    setServiceStatistics(data);
     setIsLoading(false);
   }, []);
 
-  const getBusStatsData = async (startDate: Date, endDate: Date) => {
+  const getServiceStatsData = async (startDate: Date, endDate: Date) => {
     const tzoffset = new Date().getTimezoneOffset() * 60000; // offset in milliseconds
 
     const startDateString = new Date(startDate.getTime() - tzoffset)
@@ -52,17 +54,17 @@ const useMetlinkApi = () => {
     }
 
     const data = await res.json();
-    setBusStatistics(data);
+    setServiceStatistics(data);
   };
 
   useEffect(() => {
-    fetchBusStatistics();
-  }, [fetchBusStatistics]);
+    fetchServiceStatistics();
+  }, [fetchServiceStatistics]);
 
   return {
-    busStatistics,
+    serviceStatistics,
     isLoading,
-    getBusStatsData,
+    getServiceStatsData,
   };
 };
 

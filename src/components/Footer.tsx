@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
         </h2>
         <h3 className={styles.copyright_name}>
           Missing Link is only as accurate as Metlink&apos;s APIs, the data has
-          been interpreted in some cases and may not be perfect
+          been interpreted for cancellations and may not be perfect
         </h3>
       </div>
       <ul className={styles.footer_list}>

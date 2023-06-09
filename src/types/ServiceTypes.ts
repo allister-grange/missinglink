@@ -1,4 +1,4 @@
-export type BusStop = {
+export type ServiceStop = {
   id: number;
   stop_id: string;
   stop_code: string;
@@ -17,10 +17,10 @@ export type StopPrediction = {
   stop_id: string;
   service_id: string;
   delay: string;
-  bus: Bus;
+  service: Service;
 };
 
-export type BusStatus =
+export type ServiceStatus =
   | "LATE"
   | "UNKNOWN"
   | "EARLY"
@@ -29,19 +29,19 @@ export type BusStatus =
   | "ALL"
   | null;
 
-export type BusContainer = {
-  lateBuses: Bus[];
-  cancelledBuses: Bus[];
-  earlyBuses: Bus[];
-  onTimeBuses: Bus[];
-  unknownBuses: Bus[];
-  allBuses: Bus[];
+export type ServiceContainer = {
+  lateServices: Service[];
+  cancelledServices: Service[];
+  earlyServices: Service[];
+  onTimeServices: Service[];
+  unknownServices: Service[];
+  allServices: Service[];
 };
 
-export type Bus = {
+export type Service = {
   vehicleId: number;
   vehicle_id: number;
-  status: BusStatus;
+  status: ServiceStatus;
   stopId: string;
   delay: number;
   routeDescription: string;
@@ -53,24 +53,24 @@ export type Bus = {
   bearing: number;
 };
 
-export type BusStatistic = {
+export type ServiceStatistic = {
   batchId: number;
-  delayedBuses: number;
-  totalBuses: number;
-  cancelledBuses: number;
-  earlyBuses: number;
-  onTimeBuses: number;
-  notReportingTimeBuses: number;
+  delayedServices: number;
+  totalServices: number;
+  cancelledServices: number;
+  earlyServices: number;
+  onTimeServices: number;
+  notReportingTimeServices: number;
   timestamp: string;
 };
 
-export type BusType =
-  | "totalBuses"
-  | "cancelledBuses"
-  | "delayedBuses"
-  | "earlyBuses"
-  | "onTimeBuses"
-  | "notReportingTimeBuses"
+export type ServiceType =
+  | "totalServices"
+  | "cancelledServices"
+  | "delayedServices"
+  | "earlyServices"
+  | "onTimeServices"
+  | "notReportingTimeServices"
   | "totalDisruptedServices";
 
-export default BusStop;
+export default ServiceStop;

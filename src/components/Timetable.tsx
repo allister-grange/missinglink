@@ -1,11 +1,11 @@
-import { Bus } from "@/types/BusTypes";
+import { Bus } from "@/types/ServiceTypes";
 import React from "react";
 import styles from "@/styles/Timetable.module.css";
 import convertSecondsToMinutes from "@/helpers/convertSecondsToMinutes";
 import { useTable, useSortBy, usePagination } from "react-table";
 
 interface TimetableProps {
-  busDataToDisplay: Bus[];
+  serviceDataToDisplay: Bus[];
 }
 
 interface DisplayBusData {
@@ -14,25 +14,27 @@ interface DisplayBusData {
   routeLongName: string;
 }
 
-export const Timetable: React.FC<TimetableProps> = ({ busDataToDisplay }) => {
+export const Timetable: React.FC<TimetableProps> = ({
+  serviceDataToDisplay,
+}) => {
   const data: DisplayBusData[] = React.useMemo(
     () =>
-      busDataToDisplay.map((bus) => ({
-        delay: convertSecondsToMinutes(bus.delay, true),
-        routeLongName: bus.routeLongName,
-        routeShortName: bus.routeShortName,
+      serviceDataToDisplay.map((service) => ({
+        delay: convertSecondsToMinutes(service.delay, true),
+        routeLongName: service.routeLongName,
+        routeShortName: service.routeShortName,
       })),
-    [busDataToDisplay]
+    [serviceDataToDisplay]
   );
 
   const columns = React.useMemo(
     () => [
       {
-        Header: "Bus Route Number",
+        Header: "Route Number",
         accessor: "routeShortName" as const,
       },
       {
-        Header: "Bus Route Description",
+        Header: "Route Description",
         accessor: "routeLongName" as const,
       },
       {
