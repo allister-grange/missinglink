@@ -1,14 +1,14 @@
-import { Bus } from "@/types/ServiceTypes";
+import { Service } from "@/types/ServiceTypes";
 import React from "react";
 import styles from "@/styles/Timetable.module.css";
 import convertSecondsToMinutes from "@/helpers/convertSecondsToMinutes";
 import { useTable, useSortBy, usePagination } from "react-table";
 
 interface TimetableProps {
-  serviceDataToDisplay: Bus[];
+  serviceDataToDisplay: Service[];
 }
 
-interface DisplayBusData {
+interface DisplayServiceData {
   delay: string;
   routeShortName: string;
   routeLongName: string;
@@ -17,7 +17,7 @@ interface DisplayBusData {
 export const Timetable: React.FC<TimetableProps> = ({
   serviceDataToDisplay,
 }) => {
-  const data: DisplayBusData[] = React.useMemo(
+  const data: DisplayServiceData[] = React.useMemo(
     () =>
       serviceDataToDisplay.map((service) => ({
         delay: convertSecondsToMinutes(service.delay, true),
