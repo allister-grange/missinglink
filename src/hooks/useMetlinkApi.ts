@@ -1,12 +1,12 @@
 import { useEffect, useCallback, useReducer } from "react";
-import { Bus, BusContainer } from "@/types/ServiceTypes";
+import { Service, ServiceContainer } from "@/types/ServiceTypes";
 import fetchData from "./fetchData";
 import { API_URL } from "@/constants";
 import { HubConnectionBuilder } from "@microsoft/signalr";
 
-const sortBusesByRoute = (buses: BusContainer): BusContainer => {
-  const sort = (busArray: Bus[]) => {
-    busArray.sort((a, b) => {
+const sortServicesByRoute = (service: ServiceContainer): ServiceContainer => {
+  const sort = (serviceArray: Service[]) => {
+    serviceArray.sort((a, b) => {
       if (!a.routeShortName || !b.routeShortName) {
         return Number.MAX_VALUE;
       }
@@ -16,52 +16,52 @@ const sortBusesByRoute = (buses: BusContainer): BusContainer => {
       });
     });
   };
-  sort(buses.allBuses);
-  sort(buses.cancelledBuses);
-  sort(buses.earlyBuses);
-  sort(buses.lateBuses);
-  sort(buses.onTimeBuses);
-  sort(buses.unknownBuses);
+  sort(service.allServices);
+  sort(service.cancelledServices);
+  sort(service.earlyServices);
+  sort(service.lateServices);
+  sort(service.onTimeServices);
+  sort(service.unknownServices);
 
-  return buses;
+  return service;
 };
 
-const sortBusResponseByStatus = (data: Bus[]) => {
-  const busesHolder: BusContainer = {
-    cancelledBuses: [],
-    earlyBuses: [],
-    onTimeBuses: [],
-    unknownBuses: [],
-    allBuses: [],
-    lateBuses: [],
+const sortServicesResponseByStatus = (data: Service[]) => {
+  const serviceHolder: ServiceContainer = {
+    cancelledServices: [],
+    earlyServices: [],
+    onTimeServices: [],
+    unknownServices: [],
+    allServices: [],
+    lateServices: [],
   };
 
   for (let i = 0; i < data.length; i += 1) {
-    const bus = data[i];
-    bus.vehicleId = bus.vehicle_id;
-    if (bus.status === "EARLY") {
-      busesHolder.earlyBuses.push(bus);
-    } else if (bus.status === "LATE") {
-      busesHolder.lateBuses.push(bus);
-    } else if (bus.status === "ONTIME") {
-      busesHolder.onTimeBuses.push(bus);
-    } else if (bus.status === "UNKNOWN") {
-      busesHolder.unknownBuses.push(bus);
-    } else if (bus.status === "CANCELLED") {
-      busesHolder.cancelledBuses.push(bus);
+    const service = data[i];
+    service.vehicleId = service.vehicle_id;
+    if (service.status === "EARLY") {
+      serviceHolder.earlyServices.push(service);
+    } else if (service.status === "LATE") {
+      serviceHolder.lateServices.push(service);
+    } else if (service.status === "ONTIME") {
+      serviceHolder.onTimeServices.push(service);
+    } else if (service.status === "UNKNOWN") {
+      serviceHolder.unknownServices.push(service);
+    } else if (service.status === "CANCELLED") {
+      serviceHolder.cancelledServices.push(service);
     }
 
-    if (bus.status !== "CANCELLED") {
-      busesHolder.allBuses.push(bus);
+    if (service.status !== "CANCELLED") {
+      serviceHolder.allServices.push(service);
     }
   }
 
-  const sortedBuses = sortBusesByRoute(busesHolder);
-  return sortedBuses;
+  const sortedServices = sortServicesByRoute(serviceHolder);
+  return sortedServices;
 };
 
 type State = {
-  buses: BusContainer;
+  services: ServiceContainer;
   status: "IDLE" | "LOADING" | "REJECTED" | "RESOLVED" | "REFRESHING";
   error?: boolean;
 };
@@ -69,26 +69,30 @@ type State = {
 type Action =
   | { type: "IDLE" }
   | { type: "LOADING" }
-  | { type: "RESOLVED"; results: BusContainer }
+  | { type: "RESOLVED"; results: ServiceContainer }
   | { type: "REJECTED"; error: boolean }
   | { type: "REFRESHING" };
 
 const asyncReducer = (state: State, action: Action): State => {
   switch (action.type) {
     case "IDLE": {
-      return { status: "IDLE", buses: state.buses };
+      return { status: "IDLE", services: state.services };
     }
     case "LOADING": {
-      return { status: "LOADING", buses: state.buses };
+      return { status: "LOADING", services: state.services };
     }
     case "REFRESHING": {
-      return { status: "REFRESHING", buses: state.buses };
+      return { status: "REFRESHING", services: state.services };
     }
     case "RESOLVED": {
-      return { status: "RESOLVED", buses: action.results };
+      return { status: "RESOLVED", services: action.results };
     }
     case "REJECTED": {
-      return { status: "REJECTED", error: action.error, buses: state.buses };
+      return {
+        status: "REJECTED",
+        error: action.error,
+        services: state.services,
+      };
     }
     default: {
       throw new Error(`Unhandled action: ${action}`);
@@ -99,21 +103,21 @@ const asyncReducer = (state: State, action: Action): State => {
 const useMetlinkApi = () => {
   const [state, dispatch] = useReducer(asyncReducer, {
     status: "IDLE",
-    buses: {
-      cancelledBuses: [],
-      earlyBuses: [],
-      onTimeBuses: [],
-      unknownBuses: [],
-      allBuses: [],
-      lateBuses: [],
+    services: {
+      cancelledServices: [],
+      earlyServices: [],
+      onTimeServices: [],
+      unknownServices: [],
+      allServices: [],
+      lateServices: [],
     },
   });
 
-  const fetchBuses = useCallback(async (isRefreshing: boolean) => {
+  const fetchServices = useCallback(async (isRefreshing: boolean) => {
     if (!isRefreshing) {
       dispatch({ type: "LOADING" });
     }
-    const response = await fetchData<Bus>(`${API_URL}/api/v1/updates`);
+    const response = await fetchData<Service>(`${API_URL}/api/v1/updates`);
 
     if (response.error) {
       dispatch({ type: "REJECTED", error: response.error });
@@ -126,18 +130,18 @@ const useMetlinkApi = () => {
       return;
     }
 
-    const sortedBuses = sortBusResponseByStatus(data);
-    dispatch({ type: "RESOLVED", results: sortedBuses });
+    const sortedServices = sortServicesResponseByStatus(data);
+    dispatch({ type: "RESOLVED", results: sortedServices });
   }, []);
 
-  const refreshAPIBusData = useCallback(async () => {
+  const refreshAPIServicesData = useCallback(async () => {
     dispatch({ type: "REFRESHING" });
     try {
       const res = await fetch(`${API_URL}/api/v1/updates`, {
         method: "POST",
       });
       if (res.ok) {
-        fetchBuses(true);
+        fetchServices(true);
       } else {
         dispatch({ type: "REJECTED", error: true });
         return;
@@ -145,22 +149,22 @@ const useMetlinkApi = () => {
     } catch {
       dispatch({ type: "REJECTED", error: true });
     }
-  }, [fetchBuses]);
+  }, [fetchServices]);
 
   useEffect(() => {
-    fetchBuses(false);
-  }, [fetchBuses]);
+    fetchServices(false);
+  }, [fetchServices]);
 
   useEffect(() => {
     const connectToHub = async () => {
       const connection = await new HubConnectionBuilder()
-        .withUrl(`${API_URL}/bushub`)
+        .withUrl(`${API_URL}/serviceshub`)
         .withAutomaticReconnect()
         .build();
 
-      connection.on("BusUpdates", (data: Bus[]) => {
-        const sortedBuses = sortBusResponseByStatus(data);
-        dispatch({ type: "RESOLVED", results: sortedBuses });
+      connection.on("ServicesUpdates", (data: Service[]) => {
+        const sortedServices = sortServicesResponseByStatus(data);
+        dispatch({ type: "RESOLVED", results: sortedServices });
       });
 
       await connection.start();
@@ -169,7 +173,7 @@ const useMetlinkApi = () => {
     connectToHub();
   }, []);
 
-  return { ...state, refreshAPIBusData, dispatch };
+  return { ...state, refreshAPIServicesData, dispatch };
 };
 
 export default useMetlinkApi;

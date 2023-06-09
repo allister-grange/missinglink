@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import chartOptions, {
-  parseBusStatsIntoTimeArrays,
+  parseServiceStatsIntoTimeArrays,
 } from "@/helpers/chartHelpers";
-import useBusStatisticApi from "@/hooks/useServiceStatisticApi";
+import useServiceStatisticApi from "@/hooks/useServiceStatisticApi";
 import styles from "@/styles/Graph.module.css";
 import "chartjs-adapter-moment";
 import { Line } from "react-chartjs-2";
@@ -15,7 +15,7 @@ yesterdayDate.setDate(yesterdayDate.getDate() - 1);
 
 const Graph: React.FC = ({}) => {
   const { serviceStatistics, isLoading, getServiceStatsData } =
-    useBusStatisticApi();
+    useServiceStatisticApi();
   const [startDate, setStartDate] = useState<Date>(yesterdayDate);
   const [endDate, setEndDate] = useState<Date | null>(new Date());
   const [hoveringLegendBadge, setHoveringLegendBadge] = useState<
@@ -23,24 +23,24 @@ const Graph: React.FC = ({}) => {
   >();
 
   const {
-    totalBuses,
-    cancelledBuses,
-    delayedBuses,
-    earlyBuses,
-    notReportingTimeBuses,
-    onTimeBuses,
+    totalServices,
+    cancelledServices,
+    delayedServices,
+    earlyServices,
+    notReportingTimeServices,
+    onTimeServices,
     totalDisruptedServices,
-  } = parseBusStatsIntoTimeArrays(serviceStatistics);
+  } = parseServiceStatsIntoTimeArrays(serviceStatistics);
 
   const graphData = {
     datasets: [
       {
-        label: "Total Buses",
-        data: totalBuses,
+        label: "Total Services",
+        data: totalServices,
         fill: false,
         backgroundColor: "white",
         borderColor:
-          hoveringLegendBadge && hoveringLegendBadge != "totalBuses"
+          hoveringLegendBadge && hoveringLegendBadge != "totalServices"
             ? "#acabab"
             : "#a2d2ff",
         borderWidth: 2,
@@ -48,59 +48,59 @@ const Graph: React.FC = ({}) => {
       },
       {
         label: "Cancelled Services",
-        data: cancelledBuses,
+        data: cancelledServices,
         fill: false,
         backgroundColor: "white",
         borderColor:
-          hoveringLegendBadge && hoveringLegendBadge != "cancelledBuses"
+          hoveringLegendBadge && hoveringLegendBadge != "cancelledServices"
             ? "#acabab"
             : "#3f37c9",
         borderWidth: 2,
         pointRadius: 2,
       },
       {
-        label: "Late Buses",
-        data: delayedBuses,
+        label: "Late Services",
+        data: delayedServices,
         fill: false,
         backgroundColor: "white",
         borderColor:
-          hoveringLegendBadge && hoveringLegendBadge != "lateBuses"
+          hoveringLegendBadge && hoveringLegendBadge != "lateServices"
             ? "#acabab"
             : "#d62828",
         borderWidth: 2,
         pointRadius: 2,
       },
       {
-        label: "On Time Buses",
-        data: onTimeBuses,
+        label: "On Time Services",
+        data: onTimeServices,
         fill: false,
         backgroundColor: "white",
         borderColor:
-          hoveringLegendBadge && hoveringLegendBadge != "onTimeBuses"
+          hoveringLegendBadge && hoveringLegendBadge != "onTimeServices"
             ? "#acabab"
             : "#8ac926",
         borderWidth: 2,
         pointRadius: 2,
       },
       {
-        label: "Early Buses",
-        data: earlyBuses,
+        label: "Early Services",
+        data: earlyServices,
         fill: false,
         backgroundColor: "white",
         borderColor:
-          hoveringLegendBadge && hoveringLegendBadge != "earlyBuses"
+          hoveringLegendBadge && hoveringLegendBadge != "earlyServices"
             ? "#acabab"
             : "#87986a",
         borderWidth: 2,
         pointRadius: 2,
       },
       {
-        label: "Not Reporting Time Buses",
-        data: notReportingTimeBuses,
+        label: "Not Reporting Time Services",
+        data: notReportingTimeServices,
         fill: false,
         backgroundColor: "white",
         borderColor:
-          hoveringLegendBadge && hoveringLegendBadge != "unknownBuses"
+          hoveringLegendBadge && hoveringLegendBadge != "unknownServices"
             ? "#acabab"
             : "#dda15e",
         borderWidth: 2,
@@ -112,7 +112,7 @@ const Graph: React.FC = ({}) => {
         fill: false,
         backgroundColor: "white",
         borderColor:
-          hoveringLegendBadge && hoveringLegendBadge != "disruptedBuses"
+          hoveringLegendBadge && hoveringLegendBadge != "disruptedServices"
             ? "#acabab"
             : "#fcbf49",
         borderWidth: 2,

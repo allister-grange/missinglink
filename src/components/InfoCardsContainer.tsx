@@ -1,10 +1,10 @@
 import React from "react";
-import { BusContainer } from "@/types/ServiceTypes";
+import { ServiceContainer } from "@/types/ServiceTypes";
 import { InfoCard } from "./InfoCard";
 import styles from "@/styles/CardStyles.module.css";
 
 interface InfoCardsContainerProps {
-  buses: BusContainer;
+  services: ServiceContainer;
   isLoadingInitialData: boolean;
 }
 
@@ -14,15 +14,15 @@ function getPercentage(denominator: number, numerator: number) {
 }
 
 export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
-  buses,
+  services,
   isLoadingInitialData,
 }) => {
   return (
     <>
       <InfoCard
         title={"Cancelled"}
-        busesNumber={buses.cancelledBuses.length}
-        totalBusesNumber={buses.allBuses.length}
+        servicesNumber={services.cancelledServices.length}
+        totalServicesNumber={services.allServices.length}
         includeSubNumber={false}
         isLoading={isLoadingInitialData}
         description={
@@ -33,35 +33,35 @@ export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
         <InfoCard
           title={"Late"}
           blueColor={true}
-          busesNumber={buses.lateBuses.length}
-          totalBusesNumber={buses.allBuses.length}
+          servicesNumber={services.lateServices.length}
+          totalServicesNumber={services.allServices.length}
           isLoading={isLoadingInitialData}
           description={`${getPercentage(
-            buses.lateBuses.length,
-            buses.allBuses.length
+            services.lateServices.length,
+            services.allServices.length
           )}% of services are running over 2 minutes late`}
         />
       </div>
       <InfoCard
         title={"Early"}
-        busesNumber={buses.earlyBuses.length}
-        totalBusesNumber={buses.allBuses.length}
+        servicesNumber={services.earlyServices.length}
+        totalServicesNumber={services.allServices.length}
         isLoading={isLoadingInitialData}
         description={`${getPercentage(
-          buses.earlyBuses.length,
-          buses.allBuses.length
+          services.earlyServices.length,
+          services.allServices.length
         )}% of services are running at least a minute and a half ahead of schedule`}
       />
       <div className={styles.card_move_up}>
         <InfoCard
           title={"Not Reporting"}
           blueColor={true}
-          busesNumber={buses.unknownBuses.length}
+          servicesNumber={services.unknownServices.length}
           isLoading={isLoadingInitialData}
-          totalBusesNumber={buses.allBuses.length}
+          totalServicesNumber={services.allServices.length}
           description={`${getPercentage(
-            buses.unknownBuses.length,
-            buses.allBuses.length
+            services.unknownServices.length,
+            services.allServices.length
           )}% of services are not reporting their delay or location`}
         />
       </div>

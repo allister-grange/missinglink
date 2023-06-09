@@ -1,4 +1,4 @@
-import { BusStatistic } from "@/types/ServiceTypes";
+import { ServiceStatistic } from "@/types/ServiceTypes";
 import { DataPoint } from "@/types/types";
 
 export const chartOptions: any = {
@@ -22,55 +22,57 @@ export const chartOptions: any = {
   },
 };
 
-export const parseBusStatsIntoTimeArrays = (busStatistics: BusStatistic[]) => {
-  type BusKey = keyof BusStatistic;
+export const parseServiceStatsIntoTimeArrays = (
+  serviceStatistics: ServiceStatistic[]
+) => {
+  type ServiceKey = keyof ServiceStatistic;
 
-  const totalBuses = [] as DataPoint[];
-  const cancelledBuses = [] as DataPoint[];
-  const delayedBuses = [] as DataPoint[];
-  const earlyBuses = [] as DataPoint[];
-  const notReportingTimeBuses = [] as DataPoint[];
-  const onTimeBuses = [] as DataPoint[];
+  const totalServices = [] as DataPoint[];
+  const cancelledServices = [] as DataPoint[];
+  const delayedServices = [] as DataPoint[];
+  const earlyServices = [] as DataPoint[];
+  const notReportingTimeServices = [] as DataPoint[];
+  const onTimeServices = [] as DataPoint[];
   const totalDisruptedServices = [] as DataPoint[];
 
-  busStatistics.forEach((stat: BusStatistic) => {
-    totalBuses.push({
+  serviceStatistics.forEach((stat: ServiceStatistic) => {
+    totalServices.push({
       x: stat.timestamp,
-      y: stat["totalBuses" as BusKey] as number,
+      y: stat["totalServices" as ServiceKey] as number,
     });
-    cancelledBuses.push({
+    cancelledServices.push({
       x: stat.timestamp,
-      y: stat["cancelledBuses" as BusKey] as number,
+      y: stat["cancelledServices" as ServiceKey] as number,
     });
-    delayedBuses.push({
+    delayedServices.push({
       x: stat.timestamp,
-      y: stat["delayedBuses" as BusKey] as number,
+      y: stat["delayedServices" as ServiceKey] as number,
     });
-    earlyBuses.push({
+    earlyServices.push({
       x: stat.timestamp,
-      y: stat["earlyBuses" as BusKey] as number,
+      y: stat["earlyServices" as ServiceKey] as number,
     });
-    notReportingTimeBuses.push({
+    notReportingTimeServices.push({
       x: stat.timestamp,
-      y: stat["notReportingTimeBuses" as BusKey] as number,
+      y: stat["notReportingTimeServices" as ServiceKey] as number,
     });
-    onTimeBuses.push({
+    onTimeServices.push({
       x: stat.timestamp,
-      y: stat["onTimeBuses" as BusKey] as number,
+      y: stat["onTimeServices" as ServiceKey] as number,
     });
     totalDisruptedServices.push({
       x: stat.timestamp,
-      y: stat.cancelledBuses + stat.delayedBuses + stat.earlyBuses,
+      y: stat.cancelledServices + stat.delayedServices + stat.earlyServices,
     });
   });
 
   return {
-    totalBuses,
-    cancelledBuses,
-    delayedBuses,
-    earlyBuses,
-    notReportingTimeBuses,
-    onTimeBuses,
+    totalServices,
+    cancelledServices,
+    delayedServices,
+    earlyServices,
+    notReportingTimeServices,
+    onTimeServices,
     totalDisruptedServices,
   };
 };

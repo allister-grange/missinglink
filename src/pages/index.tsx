@@ -23,7 +23,8 @@ const ServicesMapClientSide = dynamic(
 
 const Home: NextPage = () => {
   const scrollY = useScrollPosition(10 /*fps*/);
-  const { buses, refreshAPIBusData, error, status, dispatch } = useMetlinkApi();
+  const { services, refreshAPIServicesData, error, status, dispatch } =
+    useMetlinkApi();
 
   const atAGlanceRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
@@ -87,12 +88,12 @@ const Home: NextPage = () => {
 
           <div className={styles.card_container}>
             <InfoCardsContainer
-              buses={buses}
+              services={services}
               isLoadingInitialData={status === "LOADING"}
             />
           </div>
           <div className={styles.map_container} ref={mapRef}>
-            <ServicesMapClientSide buses={buses} />
+            <ServicesMapClientSide services={services} />
           </div>
 
           <div className={styles.graph_container} ref={statsRef}>
@@ -102,15 +103,6 @@ const Home: NextPage = () => {
                 Every 20 minutes I take a sit-rep of how Metlink&apos;s services
                 are doing
               </p>
-              <p className={styles.sub_description}>
-                *Determining the number of cancelled services is a bit tricky.
-                Presently, I&apos;m using service announcements to calculate the
-                total. The cancelled services are then incorporated into the
-                &quot;total services&quot; statistic, which explains why there
-                are approximately 200 services operating during the night. These
-                200 services represent all the services that Metlink cancelled
-                for the next day, that are being announced at midnight.
-              </p>
             </div>
             <Graph />
           </div>
@@ -119,11 +111,11 @@ const Home: NextPage = () => {
             <div className={styles.table_title_container}>
               <h1 className={styles.sub_title}>Timetables 🔎</h1>
               <p className={styles.description}>
-                A quick view of the status of all the buses currently running.
-                If the time is 0m:00s on a service, it usually means that
-                it&apos;s not reporting it&apos;s time
+                A quick view of the status of all the services currently
+                running. If the time is 0m:00s on a service, it usually means
+                that it&apos;s not reporting it&apos;s time
               </p>
-              <Timetable busDataToDisplay={buses.allBuses} />
+              <Timetable serviceDataToDisplay={services.allServices} />
             </div>
           </div>
         </div>

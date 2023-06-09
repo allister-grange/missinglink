@@ -7,8 +7,8 @@ import { ClipLoader } from "react-spinners";
 interface InfoCardProps {
   title: string;
   blueColor?: boolean;
-  busesNumber: number;
-  totalBusesNumber: number;
+  servicesNumber: number;
+  totalServicesNumber: number;
   includeSubNumber?: false;
   description: string;
   isLoading: boolean;
@@ -18,28 +18,28 @@ export const InfoCard: React.FC<InfoCardProps> = ({
   title,
   blueColor = false,
   includeSubNumber = true,
-  busesNumber,
-  totalBusesNumber,
+  servicesNumber,
+  totalServicesNumber,
   description,
   isLoading,
 }) => {
   const { number } = useSpring({
     from: { number: 0 },
-    number: busesNumber,
+    number: servicesNumber,
     delay: Math.random() * 300 + 50,
     config: config.molasses,
   });
 
   let numberToDisplay;
 
-  if (busesNumber < 30) {
-    numberToDisplay = busesNumber;
+  if (servicesNumber < 30) {
+    numberToDisplay = servicesNumber;
   } else {
     numberToDisplay = number.to((val) => Math.floor(val));
   }
 
   const includeSubNumberElement = includeSubNumber && (
-    <span>/ {totalBusesNumber}</span>
+    <span>/ {totalServicesNumber}</span>
   );
 
   return (
