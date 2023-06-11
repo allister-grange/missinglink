@@ -117,7 +117,7 @@ const useMetlinkApi = () => {
     if (!isRefreshing) {
       dispatch({ type: "LOADING" });
     }
-    const response = await fetchData<Service>(`${API_URL}/api/v1/updates`);
+    const response = await fetchData<Service>(`${API_URL}/api/v1/services`);
 
     if (response.error) {
       dispatch({ type: "REJECTED", error: response.error });
@@ -137,7 +137,7 @@ const useMetlinkApi = () => {
   const refreshAPIServicesData = useCallback(async () => {
     dispatch({ type: "REFRESHING" });
     try {
-      const res = await fetch(`${API_URL}/api/v1/updates`, {
+      const res = await fetch(`${API_URL}/api/v1/update`, {
         method: "POST",
       });
       if (res.ok) {
