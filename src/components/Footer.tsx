@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
           &copy; 2021-2023; all rights reserved
         </h2>
         <h3 className={styles.copyright_name}>
-          Missing Link is only as accurate as Metlink&apos;s APIs, the data has
+          MissingLink is only as accurate as Metlink&apos;s APIs, the data has
           been interpreted for cancellations and may not be perfect
         </h3>
       </div>

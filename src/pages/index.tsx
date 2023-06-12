@@ -51,7 +51,7 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container} ref={atAGlanceRef}>
       <Head>
-        <title>Missing Link</title>
+        <title>MissingLink</title>
         <meta
           name="og:description"
           content="A visualisation tool for Metlink's services times"
