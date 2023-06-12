@@ -162,7 +162,7 @@ const useMetlinkApi = () => {
         .withAutomaticReconnect()
         .build();
 
-      connection.on("ServicesUpdates", (data: Service[]) => {
+      connection.on("ServiceUpdates", (data: Service[]) => {
         const sortedServices = sortServicesResponseByStatus(data);
         dispatch({ type: "RESOLVED", results: sortedServices });
       });
