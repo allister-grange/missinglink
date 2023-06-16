@@ -4,12 +4,13 @@ import { InfoCardsContainer } from "@/components/InfoCardsContainer";
 import { SideBarNav } from "@/components/SideBarNav";
 import { Timetable } from "@/components/Timetable";
 import { TopNav } from "@/components/TopNav";
-import useMetlinkApi from "@/hooks/useMetlinkApi";
+import useServiceApi from "@/hooks/useServiceApi";
 import styles from "@/styles/Home.module.css";
 import useScrollPosition from "@react-hook/window-scroll";
 import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import React from "react";
 import { useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -23,8 +24,9 @@ const ServicesMapClientSide = dynamic(
 
 const Home: NextPage = () => {
   const scrollY = useScrollPosition(10 /*fps*/);
+  const [city, setCity] = React.useState("wellington");
   const { services, refreshAPIServicesData, error, status, dispatch } =
-    useMetlinkApi();
+    useServiceApi(city);
 
   const atAGlanceRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
@@ -69,6 +71,8 @@ const Home: NextPage = () => {
             mapRef={mapRef}
             statsRef={statsRef}
             tablesRef={tablesRef}
+            city={city}
+            setCity={setCity}
           />
         </div>
 

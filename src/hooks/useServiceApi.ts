@@ -100,7 +100,24 @@ const asyncReducer = (state: State, action: Action): State => {
   }
 };
 
-const useMetlinkApi = () => {
+const getServiceProviderFromCity = (city: string) => {
+  let serviceProvider = "";
+
+  switch (city) {
+    case "wellington":
+      serviceProvider = "metlink";
+      break;
+    case "auckland":
+      serviceProvider = "at";
+      break;
+    default:
+      serviceProvider = "metlink;";
+  }
+
+  return serviceProvider;
+};
+
+const useServiceApi = (city: string) => {
   const [state, dispatch] = useReducer(asyncReducer, {
     status: "IDLE",
     services: {
@@ -113,33 +130,41 @@ const useMetlinkApi = () => {
     },
   });
 
-  const fetchServices = useCallback(async (isRefreshing: boolean) => {
-    if (!isRefreshing) {
-      dispatch({ type: "LOADING" });
-    }
-    const response = await fetchData<Service>(`${API_URL}/api/v1/services`);
+  const fetchServices = useCallback(
+    async (isRefreshing: boolean) => {
+      if (!isRefreshing) {
+        dispatch({ type: "LOADING" });
+      }
+      const response = await fetchData<Service>(
+        `${API_URL}/api/v1/${getServiceProviderFromCity(city)}/services`
+      );
 
-    if (response.error) {
-      dispatch({ type: "REJECTED", error: response.error });
-      return;
-    }
+      if (response.error) {
+        dispatch({ type: "REJECTED", error: response.error });
+        return;
+      }
 
-    const { data } = response;
-    if (!data) {
-      dispatch({ type: "REJECTED", error: true });
-      return;
-    }
+      const { data } = response;
+      if (!data) {
+        dispatch({ type: "REJECTED", error: true });
+        return;
+      }
 
-    const sortedServices = sortServicesResponseByStatus(data);
-    dispatch({ type: "RESOLVED", results: sortedServices });
-  }, []);
+      const sortedServices = sortServicesResponseByStatus(data);
+      dispatch({ type: "RESOLVED", results: sortedServices });
+    },
+    [city]
+  );
 
   const refreshAPIServicesData = useCallback(async () => {
     dispatch({ type: "REFRESHING" });
     try {
-      const res = await fetch(`${API_URL}/api/v1/update`, {
-        method: "POST",
-      });
+      const res = await fetch(
+        `${API_URL}/api/v1/${getServiceProviderFromCity(city)}/update`,
+        {
+          method: "POST",
+        }
+      );
       if (res.ok) {
         fetchServices(true);
       } else {
@@ -149,11 +174,11 @@ const useMetlinkApi = () => {
     } catch {
       dispatch({ type: "REJECTED", error: true });
     }
-  }, [fetchServices]);
+  }, [fetchServices, city]);
 
   useEffect(() => {
     fetchServices(false);
-  }, [fetchServices]);
+  }, [fetchServices, city]);
 
   useEffect(() => {
     const connectToHub = async () => {
@@ -176,4 +201,4 @@ const useMetlinkApi = () => {
   return { ...state, refreshAPIServicesData, dispatch };
 };
 
-export default useMetlinkApi;
+export default useServiceApi;

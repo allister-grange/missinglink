@@ -9,6 +9,8 @@ interface TopNavProps {
   mapRef: RefObject<HTMLDivElement>;
   statsRef: RefObject<HTMLDivElement>;
   tablesRef: RefObject<HTMLDivElement>;
+  setCity: React.Dispatch<React.SetStateAction<string>>;
+  city: string;
 }
 
 export const TopNav: React.FC<TopNavProps> = ({
@@ -16,6 +18,8 @@ export const TopNav: React.FC<TopNavProps> = ({
   mapRef,
   statsRef,
   tablesRef,
+  city,
+  setCity,
 }) => {
   const atAGlanceScroll = () =>
     atAGlanceRef.current!.scrollIntoView({ behavior: "smooth" });
@@ -46,6 +50,20 @@ export const TopNav: React.FC<TopNavProps> = ({
             <a onClick={tablesScroll}>Timetable</a>
           </li>
         </ul>
+        <div>
+          <button
+            style={{ background: city === "wellington" ? "green" : undefined }}
+            onClick={() => setCity("wellington")}
+          >
+            wellington
+          </button>
+          <button
+            style={{ background: city === "auckland" ? "green" : undefined }}
+            onClick={() => setCity("auckland")}
+          >
+            auckland
+          </button>
+        </div>
       </div>
     </nav>
   );
