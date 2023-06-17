@@ -100,7 +100,10 @@ const asyncReducer = (state: State, action: Action): State => {
   }
 };
 
-const getServiceProviderFromCity = (city: string) => {
+const getServiceProviderFromCity = (
+  city: string,
+  firstLetterCapital: boolean = false
+) => {
   let serviceProvider = "";
 
   switch (city) {
@@ -114,7 +117,7 @@ const getServiceProviderFromCity = (city: string) => {
       serviceProvider = "metlink;";
   }
 
-  return serviceProvider;
+  return firstLetterCapital ? city.charAt(0) + city.slice(1) : serviceProvider;
 };
 
 const useServiceApi = (city: string) => {
@@ -184,16 +187,13 @@ const useServiceApi = (city: string) => {
     let connection: HubConnection | undefined = undefined;
 
     const connectToHub = async () => {
-      const firstLetterCapitalCity =
-        getServiceProviderFromCity(city).charAt(0) +
-        getServiceProviderFromCity(city).slice(1);
       connection = await new HubConnectionBuilder()
-        .withUrl(`${API_URL}/servicehub/${firstLetterCapitalCity}`)
+        .withUrl(`${API_URL}/servicehub/${getServiceProviderFromCity(city)}`)
         .withAutomaticReconnect()
         .build();
 
       connection.on(
-        `ServiceUpdates${getServiceProviderFromCity(city)}`,
+        `ServiceUpdates${getServiceProviderFromCity(city, true)}`,
         (data: Service[]) => {
           const sortedServices = sortServicesResponseByStatus(data);
           dispatch({ type: "RESOLVED", results: sortedServices });

@@ -22,9 +22,15 @@ const ServicesMapClientSide = dynamic(
   }
 );
 
+const localStorageCityKey = "city";
+
 const Home: NextPage = () => {
   const scrollY = useScrollPosition(10 /*fps*/);
-  const [city, setCity] = React.useState("wellington");
+  const [city, setCity] = React.useState(
+    typeof window !== "undefined"
+      ? window.localStorage.getItem(localStorageCityKey) || "wellington"
+      : "wellington"
+  );
   const { services, refreshAPIServicesData, error, status, dispatch } =
     useServiceApi(city);
 
@@ -33,6 +39,12 @@ const Home: NextPage = () => {
   const statsRef = useRef<HTMLDivElement>(null);
   const tablesRef = useRef<HTMLDivElement>(null);
   const toastId = useRef<React.ReactText | null>(null);
+
+  React.useEffect(() => {
+    if (typeof window !== undefined) {
+      window.localStorage.setItem(localStorageCityKey, city);
+    }
+  }, [city]);
 
   if (error) {
     toastId.current = toast.info(

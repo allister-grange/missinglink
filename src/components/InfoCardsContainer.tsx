@@ -39,7 +39,7 @@ export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
           description={`${getPercentage(
             services.lateServices.length,
             services.allServices.length
-          )}% of services are running over 2 minutes late`}
+          )}% of services are running over 2 and a half minutes late`}
         />
       </div>
       <InfoCard
