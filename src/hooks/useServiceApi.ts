@@ -2,7 +2,7 @@ import { useEffect, useCallback, useReducer } from "react";
 import { Service, ServiceContainer } from "@/types/ServiceTypes";
 import fetchData from "./fetchData";
 import { API_URL } from "@/constants";
-import { HubConnectionBuilder } from "@microsoft/signalr";
+import { HubConnection, HubConnectionBuilder } from "@microsoft/signalr";
 
 const sortServicesByRoute = (service: ServiceContainer): ServiceContainer => {
   const sort = (serviceArray: Service[]) => {
@@ -181,22 +181,33 @@ const useServiceApi = (city: string) => {
   }, [fetchServices, city]);
 
   useEffect(() => {
+    let connection: HubConnection | undefined = undefined;
+
     const connectToHub = async () => {
-      const connection = await new HubConnectionBuilder()
-        .withUrl(`${API_URL}/serviceshub`)
+      const firstLetterCapitalCity =
+        getServiceProviderFromCity(city).charAt(0) +
+        getServiceProviderFromCity(city).slice(1);
+      connection = await new HubConnectionBuilder()
+        .withUrl(`${API_URL}/servicehub/${firstLetterCapitalCity}`)
         .withAutomaticReconnect()
         .build();
 
-      connection.on("ServiceUpdates", (data: Service[]) => {
-        const sortedServices = sortServicesResponseByStatus(data);
-        dispatch({ type: "RESOLVED", results: sortedServices });
-      });
+      connection.on(
+        `ServiceUpdates${getServiceProviderFromCity(city)}`,
+        (data: Service[]) => {
+          const sortedServices = sortServicesResponseByStatus(data);
+          dispatch({ type: "RESOLVED", results: sortedServices });
+        }
+      );
 
-      await connection.start();
+      connection.start();
     };
 
     connectToHub();
-  }, []);
+    return () => {
+      connection?.stop();
+    };
+  }, [city]);
 
   return { ...state, refreshAPIServicesData, dispatch };
 };
