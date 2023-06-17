@@ -3,7 +3,6 @@ import Graph from "@/components/Graph";
 import { InfoCardsContainer } from "@/components/InfoCardsContainer";
 import { SideBarNav } from "@/components/SideBarNav";
 import { Timetable } from "@/components/Timetable";
-import { TopNav } from "@/components/TopNav";
 import useServiceApi from "@/hooks/useServiceApi";
 import styles from "@/styles/Home.module.css";
 import useScrollPosition from "@react-hook/window-scroll";
@@ -21,6 +20,10 @@ const ServicesMapClientSide = dynamic(
     ssr: false,
   }
 );
+
+const TopNavClientSide = dynamic(() => import("@/components/TopNav"), {
+  ssr: false,
+});
 
 const localStorageCityKey = "city";
 
@@ -78,7 +81,7 @@ const Home: NextPage = () => {
         <ToastContainer limit={1} style={{ fontSize: "1.8rem" }} />
 
         <div className={styles.nav_top_container}>
-          <TopNav
+          <TopNavClientSide
             atAGlanceRef={atAGlanceRef}
             mapRef={mapRef}
             statsRef={statsRef}
@@ -92,8 +95,9 @@ const Home: NextPage = () => {
           <div className={styles.heading_container}>
             <h1 className={styles.heading}>Missing Link ✌</h1>
             <h3 className={styles.sub_heading}>
-              A site to provide you with statistics, graphs and maps on how
-              Metlink&apos;s services are doing, today and in the past
+              A site to provide you with statistics, graphs and maps on how New
+              Zealand&apos;s public transport services are doing, today and in
+              the past
             </h3>
             {/* No longer needed as I moved to SSE (keeping in case it uses too much data) */}
             {/* <RefreshButton

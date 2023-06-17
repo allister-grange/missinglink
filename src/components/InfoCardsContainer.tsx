@@ -39,7 +39,7 @@ export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
           description={`${getPercentage(
             services.lateServices.length,
             services.allServices.length
-          )}% of services are running over 2 and a half minutes late`}
+          )}% of trips are running over 2 and a half minutes late`}
         />
       </div>
       <InfoCard
@@ -50,7 +50,7 @@ export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
         description={`${getPercentage(
           services.earlyServices.length,
           services.allServices.length
-        )}% of services are running at least a minute and a half ahead of schedule`}
+        )}% of trips are running at least a minute and a half ahead of schedule`}
       />
       <div className={styles.card_move_up}>
         <InfoCard
@@ -62,7 +62,7 @@ export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
           description={`${getPercentage(
             services.unknownServices.length,
             services.allServices.length
-          )}% of services are not reporting their delay or location`}
+          )}% of trips are not reporting their delay or location`}
         />
       </div>
     </>

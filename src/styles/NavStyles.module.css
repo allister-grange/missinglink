@@ -29,6 +29,13 @@
   left: 4rem;
 }
 
+.city_picker {
+  font-size: 1.5rem;
+  position: fixed;
+  right: 4rem;
+}
+
+
 .inner_nav_bubble {
   list-style: none;
   text-decoration: none;

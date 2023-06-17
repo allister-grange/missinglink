@@ -3,6 +3,11 @@ import React, { RefObject } from "react";
 import styles from "@/styles/NavStyles.module.css";
 import { ThemeChanger } from "@/components/ThemeChanger";
 import Link from "next/link";
+import { WeatherIconCloudy } from "./icons/WeatherIconCloudy";
+import { WeatherIconRainy } from "./icons/WeatherIconRainy";
+import { WeatherIconSunShower } from "./icons/WeatherIconSunShower";
+import { WeatherIconSunny } from "./icons/WeatherIconSunny";
+import { WeatherIconThunderStorm } from "./icons/WeatherIconThunderStorm";
 
 interface TopNavProps {
   atAGlanceRef: RefObject<HTMLDivElement>;
@@ -36,6 +41,11 @@ export const TopNav: React.FC<TopNavProps> = ({
         <a href="/" className={styles.nav_title}>
           MissingLink
         </a>
+        <WeatherIconCloudy fontSize=".75rem" />
+        <WeatherIconRainy fontSize=".75rem" />
+        <WeatherIconSunShower fontSize=".75rem" />
+        <WeatherIconSunny fontSize=".75rem" />
+        <WeatherIconThunderStorm fontSize=".75rem" />
         <ul className={styles.inner_nav_bubble}>
           <li className={styles.nav_link}>
             <a onClick={atAGlanceScroll}>At a glance</a>
@@ -50,7 +60,7 @@ export const TopNav: React.FC<TopNavProps> = ({
             <a onClick={tablesScroll}>Timetable</a>
           </li>
         </ul>
-        <div>
+        <div className={styles.city_picker}>
           <button
             style={{ background: city === "wellington" ? "green" : undefined }}
             onClick={() => setCity("wellington")}
@@ -68,3 +78,5 @@ export const TopNav: React.FC<TopNavProps> = ({
     </nav>
   );
 };
+
+export default TopNav;
