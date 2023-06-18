@@ -1,13 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import React, { RefObject } from "react";
 import styles from "@/styles/NavStyles.module.css";
-import { ThemeChanger } from "@/components/ThemeChanger";
-import Link from "next/link";
-import { WeatherIconCloudy } from "./icons/WeatherIconCloudy";
-import { WeatherIconRainy } from "./icons/WeatherIconRainy";
-import { WeatherIconSunShower } from "./icons/WeatherIconSunShower";
+import React, { RefObject } from "react";
 import { WeatherIconSunny } from "./icons/WeatherIconSunny";
-import { WeatherIconThunderStorm } from "./icons/WeatherIconThunderStorm";
 
 interface TopNavProps {
   atAGlanceRef: RefObject<HTMLDivElement>;
@@ -34,42 +28,68 @@ export const TopNav: React.FC<TopNavProps> = ({
     statsRef.current!.scrollIntoView({ behavior: "smooth" });
   const tablesScroll = () =>
     tablesRef.current!.scrollIntoView({ behavior: "smooth" });
+  const [prevScrollPos, setPrevScrollPos] = React.useState(0);
+  const [visible, setVisible] = React.useState(true);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      const visible = prevScrollPos > currentScrollPos;
+
+      setPrevScrollPos(currentScrollPos);
+      setVisible(visible);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos]);
 
   return (
-    <nav className={styles.nav_container}>
+    <nav
+      className={`${styles.nav_container} ${
+        visible ? styles.visible : styles.hidden
+      }`}
+    >
       <div className={styles.nav}>
         <div className={styles.weather}>
-          {/* <WeatherIconCloudy fontSize=".6rem" /> */}
-          {/* <WeatherIconRainy fontSize=".6rem" /> */}
           <WeatherIconSunny fontSize=".5rem" />
           <p>17.3°</p>
         </div>
-        <ul className={styles.inner_nav_bubble}>
-          <li className={styles.nav_link}>
-            <a onClick={atAGlanceScroll}>At a glance</a>
-          </li>
-          <li className={styles.nav_link}>
-            <a onClick={mapScroll}>Map</a>
-          </li>
-          <li className={styles.nav_link}>
-            <a onClick={statsScroll}>Stats</a>
-          </li>
-          <li className={styles.nav_link}>
-            <a onClick={tablesScroll}>Timetable</a>
-          </li>
-        </ul>
+        <div className={styles.inner_nav_bubble}>
+          <a className={styles.nav_link} onClick={atAGlanceScroll}>
+            At a glance
+          </a>
+          <a className={styles.nav_link} onClick={mapScroll}>
+            Map
+          </a>
+          <a className={styles.nav_link} onClick={statsScroll}>
+            Stats
+          </a>
+          <a className={styles.nav_link} onClick={tablesScroll}>
+            Timetable
+          </a>
+          <span className={styles.nav_link__pill}></span>
+        </div>
         <div className={styles.city_picker}>
           <button
-            style={{ background: city === "wellington" ? "green" : undefined }}
+            className={
+              styles.city_button +
+              " " +
+              (city === "wellington" ? styles.city_button__active : "")
+            }
             onClick={() => setCity("wellington")}
           >
-            wellington
+            Wellington
           </button>
           <button
-            style={{ background: city === "auckland" ? "green" : undefined }}
+            className={
+              styles.city_button +
+              " " +
+              (city === "auckland" ? styles.city_button__active : "")
+            }
             onClick={() => setCity("auckland")}
           >
-            auckland
+            Auckland
           </button>
         </div>
       </div>
