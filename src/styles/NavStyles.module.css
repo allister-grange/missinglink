@@ -20,6 +20,7 @@
   margin: 0;
   padding-inline: 2.2rem;
   justify-content: center;
+  position: relative;
 }
 
 .nav_title {
@@ -35,6 +36,13 @@
   right: 4rem;
 }
 
+
+.weather {
+  position: absolute;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+}
 
 .inner_nav_bubble {
   list-style: none;

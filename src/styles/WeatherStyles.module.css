@@ -4,6 +4,7 @@
   /* control icon size here */
   width: 12em;
   height: 10em;
+  color: #ebe9e9;
 }
 
 .cloud {
@@ -14,7 +15,7 @@
   width: 3.6875em;
   height: 3.6875em;
   margin: -1.84375em;
-  background: currentColor;
+  background: #ebe9e9;
   border-radius: 50%;
   box-shadow:
     -2.1875em 0.6875em 0 -0.6875em,
@@ -32,13 +33,13 @@
   display: block;
   width: 4.5625em;
   height: 1em;
-  background: currentColor;
+  background: #ebe9e9;
   box-shadow: 0 0.4375em 0 -0.0625em #fff;
 }
 
 .cloud:nth-child(2) {
   z-index: 0;
-  background: var(--color-grey-light-1);
+  background: #ebe9e9;
   box-shadow:
     -2.1875em 0.6875em 0 -0.6875em #fff,
     2.0625em 0.9375em 0 -0.9375em #fff,
@@ -51,7 +52,7 @@
 }
 
 .cloud:nth-child(2):after {
-  background: #fff;
+  background: #ebe9e9;
 }
 
 .sun {
@@ -61,10 +62,10 @@
   width: 2.5em;
   height: 2.5em;
   margin: -1.25em;
-  background: currentColor;
+  background: #F6BA6F;
   border-radius: 50%;
   box-shadow: 0 0 0 0.375em #fff;
-  animation: spin 12s infinite linear;
+  animation: spin 24s infinite linear;
 }
 
 .rays {
@@ -75,9 +76,9 @@
   width: 0.375em;
   height: 1.125em;
   margin-left: -0.1875em;
-  background: #fff;
+  background: #F6BA6F;
   border-radius: 0.25em;
-  box-shadow: 0 5.375em #fff;
+  box-shadow: 0 5.375em #F6BA6F;
 }
 
 .rays:before,
@@ -91,9 +92,9 @@
   height: 1.125em;
   transform: rotate(60deg);
   transform-origin: 50% 3.25em;
-  background: #fff;
+  background: #F6BA6F;
   border-radius: 0.25em;
-  box-shadow: 0 5.375em #fff;
+  box-shadow: 0 5.375em #FFA41B;
 }
 
 .rays:before {
@@ -114,7 +115,7 @@
   width: 3.75em;
   height: 3.75em;
   margin: 0.375em 0 0 -2em;
-  background: currentColor;
+  background: #F5F4F4;
 }
 
 .rain:after {

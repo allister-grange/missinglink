@@ -38,14 +38,12 @@ export const TopNav: React.FC<TopNavProps> = ({
   return (
     <nav className={styles.nav_container}>
       <div className={styles.nav}>
-        <a href="/" className={styles.nav_title}>
-          MissingLink
-        </a>
-        <WeatherIconCloudy fontSize=".75rem" />
-        <WeatherIconRainy fontSize=".75rem" />
-        <WeatherIconSunShower fontSize=".75rem" />
-        <WeatherIconSunny fontSize=".75rem" />
-        <WeatherIconThunderStorm fontSize=".75rem" />
+        <div className={styles.weather}>
+          {/* <WeatherIconCloudy fontSize=".6rem" /> */}
+          {/* <WeatherIconRainy fontSize=".6rem" /> */}
+          <WeatherIconSunny fontSize=".5rem" />
+          <p>17.3°</p>
+        </div>
         <ul className={styles.inner_nav_bubble}>
           <li className={styles.nav_link}>
             <a onClick={atAGlanceScroll}>At a glance</a>
