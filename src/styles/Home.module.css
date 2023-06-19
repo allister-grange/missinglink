@@ -123,12 +123,6 @@
     font-size: 8rem;
   }
 
-  .sub_heading {
-    width: 100%;
-    text-align: center;
-    font-size: 2.7rem;
-  }
-
   .center_container {
     display: flex;
     flex-direction: column;

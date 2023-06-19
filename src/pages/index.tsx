@@ -1,7 +1,6 @@
 import { Footer } from "@/components/Footer";
 import Graph from "@/components/Graph";
 import { InfoCardsContainer } from "@/components/InfoCardsContainer";
-import { SideBarNav } from "@/components/SideBarNav";
 import { Timetable } from "@/components/Timetable";
 import useServiceApi from "@/hooks/useServiceApi";
 import styles from "@/styles/Home.module.css";
@@ -123,6 +122,17 @@ const Home: NextPage = () => {
                 Every 20 minutes I take a sit-rep of how Metlink&apos;s services
                 are doing
               </p>
+              <p className={styles.sub_description}>
+                Data for {city.charAt(0).toUpperCase() + city.slice(1)} begins
+                from {city === "auckland" ? "20-06-2023" : "12-08-2021"}
+                {city === "wellington" && (
+                  <>
+                    <br />
+                    Prior to 20-06-2023, a service was considered late if it was
+                    over 2 minutes, not the 3 that is counted now
+                  </>
+                )}
+              </p>
             </div>
             <Graph />
           </div>
@@ -140,7 +150,7 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <div
+        {/* <div
           className={`${styles.side_nav_container} ${
             scrollY > 60 && styles.side_nav_container_show
           }`}
@@ -152,7 +162,7 @@ const Home: NextPage = () => {
             statsRef={statsRef}
             tablesRef={tablesRef}
           />
-        </div>
+        </div> */}
       </main>
 
       <Footer />
