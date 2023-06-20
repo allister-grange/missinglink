@@ -100,7 +100,7 @@ export const TopNav: React.FC<TopNavProps> = ({
       <div className={styles.nav}>
         <div className={styles.weather}>
           {weatherIcon}
-          <p>{weatherData?.currentTemp}°</p>
+          <p>{weatherData?.currentTemp && `${weatherData?.currentTemp}°`}</p>
         </div>
         <div className={styles.inner_nav_bubble}>
           <a className={styles.nav_link} onClick={atAGlanceScroll}>
@@ -128,7 +128,7 @@ export const TopNav: React.FC<TopNavProps> = ({
           >
             Wellington
           </button>
-          <button
+          {/* <button
             className={
               styles.city_button +
               " " +
@@ -137,7 +137,7 @@ export const TopNav: React.FC<TopNavProps> = ({
             onClick={() => setCity("auckland")}
           >
             Auckland
-          </button>
+          </button> */}
         </div>
       </div>
     </nav>

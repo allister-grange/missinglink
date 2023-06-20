@@ -125,11 +125,13 @@ const Home: NextPage = () => {
               <p className={styles.sub_description}>
                 Data for {city.charAt(0).toUpperCase() + city.slice(1)} begins
                 from {city === "auckland" ? "20-06-2023" : "12-08-2021"}
+              </p>
+              <p className={styles.sub_description__minor}>
                 {city === "wellington" && (
                   <>
-                    <br />
-                    Prior to 20-06-2023, a service was considered late if it was
-                    over 2 minutes, not the 3 that is counted now
+                    As of 20-06-2023, the updated definition of a late service
+                    now allows for a 2 and a half minute grace period instead of
+                    the previous 2 minute threshold
                   </>
                 )}
               </p>
