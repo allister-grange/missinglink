@@ -116,6 +116,14 @@
   .line_divider {
     margin-inline: auto;
     height: 2px;
-    margin-top: 3rem;
+    margin-top: 2rem;
+  }
+
+  .card_container {
+    width: 85%;
+  }
+
+  .info_title {
+    margin-top: 2rem;
   }
 }

@@ -72,7 +72,7 @@ export const TopNav: React.FC<TopNavProps> = ({
   React.useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      const visible = prevScrollPos > currentScrollPos;
+      const visible = prevScrollPos > currentScrollPos || currentScrollPos < 10;
 
       setPrevScrollPos(currentScrollPos);
       setVisible(visible);
