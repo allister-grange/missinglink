@@ -26,7 +26,7 @@ export const GraphColorLegend: React.FC<GraphColorLegendProps> = ({
         onMouseEnter={() => onHoverBadge("totalServices")}
         onMouseLeave={onLeaveBadge}
       >
-        total services
+        total trips
       </p>
       <p
         className={styles.color_association}
@@ -34,7 +34,7 @@ export const GraphColorLegend: React.FC<GraphColorLegendProps> = ({
         onMouseEnter={() => onHoverBadge("lateServices")}
         onMouseLeave={onLeaveBadge}
       >
-        late services
+        late trips
       </p>
       <p
         className={styles.color_association}
@@ -42,7 +42,7 @@ export const GraphColorLegend: React.FC<GraphColorLegendProps> = ({
         onMouseEnter={() => onHoverBadge("cancelledServices")}
         onMouseLeave={onLeaveBadge}
       >
-        cancelled services
+        cancelled trips
       </p>
       <p
         className={styles.color_association}
@@ -50,7 +50,7 @@ export const GraphColorLegend: React.FC<GraphColorLegendProps> = ({
         onMouseEnter={() => onHoverBadge("onTimeServices")}
         onMouseLeave={onLeaveBadge}
       >
-        on time services
+        on time trips
       </p>
       <p
         className={styles.color_association}
@@ -58,7 +58,7 @@ export const GraphColorLegend: React.FC<GraphColorLegendProps> = ({
         onMouseEnter={() => onHoverBadge("earlyServices")}
         onMouseLeave={onLeaveBadge}
       >
-        early services
+        early trips
       </p>
       <p
         className={styles.color_association}
@@ -74,7 +74,7 @@ export const GraphColorLegend: React.FC<GraphColorLegendProps> = ({
         onMouseEnter={() => onHoverBadge("disruptedServices")}
         onMouseLeave={onLeaveBadge}
       >
-        total disrupted services
+        total disrupted trips
       </p>
     </div>
   );
