@@ -34,7 +34,7 @@ const getMapMarker = (service: Service) => {
   let color = "black";
   let delayMessage = "I am on time!";
 
-  if (service.delay >= 180) {
+  if (service.delay >= 150) {
     color = "#fc4444";
     delayMessage = convertSecondsToMinutesSentence(service.delay);
   } else if (service.delay >= 120) {

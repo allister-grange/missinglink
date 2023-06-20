@@ -12,12 +12,22 @@ export const ThemeChanger: React.FC = () => {
   if (!mounted) return null;
 
   return (
-    <div>
+    <a>
       {theme === "dark" ? (
-        <button className={styles.theme_picker} onClick={() => setTheme('light')}>&#9728;</button>
+        <button
+          className={styles.theme_picker}
+          onClick={() => setTheme("light")}
+        >
+          light
+        </button>
       ) : (
-        <button className={styles.theme_picker} onClick={() => setTheme('dark')}>🌚</button>
+        <button
+          className={styles.theme_picker}
+          onClick={() => setTheme("dark")}
+        >
+          dark
+        </button>
       )}
-    </div>
+    </a>
   );
 };

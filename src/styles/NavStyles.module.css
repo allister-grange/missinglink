@@ -1,12 +1,88 @@
+.nav_container {
+  color: var(--color-grey-light-1);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 1.5rem;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.visible {
+  transform: translateY(0);
+}
+
+.hidden {
+  transform: translateY(-120%);
+}
+
 .nav {
+  width: var(--nav-bar-width);
+  background: var(--color-grey-light-5);
+  border-radius: 10px;
+  height: var(--nav-bar-height);
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding-inline: 2.2rem;
+  justify-content: center;
+  position: relative;
+}
+
+.nav_title {
+  position: fixed;
+  left: 4rem;
+}
+
+.city_picker {
+  position: fixed;
+  right: 4rem;
+}
+
+.city_button {
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: transparent;
+  font-size: 1.4rem;
+  padding: .8rem 1.2rem;
+  margin-right: .1rem;
+}
+
+.city_button:hover {
+  background: var(--nav-bar-bubble-background);
+  border-radius: 2rem;
+  color: black;
+}
+
+.city_button__active {
+  background: var(--nav-bar-bubble-background);
+  padding: .8rem 1.2rem;
+  border-radius: 2rem;
+  color: black;
+}
+
+.weather {
+  position: absolute;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.inner_nav_bubble {
   list-style: none;
   text-decoration: none;
   display: flex;
   flex-direction: row;
   align-items: center;
   font-size: inherit;
-  color: var(--color-grey-light-1);
-  padding: 0;
+  background: var(--nav-bar-bubble-background);
+  padding: 1rem .8rem;
+  border-radius: 2.5rem;
 }
 
 .side_nav {
@@ -17,24 +93,31 @@
   text-decoration: none;
   font-size: 1.8rem;
   color: var(--color-grey-light-1);
-  padding: 0;
   justify-content: space-around;
 }
 
 .nav_link {
-  white-space: pre;
-  width: max-content;
-  cursor: pointer;
-  display: inline-block;
-}
-
-.nav_link:not(:last-child) {
-  margin-right: 2.5rem;
+  padding: 0 0.63rem;
+  font-size: 1.4rem;
+  color: var(--color-grey-light-2);
 }
 
 .nav_link:hover {
-  transition: .3s all;
-  transform: translateY(-2px);
+  color: var(--color-grey-dark-1);
+  cursor: pointer;
+  background: var(--nav-bar-bubble-background-darker);
+  border-radius: 2rem;
+  color: black;
+}
+
+.nav_link:nth-child(2):focus~.pill {
+  transform: translatex(132px);
+  transition: transform .18s ease-out;
+}
+
+.nav_link:nth-child(1):focus~.pill {
+  transform: translatex(0px);
+  transition: transform .18s ease-out;
 }
 
 .theme_picker {
@@ -45,6 +128,7 @@
   transform: translateX(-.5rem);
   overflow: visible;
   height: 2rem;
+  display: flex;
 }
 
 .theme_picker:hover {

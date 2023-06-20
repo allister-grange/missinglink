@@ -130,6 +130,14 @@ p, h1, h2, h3, h4, h5, h6 {
   --color-grey-light-3: #acabab;
   --color-grey-light-4: #e1dfdf;
   --color-grey-light-5: #f5f4f4;
+
+  --color-grey-dark-1: #1a1a1a;
+
+  --nav-bar-width: 98%;
+  --nav-bar-height: 50px;
+  --nav-bar-background: #F8F8FA;
+  --nav-bar-bubble-background: #EBEBED;
+  --nav-bar-bubble-background-darker: #d9d9d9;
 }
 
 [data-theme='dark'] {
