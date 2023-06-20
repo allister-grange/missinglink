@@ -38,14 +38,22 @@ export const TopNav: React.FC<TopNavProps> = ({
   city,
   setCity,
 }) => {
-  const atAGlanceScroll = () =>
+  const atAGlanceScroll = () => {
+    handleLinkClick();
     atAGlanceRef.current!.scrollIntoView({ behavior: "smooth" });
-  const mapScroll = () =>
+  };
+  const mapScroll = () => {
+    handleLinkClick();
     mapRef.current!.scrollIntoView({ behavior: "smooth" });
-  const statsScroll = () =>
+  };
+  const statsScroll = () => {
+    handleLinkClick();
     statsRef.current!.scrollIntoView({ behavior: "smooth" });
-  const tablesScroll = () =>
+  };
+  const tablesScroll = () => {
+    handleLinkClick();
     tablesRef.current!.scrollIntoView({ behavior: "smooth" });
+  };
   const [prevScrollPos, setPrevScrollPos] = React.useState(0);
   const [visible, setVisible] = React.useState(true);
   const [weatherData, setWeatherData] = React.useState<
@@ -91,6 +99,15 @@ export const TopNav: React.FC<TopNavProps> = ({
       break;
   }
 
+  // yeah yeah, imperative code sucks I know..
+  // all css/js is better than me importing some random open source lib
+  const handleLinkClick = () => {
+    const checkbox = document.getElementById(
+      "hamburger-toggle"
+    ) as HTMLInputElement;
+    checkbox.checked = !checkbox.checked;
+  };
+
   return (
     <nav
       className={`${styles.nav_container} ${
@@ -102,19 +119,29 @@ export const TopNav: React.FC<TopNavProps> = ({
           {weatherIcon}
           <p>{weatherData?.currentTemp && `${weatherData?.currentTemp}°`}</p>
         </div>
-        <div className={styles.inner_nav_bubble}>
-          <a className={styles.nav_link} onClick={atAGlanceScroll}>
-            At a glance
-          </a>
-          <a className={styles.nav_link} onClick={mapScroll}>
-            Map
-          </a>
-          <a className={styles.nav_link} onClick={statsScroll}>
-            Stats
-          </a>
-          <a className={styles.nav_link} onClick={tablesScroll}>
-            Timetable
-          </a>
+        <div className={`${styles.inner_nav_bubble} ${styles.hamburger_menu}`}>
+          <input
+            type="checkbox"
+            id="hamburger-toggle"
+            className={styles.hamburger_toggle}
+          />{" "}
+          <label htmlFor="hamburger-toggle" className={styles.hamburger_label}>
+            <span className={styles.hamburger_lines}></span>
+          </label>
+          <div className={styles.link_container}>
+            <a className={styles.nav_link} onClick={atAGlanceScroll}>
+              At a glance
+            </a>
+            <a className={styles.nav_link} onClick={mapScroll}>
+              Map
+            </a>
+            <a className={styles.nav_link} onClick={statsScroll}>
+              Stats
+            </a>
+            <a className={styles.nav_link} onClick={tablesScroll}>
+              Timetable
+            </a>
+          </div>
           <span className={styles.nav_link__pill}></span>
         </div>
         <div className={styles.city_picker}>

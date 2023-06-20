@@ -135,8 +135,122 @@
   cursor: pointer;
 }
 
+.hamburger_toggle {
+  display: none;
+}
+
 @media (max-width: 500px) {
   .nav {
+    width: 97%;
+  }
+
+  .link_container {
+    display: none;
+    order: 3;
+  }
+
+  .weather {
+    position: initial;
+  }
+
+  .city_picker {
+    position: initial;
+    margin-right: auto;
+    margin-left: 3rem;
+  }
+
+  .nav {
     width: 100%;
+  }
+
+  .hamburger_menu {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .hamburger_label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+  }
+
+  .hamburger_lines {
+    background-color: #000;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background-color 0.3s ease;
+    width: 20px;
+  }
+
+  .hamburger_lines:before,
+  .hamburger_lines:after {
+    background-color: #000;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: transform 0.3s ease;
+    width: 100%;
+  }
+
+  .hamburger_lines:before {
+    top: -6px;
+  }
+
+  .hamburger_lines:after {
+    top: 6px;
+  }
+
+  .hamburger_toggle:checked+.hamburger_label .hamburger_lines {
+    background-color: transparent;
+  }
+
+  .hamburger_toggle:checked+.hamburger_label .hamburger_lines:before {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .hamburger_toggle:checked+.hamburger_label .hamburger_lines:after {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .nav_link li {
+    margin-bottom: 10px;
+  }
+
+  .nav_link {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .hamburger_toggle:checked~.link_container {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 110%;
+    align-items: flex-start;
+    white-space: nowrap;
+    gap: 1rem;
+    z-index: 1000;
+    background-color: var(--nav-bar-bubble-background);
+    border-radius: 5px;
+    transform: translateX(-50%);
+    padding: 1.3rem 1.3rem;
+  }
+
+  .nav_link {
+    font-size: 1.8rem;
+  }
+
+  .inner_nav_bubble {
+    position: absolute;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transform: translateY(-50%);
+    top: 50%;
   }
 }
