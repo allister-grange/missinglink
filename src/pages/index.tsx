@@ -70,10 +70,13 @@ const Home: NextPage = () => {
         <title>MissingLink</title>
         <meta
           name="og:description"
-          content="A visualisation tool for Metlink's services times"
+          content="An overview of public transport in NZ"
         />
         <meta property="og:image" content={"/preview.png"} />
-        <meta property="og:title" content="MissingLink - A pulse on Metlink" />
+        <meta
+          property="og:title"
+          content="MissingLink - An overview of public transport in NZ"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>

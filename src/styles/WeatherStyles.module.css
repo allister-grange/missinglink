@@ -4,7 +4,7 @@
   /* control icon size here */
   width: 12em;
   height: 10em;
-  color: #ebe9e9;
+  color: var(--color-grey-light-4);
 }
 
 .cloud {
@@ -15,14 +15,14 @@
   width: 3.6875em;
   height: 3.6875em;
   margin: -1.84375em;
-  background: #ebe9e9;
+  background: var(--color-grey-light-4);
   border-radius: 50%;
   box-shadow:
     -2.1875em 0.6875em 0 -0.6875em,
     2.0625em 0.9375em 0 -0.9375em,
-    0 0 0 0.375em #fff,
-    -2.1875em 0.6875em 0 -0.3125em #fff,
-    2.0625em 0.9375em 0 -0.5625em #fff;
+    0 0 0 0.375em var(--color-background),
+    -2.1875em 0.6875em 0 -0.3125em var(--color-background),
+    2.0625em 0.9375em 0 -0.5625em var(--color-background);
 }
 
 .cloud:after {
@@ -33,26 +33,26 @@
   display: block;
   width: 4.5625em;
   height: 1em;
-  background: #ebe9e9;
-  box-shadow: 0 0.4375em 0 -0.0625em #fff;
+  background: var(--color-grey-light-4);
+  box-shadow: 0 0.4375em 0 -0.0625em var(--color-background);
 }
 
 .cloud:nth-child(2) {
   z-index: 0;
-  background: #ebe9e9;
+  background: var(--color-grey-light-4);
   box-shadow:
-    -2.1875em 0.6875em 0 -0.6875em #fff,
-    2.0625em 0.9375em 0 -0.9375em #fff,
-    0 0 0 0.375em #fff,
-    -2.1875em 0.6875em 0 -0.3125em #fff,
-    2.0625em 0.9375em 0 -0.5625em #fff;
+    -2.1875em 0.6875em 0 -0.6875em var(--color-background),
+    2.0625em 0.9375em 0 -0.9375em var(--color-background),
+    0 0 0 0.375em var(--color-background),
+    -2.1875em 0.6875em 0 -0.3125em var(--color-background),
+    2.0625em 0.9375em 0 -0.5625em var(--color-background);
   opacity: 0.3;
   transform: scale(0.5) translate(6em, -3em);
   animation: cloud 4s linear infinite;
 }
 
 .cloud:nth-child(2):after {
-  background: #ebe9e9;
+  background: var(--color-grey-light-4);
 }
 
 .sun {
@@ -64,7 +64,7 @@
   margin: -1.25em;
   background: #F6BA6F;
   border-radius: 50%;
-  box-shadow: 0 0 0 0.375em #fff;
+  box-shadow: 0 0 0 0.375em var(--color-background);
   animation: spin 24s infinite linear;
 }
 
@@ -142,7 +142,7 @@
   top: 50%;
   left: 50%;
   margin: -0.25em 0 0 -0.125em;
-  color: #fff;
+  color: var(--color-background);
   opacity: 0.3;
   animation: lightning 2s linear infinite;
 }
@@ -203,7 +203,7 @@
   top: 50%;
   left: 50%;
   margin: -1.025em 0 0 -1.0125em;
-  color: #fff;
+  color: var(--color-background);
   list-height: 1em;
   opacity: 0.2;
   animation: spin 8s linear infinite reverse;
@@ -288,8 +288,8 @@
 
 @keyframes lightning {
   45% {
-    color: #fff;
-    background: #fff;
+    color: var(--color-background);
+    background: var(--color-background);
     opacity: 0.2;
   }
 
@@ -300,8 +300,8 @@
   }
 
   55% {
-    color: #fff;
-    background: #fff;
+    color: var(--color-background);
+    background: var(--color-background);
     opacity: 0.2;
   }
 }

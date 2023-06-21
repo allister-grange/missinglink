@@ -107,6 +107,7 @@
 
   .card_container {
     gap: 2rem;
+    margin-top: 4rem;
   }
 
   .main {
@@ -122,6 +123,7 @@
   .heading_container {
     width: 85%;
     text-align: center;
+    margin-top: 3rem;
   }
 
   .heading {

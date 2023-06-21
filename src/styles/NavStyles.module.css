@@ -11,6 +11,15 @@
   transition: transform 0.3s ease-in-out;
 }
 
+.nav_link__pill {
+  position: absolute;
+  height: 3rem;
+  border-radius: 2rem;
+  z-index: 1;
+  margin-top: 1px;
+  background: var(--nav-bar-bubble-pill-background);
+}
+
 .visible {
   transform: translateY(0);
 }
@@ -21,7 +30,7 @@
 
 .nav {
   width: var(--nav-bar-width);
-  background: var(--color-grey-light-5);
+  background: var(--nav-bar-background);
   border-radius: 10px;
   height: var(--nav-bar-height);
   display: flex;
@@ -30,6 +39,10 @@
   padding-inline: 2.2rem;
   justify-content: center;
   position: relative;
+}
+
+.link_container {
+  z-index: 2;
 }
 
 .nav_title {
@@ -56,14 +69,14 @@
 .city_button:hover {
   background: var(--nav-bar-bubble-background);
   border-radius: 2rem;
-  color: black;
+  color: var(--nav-bar-button-color);
 }
 
 .city_button__active {
   background: var(--nav-bar-bubble-background);
   padding: .8rem 1.2rem;
   border-radius: 2rem;
-  color: black;
+  color: var(--nav-bar-button-color);
 }
 
 .weather {
@@ -85,6 +98,7 @@
   background: var(--nav-bar-bubble-background);
   padding: 1rem .8rem;
   border-radius: 2.5rem;
+  position: relative;
 }
 
 .side_nav {
@@ -107,9 +121,6 @@
 .nav_link:hover {
   color: var(--color-grey-dark-1);
   cursor: pointer;
-  background: var(--nav-bar-bubble-background-darker);
-  border-radius: 2rem;
-  color: black;
 }
 
 .nav_link:nth-child(2):focus~.pill {
@@ -173,7 +184,7 @@
   }
 
   .hamburger_lines {
-    background-color: #000;
+    background-color: var(--nav-bar-button-hamburger-lines);
     display: block;
     height: 2px;
     position: relative;
@@ -183,7 +194,7 @@
 
   .hamburger_lines:before,
   .hamburger_lines:after {
-    background-color: #000;
+    background-color: var(--nav-bar-button-hamburger-lines);
     content: '';
     display: block;
     height: 100%;
@@ -217,7 +228,7 @@
   }
 
   .nav_link {
-    color: #000;
+    color: var(--nav-bar-button-color);
     text-decoration: none;
   }
 
@@ -244,5 +255,9 @@
   .inner_nav_bubble {
     order: 3;
     margin-right: 1rem;
+  }
+
+  .nav_link__pill {
+    display: none;
   }
 }

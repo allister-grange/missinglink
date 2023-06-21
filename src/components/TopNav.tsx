@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
 import styles from "@/styles/NavStyles.module.css";
 import React, { RefObject } from "react";
 import { WeatherIconSunny } from "./icons/WeatherIconSunny";
@@ -38,6 +37,19 @@ export const TopNav: React.FC<TopNavProps> = ({
   city,
   setCity,
 }) => {
+  const innerNavBubbleRef = React.useRef<HTMLDivElement>(null);
+  const [pillBackgroundPosition, setPillBackgroundPosition] = React.useState({
+    left: 0,
+    width: 0,
+    animate: false,
+  });
+
+  const [prevScrollPos, setPrevScrollPos] = React.useState(0);
+  const [navBarVisible, setNavBarVisible] = React.useState(true);
+  const [weatherData, setWeatherData] = React.useState<
+    undefined | WeatherData
+  >();
+
   const atAGlanceScroll = () => {
     handleLinkClick();
     atAGlanceRef.current!.scrollIntoView({ behavior: "smooth" });
@@ -54,11 +66,6 @@ export const TopNav: React.FC<TopNavProps> = ({
     handleLinkClick();
     tablesRef.current!.scrollIntoView({ behavior: "smooth" });
   };
-  const [prevScrollPos, setPrevScrollPos] = React.useState(0);
-  const [visible, setVisible] = React.useState(true);
-  const [weatherData, setWeatherData] = React.useState<
-    undefined | WeatherData
-  >();
 
   React.useEffect(() => {
     const fetchWeatherData = async () => {
@@ -69,13 +76,42 @@ export const TopNav: React.FC<TopNavProps> = ({
     fetchWeatherData();
   }, [city]);
 
+  const onLinkMouseEnter = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    const linkRect = (e.target as HTMLAnchorElement).getBoundingClientRect();
+    const innerNavBubbleRect =
+      innerNavBubbleRef.current!.getBoundingClientRect();
+
+    const offsetX = linkRect.left - innerNavBubbleRect.left;
+    const width = linkRect.width;
+
+    setPillBackgroundPosition({ left: offsetX, width, animate: true });
+  };
+
+  // yeah yeah, imperative code sucks I know..
+  // all css/js is better than me importing some random open source lib
+  const handleLinkClick = () => {
+    const checkbox = document.getElementById(
+      "hamburger-toggle"
+    ) as HTMLInputElement;
+    checkbox.checked = !checkbox.checked;
+  };
+
   React.useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
       const visible = prevScrollPos > currentScrollPos || currentScrollPos < 10;
 
       setPrevScrollPos(currentScrollPos);
-      setVisible(visible);
+      setNavBarVisible(visible);
+      if (!visible) {
+        setPillBackgroundPosition({
+          left: 0,
+          width: 0,
+          animate: false,
+        });
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -99,19 +135,10 @@ export const TopNav: React.FC<TopNavProps> = ({
       break;
   }
 
-  // yeah yeah, imperative code sucks I know..
-  // all css/js is better than me importing some random open source lib
-  const handleLinkClick = () => {
-    const checkbox = document.getElementById(
-      "hamburger-toggle"
-    ) as HTMLInputElement;
-    checkbox.checked = !checkbox.checked;
-  };
-
   return (
     <nav
       className={`${styles.nav_container} ${
-        visible ? styles.visible : styles.hidden
+        navBarVisible ? styles.visible : styles.hidden
       }`}
     >
       <div className={styles.nav}>
@@ -119,7 +146,10 @@ export const TopNav: React.FC<TopNavProps> = ({
           {weatherIcon}
           <p>{weatherData?.currentTemp && `${weatherData?.currentTemp}°`}</p>
         </div>
-        <div className={`${styles.inner_nav_bubble} ${styles.hamburger_menu}`}>
+        <div
+          className={`${styles.inner_nav_bubble} ${styles.hamburger_menu}`}
+          ref={innerNavBubbleRef}
+        >
           <input
             type="checkbox"
             id="hamburger-toggle"
@@ -129,20 +159,45 @@ export const TopNav: React.FC<TopNavProps> = ({
             <span className={styles.hamburger_lines}></span>
           </label>
           <div className={styles.link_container}>
-            <a className={styles.nav_link} onClick={atAGlanceScroll}>
+            <a
+              className={styles.nav_link}
+              onClick={atAGlanceScroll}
+              onMouseOver={onLinkMouseEnter}
+            >
               At a glance
             </a>
-            <a className={styles.nav_link} onClick={mapScroll}>
+            <a
+              className={styles.nav_link}
+              onClick={mapScroll}
+              onMouseOver={onLinkMouseEnter}
+            >
               Map
             </a>
-            <a className={styles.nav_link} onClick={statsScroll}>
+            <a
+              className={styles.nav_link}
+              onClick={statsScroll}
+              onMouseOver={onLinkMouseEnter}
+            >
               Stats
             </a>
-            <a className={styles.nav_link} onClick={tablesScroll}>
+            <a
+              className={styles.nav_link}
+              onClick={tablesScroll}
+              onMouseOver={onLinkMouseEnter}
+            >
               Timetable
             </a>
           </div>
-          <span className={styles.nav_link__pill}></span>
+          <span
+            className={styles.nav_link__pill}
+            style={{
+              left: `${pillBackgroundPosition.left}px`,
+              width: `${pillBackgroundPosition.width}px`,
+              transition: pillBackgroundPosition.animate
+                ? "transform .3s ease, width .3s ease, left .3s ease"
+                : "",
+            }}
+          ></span>
         </div>
         <div className={styles.city_picker}>
           <button

@@ -135,9 +135,11 @@ p, h1, h2, h3, h4, h5, h6 {
 
   --nav-bar-width: 98%;
   --nav-bar-height: 50px;
-  --nav-bar-background: #F8F8FA;
+  --nav-bar-background: #f5f4f4;
   --nav-bar-bubble-background: #EBEBED;
-  --nav-bar-bubble-background-darker: #d9d9d9;
+  --nav-bar-bubble-pill-background: #d7d7d9;
+  --nav-bar-button-color: black;
+  --nav-bar-button-hamburger-lines: black;
 }
 
 [data-theme='dark'] {
@@ -154,4 +156,12 @@ p, h1, h2, h3, h4, h5, h6 {
   --color-grey-light-3: #787777;
   --color-grey-light-4: #4f4e4e;
   --color-grey-light-5: #e1dfdf;
+
+  --color-grey-dark-1: #e1dfdf;
+
+  --nav-bar-background: #1e2228;
+  --nav-bar-bubble-background: #21252c;
+  --nav-bar-bubble-pill-background: black;
+  --nav-bar-button-color: #fafafa;
+  --nav-bar-button-hamburger-lines: #fafafa;
 }
