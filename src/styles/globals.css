@@ -160,8 +160,8 @@ p, h1, h2, h3, h4, h5, h6 {
   --color-grey-dark-1: #e1dfdf;
 
   --nav-bar-background: #1e2228;
-  --nav-bar-bubble-background: #21252c;
-  --nav-bar-bubble-pill-background: black;
+  --nav-bar-bubble-background: #383b40;
+  --nav-bar-bubble-pill-background: #1e2228;
   --nav-bar-button-color: #fafafa;
   --nav-bar-button-hamburger-lines: #fafafa;
 }

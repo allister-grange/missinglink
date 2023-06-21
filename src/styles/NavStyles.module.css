@@ -16,7 +16,6 @@
   height: 3rem;
   border-radius: 2rem;
   z-index: 1;
-  margin-top: 1px;
   background: var(--nav-bar-bubble-pill-background);
 }
 
@@ -43,6 +42,9 @@
 
 .link_container {
   z-index: 2;
+  display: flex;
+  align-items: center;
+  align-content: center;
 }
 
 .nav_title {
@@ -61,7 +63,7 @@
   outline: none;
   border: none;
   background: transparent;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   padding: .8rem 1.2rem;
   margin-right: .1rem;
 }
@@ -114,7 +116,7 @@
 
 .nav_link {
   padding: 0 0.63rem;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: var(--color-grey-light-2);
 }
 
@@ -168,7 +170,7 @@
   }
 
   .city_button {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
   }
 
   .link_container {
@@ -230,6 +232,7 @@
   .nav_link {
     color: var(--nav-bar-button-color);
     text-decoration: none;
+    font-size: 2rem;
   }
 
   .hamburger_toggle:checked~.link_container {
