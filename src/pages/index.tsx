@@ -95,7 +95,7 @@ const Home: NextPage = () => {
             />
           </div>
           <div className={styles.map_container} ref={mapRef}>
-            <ServicesMapClientSide services={services} />
+            <ServicesMapClientSide services={services} city={city} />
           </div>
 
           <div className={styles.graph_container} ref={statsRef}>

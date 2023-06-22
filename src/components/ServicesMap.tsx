@@ -1,7 +1,7 @@
 import { convertSecondsToMinutesSentence } from "@/helpers/convertSecondsToMinutes";
 import styles from "@/styles/Map.module.css";
 import { Service, ServiceContainer } from "@/types/ServiceTypes";
-import * as L from "leaflet";
+import { LatLngExpression, divIcon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import React from "react";
 import {
@@ -10,13 +10,14 @@ import {
   Popup,
   TileLayer,
   ZoomControl,
+  useMap,
 } from "react-leaflet";
 
 interface ServiceMapProps {
   services: ServiceContainer;
+  city: string;
 }
 
-// yeah I know it shouldn't be in version control, I don't care
 const ACCESS_TOKEN =
   "pk.eyJ1IjoiZ3JhbmdlYWwiLCJhIjoiY2t0bDBkZmYzMXJnZjJvazR4ZmI1azNiZSJ9.6J8GPehMI5L0ammIaJz0bw";
 const ATTRIBUTION =
@@ -29,6 +30,13 @@ height: 100%;
 background-color: #75CFF0;
 border-radius: 50%;
 `;
+
+function ChangeMapView({ coords }: { coords: LatLngExpression }) {
+  const map = useMap();
+  map.setView(coords, map.getZoom());
+
+  return null;
+}
 
 const getMapMarker = (service: Service) => {
   let color = "black";
@@ -48,7 +56,7 @@ const getMapMarker = (service: Service) => {
     delayMessage = convertSecondsToMinutesSentence(service.delay);
   }
 
-  const icon = L.divIcon({
+  const icon = divIcon({
     className: "my-custom-pin",
     iconAnchor: [8, 6],
     iconSize: [15, 15],
@@ -85,12 +93,27 @@ const getMapMarker = (service: Service) => {
   );
 };
 
+const wellingtonCoordinates: LatLngExpression = [-41.276825, 174.7787];
+const aucklandCoordinates: LatLngExpression = [-36.84846, 174.7633];
+
 const ServicesMap: React.FC<ServiceMapProps> = ({
   services,
+  city,
 }: ServiceMapProps) => {
+  let centerLatLong;
+
+  switch (city) {
+    case "wellington":
+      centerLatLong = wellingtonCoordinates;
+      break;
+    case "auckland":
+      centerLatLong = aucklandCoordinates;
+      break;
+  }
+
   return (
     <MapContainer
-      center={[-41.276825, 174.7787]}
+      center={centerLatLong}
       zoom={11}
       zoomControl={false}
       scrollWheelZoom={false}
@@ -103,6 +126,7 @@ const ServicesMap: React.FC<ServiceMapProps> = ({
         className={styles.leaflet_tile_pane}
       />
       <ZoomControl position="topright" />
+      <ChangeMapView coords={centerLatLong!} />
       {services.allServices.map((service: Service) => getMapMarker(service))}
     </MapContainer>
   );
