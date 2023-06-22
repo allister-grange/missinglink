@@ -66,7 +66,7 @@ type State = {
   error?: boolean;
 };
 
-type Action =
+export type Action =
   | { type: "IDLE" }
   | { type: "LOADING" }
   | { type: "RESOLVED"; results: ServiceContainer }

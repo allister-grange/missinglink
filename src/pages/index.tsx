@@ -1,33 +1,31 @@
 import { Footer } from "@/components/Footer";
-import Graph from "@/components/Graph";
 import { InfoCardsContainer } from "@/components/InfoCardsContainer";
 import { Timetable } from "@/components/Timetable";
 import useServiceApi from "@/hooks/useServiceApi";
 import styles from "@/styles/Home.module.css";
-import useScrollPosition from "@react-hook/window-scroll";
 import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import React from "react";
-import { useRef } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
+import React, { useRef } from "react";
 const ServicesMapClientSide = dynamic(
   () => import("@/components/ServicesMap"),
   {
     ssr: false,
   }
 );
-
 const TopNavClientSide = dynamic(() => import("@/components/TopNav"), {
+  ssr: false,
+});
+const GraphClientSide = dynamic(() => import("@/components/Graph"), {
+  ssr: false,
+});
+const ToastClientSide = dynamic(() => import("@/components/Toast"), {
   ssr: false,
 });
 
 const localStorageCityKey = "city";
 
 const Home: NextPage = () => {
-  const scrollY = useScrollPosition(10 /*fps*/);
   const [city, setCity] = React.useState(
     typeof window !== "undefined"
       ? window.localStorage.getItem(localStorageCityKey) || "wellington"
@@ -40,29 +38,12 @@ const Home: NextPage = () => {
   const mapRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const tablesRef = useRef<HTMLDivElement>(null);
-  const toastId = useRef<React.ReactText | null>(null);
 
   React.useEffect(() => {
     if (typeof window !== undefined) {
       window.localStorage.setItem(localStorageCityKey, city);
     }
   }, [city]);
-
-  if (error) {
-    toastId.current = toast.info(
-      "There's an error with either my API or Metlink's, please try again later",
-      {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      }
-    );
-    dispatch({ type: "REJECTED", error: false });
-  }
 
   return (
     <div className={styles.container} ref={atAGlanceRef}>
@@ -80,8 +61,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <ToastContainer limit={1} style={{ fontSize: "1.8rem" }} />
-
+        <ToastClientSide error={error} dispatch={dispatch} />
         <div className={styles.nav_top_container}>
           <TopNavClientSide
             atAGlanceRef={atAGlanceRef}
@@ -139,7 +119,7 @@ const Home: NextPage = () => {
                 )}
               </p>
             </div>
-            <Graph />
+            <GraphClientSide />
           </div>
 
           <div className={styles.table_container} ref={tablesRef}>
