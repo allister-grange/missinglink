@@ -115,7 +115,7 @@
   width: 3.75em;
   height: 3.75em;
   margin: 0.375em 0 0 -2em;
-  background: #F5F4F4;
+  background: var(--nav-bar-background);
 }
 
 .rain:after {

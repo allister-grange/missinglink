@@ -24,7 +24,7 @@
 }
 
 .hidden {
-  transform: translateY(-120%);
+  transform: translateY(-140%);
 }
 
 .nav {
@@ -64,7 +64,7 @@
   border: none;
   background: transparent;
   font-size: 1.6rem;
-  padding: .8rem 1.2rem;
+  padding: 1rem .8rem;
   margin-right: .1rem;
 }
 
@@ -159,6 +159,10 @@
     width: 94%;
     padding-inline: 1rem;
     justify-content: space-between;
+  }
+
+  .city_button {
+    padding: .7rem 1.2rem;
   }
 
   .weather {
