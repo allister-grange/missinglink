@@ -32,7 +32,7 @@ export const InfoCard: React.FC<InfoCardProps> = ({
 
   let numberToDisplay;
 
-  if (servicesNumber < 30) {
+  if (servicesNumber < 10) {
     numberToDisplay = servicesNumber;
   } else {
     numberToDisplay = number.to((val) => Math.floor(val));

@@ -9,11 +9,14 @@ export const Footer: React.FC = () => {
           &copy; 2021-2023; all rights reserved
         </h2>
         <h3 className={styles.copyright_name}>
-          MissingLink is only as accurate as Metlink&apos;s APIs, the data has
-          been interpreted for cancellations and may not be perfect
+          There is some minor interpretation for the data from the APIs, as such
+          this website is not perfectly accurate
         </h3>
       </div>
       <ul className={styles.footer_list}>
+        <li className={styles.footer_link}>
+          <a href="https://dev-portal.at.govt.nz/">AT API</a>
+        </li>
         <li className={styles.footer_link}>
           <a href="https://opendata.metlink.org.nz/apis">Metlink API</a>
         </li>

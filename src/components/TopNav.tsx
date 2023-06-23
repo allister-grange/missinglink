@@ -4,6 +4,7 @@ import { WeatherIconSunny } from "./icons/WeatherIconSunny";
 import { WeatherData } from "@/types/weather";
 import { WeatherIconCloudy } from "./icons/WeatherIconCloudy";
 import { WeatherIconRainy } from "./icons/WeatherIconRainy";
+import { useTheme } from "next-themes";
 
 interface TopNavProps {
   atAGlanceRef: RefObject<HTMLDivElement>;
@@ -43,12 +44,12 @@ export const TopNav: React.FC<TopNavProps> = ({
     width: 0,
     animate: false,
   });
-
   const [prevScrollPos, setPrevScrollPos] = React.useState(0);
   const [navBarVisible, setNavBarVisible] = React.useState(true);
   const [weatherData, setWeatherData] = React.useState<
     undefined | WeatherData
   >();
+  const { theme, setTheme } = useTheme();
 
   const atAGlanceScroll = () => {
     handleLinkClick();
@@ -186,6 +187,13 @@ export const TopNav: React.FC<TopNavProps> = ({
               onMouseOver={onLinkMouseEnter}
             >
               Timetable
+            </a>
+            <a
+              className={styles.nav_link}
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onMouseOver={onLinkMouseEnter}
+            >
+              {theme === "dark" ? "🌚" : "☀️"}
             </a>
           </div>
           <span
