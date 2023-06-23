@@ -1,5 +1,6 @@
 import { Footer } from "@/components/Footer";
-import { InfoCardsContainer } from "@/components/InfoCardsContainer";
+import { InfoCardsContainer } from "@/components/info_cards/InfoCardsContainer";
+import { PodiumContainer } from "@/components/podium/PodiumContainer";
 import { Timetable } from "@/components/Timetable";
 import useServiceApi from "@/hooks/useServiceApi";
 import styles from "@/styles/Home.module.css";
@@ -94,6 +95,11 @@ const Home: NextPage = () => {
               isLoadingInitialData={status === "LOADING"}
             />
           </div>
+
+          <div className={styles.podium_container}>
+            <PodiumContainer />
+          </div>
+
           <div className={styles.map_container} ref={mapRef}>
             <ServicesMapClientSide services={services} city={city} />
           </div>

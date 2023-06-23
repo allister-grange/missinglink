@@ -1,0 +1,31 @@
+.podium_container {
+  display: flex;
+  color: white;
+
+}
+
+.podium_card {
+  background-color: var(--color-secondary);
+  margin: 2rem;
+  border-radius: 1.5rem;
+  display: flex;
+}
+
+.podium_card__title {
+  font-size: 10rem;
+  padding: 3rem;
+}
+
+.podium_card__line {
+  background-color: var(--color-background);
+  width: 1rem;
+  height: 100%;
+}
+
+.podium_card__container {
+  padding: 2rem;
+}
+
+.podium_card__subtitle {
+  font-size: 4rem;
+}
