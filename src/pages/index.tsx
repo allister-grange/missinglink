@@ -126,9 +126,9 @@ const Home: NextPage = () => {
             <div className={styles.table_title_container}>
               <h1 className={styles.sub_title}>Timetables 🔎</h1>
               <p className={styles.description}>
-                A quick view of the status of all the services currently
-                running. If the time is 0m:00s on a service, it usually means
-                that it&apos;s not reporting it&apos;s time
+                A quick view of the status of all the current trips. If the time
+                is 0m:00s on a service, it usually means that it&apos;s not
+                reporting its time
               </p>
               <Timetable serviceDataToDisplay={services.allServices} />
             </div>

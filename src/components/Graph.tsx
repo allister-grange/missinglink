@@ -23,96 +23,96 @@ const Graph: React.FC = ({}) => {
   >();
 
   const {
-    totalServices,
-    cancelledServices,
-    delayedServices,
-    earlyServices,
-    notReportingTimeServices,
-    onTimeServices,
-    totalDisruptedServices,
+    totalTrips,
+    cancelledTrips,
+    delayedTrips,
+    earlyTrips,
+    notReportingTimeTrips,
+    onTimeTrips,
+    totalDisruptedTrips,
   } = parseServiceStatsIntoTimeArrays(serviceStatistics);
 
   const graphData = {
     datasets: [
       {
-        label: "Total Services",
-        data: totalServices,
+        label: "Total Trips",
+        data: totalTrips,
         fill: false,
         backgroundColor: "white",
         borderColor:
-          hoveringLegendBadge && hoveringLegendBadge != "totalServices"
+          hoveringLegendBadge && hoveringLegendBadge != "totalTrips"
             ? "#acabab"
             : "#a2d2ff",
         borderWidth: 2,
         pointRadius: 2,
       },
       {
-        label: "Cancelled Services",
-        data: cancelledServices,
+        label: "Cancelled Trips",
+        data: cancelledTrips,
         fill: false,
         backgroundColor: "white",
         borderColor:
-          hoveringLegendBadge && hoveringLegendBadge != "cancelledServices"
+          hoveringLegendBadge && hoveringLegendBadge != "cancelledTrips"
             ? "#acabab"
             : "#3f37c9",
         borderWidth: 2,
         pointRadius: 2,
       },
       {
-        label: "Late Services",
-        data: delayedServices,
+        label: "Late Trips",
+        data: delayedTrips,
         fill: false,
         backgroundColor: "white",
         borderColor:
-          hoveringLegendBadge && hoveringLegendBadge != "lateServices"
+          hoveringLegendBadge && hoveringLegendBadge != "lateTrips"
             ? "#acabab"
             : "#d62828",
         borderWidth: 2,
         pointRadius: 2,
       },
       {
-        label: "On Time Services",
-        data: onTimeServices,
+        label: "On Time Trips",
+        data: onTimeTrips,
         fill: false,
         backgroundColor: "white",
         borderColor:
-          hoveringLegendBadge && hoveringLegendBadge != "onTimeServices"
+          hoveringLegendBadge && hoveringLegendBadge != "onTimeTrips"
             ? "#acabab"
             : "#8ac926",
         borderWidth: 2,
         pointRadius: 2,
       },
       {
-        label: "Early Services",
-        data: earlyServices,
+        label: "Early Trips",
+        data: earlyTrips,
         fill: false,
         backgroundColor: "white",
         borderColor:
-          hoveringLegendBadge && hoveringLegendBadge != "earlyServices"
+          hoveringLegendBadge && hoveringLegendBadge != "earlyTrips"
             ? "#acabab"
             : "#87986a",
         borderWidth: 2,
         pointRadius: 2,
       },
       {
-        label: "Not Reporting Time Services",
-        data: notReportingTimeServices,
+        label: "Not Reporting Time Trips",
+        data: notReportingTimeTrips,
         fill: false,
         backgroundColor: "white",
         borderColor:
-          hoveringLegendBadge && hoveringLegendBadge != "unknownServices"
+          hoveringLegendBadge && hoveringLegendBadge != "unknownTrips"
             ? "#acabab"
             : "#dda15e",
         borderWidth: 2,
         pointRadius: 2,
       },
       {
-        label: "Total Disrupted Services",
-        data: totalDisruptedServices,
+        label: "Total Disrupted Trips",
+        data: totalDisruptedTrips,
         fill: false,
         backgroundColor: "white",
         borderColor:
-          hoveringLegendBadge && hoveringLegendBadge != "disruptedServices"
+          hoveringLegendBadge && hoveringLegendBadge != "disruptedTrips"
             ? "#acabab"
             : "#fcbf49",
         borderWidth: 2,

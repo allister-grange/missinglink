@@ -27,7 +27,7 @@ const URL = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{
 const iconBackground = `
 width: 100%;
 height: 100%;
-background-color: #75CFF0;
+background-color: rgb(117, 207, 240);
 border-radius: 50%;
 `;
 
@@ -63,18 +63,15 @@ const getMapMarker = (service: Service) => {
     popupAnchor: [0, 0],
     html: `
     <div style="${iconBackground}">
-    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-    viewBox="0 0 185.343 185.343" style="enable-background:new 0 0 185.343 185.343; transform:rotate(${
-      service.bearing - 90
-    }deg)" xml:space="preserve">
-    <g>
-		<path style="fill:${color};" d="M51.707,185.343c-2.741,0-5.493-1.044-7.593-3.149c-4.194-4.194-4.194-10.981,0-15.175
-			l74.352-74.347L44.114,18.32c-4.194-4.194-4.194-10.987,0-15.175c4.194-4.194,10.987-4.194,15.18,0l81.934,81.934
-			c4.194,4.194,4.194,10.987,0,15.175l-81.934,81.939C57.201,184.293,54.454,185.343,51.707,185.343z"/>
-    </g>
-    </svg>
+      <svg style="transform:rotate(${
+        service.bearing - 90
+      }deg" fill="${color}" version="1.1" id="Capa_1" viewBox="0 0 268.831 268.832" xml:space="preserve">
+        <g>
+          <path d="M223.255,83.659l-80-79.998c-4.881-4.881-12.797-4.881-17.678,0l-80,80c-4.883,4.882-4.883,12.796,0,17.678   c2.439,2.44,5.64,3.661,8.839,3.661s6.397-1.221,8.839-3.661l58.661-58.661v213.654c0,6.903,5.597,12.5,12.5,12.5   c6.901,0,12.5-5.597,12.5-12.5V42.677l58.661,58.659c4.883,4.881,12.797,4.881,17.678,0   C228.137,96.455,228.137,88.541,223.255,83.659z"/>
+        </g>
+      </svg>
     </div>
-  `,
+    `,
   });
 
   return (
@@ -100,7 +97,7 @@ const ServicesMap: React.FC<ServiceMapProps> = ({
   services,
   city,
 }: ServiceMapProps) => {
-  let centerLatLong;
+  let centerLatLong: LatLngExpression | undefined;
 
   switch (city) {
     case "wellington":

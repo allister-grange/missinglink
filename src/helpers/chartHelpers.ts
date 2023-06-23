@@ -27,53 +27,53 @@ export const parseServiceStatsIntoTimeArrays = (
 ) => {
   type ServiceKey = keyof ServiceStatistic;
 
-  const totalServices = [] as DataPoint[];
-  const cancelledServices = [] as DataPoint[];
-  const delayedServices = [] as DataPoint[];
-  const earlyServices = [] as DataPoint[];
-  const notReportingTimeServices = [] as DataPoint[];
-  const onTimeServices = [] as DataPoint[];
-  const totalDisruptedServices = [] as DataPoint[];
+  const totalTrips = [] as DataPoint[];
+  const cancelledTrips = [] as DataPoint[];
+  const delayedTrips = [] as DataPoint[];
+  const earlyTrips = [] as DataPoint[];
+  const notReportingTimeTrips = [] as DataPoint[];
+  const onTimeTrips = [] as DataPoint[];
+  const totalDisruptedTrips = [] as DataPoint[];
 
   serviceStatistics.forEach((stat: ServiceStatistic) => {
-    totalServices.push({
+    totalTrips.push({
       x: stat.timestamp,
       y: stat["totalServices" as ServiceKey] as number,
     });
-    cancelledServices.push({
+    cancelledTrips.push({
       x: stat.timestamp,
       y: stat["cancelledServices" as ServiceKey] as number,
     });
-    delayedServices.push({
+    delayedTrips.push({
       x: stat.timestamp,
       y: stat["delayedServices" as ServiceKey] as number,
     });
-    earlyServices.push({
+    earlyTrips.push({
       x: stat.timestamp,
       y: stat["earlyServices" as ServiceKey] as number,
     });
-    notReportingTimeServices.push({
+    notReportingTimeTrips.push({
       x: stat.timestamp,
       y: stat["notReportingTimeServices" as ServiceKey] as number,
     });
-    onTimeServices.push({
+    onTimeTrips.push({
       x: stat.timestamp,
       y: stat["onTimeServices" as ServiceKey] as number,
     });
-    totalDisruptedServices.push({
+    totalDisruptedTrips.push({
       x: stat.timestamp,
       y: stat.cancelledServices + stat.delayedServices + stat.earlyServices,
     });
   });
 
   return {
-    totalServices,
-    cancelledServices,
-    delayedServices,
-    earlyServices,
-    notReportingTimeServices,
-    onTimeServices,
-    totalDisruptedServices,
+    totalTrips,
+    cancelledTrips,
+    delayedTrips,
+    earlyTrips,
+    notReportingTimeTrips,
+    onTimeTrips,
+    totalDisruptedTrips,
   };
 };
 

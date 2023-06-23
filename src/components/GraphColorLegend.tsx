@@ -23,47 +23,47 @@ export const GraphColorLegend: React.FC<GraphColorLegendProps> = ({
       <p
         className={styles.color_association}
         style={{ background: "#a2d2ff" }}
-        onMouseEnter={() => onHoverBadge("totalServices")}
+        onMouseEnter={() => onHoverBadge("totalTrips")}
         onMouseLeave={onLeaveBadge}
       >
-        total services
+        total trips
       </p>
       <p
         className={styles.color_association}
         style={{ background: "#d62828" }}
-        onMouseEnter={() => onHoverBadge("lateServices")}
+        onMouseEnter={() => onHoverBadge("lateTrips")}
         onMouseLeave={onLeaveBadge}
       >
-        late services
+        late trips
       </p>
       <p
         className={styles.color_association}
         style={{ background: "#3f37c9" }}
-        onMouseEnter={() => onHoverBadge("cancelledServices")}
+        onMouseEnter={() => onHoverBadge("cancelledTrips")}
         onMouseLeave={onLeaveBadge}
       >
-        cancelled services
+        cancelled trips
       </p>
       <p
         className={styles.color_association}
         style={{ background: "#8ac926" }}
-        onMouseEnter={() => onHoverBadge("onTimeServices")}
+        onMouseEnter={() => onHoverBadge("onTimeTrips")}
         onMouseLeave={onLeaveBadge}
       >
-        on time services
+        on time trips
       </p>
       <p
         className={styles.color_association}
         style={{ background: "#87986a" }}
-        onMouseEnter={() => onHoverBadge("earlyServices")}
+        onMouseEnter={() => onHoverBadge("earlyTrips")}
         onMouseLeave={onLeaveBadge}
       >
-        early services
+        early trips
       </p>
       <p
         className={styles.color_association}
         style={{ background: "#dda15e" }}
-        onMouseEnter={() => onHoverBadge("unknownServices")}
+        onMouseEnter={() => onHoverBadge("unknownTrips")}
         onMouseLeave={onLeaveBadge}
       >
         not reporting time
@@ -71,10 +71,10 @@ export const GraphColorLegend: React.FC<GraphColorLegendProps> = ({
       <p
         className={styles.color_association}
         style={{ background: "#fcbf49" }}
-        onMouseEnter={() => onHoverBadge("disruptedServices")}
+        onMouseEnter={() => onHoverBadge("disruptedTrips")}
         onMouseLeave={onLeaveBadge}
       >
-        total disrupted services
+        total disrupted trips
       </p>
     </div>
   );
