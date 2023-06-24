@@ -1,5 +1,27 @@
+export const getServiceProviderFromCity = (
+  city: string,
+  firstLetterCapital: boolean = false
+) => {
+  let serviceProvider = "";
+
+  switch (city) {
+    case "wellington":
+      serviceProvider = "metlink";
+      break;
+    case "auckland":
+      serviceProvider = firstLetterCapital ? "AT" : "at";
+      break;
+    default:
+      serviceProvider = "metlink;";
+  }
+
+  return firstLetterCapital
+    ? serviceProvider.charAt(0).toUpperCase() + serviceProvider.slice(1)
+    : serviceProvider;
+};
+
 // https://stackoverflow.com/questions/3733227/javascript-seconds-to-minutes-and-seconds
-const convertSecondsToMinutes = (
+export const convertSecondsToMinutes = (
   seconds: number,
   includeSign: boolean
 ): string => {
@@ -26,6 +48,17 @@ const convertSecondsToMinutes = (
   }
   return ret;
 };
+
+export function formatDelay(seconds: number): string {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+
+  if (minutes === 0) {
+    return `${remainingSeconds}s`;
+  } else {
+    return `${minutes}m ${remainingSeconds}s`;
+  }
+}
 
 export const convertSecondsToMinutesSentence = (seconds: number): string => {
   let negative = false;

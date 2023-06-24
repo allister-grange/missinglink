@@ -3,6 +3,7 @@ import { Service, ServiceContainer } from "@/types/ServiceTypes";
 import fetchData from "./fetchData";
 import { API_URL } from "@/constants";
 import { HubConnection, HubConnectionBuilder } from "@microsoft/signalr";
+import { getServiceProviderFromCity } from "@/helpers/convertors";
 
 const sortServicesByRoute = (service: ServiceContainer): ServiceContainer => {
   const sort = (serviceArray: Service[]) => {
@@ -98,26 +99,6 @@ const asyncReducer = (state: State, action: Action): State => {
       throw new Error(`Unhandled action: ${action}`);
     }
   }
-};
-
-const getServiceProviderFromCity = (
-  city: string,
-  firstLetterCapital: boolean = false
-) => {
-  let serviceProvider = "";
-
-  switch (city) {
-    case "wellington":
-      serviceProvider = "metlink";
-      break;
-    case "auckland":
-      serviceProvider = "at";
-      break;
-    default:
-      serviceProvider = "metlink;";
-  }
-
-  return firstLetterCapital ? city.charAt(0) + city.slice(1) : serviceProvider;
 };
 
 const useServiceApi = (city: string) => {

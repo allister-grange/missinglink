@@ -1,5 +1,6 @@
 import { Footer } from "@/components/Footer";
-import { InfoCardsContainer } from "@/components/InfoCardsContainer";
+import { InfoCardsContainer } from "@/components/info_cards/InfoCardsContainer";
+import { PodiumContainer } from "@/components/podium/PodiumContainer";
 import { Timetable } from "@/components/Timetable";
 import useServiceApi from "@/hooks/useServiceApi";
 import styles from "@/styles/Home.module.css";
@@ -94,6 +95,16 @@ const Home: NextPage = () => {
               isLoadingInitialData={status === "LOADING"}
             />
           </div>
+
+          <div className={styles.podium_container}>
+            <h1 className={styles.sub_title}>Leaderboard 🏅</h1>
+            <p className={styles.description}>
+              The leading services this week for the highest average delay, this
+              is checked every 15 minutes
+            </p>
+            <PodiumContainer city={city} />
+          </div>
+
           <div className={styles.map_container} ref={mapRef}>
             <ServicesMapClientSide services={services} city={city} />
           </div>
@@ -134,20 +145,6 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
-
-        {/* <div
-          className={`${styles.side_nav_container} ${
-            scrollY > 60 && styles.side_nav_container_show
-          }`}
-        >
-          <SideBarNav
-            scrollY={scrollY}
-            atAGlanceRef={atAGlanceRef}
-            mapRef={mapRef}
-            statsRef={statsRef}
-            tablesRef={tablesRef}
-          />
-        </div> */}
       </main>
 
       <Footer />
