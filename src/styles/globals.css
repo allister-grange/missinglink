@@ -140,6 +140,10 @@ p, h1, h2, h3, h4, h5, h6 {
   --nav-bar-bubble-pill-background: #d7d7d9;
   --nav-bar-button-color: black;
   --nav-bar-button-hamburger-lines: black;
+
+  --color-podium-1: #FFD01E;
+  --color-podium-2: #C1C1C1;
+  --color-podium-3: #FFAB68;
 }
 
 [data-theme='dark'] {
@@ -164,4 +168,8 @@ p, h1, h2, h3, h4, h5, h6 {
   --nav-bar-bubble-pill-background: #1e2228;
   --nav-bar-button-color: #fafafa;
   --nav-bar-button-hamburger-lines: #fafafa;
+
+  --color-podium-1: #8B6E01;
+  --color-podium-2: #3B4042;
+  --color-podium-3: #8E3F00;
 }

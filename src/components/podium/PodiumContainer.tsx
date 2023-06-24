@@ -31,8 +31,8 @@ async function getWorstPerformingServices(city: string) {
 
 export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
   const [worstServices, setWorstServices] = React.useState<
-    WorstPerformingServices[]
-  >([]);
+    WorstPerformingServices[] | undefined
+  >();
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -51,22 +51,34 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
   return (
     <div className={styles.podium_container}>
       <PodiumCard
-        style={{ flexBasis: "20%", flexShrink: "0", background: "#C1C1C1" }}
+        style={{
+          flexBasis: "20%",
+          flexShrink: "0",
+          background: "var(--color-podium-2)",
+        }}
         place={2}
-        delay={worstServices[1].averageDelay}
-        serviceName={worstServices[1].serviceName}
+        delay={worstServices ? worstServices[1].averageDelay : undefined}
+        serviceName={worstServices ? worstServices[1].serviceName : ""}
       />
       <PodiumCard
-        style={{ flexBasis: "60%", fontSize: "1rem", background: "#FFD01E" }}
+        style={{
+          flexBasis: "60%",
+          fontSize: "1rem",
+          background: "var(--color-podium-1)",
+        }}
         place={1}
-        delay={worstServices[0].averageDelay}
-        serviceName={worstServices[0].serviceName}
+        delay={worstServices ? worstServices[0].averageDelay : undefined}
+        serviceName={worstServices ? worstServices[0].serviceName : ""}
       />
       <PodiumCard
-        style={{ flexBasis: "20%", flexShrink: "0", background: "#FFAB68" }}
+        style={{
+          flexBasis: "20%",
+          flexShrink: "0",
+          background: "var(--color-podium-3)",
+        }}
         place={3}
-        delay={worstServices[2].averageDelay}
-        serviceName={worstServices[2].serviceName}
+        delay={worstServices ? worstServices[2].averageDelay : undefined}
+        serviceName={worstServices ? worstServices[2].serviceName : ""}
       />
     </div>
   );

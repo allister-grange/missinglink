@@ -2,6 +2,7 @@
   display: flex;
   color: white;
   align-items: center;
+  margin-top: 4rem;
 }
 
 .podium_card {
@@ -44,4 +45,12 @@
 .podium_card__delay {
   font-size: 2em;
   white-space: pre;
+}
+
+/* 1100px or down */
+@media (max-width: 1000px) {
+  .podium_container {
+    display: flex;
+    flex-direction: column;
+  }
 }

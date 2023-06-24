@@ -4,9 +4,9 @@ import { formatDelay } from "@/helpers/convertors";
 
 interface PodiumCardProps {
   style?: React.CSSProperties;
-  place: number;
-  delay: number;
-  serviceName: string;
+  place?: number;
+  delay?: number;
+  serviceName?: string;
 }
 
 export const PodiumCard: React.FC<PodiumCardProps> = ({
@@ -24,7 +24,7 @@ export const PodiumCard: React.FC<PodiumCardProps> = ({
       <div className={styles.podium_card__container}>
         <div className={styles.podium_card__title}>{serviceName}</div>
         <div className={styles.podium_card__delay}>
-          Average delay of: {formatDelay(delay)}
+          Average delay of: {delay ? formatDelay(delay) : ""}
         </div>
       </div>
     </div>

@@ -86,13 +86,13 @@
 .description {
   margin-top: .7rem;
   font-size: 2.2rem;
-  color: var(--color-grey-light-2)
+  color: var(--color-grey-light-2);
 }
 
 .sub_description {
   margin-top: .6rem;
   font-size: 1.5rem;
-  color: var(--color-grey-light-3)
+  color: var(--color-grey-light-3);
 }
 
 .sub_description__minor {
