@@ -1,4 +1,4 @@
-import { convertSecondsToMinutesSentence } from "@/helpers/convertSecondsToMinutes";
+import { convertSecondsToMinutesSentence } from "@/helpers/convertors";
 import styles from "@/styles/Map.module.css";
 import { Service, ServiceContainer } from "@/types/ServiceTypes";
 import { LatLngExpression, divIcon } from "leaflet";

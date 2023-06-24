@@ -1,7 +1,7 @@
 .podium_container {
   display: flex;
   color: white;
-
+  align-items: center;
 }
 
 .podium_card {
@@ -9,23 +9,39 @@
   margin: 2rem;
   border-radius: 1.5rem;
   display: flex;
+  box-shadow: .5rem .5rem 2rem rgba(0, 0, 0, .1);
+}
+
+.podium_card__number {
+  font-size: 7em;
+  padding: 2rem;
+  align-self: center;
+  font-weight: 400;
 }
 
 .podium_card__title {
-  font-size: 10rem;
-  padding: 3rem;
+  font-size: 8em;
+  font-weight: 800;
 }
 
 .podium_card__line {
   background-color: var(--color-background);
-  width: 1rem;
-  height: 100%;
+  width: 1em;
 }
 
 .podium_card__container {
   padding: 2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .podium_card__subtitle {
-  font-size: 4rem;
+  font-size: 4em;
+}
+
+.podium_card__delay {
+  font-size: 2em;
+  white-space: pre;
 }

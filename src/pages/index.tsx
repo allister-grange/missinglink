@@ -97,7 +97,7 @@ const Home: NextPage = () => {
           </div>
 
           <div className={styles.podium_container}>
-            <PodiumContainer />
+            <PodiumContainer city={city} />
           </div>
 
           <div className={styles.map_container} ref={mapRef}>

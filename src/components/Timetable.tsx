@@ -1,7 +1,7 @@
 import { Service } from "@/types/ServiceTypes";
 import React from "react";
 import styles from "@/styles/Timetable.module.css";
-import convertSecondsToMinutes from "@/helpers/convertSecondsToMinutes";
+import convertSecondsToMinutes from "@/helpers/convertors";
 import { useTable, useSortBy, usePagination } from "react-table";
 
 interface TimetableProps {
