@@ -45,6 +45,12 @@
 .podium_card__delay {
   font-size: 2em;
   white-space: pre;
+  font-weight: 600;
+}
+
+.podium_card__route_name {
+  font-size: 1.5em;
+  margin-top: .2rem;
 }
 
 /* 1100px or down */

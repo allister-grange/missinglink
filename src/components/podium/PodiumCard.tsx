@@ -7,12 +7,14 @@ interface PodiumCardProps {
   place?: number;
   delay?: number;
   serviceName?: string;
+  routeLongName?: string;
 }
 
 export const PodiumCard: React.FC<PodiumCardProps> = ({
   style,
   place,
   delay,
+  routeLongName,
   serviceName,
 }) => {
   return (
@@ -22,10 +24,13 @@ export const PodiumCard: React.FC<PodiumCardProps> = ({
       <span className={styles.podium_card__line}></span>
 
       <div className={styles.podium_card__container}>
-        <div className={styles.podium_card__title}>{serviceName}</div>
-        <div className={styles.podium_card__delay}>
+        <h3 className={styles.podium_card__title}>{serviceName}</h3>
+        <p className={styles.podium_card__delay}>
           Average delay of: {delay ? formatDelay(delay) : ""}
-        </div>
+        </p>
+        <p className={styles.podium_card__route_name}>
+          {routeLongName === serviceName ? "" : routeLongName}
+        </p>
       </div>
     </div>
   );

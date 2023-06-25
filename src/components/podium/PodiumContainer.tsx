@@ -10,7 +10,8 @@ interface PodiumContainerProps {
 
 type WorstPerformingServices = {
   serviceName: string;
-  averageDelay: number;
+  delay: number;
+  routeLongName: string;
 };
 
 async function getWorstPerformingServices(city: string) {
@@ -39,8 +40,10 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
       const services = (await getWorstPerformingServices(
         city
       )) as WorstPerformingServices[];
+      console.log(services);
+
       const roundedDownServices = services.map((thing) => {
-        return { ...thing, averageDelay: Math.floor(thing.averageDelay) };
+        return { ...thing, delay: Math.floor(thing.delay) };
       });
       setWorstServices(roundedDownServices);
     };
@@ -57,7 +60,10 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
           background: "var(--color-podium-2)",
         }}
         place={2}
-        delay={worstServices ? worstServices[1].averageDelay : undefined}
+        delay={worstServices ? worstServices[1].delay : undefined}
+        routeLongName={
+          worstServices ? worstServices[1].routeLongName : undefined
+        }
         serviceName={worstServices ? worstServices[1].serviceName : ""}
       />
       <PodiumCard
@@ -67,7 +73,10 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
           background: "var(--color-podium-1)",
         }}
         place={1}
-        delay={worstServices ? worstServices[0].averageDelay : undefined}
+        delay={worstServices ? worstServices[0].delay : undefined}
+        routeLongName={
+          worstServices ? worstServices[0].routeLongName : undefined
+        }
         serviceName={worstServices ? worstServices[0].serviceName : ""}
       />
       <PodiumCard
@@ -77,7 +86,10 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
           background: "var(--color-podium-3)",
         }}
         place={3}
-        delay={worstServices ? worstServices[2].averageDelay : undefined}
+        delay={worstServices ? worstServices[2].delay : undefined}
+        routeLongName={
+          worstServices ? worstServices[2].routeLongName : undefined
+        }
         serviceName={worstServices ? worstServices[2].serviceName : ""}
       />
     </div>
