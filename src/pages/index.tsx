@@ -96,14 +96,14 @@ const Home: NextPage = () => {
             />
           </div>
 
-          {/* <div className={styles.podium_container}>
+          <div className={styles.podium_container}>
             <h1 className={styles.sub_title}>Leaderboard 🏅</h1>
             <p className={styles.description}>
               The leading services this week for the highest average delay, this
               is checked every 15 minutes
             </p>
             <PodiumContainer city={city} />
-          </div> */}
+          </div>
 
           <div className={styles.map_container} ref={mapRef}>
             <ServicesMapClientSide services={services} city={city} />
