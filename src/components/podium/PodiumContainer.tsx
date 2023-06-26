@@ -58,6 +58,7 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
           flexBasis: "20%",
           flexShrink: "0",
           background: "var(--color-podium-2)",
+          maxWidth: "30rem",
         }}
         place={2}
         delay={worstServices ? worstServices[1].delay : undefined}
@@ -84,6 +85,7 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
           flexBasis: "20%",
           flexShrink: "0",
           background: "var(--color-podium-3)",
+          maxWidth: "30rem",
         }}
         place={3}
         delay={worstServices ? worstServices[2].delay : undefined}

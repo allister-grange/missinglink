@@ -51,6 +51,7 @@
 .podium_card__route_name {
   font-size: 1.5em;
   margin-top: .2rem;
+  text-align: left;
 }
 
 /* 1100px or down */
