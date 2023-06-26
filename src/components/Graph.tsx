@@ -13,9 +13,13 @@ import { GraphColorLegend } from "./GraphColorLegend";
 const yesterdayDate = new Date();
 yesterdayDate.setDate(yesterdayDate.getDate() - 1);
 
-const Graph: React.FC = ({}) => {
+type GraphPageProps = {
+  city: string;
+};
+
+const Graph: React.FC<GraphPageProps> = ({ city }) => {
   const { serviceStatistics, isLoading, getServiceStatsData } =
-    useServiceStatisticApi();
+    useServiceStatisticApi(city);
   const [startDate, setStartDate] = useState<Date>(yesterdayDate);
   const [endDate, setEndDate] = useState<Date | null>(new Date());
   const [hoveringLegendBadge, setHoveringLegendBadge] = useState<

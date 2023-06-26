@@ -130,7 +130,7 @@ const Home: NextPage = () => {
                 )}
               </p>
             </div>
-            <GraphClientSide />
+            <GraphClientSide city={city} />
           </div>
 
           <div className={styles.table_container} ref={tablesRef}>

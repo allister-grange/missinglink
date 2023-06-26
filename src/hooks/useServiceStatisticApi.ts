@@ -1,12 +1,14 @@
 import { API_URL } from "@/constants";
 import { useEffect, useState, useCallback } from "react";
 import { ServiceStatistic } from "@/types/ServiceTypes";
+import { getServiceProviderFromCity } from "@/helpers/convertors";
 
-const useMetlinkApi = () => {
+const useMetlinkApi = (city: string) => {
   const [serviceStatistics, setServiceStatistics] = useState<
     ServiceStatistic[]
   >([]);
   const [isLoading, setIsLoading] = useState(false);
+  const servicerProvider = getServiceProviderFromCity(city);
 
   const fetchServiceStatistics = useCallback(async () => {
     setIsLoading(true);
@@ -23,7 +25,7 @@ const useMetlinkApi = () => {
     let res: any;
     try {
       res = await fetch(
-        `${API_URL}/api/v1/metlink/statistics?startDate=${earlierDateString}&endDate=${laterDateString}`
+        `${API_URL}/api/v1/${servicerProvider}/statistics?startDate=${earlierDateString}&endDate=${laterDateString}`
       );
     } catch {
       return;
@@ -47,7 +49,7 @@ const useMetlinkApi = () => {
     let res: any;
     try {
       res = await fetch(
-        `${API_URL}/api/v1/metlink/statistics?startDate=${startDateString}&endDate=${endDateString}`
+        `${API_URL}/api/v1/${servicerProvider}/statistics?startDate=${startDateString}&endDate=${endDateString}`
       );
     } catch {
       return;
