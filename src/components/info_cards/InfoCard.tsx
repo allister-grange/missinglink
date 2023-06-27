@@ -39,12 +39,7 @@ export const InfoCard: React.FC<InfoCardProps> = ({
   }
 
   const includeSubNumberElement = includeSubNumber && (
-    <span>
-      /{" "}
-      {totalServicesNumber === 0
-        ? Math.floor(Math.random() * (200 - 100 + 1) + 100)
-        : totalServicesNumber}
-    </span>
+    <span>{totalServicesNumber !== 0 && `/ ${totalServicesNumber}`}</span>
   );
 
   return (
