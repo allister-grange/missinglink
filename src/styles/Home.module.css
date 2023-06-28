@@ -32,7 +32,9 @@
 }
 
 .heading {
-  font-size: 10rem;
+  margin-top: 1rem;
+  font-size: 9rem;
+  font-family: 'Montserrat';
 }
 
 .sub_heading {
@@ -81,6 +83,7 @@
 
 .sub_title {
   font-size: 7rem;
+  font-family: 'Montserrat';
 }
 
 .description {

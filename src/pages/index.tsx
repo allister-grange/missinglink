@@ -60,6 +60,10 @@ const Home: NextPage = () => {
           content="MissingLink - An overview of public transport in NZ"
         />
         <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <main className={styles.main}>
         <ToastClientSide error={error} dispatch={dispatch} />
@@ -97,11 +101,17 @@ const Home: NextPage = () => {
           </div>
 
           <div className={styles.podium_container}>
-            <h1 className={styles.sub_title}>Leaderboard 🏅</h1>
+            <h2 className={styles.sub_title}>Leaderboard 🏅</h2>
             <p className={styles.description}>
               The leading services this week for the highest average delay, this
               is checked every 15 minutes
             </p>
+            {city === "wellington" && (
+              <p className={styles.sub_description}>
+                This excludes school buses (which are always the worst, they run
+                infrequently)
+              </p>
+            )}
             <PodiumContainer city={city} />
           </div>
 
@@ -111,7 +121,7 @@ const Home: NextPage = () => {
 
           <div className={styles.graph_container} ref={statsRef}>
             <div className={styles.graph_title_container}>
-              <h1 className={styles.sub_title}>Statistics ✍️</h1>
+              <h2 className={styles.sub_title}>Statistics ✍️</h2>
               <p className={styles.description}>
                 Every 20 minutes I take a sit-rep of how Metlink&apos;s services
                 are doing
@@ -135,7 +145,7 @@ const Home: NextPage = () => {
 
           <div className={styles.table_container} ref={tablesRef}>
             <div className={styles.table_title_container}>
-              <h1 className={styles.sub_title}>Timetables 🔎</h1>
+              <h2 className={styles.sub_title}>Timetables 🔎</h2>
               <p className={styles.description}>
                 A quick view of the status of all the current trips. If the time
                 is 0m:00s on a service, it usually means that it&apos;s not

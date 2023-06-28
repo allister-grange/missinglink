@@ -69,9 +69,10 @@
 }
 
 .info_title {
-  font-size: 5rem;
+  font-size: 4.4rem;
   margin-top: 5rem;
   color: var(--color-grey-light-1);
+  font-family: 'Montserrat';
 }
 
 .info_title_blue {
