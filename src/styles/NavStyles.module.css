@@ -7,16 +7,7 @@
   z-index: 100;
   display: flex;
   justify-content: center;
-  align-items: center;
   transition: transform 0.3s ease-in-out;
-}
-
-.nav_link__pill {
-  position: absolute;
-  height: 3rem;
-  border-radius: 2rem;
-  z-index: 1;
-  background: var(--nav-bar-bubble-pill-background);
 }
 
 .visible {
@@ -55,6 +46,8 @@
 .city_picker {
   position: fixed;
   right: 4rem;
+  align-items: center;
+  display: flex;
 }
 
 .city_button {
@@ -66,19 +59,22 @@
   font-size: 1.6rem;
   padding: 1rem .8rem;
   margin-right: .1rem;
-}
-
-.city_button:hover {
-  background: var(--nav-bar-bubble-background);
-  border-radius: 2rem;
-  color: var(--nav-bar-button-color);
+  z-index: 300;
+  position: relative;
 }
 
 .city_button__active {
-  background: var(--nav-bar-bubble-background);
-  padding: .8rem 1.2rem;
-  border-radius: 2rem;
   color: var(--nav-bar-button-color);
+  font-weight: 600;
+}
+
+.city_button__pill {
+  position: absolute;
+  background: var(--nav-bar-bubble-background);
+  color: var(--nav-bar-button-color);
+  z-index: 1;
+  border-radius: 1.5rem;
+  height: 4rem;
 }
 
 .weather {
@@ -120,6 +116,14 @@
   color: var(--color-grey-light-2);
 }
 
+.nav_link__pill {
+  position: absolute;
+  height: 3rem;
+  border-radius: 2rem;
+  z-index: 1;
+  background: var(--nav-bar-bubble-pill-background);
+}
+
 .nav_link:hover {
   color: var(--color-grey-dark-1);
   cursor: pointer;
@@ -154,7 +158,7 @@
   display: none;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
   .nav {
     width: 94%;
     padding-inline: 1rem;
@@ -265,6 +269,10 @@
   }
 
   .nav_link__pill {
+    display: none;
+  }
+
+  .city_button__pill {
     display: none;
   }
 }

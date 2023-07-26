@@ -39,11 +39,19 @@ export const TopNav: React.FC<TopNavProps> = ({
   setCity,
 }) => {
   const innerNavBubbleRef = React.useRef<HTMLDivElement>(null);
-  const [pillBackgroundPosition, setPillBackgroundPosition] = React.useState({
-    left: 0,
-    width: 0,
-    animate: false,
-  });
+  const cityNavDivRef = React.useRef<HTMLDivElement>(null);
+  const [navPillBackgroundPosition, setNavPillBackgroundPosition] =
+    React.useState({
+      left: 0,
+      width: 0,
+      animate: false,
+    });
+  const [cityPillBackgroundPosition, setCityNavPillBackgroundPosition] =
+    React.useState({
+      left: 0,
+      width: 0,
+      animate: false,
+    });
   const [prevScrollPos, setPrevScrollPos] = React.useState(0);
   const [navBarVisible, setNavBarVisible] = React.useState(true);
   const [weatherData, setWeatherData] = React.useState<
@@ -78,16 +86,26 @@ export const TopNav: React.FC<TopNavProps> = ({
   }, [city]);
 
   const onLinkMouseEnter = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement, MouseEvent>,
+    isCity: boolean
   ) => {
     const linkRect = (e.target as HTMLAnchorElement).getBoundingClientRect();
-    const innerNavBubbleRect =
-      innerNavBubbleRef.current!.getBoundingClientRect();
 
-    const offsetX = linkRect.left - innerNavBubbleRect.left;
+    let boundingRect;
+    if (isCity) {
+      boundingRect = cityNavDivRef.current!.getBoundingClientRect();
+    } else {
+      boundingRect = innerNavBubbleRef.current!.getBoundingClientRect();
+    }
+
+    const offsetX = linkRect.left - boundingRect.left;
     const width = linkRect.width;
 
-    setPillBackgroundPosition({ left: offsetX, width, animate: true });
+    if (isCity) {
+      setCityNavPillBackgroundPosition({ left: offsetX, width, animate: true });
+    } else {
+      setNavPillBackgroundPosition({ left: offsetX, width, animate: true });
+    }
   };
 
   // yeah yeah, imperative code sucks I know..
@@ -107,7 +125,12 @@ export const TopNav: React.FC<TopNavProps> = ({
       setPrevScrollPos(currentScrollPos);
       setNavBarVisible(visible);
       if (!visible) {
-        setPillBackgroundPosition({
+        setNavPillBackgroundPosition({
+          left: 0,
+          width: 0,
+          animate: false,
+        });
+        setCityNavPillBackgroundPosition({
           left: 0,
           width: 0,
           animate: false,
@@ -163,35 +186,35 @@ export const TopNav: React.FC<TopNavProps> = ({
             <a
               className={styles.nav_link}
               onClick={atAGlanceScroll}
-              onMouseOver={onLinkMouseEnter}
+              onMouseOver={(e) => onLinkMouseEnter(e, false)}
             >
               At a glance
             </a>
             <a
               className={styles.nav_link}
               onClick={mapScroll}
-              onMouseOver={onLinkMouseEnter}
+              onMouseOver={(e) => onLinkMouseEnter(e, false)}
             >
               Map
             </a>
             <a
               className={styles.nav_link}
               onClick={statsScroll}
-              onMouseOver={onLinkMouseEnter}
+              onMouseOver={(e) => onLinkMouseEnter(e, false)}
             >
               Stats
             </a>
             <a
               className={styles.nav_link}
               onClick={tablesScroll}
-              onMouseOver={onLinkMouseEnter}
+              onMouseOver={(e) => onLinkMouseEnter(e, false)}
             >
               Timetable
             </a>
             <a
               className={styles.nav_link}
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              onMouseOver={onLinkMouseEnter}
+              onMouseOver={(e) => onLinkMouseEnter(e, false)}
             >
               {theme === "dark" ? "🌚" : "☀️"}
             </a>
@@ -199,15 +222,15 @@ export const TopNav: React.FC<TopNavProps> = ({
           <span
             className={styles.nav_link__pill}
             style={{
-              left: `${pillBackgroundPosition.left}px`,
-              width: `${pillBackgroundPosition.width}px`,
-              transition: pillBackgroundPosition.animate
+              left: `${navPillBackgroundPosition.left}px`,
+              width: `${navPillBackgroundPosition.width}px`,
+              transition: navPillBackgroundPosition.animate
                 ? "transform .3s ease, width .3s ease, left .3s ease"
                 : "",
             }}
           ></span>
         </div>
-        <div className={styles.city_picker}>
+        <div className={styles.city_picker} ref={cityNavDivRef}>
           <button
             className={
               styles.city_button +
@@ -215,19 +238,31 @@ export const TopNav: React.FC<TopNavProps> = ({
               (city === "wellington" ? styles.city_button__active : "")
             }
             onClick={() => setCity("wellington")}
+            onMouseOver={(e) => onLinkMouseEnter(e, true)}
           >
             Wellington
           </button>
-          {/* <button
+          <button
             className={
               styles.city_button +
               " " +
               (city === "auckland" ? styles.city_button__active : "")
             }
             onClick={() => setCity("auckland")}
+            onMouseOver={(e) => onLinkMouseEnter(e, true)}
           >
             Auckland
-          </button> */}
+          </button>
+          <span
+            className={styles.city_button__pill}
+            style={{
+              left: `${cityPillBackgroundPosition.left}px`,
+              width: `${cityPillBackgroundPosition.width}px`,
+              transition: cityPillBackgroundPosition.animate
+                ? "transform .3s ease, width .3s ease, left .3s ease"
+                : "",
+            }}
+          ></span>
         </div>
       </div>
     </nav>
