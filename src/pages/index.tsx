@@ -106,12 +106,12 @@ const Home: NextPage = () => {
               The leading services this week for the highest average delay, this
               is checked every 15 minutes
             </p>
-            {city === "wellington" && (
+            {/* {city === "wellington" && (
               <p className={styles.sub_description}>
                 This excludes school buses (which are always the worst, they run
                 infrequently)
               </p>
-            )}
+            )} */}
             <PodiumContainer city={city} />
           </div>
 
