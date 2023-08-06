@@ -164,31 +164,31 @@ const useServiceApi = (city: string) => {
     fetchServices(false);
   }, [fetchServices, city]);
 
-  useEffect(() => {
-    let connection: HubConnection | undefined = undefined;
+  // useEffect(() => {
+  //   let connection: HubConnection | undefined = undefined;
 
-    const connectToHub = async () => {
-      connection = await new HubConnectionBuilder()
-        .withUrl(`${API_URL}/servicehub/${getServiceProviderFromCity(city)}`)
-        .withAutomaticReconnect()
-        .build();
+  //   const connectToHub = async () => {
+  //     connection = await new HubConnectionBuilder()
+  //       .withUrl(`${API_URL}/servicehub/${getServiceProviderFromCity(city)}`)
+  //       .withAutomaticReconnect()
+  //       .build();
 
-      connection.on(
-        `ServiceUpdates${getServiceProviderFromCity(city, true)}`,
-        (data: Service[]) => {
-          const sortedServices = sortServicesResponseByStatus(data);
-          dispatch({ type: "RESOLVED", results: sortedServices });
-        }
-      );
+  //     connection.on(
+  //       `ServiceUpdates${getServiceProviderFromCity(city, true)}`,
+  //       (data: Service[]) => {
+  //         const sortedServices = sortServicesResponseByStatus(data);
+  //         dispatch({ type: "RESOLVED", results: sortedServices });
+  //       }
+  //     );
 
-      connection.start();
-    };
+  //     connection.start();
+  //   };
 
-    connectToHub();
-    return () => {
-      connection?.stop();
-    };
-  }, [city]);
+  //   connectToHub();
+  //   return () => {
+  //     connection?.stop();
+  //   };
+  // }, [city]);
 
   return { ...state, refreshAPIServicesData, dispatch };
 };
