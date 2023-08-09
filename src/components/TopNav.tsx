@@ -242,7 +242,7 @@ export const TopNav: React.FC<TopNavProps> = ({
           >
             Wellington
           </button>
-          {/* <button
+          <button
             className={
               styles.city_button +
               " " +
@@ -252,7 +252,7 @@ export const TopNav: React.FC<TopNavProps> = ({
             onMouseOver={(e) => onLinkMouseEnter(e, true)}
           >
             Auckland
-          </button> */}
+          </button>
           <span
             className={styles.city_button__pill}
             style={{
