@@ -12,7 +12,7 @@ export const getServiceProviderFromCity = (
       serviceProvider = firstLetterCapital ? "AT" : "at";
       break;
     default:
-      serviceProvider = "metlink;";
+      serviceProvider = "metlink";
   }
 
   return firstLetterCapital

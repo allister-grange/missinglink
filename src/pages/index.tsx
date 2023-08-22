@@ -27,11 +27,26 @@ const ToastClientSide = dynamic(() => import("@/components/Toast"), {
 const localStorageCityKey = "city";
 
 const Home: NextPage = () => {
-  const [city, setCity] = React.useState(
-    typeof window !== "undefined"
-      ? window.localStorage.getItem(localStorageCityKey) || "wellington"
-      : "wellington"
-  );
+  // People need to be able to link each other the Wellington site or the Auckland
+  // using hashes, preferences are then stored in local storage
+  // the hash takes priority over the local storage
+  let defaultCity = "wellington";
+  let locationHash;
+  let localStorageHash;
+  if (typeof window !== "undefined") {
+    locationHash = window ? window.location.hash : undefined;
+    localStorageHash = window
+      ? window.localStorage.getItem(localStorageCityKey)
+      : undefined;
+  }
+
+  if (locationHash) {
+    defaultCity = locationHash.split("#")[1];
+  } else if (localStorageHash) {
+    defaultCity = localStorageHash;
+  }
+
+  const [city, setCity] = React.useState(defaultCity);
   const { services, refreshAPIServicesData, error, status, dispatch } =
     useServiceApi(city);
 
@@ -43,6 +58,7 @@ const Home: NextPage = () => {
   React.useEffect(() => {
     if (typeof window !== undefined) {
       window.localStorage.setItem(localStorageCityKey, city);
+      window.location.hash = city;
     }
   }, [city]);
 

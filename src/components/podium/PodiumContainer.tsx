@@ -40,8 +40,6 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
       const services = (await getWorstPerformingServices(
         city
       )) as WorstPerformingServices[];
-      console.log(services);
-
       const roundedDownServices = services.map((thing) => {
         return { ...thing, delay: Math.floor(thing.delay) };
       });
