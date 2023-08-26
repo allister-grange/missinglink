@@ -34,7 +34,7 @@ const useMetlinkApi = (city: string) => {
 
     setServiceStatistics(data);
     setIsLoading(false);
-  }, []);
+  }, [servicerProvider]);
 
   const getServiceStatsData = async (startDate: Date, endDate: Date) => {
     const tzoffset = new Date().getTimezoneOffset() * 60000; // offset in milliseconds

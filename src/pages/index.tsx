@@ -17,7 +17,7 @@ const ServicesMapClientSide = dynamic(
 const TopNavClientSide = dynamic(() => import("@/components/TopNav"), {
   ssr: false,
 });
-const GraphClientSide = dynamic(() => import("@/components/Graph"), {
+const TripsGraphClientSide = dynamic(() => import("@/components/TripsGraph"), {
   ssr: false,
 });
 const ToastClientSide = dynamic(() => import("@/components/Toast"), {
@@ -156,7 +156,7 @@ const Home: NextPage = () => {
                 )}
               </p>
             </div>
-            <GraphClientSide city={city} />
+            <TripsGraphClientSide city={city} />
           </div>
 
           <div className={styles.table_container} ref={tablesRef}>
