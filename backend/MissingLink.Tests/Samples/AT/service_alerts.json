@@ -1,0 +1,2168 @@
+{
+  "status": "OK",
+  "response": {
+    "header": {
+      "timestamp": 1695973658.993,
+      "gtfs_realtime_version": "1.0",
+      "incrementality": 0
+    },
+    "entity": [
+      {
+        "id": "e542d6b4-4d07-4dfe-a499-dc10cb18eb79",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "active_period": [
+            { "start": 1695150000, "end": 1695193200 },
+            { "start": 1695236400, "end": 1695279600 },
+            { "start": 1695322800, "end": 1695366000 },
+            { "start": 1695578400, "end": 1695621600 },
+            { "start": 1695664800, "end": 1695708000 },
+            { "start": 1695751200, "end": 1695794400 },
+            { "start": 1695837600, "end": 1695880800 },
+            { "start": 1695924000, "end": 1695967200 },
+            { "start": 1696183200, "end": 1696226400 },
+            { "start": 1696269600, "end": 1696312800 }
+          ],
+          "informed_entity": [
+            { "stop_id": "2011-bc4fba0d" },
+            { "stop_id": "2026-adb2872c" }
+          ],
+          "description_text": {
+            "translation": [
+              {
+                "text": "Wednesday 20 September to Tuesday 03 October 2023 (excluding weekends) from 7am-7pm the following stops will be closed, due to roadworks:\nStop 2011 - Mission Heights Drive (closed): Use Stop 1958 - Vin Alto Drive as an alternative.\nStop 2026 - Mission Heights Drive (closed): Use Stop 1957 - Vin Alto Drive as an alternative.\nNote: Bus stops will be open on weekends.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "45cb563f-437d-47e0-aa05-fd5f045d571b",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "active_period": [
+            { "start": 1693861200, "end": 1693886400 },
+            { "start": 1693947600, "end": 1693972800 },
+            { "start": 1694034000, "end": 1694059200 },
+            { "start": 1694120400, "end": 1694145600 },
+            { "start": 1694206800, "end": 1694232000 },
+            { "start": 1694293200, "end": 1694318400 },
+            { "start": 1694379600, "end": 1694404800 },
+            { "start": 1694466000, "end": 1694491200 },
+            { "start": 1694552400, "end": 1694577600 },
+            { "start": 1694638800, "end": 1694664000 },
+            { "start": 1694725200, "end": 1694750400 },
+            { "start": 1694811600, "end": 1694836800 },
+            { "start": 1694898000, "end": 1694923200 },
+            { "start": 1694984400, "end": 1695009600 },
+            { "start": 1695070800, "end": 1695096000 },
+            { "start": 1695157200, "end": 1695182400 },
+            { "start": 1695243600, "end": 1695268800 },
+            { "start": 1695330000, "end": 1695355200 },
+            { "start": 1695416400, "end": 1695441600 },
+            { "start": 1695499200, "end": 1695524400 },
+            { "start": 1695585600, "end": 1695610800 },
+            { "start": 1695672000, "end": 1695697200 },
+            { "start": 1695758400, "end": 1695783600 },
+            { "start": 1695844800, "end": 1695870000 },
+            { "start": 1695931200, "end": 1695956400 },
+            { "start": 1696017600, "end": 1696042800 }
+          ],
+          "informed_entity": [{ "stop_id": "7428-f34cfb70" }],
+          "description_text": {
+            "translation": [
+              {
+                "text": "Closed until 4pm. Use Stop 7426 – Koraha Street as an alternative.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "e79386a2-cb64-4e0e-a9ab-2b451c7aa475",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure – Great South Road, Opaheke",
+                "language": "en"
+              }
+            ]
+          },
+          "active_period": [{ "start": 1685534400, "end": 1698749940 }],
+          "informed_entity": [
+            { "stop_id": "2638-b3badc59" },
+            { "stop_id": "2515-f6fe3907" },
+            { "stop_id": "2510-953e444a" }
+          ],
+          "description_text": {
+            "translation": [
+              {
+                "text": "Until Tuesday 31 October 2023, the following stops are closed at all times due to upgrade work for signalised intersection:\n•  Stop 2510 - Bellfield Road. Use temporary bus stop at 432 Great South Road.\n•  Stop 2515 - Bellfield Road. Use temporary bus stop at 445 Great South Road.\n•  Stop 2638 - Goodwin Drive. Use temporary bus stop at 46 Tatariki Street.\n",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "ddc49353-b9a8-4770-aee8-ebb4a12a35a6",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure - Onehunga Mall, Onehunga",
+                "language": "en"
+              }
+            ]
+          },
+          "active_period": [
+            { "start": 1694941200, "end": 1694970000 },
+            { "start": 1695027600, "end": 1695056400 },
+            { "start": 1695114000, "end": 1695142800 },
+            { "start": 1695200400, "end": 1695229200 },
+            { "start": 1695286800, "end": 1695315600 },
+            { "start": 1695542400, "end": 1695571200 },
+            { "start": 1695628800, "end": 1695657600 },
+            { "start": 1695715200, "end": 1695744000 },
+            { "start": 1695801600, "end": 1695830400 },
+            { "start": 1695888000, "end": 1695916800 },
+            { "start": 1696147200, "end": 1696176000 },
+            { "start": 1696233600, "end": 1696262400 },
+            { "start": 1696320000, "end": 1696348800 },
+            { "start": 1696406400, "end": 1696435200 },
+            { "start": 1696492800, "end": 1696521600 },
+            { "start": 1696752000, "end": 1696780800 }
+          ],
+          "informed_entity": [{ "stop_id": "1428-6f648ff5" }],
+          "description_text": {
+            "translation": [
+              {
+                "text": "From Sunday 17 September to Sunday 8 October 2023 (excluding Fridays and Saturdays) between 9pm and 5am, the following stops are closed due to roadworks:\n•  Stop 1428 - Gloucester Park. Use the temporary bus stop at 47 Onehunga Harbour Road.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "d05e4255-3fc7-48d5-adc3-abe3d3fe48fd",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "active_period": [{ "start": 1693742400, "end": 1696157940 }],
+          "informed_entity": [
+            { "stop_id": "7933-f142ef65" },
+            { "stop_id": "7931-6191378b" },
+            { "stop_id": "7560-f8ebbfdf" },
+            { "stop_id": "7559-07cf680e" }
+          ],
+          "description_text": {
+            "translation": [
+              {
+                "text": "The following stops will be closed 24/7 (at all times) from Monday 04 September to Sunday 01 October 2023, due to roadworks: \nStop 7559 - Talbot Reserve (closed): Use Stop 1474 - Stop B Glen Innes Station as an alternative. \nStop 7933 - Salima Talagi Street (closed)\nStop 7931 - Pilkington Road/Anderson Avenue (closed)\nUse Stop 7929 - Tripoli Road roundabout as an alternative for the two stop closures mentioned above. \nStop 7560 - Talbot Reserve (closed)\nTo catch the 74 services, use Stop 7558 - Pt England Road/Pilkington Road as an alternative.\nTo catch the 744 services, use Stop 7936 - Salima Talagi Street as an alternative.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "ee101d4a-d886-438c-ad91-51db153bfed9",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure - College Hill, Ponsonby",
+                "language": "en"
+              }
+            ]
+          },
+          "active_period": [
+            { "start": 1694606400, "end": 1694692800 },
+            { "start": 1694692800, "end": 1694779200 },
+            { "start": 1694952000, "end": 1695038400 },
+            { "start": 1695038400, "end": 1695124800 },
+            { "start": 1695124800, "end": 1695211200 },
+            { "start": 1695211200, "end": 1695297600 },
+            { "start": 1695297600, "end": 1695384000 },
+            { "start": 1695553200, "end": 1695639600 },
+            { "start": 1695639600, "end": 1695726000 },
+            { "start": 1695726000, "end": 1695812400 },
+            { "start": 1695812400, "end": 1695898800 },
+            { "start": 1695898800, "end": 1695985200 },
+            { "start": 1696158000, "end": 1696244400 },
+            { "start": 1696244400, "end": 1696330800 },
+            { "start": 1696330800, "end": 1696417200 },
+            { "start": 1696417200, "end": 1696503600 },
+            { "start": 1696503600, "end": 1696590000 },
+            { "start": 1696762800, "end": 1696849200 },
+            { "start": 1696849200, "end": 1696935600 },
+            { "start": 1696935600, "end": 1697022000 },
+            { "start": 1697022000, "end": 1697108400 },
+            { "start": 1697108400, "end": 1697194800 },
+            { "start": 1697367600, "end": 1697454000 },
+            { "start": 1697454000, "end": 1697540400 },
+            { "start": 1697540400, "end": 1697626800 },
+            { "start": 1697626800, "end": 1697713200 },
+            { "start": 1697713200, "end": 1697799600 },
+            { "start": 1697972400, "end": 1698058800 },
+            { "start": 1698058800, "end": 1698145200 },
+            { "start": 1698145200, "end": 1698231600 },
+            { "start": 1698231600, "end": 1698318000 },
+            { "start": 1698318000, "end": 1698404400 },
+            { "start": 1698577200, "end": 1698663600 }
+          ],
+          "informed_entity": [{ "stop_id": "7108-87efa451" }],
+          "description_text": {
+            "translation": [
+              {
+                "text": "Until Monday 30 October 2023 excluding weekends, at all times, the following stop is closed due to roadworks:\n•  Stop 7108 - Franklin Road. Use Stop 7109 - Gudgeon Street.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "e6509935-dc4a-46f5-ac54-ea54357975cc",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "STOP_MOVED",
+          "header_text": {
+            "translation": [{ "text": "Stop moved", "language": "en" }]
+          },
+          "active_period": [{ "start": 1693515060, "end": 1696157940 }],
+          "informed_entity": [{ "stop_id": "6060-1fa40e8a" }],
+          "description_text": {
+            "translation": [
+              {
+                "text": "Until Sunday 1 October 2023, Stop 6060 - Pakuranga Plaza is closed due to roadworks (at all times).\nDuring this closure, use the temporary bus stop located outside Westpac Pakuranga Plaza on Bramton Crescent.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "98bddd0a-74ca-4eb8-b35b-5cf944697068",
+        "alert": {
+          "active_period": [{ "start": 1693094400, "end": 1696777200 }],
+          "informed_entity": [
+            { "route_id": "S568-202", "stop_id": "8941-bc6cce51" },
+            { "route_id": "S512-202", "stop_id": "8941-bc6cce51" },
+            { "route_id": "S510-202", "stop_id": "8941-bc6cce51" },
+            { "route_id": "27W-202", "stop_id": "8941-bc6cce51" },
+            { "stop_id": "8936-aecbafce" },
+            { "stop_id": "1872-1855fa52" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "url": {
+            "translation": [
+              {
+                "text": "https://at.govt.nz/bus-train-ferry/service-announcements/watercare-watermain-works-richardson-road-waikowhai",
+                "language": "en"
+              }
+            ]
+          },
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Until Sunday 8 October 2023, the following stops are closed due to infrastructure works:\nStop 1872 - Nash Road (Closed)\n• Use temp stop opposite 583 Richardson Road for R.68, 006.\nStop 8936 - Waikowhai Intermediate (Closed)\n• Use Stop 1874 - Staveley Avenue for R.68, 006.\n• Use temp stop at 46 Morrie Laing Ave for Sch 511AM, 510AM.\n• Use temp stop opposite 46 Morrie Laing Ave for Sch 511PM, 568AM.\nStop 8941 - Waikowhai Intermediate (Closed)\n• Use temp stop opposite 46 Morrie Laing Ave for Sch 568AM.\n• Use Stop 8943 - Richardson Road/Whitmore Road for R.27W, Sch 510PM, 512PM.\nFor more information about the stop closures and bus detours, visit https://at.govt.nz/WaikowhaiWatermain.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "e6e5a819-acb7-451d-ac7e-7e7550a2a3c2",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "DETOUR",
+          "header_text": {
+            "translation": [{ "text": "Route detoured", "language": "en" }]
+          },
+          "active_period": [{ "start": 1694129220, "end": null }],
+          "informed_entity": [{ "route_id": "112-206" }],
+          "description_text": {
+            "translation": [
+              {
+                "text": "Due to unplanned roadworks, the turn from Wiseley Road onto Hobsonville Point Road is closed.\nBus route 112 (Outbound only) towards Hobsonville Point will be detoured until further notice.\nBus stop 5838 is temporarily closed until further notice. ",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "07349b36-5693-499c-8307-8072c7e06142",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure – Beach Haven Road, Beach Haven",
+                "language": "en"
+              }
+            ]
+          },
+          "active_period": [{ "start": 1694965620, "end": 1698750000 }],
+          "informed_entity": [
+            { "stop_id": "4047-641945d2" },
+            { "stop_id": "4045-1d427b76" }
+          ],
+          "description_text": {
+            "translation": [
+              {
+                "text": "Due to roadworks on Beach Haven Road, Beach Haven, from Monday 18 September to Tuesday 31 October, at all times, the following bus stops will be closed:\n • Stop 4045 – Maria Assumpta Catholic Church: Use Stop 4160 – Shepherds Park.\n • Stop 4047 – Maria Assumpta Catholic Church: Use Stop 4043 – Shepherds Park.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "b6532c46-b97b-49c1-a151-75edcead8beb",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure – Quay Street, Auckland Central",
+                "language": "en"
+              }
+            ]
+          },
+          "active_period": [
+            { "start": 1694937600, "end": 1694970000 },
+            { "start": 1695369600, "end": 1695402000 },
+            { "start": 1695456000, "end": 1695488400 },
+            { "start": 1695538800, "end": 1695571200 },
+            { "start": 1695970800, "end": 1696003200 },
+            { "start": 1696057200, "end": 1696089600 },
+            { "start": 1696143600, "end": 1696176000 },
+            { "start": 1696575600, "end": 1696608000 },
+            { "start": 1696662000, "end": 1696694400 },
+            { "start": 1696748400, "end": 1696780800 },
+            { "start": 1697180400, "end": 1697212800 },
+            { "start": 1697266800, "end": 1697299200 },
+            { "start": 1697353200, "end": 1697385600 },
+            { "start": 1697785200, "end": 1697817600 },
+            { "start": 1697871600, "end": 1697904000 },
+            { "start": 1697958000, "end": 1697990400 },
+            { "start": 1698390000, "end": 1698422400 },
+            { "start": 1698476400, "end": 1698508800 },
+            { "start": 1698562800, "end": 1698595200 }
+          ],
+          "informed_entity": [{ "stop_id": "7003-272ef2a6" }],
+          "description_text": {
+            "translation": [
+              {
+                "text": "Bus Stop 7003 – Countdown Quay Street, will be closed for roadworks on Weekends from 8pm Fridays to 5am Mondays, from Friday 15 September to Saturday 30 September, except Friday 29 September to Monday 2 October.\n • Use Temporary Bus Stop on Tangihua Street outside The Docks apartments.\nBus Stop 1018 – Countdown Quay Street, will be closed at all times from Monday 25 September to Tuesday 31 October.\n • Use Temporary Bus Stop on Tangihua Street next to Spice Club.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "12effee5-c6d8-42b1-af88-8844c40778c7",
+        "alert": {
+          "active_period": [{ "start": 1695639600, "end": 1697799600 }],
+          "informed_entity": [{ "stop_id": "4870-fbeac743" }],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Until Saturday 21 October 2023, Stop 4870 - St Patricks Catholic Church is closed due to roadworks.\nDuring this closure, use Stop 4587 - Trigg Road (R.125, 125X) or Stop 4587 - Huapai Domain (R.122).",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "59f79e37-77ee-44d7-9478-226613041c87",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure – Quay Street, Auckland Central",
+                "language": "en"
+              }
+            ]
+          },
+          "active_period": [
+            { "start": 1694883600, "end": 1694937600 },
+            { "start": 1695402000, "end": 1695456000 },
+            { "start": 1695484800, "end": 1695538800 },
+            { "start": 1696003200, "end": 1696057200 },
+            { "start": 1696089600, "end": 1696143600 },
+            { "start": 1696608000, "end": 1696662000 },
+            { "start": 1696694400, "end": 1696748400 },
+            { "start": 1697212800, "end": 1697266800 },
+            { "start": 1697299200, "end": 1697353200 },
+            { "start": 1697817600, "end": 1697871600 },
+            { "start": 1697904000, "end": 1697958000 },
+            { "start": 1698422400, "end": 1698476400 },
+            { "start": 1698508800, "end": 1698562800 }
+          ],
+          "informed_entity": [{ "stop_id": "7003-272ef2a6" }],
+          "description_text": {
+            "translation": [
+              {
+                "text": "Bus Stop 7003 – Countdown Quay Street, will be closed for roadworks on Weekends from 8pm Fridays to 5am Mondays, from Friday 15 September to Saturday 30 September, except Friday 29 September to Monday 2 October.\n • Use Temporary Bus Stop on Tangihua Street outside The Docks apartments.\nBus Stop 1018 – Countdown Quay Street, will be closed at all times from Monday 25 September to Tuesday 31 October.\n • Use Temporary Bus Stop on Tangihua Street next to Spice Club.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "26efe654-d524-4c6d-8330-3a61179aa5de",
+        "alert": {
+          "active_period": [{ "start": 1696233600, "end": 1696262400 }],
+          "informed_entity": [
+            { "stop_id": "1925-d508c3ea" },
+            { "stop_id": "1903-4edd24c6" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "On Monday 2 October 2023, from 9pm to end of services, the following stops are closed due to roadworks:\n• Stop 1903 - Bradbury Road (Closed). Use Stop 6213 - Amerce Place.\n• Stop 1925 - Bernie Edwards Place (Closed). Use Stop 1908 - Vesca Place.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "343c5aaf-1938-4622-9341-6a715e9ca3ae",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure – Quay Street, Auckland Central",
+                "language": "en"
+              }
+            ]
+          },
+          "active_period": [{ "start": 1695553200, "end": 1698750000 }],
+          "informed_entity": [{ "stop_id": "1018-ee9d5bba" }],
+          "description_text": {
+            "translation": [
+              {
+                "text": "Bus Stop 7003 – Countdown Quay Street, will be closed for roadworks on Weekends from 8pm Fridays to 5am Mondays, from Friday 15 September to Saturday 30 September, except Friday 29 September to Monday 2 October.\n • Use Temporary Bus Stop on Tangihua Street outside The Docks apartments.\nBus Stop 1018 – Countdown Quay Street, will be closed at all times from Monday 25 September to Tuesday 31 October.\n • Use Temporary Bus Stop on Tangihua Street next to Spice Club.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "42f13f74-4558-4ba0-9f25-005433349951",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure – Vale Road, St Heliers",
+                "language": "en"
+              }
+            ]
+          },
+          "active_period": [
+            { "start": 1694811600, "end": 1694836800 },
+            { "start": 1694984400, "end": 1695009600 },
+            { "start": 1695070800, "end": 1695096000 },
+            { "start": 1695157200, "end": 1695182400 },
+            { "start": 1695243600, "end": 1695268800 },
+            { "start": 1695330000, "end": 1695355200 },
+            { "start": 1695416400, "end": 1695441600 },
+            { "start": 1695585600, "end": 1695610800 },
+            { "start": 1695672000, "end": 1695697200 },
+            { "start": 1695758400, "end": 1695783600 },
+            { "start": 1695844800, "end": 1695870000 },
+            { "start": 1695931200, "end": 1695956400 },
+            { "start": 1696017600, "end": 1696042800 }
+          ],
+          "informed_entity": [
+            { "stop_id": "7347-07852b69" },
+            { "stop_id": "7346-f060fdb8" }
+          ],
+          "description_text": {
+            "translation": [
+              {
+                "text": "Saturday 16 to Saturday 30 September, except Sundays, 9am to 4pm, the following bus stops will be closed for roadworks:\n • Stop 7346 – Rarangi Road: Use Temporary Bus Stop opposite 21 Vale Road.\n • Stop 7347 – Rarangi Road: Use Temporary Bus Stop at 57 Polygon Road.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "eea70692-8c0a-44f4-8749-97628f5dbc95",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Opaheke Rd, Papakura Stage 2 Weekends",
+                "language": "en"
+              }
+            ]
+          },
+          "active_period": [
+            { "start": 1695409200, "end": 1695452400 },
+            { "start": 1695492000, "end": 1695535200 },
+            { "start": 1696010400, "end": 1696053600 },
+            { "start": 1696096800, "end": 1696140000 }
+          ],
+          "informed_entity": [
+            { "stop_id": "2582-822bb47c" },
+            { "stop_id": "2552-910ef3e4" }
+          ],
+          "description_text": {
+            "translation": [
+              {
+                "text": "On weekends starting Saturday 23 September and ending Sunday 1 October 2023, from 7am to 7pm, the following stops are closed due to roadworks:\n•  Stop 2552 - Onslow Road. Use Stop 2710 - Railway Street West.\n•  Stop 2582 - Onslow Road. Use Stop 2745 - Railway Street West.\n",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "b9a27f8e-0edd-4306-8d24-97ffb4c75bd8",
+        "alert": {
+          "active_period": [{ "start": 1696320000, "end": 1696348800 }],
+          "informed_entity": [
+            { "stop_id": "1924-4b7528f1" },
+            { "stop_id": "1902-6fc08767" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "The following stops are closed due to roadworks:\n• Stop 1902 - Bradbury Road. Use Stop 6208 - Bradbury Road.\n• Stop 1924 - Bernie Edwards Place. Use Stop 1911 - Vesca Place.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "ac4b7689-d848-4fa9-8c21-30a409168f27",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Opaheke Rd, Papakura - Stage 2 Weekdays",
+                "language": "en"
+              }
+            ]
+          },
+          "active_period": [
+            { "start": 1695247200, "end": 1695279600 },
+            { "start": 1695333600, "end": 1695366000 },
+            { "start": 1695589200, "end": 1695621600 },
+            { "start": 1695675600, "end": 1695708000 },
+            { "start": 1695762000, "end": 1695794400 },
+            { "start": 1695848400, "end": 1695880800 },
+            { "start": 1695934800, "end": 1695967200 },
+            { "start": 1696194000, "end": 1696226400 },
+            { "start": 1696280400, "end": 1696312800 },
+            { "start": 1696366800, "end": 1696399200 }
+          ],
+          "informed_entity": [
+            { "stop_id": "2552-910ef3e4" },
+            { "stop_id": "2582-822bb47c" }
+          ],
+          "description_text": {
+            "translation": [
+              {
+                "text": "Weekdays from Thursday 21 September to Wednesday 4 October 2023, between 10am and 7:00pm, the following stops are closed due to roadworks:\n•  Stop 2552 - Onslow Road. Use Stop 2710 - Railway Street West.\n•  Stop 2582 - Onslow Road. Use Stop 2745 - Railway Street West.\n",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "95c7956a-92ba-4c1a-b78d-df5869d1872c",
+        "alert": {
+          "active_period": [
+            { "start": 1696147200, "end": 1696176000 },
+            { "start": 1696233600, "end": 1696262400 },
+            { "start": 1696320000, "end": 1696348800 },
+            { "start": 1696406400, "end": 1696435200 },
+            { "start": 1696492800, "end": 1696521600 },
+            { "start": 1696579200, "end": 1696608000 },
+            { "start": 1696752000, "end": 1696780800 },
+            { "start": 1696838400, "end": 1696867200 },
+            { "start": 1696924800, "end": 1696953600 },
+            { "start": 1697011200, "end": 1697040000 },
+            { "start": 1697097600, "end": 1697126400 },
+            { "start": 1697184000, "end": 1697212800 }
+          ],
+          "informed_entity": [
+            { "stop_id": "5251-bce5856c" },
+            { "stop_id": "5249-cb968975" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Every week on Monday, Tuesday, Wednesday, Thursday, Friday, Sunday until October 13, 2023 from 9:00pm to 5:00am the following stops are impacted due to roadworks.\n - stop closed for stop 5249 at 5 Nikau Street for all routes, Stop closed for roadworks until 5am. Use Stop 1685 – Kuaka Place.\n - stop closed for stop 5251 at 25 Nikau Street for all routes, Stop closed for roadworks until 5am. Use Stop 1685 – Kuaka Place.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "14ce9944-7668-42b8-8ad6-1c419a9430fa",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure – Queen Street, Auckland Central",
+                "language": "en"
+              }
+            ]
+          },
+          "active_period": [
+            { "start": 1695931200, "end": 1695956400 },
+            { "start": 1696104000, "end": 1696129200 },
+            { "start": 1696190400, "end": 1696215600 }
+          ],
+          "informed_entity": [
+            { "stop_id": "7052-abdd2f80" },
+            { "stop_id": "7050-49cd8c3b" },
+            { "stop_id": "1342-6a382323" }
+          ],
+          "description_text": {
+            "translation": [
+              {
+                "text": "Monday 18 September, Wednesday 20 to Friday 22 September, Friday 29 September, Sunday 1 and Monday 2 October, 9am to 4pm, the following bus stops will be closed for roadworks:\n • Stop 1342 – Britomart Te Komititanga: Use Stop 7018 – Britomart Queens Arcade.\n • Stop 7050 – Vulcan Lane: Use Stop 7054 – Wellesley Street.\n • Stop 7052 – Durham Street: Use Stop 7054 – Wellesley Street.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "3b29a5da-7e30-40ce-80be-bab288ca4ba8",
+        "alert": {
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "active_period": [
+            { "start": 1695708000, "end": 1695751200 },
+            { "start": 1695794400, "end": 1695837600 },
+            { "start": 1695880800, "end": 1695924000 },
+            { "start": 1696140000, "end": 1696183200 }
+          ],
+          "informed_entity": [
+            { "stop_id": "6219-f086f771" },
+            { "stop_id": "6214-242236fa" }
+          ],
+          "description_text": {
+            "translation": [
+              {
+                "text": "Every week on Monday, Tuesday, Wednesday, Thursday, Sunday until October 1, 2023 from 7:00pm to 7:00am the following stops are impacted due to roadworks.\n - stop closed for stop 6214 at Bradbury Road/Lexington Drive for all routes, Stop 6214 - Bradbury Road/Lexington Drive (closed): Use Stop 6008 (Gwenand Place) as an alternative.\n - stop closed for stop 6219 at Bradbury Road/Lexington Drive for all routes, Stop 6219 - Bradbury Road/Lexington Drive (closed): Use Stop 2083 (Gwenand Place) as an alternative. ",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "a24fb07b-11ad-42b1-9477-f4b78de303f7",
+        "alert": {
+          "active_period": [{ "start": 1692115200, "end": 1706626800 }],
+          "informed_entity": [{ "route_id": "EAST-201" }],
+          "cause": "MAINTENANCE",
+          "effect": "MODIFIED_SERVICE",
+          "url": {
+            "translation": [
+              { "text": "https://at.govt.nz/RailRebuild", "language": "en" }
+            ]
+          },
+          "header_text": {
+            "translation": [
+              { "text": "Rail Network Rebuild Stage 2", "language": "en" }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Five stations are currently closed on the Eastern Line; Ōrakei, Meadowbank, Glen Innes, Panmure and Sylvia Park due to the Rail Network Rebuild. The Rail Bus East (RBE) is available as an alternative stopping at all closed stations between Britomart and Otahuhu. Express rail bus services are also available during peak travel times from Panmure (RBPX) and Glen Innes (RBGX).",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "f3ae21fb-0c3f-4db1-89c8-47177e3e6a2e",
+        "alert": {
+          "active_period": [
+            { "start": 1691348400, "end": 1691391600 },
+            { "start": 1691434800, "end": 1691478000 },
+            { "start": 1691521200, "end": 1691564400 },
+            { "start": 1691607600, "end": 1691650800 },
+            { "start": 1691694000, "end": 1691737200 },
+            { "start": 1691953200, "end": 1691996400 },
+            { "start": 1692039600, "end": 1692082800 },
+            { "start": 1692126000, "end": 1692169200 },
+            { "start": 1692212400, "end": 1692255600 },
+            { "start": 1692298800, "end": 1692342000 },
+            { "start": 1692558000, "end": 1692601200 },
+            { "start": 1692644400, "end": 1692687600 },
+            { "start": 1692730800, "end": 1692774000 },
+            { "start": 1692817200, "end": 1692860400 },
+            { "start": 1692903600, "end": 1692946800 },
+            { "start": 1693162800, "end": 1693206000 },
+            { "start": 1693249200, "end": 1693292400 },
+            { "start": 1693335600, "end": 1693378800 },
+            { "start": 1693422000, "end": 1693465200 },
+            { "start": 1693508400, "end": 1693551600 },
+            { "start": 1693767600, "end": 1693810800 },
+            { "start": 1693854000, "end": 1693897200 },
+            { "start": 1693940400, "end": 1693983600 },
+            { "start": 1694026800, "end": 1694070000 },
+            { "start": 1694113200, "end": 1694156400 },
+            { "start": 1694372400, "end": 1694415600 },
+            { "start": 1694458800, "end": 1694502000 },
+            { "start": 1694545200, "end": 1694588400 },
+            { "start": 1694631600, "end": 1694674800 },
+            { "start": 1694718000, "end": 1694761200 },
+            { "start": 1694977200, "end": 1695020400 },
+            { "start": 1695063600, "end": 1695106800 },
+            { "start": 1695150000, "end": 1695193200 },
+            { "start": 1695236400, "end": 1695279600 },
+            { "start": 1695322800, "end": 1695366000 },
+            { "start": 1695578400, "end": 1695621600 },
+            { "start": 1695664800, "end": 1695708000 },
+            { "start": 1695751200, "end": 1695794400 },
+            { "start": 1695837600, "end": 1695880800 },
+            { "start": 1695924000, "end": 1695967200 },
+            { "start": 1696183200, "end": 1696226400 },
+            { "start": 1696269600, "end": 1696312800 },
+            { "start": 1696356000, "end": 1696399200 },
+            { "start": 1696442400, "end": 1696485600 },
+            { "start": 1696528800, "end": 1696572000 }
+          ],
+          "informed_entity": [
+            { "route_id": "323-221" },
+            { "route_id": "S402-202" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "DETOUR",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure – Mclennan Road, Mount Wellington",
+                "language": "en"
+              }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Monday 7 August to Saturday 7 October, 7am to 7pm on weekdays and 5pm on weekends, the following bus stops will be closed for roadworks:\n • Stop 1370 – Bernard Street: Use Stop 7912 – Bernard Street.\n • Stop 1372 – Runa Place: Use Stop 7910 – Runa Place.\n • Stop 1374 – 378 Panama Road: Use Stop 7908 – Kealy Road.\n • Stop 1376 – Mataroa Road: Use Stop 7906 – Flat Rock Reserve.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "db34bf05-3e71-4592-82d7-170661e936fc",
+        "alert": {
+          "active_period": [
+            { "start": 1692154800, "end": 1692169200 },
+            { "start": 1692241200, "end": 1692255600 },
+            { "start": 1692327600, "end": 1692342000 },
+            { "start": 1692586800, "end": 1692601200 },
+            { "start": 1692673200, "end": 1692687600 },
+            { "start": 1692759600, "end": 1692774000 },
+            { "start": 1692846000, "end": 1692860400 },
+            { "start": 1692932400, "end": 1692946800 },
+            { "start": 1693191600, "end": 1693206000 },
+            { "start": 1693278000, "end": 1693292400 },
+            { "start": 1693364400, "end": 1693378800 },
+            { "start": 1693450800, "end": 1693465200 },
+            { "start": 1693537200, "end": 1693551600 },
+            { "start": 1693796400, "end": 1693810800 },
+            { "start": 1693882800, "end": 1693897200 },
+            { "start": 1693969200, "end": 1693983600 },
+            { "start": 1694055600, "end": 1694070000 },
+            { "start": 1694142000, "end": 1694156400 },
+            { "start": 1694401200, "end": 1694415600 },
+            { "start": 1694487600, "end": 1694502000 },
+            { "start": 1694574000, "end": 1694588400 },
+            { "start": 1694660400, "end": 1694674800 },
+            { "start": 1694746800, "end": 1694761200 },
+            { "start": 1695006000, "end": 1695020400 },
+            { "start": 1695092400, "end": 1695106800 },
+            { "start": 1695178800, "end": 1695193200 },
+            { "start": 1695265200, "end": 1695279600 },
+            { "start": 1695351600, "end": 1695366000 },
+            { "start": 1695607200, "end": 1695621600 },
+            { "start": 1695693600, "end": 1695708000 },
+            { "start": 1695780000, "end": 1695794400 },
+            { "start": 1695866400, "end": 1695880800 },
+            { "start": 1695952800, "end": 1695967200 },
+            { "start": 1696212000, "end": 1696226400 },
+            { "start": 1696298400, "end": 1696312800 },
+            { "start": 1696384800, "end": 1696399200 },
+            { "start": 1696471200, "end": 1696485600 },
+            { "start": 1696557600, "end": 1696572000 },
+            { "start": 1696816800, "end": 1696831200 },
+            { "start": 1696903200, "end": 1696917600 },
+            { "start": 1696989600, "end": 1697004000 },
+            { "start": 1697076000, "end": 1697090400 },
+            { "start": 1697162400, "end": 1697176800 },
+            { "start": 1697421600, "end": 1697436000 },
+            { "start": 1697508000, "end": 1697522400 },
+            { "start": 1697594400, "end": 1697608800 },
+            { "start": 1697680800, "end": 1697695200 },
+            { "start": 1697767200, "end": 1697781600 },
+            { "start": 1698026400, "end": 1698040800 },
+            { "start": 1698112800, "end": 1698127200 },
+            { "start": 1698199200, "end": 1698213600 },
+            { "start": 1698285600, "end": 1698300000 },
+            { "start": 1698372000, "end": 1698386400 },
+            { "start": 1698631200, "end": 1698645600 },
+            { "start": 1698717600, "end": 1698732000 },
+            { "start": 1698804000, "end": 1698818400 },
+            { "start": 1698890400, "end": 1698904800 },
+            { "start": 1698976800, "end": 1698991200 },
+            { "start": 1699236000, "end": 1699250400 },
+            { "start": 1699322400, "end": 1699336800 },
+            { "start": 1699408800, "end": 1699423200 },
+            { "start": 1699495200, "end": 1699509600 },
+            { "start": 1699581600, "end": 1699596000 },
+            { "start": 1699840800, "end": 1699855200 },
+            { "start": 1699927200, "end": 1699941600 },
+            { "start": 1700013600, "end": 1700028000 },
+            { "start": 1700100000, "end": 1700114400 },
+            { "start": 1700186400, "end": 1700200800 },
+            { "start": 1700445600, "end": 1700460000 },
+            { "start": 1700532000, "end": 1700546400 },
+            { "start": 1700618400, "end": 1700632800 },
+            { "start": 1700704800, "end": 1700719200 },
+            { "start": 1700791200, "end": 1700805600 },
+            { "start": 1701050400, "end": 1701064800 },
+            { "start": 1701136800, "end": 1701151200 },
+            { "start": 1701223200, "end": 1701237600 },
+            { "start": 1701309600, "end": 1701324000 },
+            { "start": 1701396000, "end": 1701410400 },
+            { "start": 1701655200, "end": 1701669600 },
+            { "start": 1701741600, "end": 1701756000 },
+            { "start": 1701828000, "end": 1701842400 },
+            { "start": 1701914400, "end": 1701928800 },
+            { "start": 1702000800, "end": 1702015200 },
+            { "start": 1702260000, "end": 1702274400 },
+            { "start": 1702346400, "end": 1702360800 },
+            { "start": 1702432800, "end": 1702447200 },
+            { "start": 1702519200, "end": 1702533600 },
+            { "start": 1702605600, "end": 1702620000 },
+            { "start": 1702864800, "end": 1702879200 },
+            { "start": 1702951200, "end": 1702965600 },
+            { "start": 1703037600, "end": 1703052000 },
+            { "start": 1703124000, "end": 1703138400 },
+            { "start": 1703210400, "end": 1703224800 },
+            { "start": 1703469600, "end": 1703484000 },
+            { "start": 1703556000, "end": 1703570400 },
+            { "start": 1703642400, "end": 1703656800 },
+            { "start": 1703728800, "end": 1703743200 },
+            { "start": 1703815200, "end": 1703829600 }
+          ],
+          "informed_entity": [{ "route_id": "ONE-201" }],
+          "cause": "MAINTENANCE",
+          "effect": "MODIFIED_SERVICE",
+          "url": {
+            "translation": [
+              { "text": "https://at.govt.nz/RailRebuild", "language": "en" }
+            ]
+          },
+          "header_text": {
+            "translation": [
+              { "text": "Rail Network Rebuild Stage 2", "language": "en" }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "During peak hours, trains will run between Onehunga and Penrose only. Customers will need to transfer to a Southern or Eastern line train at Penrose. At off-peak times including on weekends, trains will travel to Britomart. During the day, trains will not stop at Remuera and Greenlane.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "01d43a26-1a2c-4d6e-a40b-8cf59ce734c6",
+        "alert": {
+          "active_period": [
+            { "start": 1692124200, "end": 1692135000 },
+            { "start": 1692210600, "end": 1692221400 },
+            { "start": 1692297000, "end": 1692307800 },
+            { "start": 1692556200, "end": 1692567000 },
+            { "start": 1692642600, "end": 1692653400 },
+            { "start": 1692729000, "end": 1692739800 },
+            { "start": 1692815400, "end": 1692826200 },
+            { "start": 1692901800, "end": 1692912600 },
+            { "start": 1693161000, "end": 1693171800 },
+            { "start": 1693247400, "end": 1693258200 },
+            { "start": 1693333800, "end": 1693344600 },
+            { "start": 1693420200, "end": 1693431000 },
+            { "start": 1693506600, "end": 1693517400 },
+            { "start": 1693765800, "end": 1693776600 },
+            { "start": 1693852200, "end": 1693863000 },
+            { "start": 1693938600, "end": 1693949400 },
+            { "start": 1694025000, "end": 1694035800 },
+            { "start": 1694111400, "end": 1694122200 },
+            { "start": 1694370600, "end": 1694381400 },
+            { "start": 1694457000, "end": 1694467800 },
+            { "start": 1694543400, "end": 1694554200 },
+            { "start": 1694629800, "end": 1694640600 },
+            { "start": 1694716200, "end": 1694727000 },
+            { "start": 1694975400, "end": 1694986200 },
+            { "start": 1695061800, "end": 1695072600 },
+            { "start": 1695148200, "end": 1695159000 },
+            { "start": 1695234600, "end": 1695245400 },
+            { "start": 1695321000, "end": 1695331800 },
+            { "start": 1695576600, "end": 1695587400 },
+            { "start": 1695663000, "end": 1695673800 },
+            { "start": 1695749400, "end": 1695760200 },
+            { "start": 1695835800, "end": 1695846600 },
+            { "start": 1695922200, "end": 1695933000 },
+            { "start": 1696181400, "end": 1696192200 },
+            { "start": 1696267800, "end": 1696278600 },
+            { "start": 1696354200, "end": 1696365000 },
+            { "start": 1696440600, "end": 1696451400 },
+            { "start": 1696527000, "end": 1696537800 },
+            { "start": 1696786200, "end": 1696797000 },
+            { "start": 1696872600, "end": 1696883400 },
+            { "start": 1696959000, "end": 1696969800 },
+            { "start": 1697045400, "end": 1697056200 },
+            { "start": 1697131800, "end": 1697142600 },
+            { "start": 1697391000, "end": 1697401800 },
+            { "start": 1697477400, "end": 1697488200 },
+            { "start": 1697563800, "end": 1697574600 },
+            { "start": 1697650200, "end": 1697661000 },
+            { "start": 1697736600, "end": 1697747400 },
+            { "start": 1697995800, "end": 1698006600 },
+            { "start": 1698082200, "end": 1698093000 },
+            { "start": 1698168600, "end": 1698179400 },
+            { "start": 1698255000, "end": 1698265800 },
+            { "start": 1698341400, "end": 1698352200 },
+            { "start": 1698600600, "end": 1698611400 },
+            { "start": 1698687000, "end": 1698697800 },
+            { "start": 1698773400, "end": 1698784200 },
+            { "start": 1698859800, "end": 1698870600 },
+            { "start": 1698946200, "end": 1698957000 },
+            { "start": 1699205400, "end": 1699216200 },
+            { "start": 1699291800, "end": 1699302600 },
+            { "start": 1699378200, "end": 1699389000 },
+            { "start": 1699464600, "end": 1699475400 },
+            { "start": 1699551000, "end": 1699561800 },
+            { "start": 1699810200, "end": 1699821000 },
+            { "start": 1699896600, "end": 1699907400 },
+            { "start": 1699983000, "end": 1699993800 },
+            { "start": 1700069400, "end": 1700080200 },
+            { "start": 1700155800, "end": 1700166600 },
+            { "start": 1700415000, "end": 1700425800 },
+            { "start": 1700501400, "end": 1700512200 },
+            { "start": 1700587800, "end": 1700598600 },
+            { "start": 1700674200, "end": 1700685000 },
+            { "start": 1700760600, "end": 1700771400 },
+            { "start": 1701019800, "end": 1701030600 },
+            { "start": 1701106200, "end": 1701117000 },
+            { "start": 1701192600, "end": 1701203400 },
+            { "start": 1701279000, "end": 1701289800 },
+            { "start": 1701365400, "end": 1701376200 },
+            { "start": 1701624600, "end": 1701635400 },
+            { "start": 1701711000, "end": 1701721800 },
+            { "start": 1701797400, "end": 1701808200 },
+            { "start": 1701883800, "end": 1701894600 },
+            { "start": 1701970200, "end": 1701981000 },
+            { "start": 1702229400, "end": 1702240200 },
+            { "start": 1702315800, "end": 1702326600 },
+            { "start": 1702402200, "end": 1702413000 },
+            { "start": 1702488600, "end": 1702499400 },
+            { "start": 1702575000, "end": 1702585800 },
+            { "start": 1702834200, "end": 1702845000 },
+            { "start": 1702920600, "end": 1702931400 },
+            { "start": 1703007000, "end": 1703017800 },
+            { "start": 1703093400, "end": 1703104200 },
+            { "start": 1703179800, "end": 1703190600 },
+            { "start": 1703439000, "end": 1703449800 },
+            { "start": 1703525400, "end": 1703536200 },
+            { "start": 1703611800, "end": 1703622600 },
+            { "start": 1703698200, "end": 1703709000 },
+            { "start": 1703784600, "end": 1703795400 }
+          ],
+          "informed_entity": [{ "route_id": "ONE-201" }],
+          "cause": "MAINTENANCE",
+          "effect": "MODIFIED_SERVICE",
+          "url": {
+            "translation": [
+              { "text": "https://at.govt.nz/RailRebuild", "language": "en" }
+            ]
+          },
+          "header_text": {
+            "translation": [
+              { "text": "Rail Network Rebuild Stage 2", "language": "en" }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "During peak hours, trains will run between Onehunga and Penrose only. Customers will need to transfer to a Southern or Eastern line train at Penrose. At off-peak times including on weekends, trains will travel to Britomart. During the day, trains will not stop at Remuera and Greenlane.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "b368e493-e768-4f61-9c96-d8480b63a618",
+        "alert": {
+          "active_period": [{ "start": 1695297600, "end": 1697799540 }],
+          "informed_entity": [
+            { "stop_id": "7933-f142ef65" },
+            { "stop_id": "7931-6191378b" },
+            { "stop_id": "7560-f8ebbfdf" },
+            { "stop_id": "7559-07cf680e" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "From Friday 22 September to Friday 20 October, the following stops will be closed 24/7 (at all times), due to roadworks: \nStop 7559 - Talbot Reserve (closed): Use Stop 1474 - Stop B Glen Innes Station as an alternative.\nStop 7933 - Salima Talagi Street (closed)\nStop 7931 - Pilkington Road/Anderson Avenue (closed)\nUse Stop 7929 - Tripoli Road roundabout as an alternative for Stops 7933 & 7931.\nStop 7560 - Talbot Reserve (closed)\nTo catch bus route 74, use Stop 7558 - Pt England Road/Pilkington Road as an alternative.\nTo catch bus route 744, Use Stop 7936 - Salima Talagi Street as an alternative.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "8c5dc68d-3dce-4cab-9bc5-0135e9292a0e",
+        "alert": {
+          "active_period": [{ "start": 1697792400, "end": 1697817600 }],
+          "informed_entity": [{ "stop_id": "6799-88aa6884" }],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "On Friday 20 October 2023, Stop 6799 - Boon Street will be closed from 8pm to end of the daily services.\nDuring this closure, use Stop 6797 - Tawa Crescent.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "e101bf40-1d98-4f35-b741-de60fe47192d",
+        "alert": {
+          "active_period": [
+            { "start": 1695582000, "end": 1695614400 },
+            { "start": 1695668400, "end": 1695700800 },
+            { "start": 1695754800, "end": 1695787200 },
+            { "start": 1695841200, "end": 1695873600 },
+            { "start": 1695927600, "end": 1695960000 },
+            { "start": 1696100400, "end": 1696132800 },
+            { "start": 1696186800, "end": 1696219200 }
+          ],
+          "informed_entity": [
+            { "stop_id": "7945-42a462b9" },
+            { "stop_id": "7948-dce4a673" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "STOP_MOVED",
+          "header_text": {
+            "translation": [{ "text": "Stop moved", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Every week on Monday, Tuesday, Wednesday, Thursday, Friday, Sunday until October 2, 2023 from 8:00am to 5:00pm the following stops are impacted due to roadworks.\n - stop moved for stop 7945 at Mansfield Street for all routes, Use Temporary Bus Stop at 64 Taniwha St as an alternative.\n - stop moved for stop 7948 at Mansfield Street for all routes, Use Temporary Bus Stop at 41 Taniwha St as an alternative.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "e6b7be97-7dd4-4de9-84f8-1e7486550ef8",
+        "alert": {
+          "active_period": [{ "start": 1695384000, "end": 1698490740 }],
+          "informed_entity": [
+            { "stop_id": "8708-2fcfb421" },
+            { "stop_id": "8259-a095de1a" },
+            { "stop_id": "7697-a6ec04ed" },
+            { "stop_id": "1753-2aa6b27f" },
+            { "stop_id": "1506-98b1c4fa" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "STOP_MOVED",
+          "header_text": {
+            "translation": [{ "text": "Stop moved", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Sat 23 Sep 12:00am to Sat 28 Oct 11:59pm the following stops are impacted due to roadworks.\n - stop moved for stop 1506 at St Cuthbert's College for all routes, Use Temporary Bus stop after Speed table on Campbell Crescent as an alternative.\n - stop moved for stop 1753 at St Cuthbert's College for all routes, Use Temporary Bus stop Opp 147 Market Rd on Campbell Crescent as an alternative.\n - stop moved for stop 7697 at Griffin Avenue for all routes, Use Temporary Bus Stop at 290 Manukau Rd as an alternative for stops 7697 & 8259. \n - stop moved for stop 8259 at Market Road for all routes, Use Temporary Bus Stop at 290 Manukau Rd as an alternative for stops 7697 & 8259. \n - stop moved for stop 8708 at Ranfurly Road for all routes, For bus route 30 services, use Stop 8704 - Epsom Library as an alternative. For all other services, use Temporary Bus Stop at 290 Manukau Rd as an alternative.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "29132bec-cb20-4ee1-8e02-c04c8218f088",
+        "alert": {
+          "active_period": [
+            { "start": 1697356800, "end": 1697385600 },
+            { "start": 1697443200, "end": 1697472000 },
+            { "start": 1697529600, "end": 1697558400 },
+            { "start": 1697616000, "end": 1697644800 },
+            { "start": 1697702400, "end": 1697731200 },
+            { "start": 1697788800, "end": 1697817600 }
+          ],
+          "informed_entity": [
+            { "stop_id": "5264-c11ceb95" },
+            { "stop_id": "5818-04d6f016" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Every day until October 20, 2023 from 9:00pm to 5:00am the following stops are impacted due to roadworks.\n - stop closed for stop 5264 at 22 Nikau Street for all routes, Use Stop 1578 – Miro Street.\n - stop closed for stop 5818 at Titirangi Road for all routes, Use Stop 5820 – Wattle Street",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "399acfd1-187a-40c6-99ce-73eee963dfe1",
+        "alert": {
+          "active_period": [{ "start": 1695439860, "end": 1696762800 }],
+          "informed_entity": [
+            { "stop_id": "6411-496fa4c0" },
+            { "stop_id": "6394-510e8537" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure – Bairds Road, Otara",
+                "language": "en"
+              }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Due to roadworks on Bairds Road, Otara, until Monday 9 October, the following bus stops will be closed:\n • Stop 6394 – Yendarra School: Use Stop 6392 – Otamariki Park/Bairds Road.\n • Stop 6411 – Yendarra School: Use Stop 6409 – Otamariki Park/Bairds Road.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "694269f0-aa20-4665-a74c-6e029682a26b",
+        "alert": {
+          "active_period": [{ "start": 1696935600, "end": 1697367600 }],
+          "informed_entity": [
+            { "route_id": "842-202", "stop_id": "3270-e204f3ed" },
+            { "route_id": "842-202", "stop_id": "3237-305ceb53" },
+            { "stop_id": "3222-0a48c9fe" },
+            { "stop_id": "3220-f9be35d8" },
+            { "stop_id": "3199-91cd2658" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure – East Coast Road, Forrest Hill",
+                "language": "en"
+              }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Due to roadworks on East Coast Road, Forrest Hill, Wednesday 11 to Sunday 15 October, the following bus stops will be closed:\n • Stop 3199 – Forrest Hill Road: Use Temporary Bus Stop opposite 266 Forrest Hill Road.\n • Stop 3220 – East Coast Road/Forrest Hill Road: Use Stop 3218 – Pupuke Golf Club.\n • Stop 3222 – Forrest Hill Road/Greville Reserve: Use Stop 3201 – Forrest Hill Road/Greville Reserve.\n • Stop 3222 – Forrest Hill Road/Greville Reserve: Use Temporary Bus Stop at 256 Forrest Hill Road.\n • Stop 3237 – Castor Bay Road: 842 only, use Stop 3239 – Crown Hill Shops.\n • Stop 3270 – Kenmure Avenue: 842 only, use Stop 3239 – Crown Hill Shops.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "138722e1-0580-4b10-ba5c-3040cf3046cc",
+        "alert": {
+          "active_period": [
+            { "start": 1695664800, "end": 1695708000 },
+            { "start": 1695751200, "end": 1695794400 },
+            { "start": 1695837600, "end": 1695880800 },
+            { "start": 1695924000, "end": 1695967200 },
+            { "start": 1696010400, "end": 1696053600 },
+            { "start": 1696096800, "end": 1696140000 },
+            { "start": 1696183200, "end": 1696226400 },
+            { "start": 1696269600, "end": 1696312800 },
+            { "start": 1696356000, "end": 1696399200 },
+            { "start": 1696442400, "end": 1696485600 },
+            { "start": 1696528800, "end": 1696572000 },
+            { "start": 1696615200, "end": 1696658400 },
+            { "start": 1696701600, "end": 1696744800 },
+            { "start": 1696788000, "end": 1696831200 },
+            { "start": 1696874400, "end": 1696917600 },
+            { "start": 1696960800, "end": 1697004000 },
+            { "start": 1697047200, "end": 1697090400 },
+            { "start": 1697133600, "end": 1697176800 }
+          ],
+          "informed_entity": [
+            { "stop_id": "6944-5407c6eb" },
+            { "stop_id": "2331-7ad85ea0" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure – Vader Ave, Otara",
+                "language": "en"
+              }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Due to roadworks on Valder Ave, Otara, Tuesday 26 September to Friday 13 October 2023, 7am to 7pm, the following bus stops will be closed:\n • Stop 2331 – Valder Avenue/Springs Road: Use Temporary Bus Stop – 3D Pearl Baker Drive.\n • Stop 6944 – Matamata Place: Use Temporary Bus Stop – 10 Pearl Baker Drive.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "31df2494-8e9e-45d6-861a-c5733fdeecec",
+        "alert": {
+          "active_period": [{ "start": 1695553200, "end": 1700737200 }],
+          "informed_entity": [
+            { "stop_id": "8107-c8de6594" },
+            { "stop_id": "8106-95c39e43" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "From Monday 25 September to Wednesday 23 November 2023, the following stops are closed due to roadworks:\nStop 8106 - King Street. Use Stop 8104 - Sussex Street.\nStop 8107 - King Street. Use Stop 8105 - Sussex Street.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "6230616a-be6f-45b3-8b1b-b9071dcbf637",
+        "alert": {
+          "active_period": [{ "start": 1695553200, "end": 1696762740 }],
+          "informed_entity": [
+            { "stop_id": "1599-7b11ac3b" },
+            { "stop_id": "1592-5cb98cf9" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure - Fernhill Drive, Westgate",
+                "language": "en"
+              }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "From Monday 25 September 12:00am to Sunday 8 October 11:59pm, the following stops are closed due to roadworks:\n•  Stop 1599 - Stop B Westgate (Closed). Use the nearby temporary stop (R.14W, 14T, 110, 111, 129) or Stop 1555 - Stop A Westgate (R.112, 114, 122, 125, 125X, 126 and 120).\n•  Stop 1592 - Stop C Westgate (Closed). Use the nearby temporary stop (R.112, 114, 122, 125, 126) or Stop 1555 - Stop A Westgate (R.120 and 125X).\n",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "087c7ed4-6eb7-4246-b9d7-e9b39730ddcb",
+        "alert": {
+          "active_period": [
+            { "start": 1693936800, "end": 1693983600 },
+            { "start": 1694023200, "end": 1694070000 },
+            { "start": 1694109600, "end": 1694156400 },
+            { "start": 1694196000, "end": 1694242800 },
+            { "start": 1694282400, "end": 1694329200 },
+            { "start": 1694368800, "end": 1694415600 },
+            { "start": 1694455200, "end": 1694502000 },
+            { "start": 1694541600, "end": 1694588400 },
+            { "start": 1695661200, "end": 1695708000 },
+            { "start": 1695747600, "end": 1695794400 },
+            { "start": 1695834000, "end": 1695880800 },
+            { "start": 1695920400, "end": 1695967200 },
+            { "start": 1696006800, "end": 1696053600 },
+            { "start": 1696093200, "end": 1696140000 },
+            { "start": 1696179600, "end": 1696226400 },
+            { "start": 1696266000, "end": 1696312800 },
+            { "start": 1696352400, "end": 1696399200 },
+            { "start": 1696438800, "end": 1696485600 },
+            { "start": 1696525200, "end": 1696572000 },
+            { "start": 1696611600, "end": 1696658400 },
+            { "start": 1696698000, "end": 1696744800 },
+            { "start": 1696784400, "end": 1696831200 },
+            { "start": 1696870800, "end": 1696917600 },
+            { "start": 1696957200, "end": 1697004000 },
+            { "start": 1697043600, "end": 1697090400 },
+            { "start": 1697130000, "end": 1697176800 },
+            { "start": 1697216400, "end": 1697263200 }
+          ],
+          "informed_entity": [
+            { "stop_id": "8394-fda55582" },
+            { "stop_id": "8393-6c2da094" },
+            { "stop_id": "8395-8a86b763" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Stops closed 6:00am to 7:00pm until Sunday 15 Oct, due to roadworks.\nStop 8393 - Namata Road/Oranga Avenue (closed): Use 8391 - Rawhiti Road Shops as an alternative.\nStop 8394 - Namata Road (closed): Use 8392 - Namata Road/Oranga Avenue as an alternative.\nStop 8395 - Namata Road (closed): Use 8397 - Athens Road/Moana Avenue as an alternative.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "d5e4bf2e-04e8-4759-b452-05d8ef03fd86",
+        "alert": {
+          "active_period": [{ "start": 1695639600, "end": 1696244340 }],
+          "informed_entity": [
+            { "stop_id": "5913-8dc7cac1" },
+            { "stop_id": "5077-d60e356e" },
+            { "stop_id": "5072-2a5827f7" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Tue 26 Sep 12:00am to Mon 2 Oct 11:59pm the following stops are impacted due to roadworks.\n - stop closed for stop 5072 at Gloria Avenue for all routes, Use Stop 5095 - Cellarmans Street as an alternative for Stops 5072 & Stop 5913. \n - stop closed for stop 5077 at Te Atatu Baptist Church for all routes, Use Stop 5088 - Cellarmans Street as an alternative. \n - stop closed for stop 5913 at Toru Street for all routes, Use Stop 5095 - Cellarmans Street as an alternative for Stops 5072 & Stop 5913. ",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "3e93a601-3ce9-4102-be1d-0a301197d709",
+        "alert": {
+          "active_period": [{ "start": 1695639600, "end": 1696244340 }],
+          "informed_entity": [{ "stop_id": "5070-a31e4de2" }],
+          "cause": "CONSTRUCTION",
+          "effect": "STOP_MOVED",
+          "header_text": {
+            "translation": [{ "text": "Stop moved", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Tue 26 Sep 12:00am to Mon 2 Oct 11:59pm the following stops are impacted due to roadworks.\n - stop moved for stop 5070 at Toru Street for all routes,  Use Temporary Bus Stop – 398 Te Atatu Rd as an alternative.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "a0855560-a214-4cb6-813f-506f478ba6b5",
+        "alert": {
+          "active_period": [
+            { "start": 1695758400, "end": 1695783600 },
+            { "start": 1696190400, "end": 1696215600 }
+          ],
+          "informed_entity": [
+            { "stop_id": "5103-6e6fc690" },
+            { "stop_id": "5098-4fd280c5" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "STOP_MOVED",
+          "header_text": {
+            "translation": [{ "text": "Stop moved", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Stops closed 9:00am to 4:00pm due to roadworks.\n - stop moved for stop 5098 at 236 Te Atatu Road for all routes, Temporary stop at 244 Te Atatu Rd \n - stop moved for stop 5103 at 197 Te Atatu Road for all routes, Temporary stop at 187 Te Atatu Rd",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "d84d7349-57cd-43b0-a702-5692cb8d13b4",
+        "alert": {
+          "active_period": [
+            { "start": 1695844800, "end": 1695880800 },
+            { "start": 1695931200, "end": 1695967200 },
+            { "start": 1696276800, "end": 1696312800 },
+            { "start": 1696363200, "end": 1696399200 },
+            { "start": 1696449600, "end": 1696485600 },
+            { "start": 1696536000, "end": 1696572000 }
+          ],
+          "informed_entity": [
+            { "stop_id": "5100-851326dc" },
+            { "stop_id": "5105-afddb8e7" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "From Thursday 28 September to Friday 6 October 2023 (weekdays only) between 9am and 7pm, the following bus stops will be closed:\n • Stop 5100 – Tiroroa Avenue: Use Temporary Bus Stop at 182 Te Atatu Road.\n • Stop 5105 – Tiroroa Avenue: Use Temporary Bus Stop at 165 Te Atatu Road.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "8844883d-7381-4dfb-8af0-8d34c44ed199",
+        "alert": {
+          "active_period": [{ "start": 1695691020, "end": 1699196400 }],
+          "informed_entity": [
+            { "stop_id": "3785-d70b5c19" },
+            { "stop_id": "3783-17dd3739" },
+            { "stop_id": "3781-de45b012" },
+            { "stop_id": "3779-c1b0735e" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Until Monday 6 October 2023, the following stops are closed due to roadworks:\n• Stop 3779 - 21 Easton Park Parade. Use Stop 3777 - Elliott Avenue.\n• Stop 3781 - Gladys Avenue. Use Stop 4101 - Sunnyfield Crescent.\n• Stop 3783 - Kaipatiki Park. Use Stop 4101 - Sunnyfield Crescent.\n• Stop 3785 - Easton Park Parade. Use Stop 4101 - Sunnyfield Crescent.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "e0e0a8e8-35d0-449c-84bb-094bdd1647d6",
+        "alert": {
+          "active_period": [
+            { "start": 1695751200, "end": 1695790800 },
+            { "start": 1695837600, "end": 1695877200 },
+            { "start": 1695924000, "end": 1695963600 },
+            { "start": 1696183200, "end": 1696222800 },
+            { "start": 1696269600, "end": 1696309200 },
+            { "start": 1696356000, "end": 1696395600 },
+            { "start": 1696442400, "end": 1696482000 },
+            { "start": 1696528800, "end": 1696568400 }
+          ],
+          "informed_entity": [
+            { "stop_id": "5523-4a8f627f" },
+            { "stop_id": "5942-9bd4f3e0" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "From Wednesday 27 September to Friday 6 October 2023, the following stops will be closed due to roadworks:\n• Stop 5523 - Akatea Road. Use Stop 5525 - Harmel Road.\n• Stop 5942 - 142 Hepburn Road. Use Stop 5540 - Harmel Road.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "03d521a4-74da-4adf-9ab8-116d52d9b616",
+        "alert": {
+          "active_period": [
+            { "start": 1695758400, "end": 1695783600 },
+            { "start": 1695844800, "end": 1695870000 },
+            { "start": 1695931200, "end": 1695956400 },
+            { "start": 1696017600, "end": 1696042800 },
+            { "start": 1696104000, "end": 1696129200 },
+            { "start": 1696190400, "end": 1696215600 },
+            { "start": 1696276800, "end": 1696302000 },
+            { "start": 1696363200, "end": 1696388400 },
+            { "start": 1696449600, "end": 1696474800 },
+            { "start": 1696536000, "end": 1696561200 },
+            { "start": 1696622400, "end": 1696647600 },
+            { "start": 1696708800, "end": 1696734000 },
+            { "start": 1696795200, "end": 1696820400 },
+            { "start": 1696881600, "end": 1696906800 },
+            { "start": 1696968000, "end": 1696993200 },
+            { "start": 1697054400, "end": 1697079600 },
+            { "start": 1697140800, "end": 1697166000 }
+          ],
+          "informed_entity": [{ "stop_id": "8913-94b05cf4" }],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Every day until October 13, 2023 from 9:00am to 4:00pm the following stops are impacted due to roadworks.\n - stop closed for stop 8913 at Lynfield Youth & Leisure Centre for all routes, Use Stop 8915 – Marshall Laing School instead",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "03db5bc9-cf43-4067-846f-45780c3e9ee2",
+        "alert": {
+          "active_period": [{ "start": 1695812400, "end": 1696244400 }],
+          "informed_entity": [{ "stop_id": "8385-dcc32e48" }],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "From Thursday 28 September to Monday 2 October 2023, at all times, Stop 8385 - Te Papapa School will be closed due to roadworks.\nDuring this closure, use Stop 8383 - Curzon Street.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "82358456-d3e7-46fc-8843-17aa072a6dbf",
+        "alert": {
+          "active_period": [{ "start": 1696244400, "end": 1696676400 }],
+          "informed_entity": [{ "stop_id": "8382-ce17835f" }],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "From Tuesday 3 to Saturday 7 October 2023,  at all times, Stop 8382 - Curzon Street is closed due to roadworks.\nDuring this closure, use Stop 8382 - Curzon Street.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "31d8df18-3393-432a-856d-661e82e6dfbe",
+        "alert": {
+          "active_period": [{ "start": 1695938400, "end": 1695983400 }],
+          "informed_entity": [
+            { "stop_id": "1579-4c73c998" },
+            { "stop_id": "1564-8c390cdc" }
+          ],
+          "cause": "OTHER_CAUSE",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "On Friday 29 September 2023, from 11am to 11:30pm, the following stops will be closed due to a planned event:\n• Stop 1564 - Trusts Arena Gate 4. Use Stop 1581 - Trusts Arena Gate 1\n• Stop 1579 - Trusts Arena Gate 4. Use Stop 1583 - Trusts Arena Gate 1",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "a5b1e15f-ee2c-4cef-91a9-9cdaeeb25eb3",
+        "alert": {
+          "active_period": [{ "start": 1696010400, "end": 1696062600 }],
+          "informed_entity": [
+            { "stop_id": "1579-4c73c998" },
+            { "stop_id": "1564-8c390cdc" }
+          ],
+          "cause": "OTHER_CAUSE",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "On Saturday 30 September 2023, from 7am to 9:30pm, the following stops will be closed due to a planned event:\n• Stop 1564 - Trusts Arena Gate 4. Use Stop 1581 - Trusts Arena Gate 1\n• Stop 1579 - Trusts Arena Gate 4. Use Stop 1583 - Trusts Arena Gate 1",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "b330d788-6cd7-45c2-a0bb-1e5783499aa4",
+        "alert": {
+          "active_period": [{ "start": 1696449600, "end": 1699149600 }],
+          "informed_entity": [
+            { "stop_id": "7598-ca4611a4" },
+            { "stop_id": "7495-5e97d096" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure - Ferndale Road, Mount Wellington",
+                "language": "en"
+              }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "On Thursday 5 October 2023, from 9am to 3pm, the following stops are closed due to roadworks:\n•  Stop 7495 - Stanhope Road School. Use Stop 7457 - Faber Avenue.\n•  Stop 7598 - Stanhope Road School. Use Stop 1414 - Faber Avenue.\n",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "44dc9346-b627-41a3-b41a-624f00e22a77",
+        "alert": {
+          "active_period": [{ "start": 1696020300, "end": 1696025700 }],
+          "informed_entity": [
+            { "stop_id": "8889-44be3ecd" },
+            { "stop_id": "7223-bdcf6cc4" },
+            { "stop_id": "7221-b28d532b" },
+            { "stop_id": "7219-06392a6a" },
+            { "stop_id": "7217-9cc0238c" },
+            { "stop_id": "7215-cb3a712c" },
+            { "stop_id": "7213-c1b68c83" },
+            { "stop_id": "7211-824d717b" },
+            { "stop_id": "7112-da37447d" },
+            { "stop_id": "7110-7e35124f" },
+            { "stop_id": "7108-87efa451" }
+          ],
+          "cause": "DEMONSTRATION",
+          "effect": "DETOUR",
+          "header_text": {
+            "translation": [
+              { "text": "Route detoured due to public event", "language": "en" }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "On Saturday 30 September 2023 from 9:45am to 11:15am, following stops are missed due to a planned event on Ponsonby Road:\n• Stop 7108 - Franklin Road | Use Stop 7106 - Victoria Park Market\n• Stop 7110 - England Street | Stop 1349 - New World Victoria Park\n• Stop 7112 - Mercy Hospice | Use Stop 1349 - New World Victoria Park\n• Stop 7211 - Ponsonby Road/Karangahape Road | Use Stop 7135 - Rainbow Bridge/Karangahape Road\n• Stop 7213 - Ponsonby Road/Western Park | Use Stop 8075 - Fitzroy Street (R.105) | Stop 8100 - Ponsonby Road (R.20) | Stop 7135 - Rainbow Bridge/Karangahape Road (INN)\n• Stop 7215 - Ponsonby Road/Picton Street | Use Stop 8075 - Fitzroy Street (R.105) | Stop 8100 - Ponsonby Road (R.20) | Stop 7135 - Rainbow Bridge/Karangahape Road (INN)\n• Stop 7217 - Collingwood Street | Use Stop 7270 - Franklin Road\n• Stop 7219 - Summer Street | Stop 7270 - Franklin Road\n• Stop 7221 - Ponsonby Methodist Church | Use Stop 7270 - Franklin Road\n• Stop 7223 - Pompallier Terrace | Use Stop 1349 - New World Victoria Park (R.20, INN)\n• Stop 8889 - Countdown Ponsonby | Use Stop 8891 - Scanlan Street",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "498113ea-b6a7-4ac0-8c8f-5a7a0d46696f",
+        "alert": {
+          "active_period": [
+            { "start": 1695927600, "end": 1695960000 },
+            { "start": 1696186800, "end": 1696219200 },
+            { "start": 1696273200, "end": 1696305600 },
+            { "start": 1696359600, "end": 1696392000 },
+            { "start": 1696446000, "end": 1696478400 },
+            { "start": 1696532400, "end": 1696564800 }
+          ],
+          "informed_entity": [
+            { "stop_id": "4732-91899b2a" },
+            { "stop_id": "4642-e8c55364" },
+            { "stop_id": "4727-049df43a" },
+            { "stop_id": "4731-c5e487d1" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure - Ladies Mile, Manly",
+                "language": "en"
+              }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "Weekdays, from Friday 29 September to Friday 6 October 2023, between 8am and 5pm, the following stops are closed due to roadworks:\n•  Stop 4642 -Whangaparaoa Road/Ladies Mile. Use Stop 4726 - Whangaparaoa School or Stop 4644 - Coast Plaza.\n•  Stop 4727 - Whangaparaoa School. Use Temporary Bus Stop opposite 32 Ladies Mile Road.\n•  Stop 4731 - Little Barrier Avenue. Use Temporary Bus Stop opposite 32 Ladies Mile Road.\n•  Stop 4732 - Little Barrier Avenue. Use Stop 4726 - Whangaparaoa School.\n",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "3ef11497-2f86-4432-a4a1-0ec57cc68f0a",
+        "alert": {
+          "active_period": [{ "start": 1696003200, "end": 1696050000 }],
+          "informed_entity": [
+            { "stop_id": "7025-f2894a7d" },
+            { "stop_id": "1356-0146ace9" },
+            { "stop_id": "1355-72782936" },
+            { "stop_id": "1350-c09cf078" },
+            { "stop_id": "1327-82347e1f" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              { "text": "Temporary bus stop closure", "language": "en" }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "On Saturday 30 September 2023 from 5am to 6pm the following stops are impacted due to roadworks.\n• Stop 1327 - Atkinson Avenue for all routes, Use Stop 7645 - Great South/Huia Road.\n• Stop 1350 - Atkinson Avenue for all routes, Use Stop Stop 1348 - Huia Road/Great South Road.\n• Stop 1355 - Stop A Otahuhu Town Centre for all routes, Use Stop 7970 - EFKS Otahuhu Hall.\n• Stop 1356 - Stop B Otahuhu Town Centre for all routes, Use Stop 1350 - Atkinson Avenue.\n• Stop 7025 - Otahuhu Library for all routes, Use Otahuhu Interchange or Stop 7970 - EFKS Otahuhu Hall.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "f665a5c6-d2d3-4438-86a2-c1d9aa9061e3",
+        "alert": {
+          "active_period": [{ "start": 1696096800, "end": 1696114800 }],
+          "informed_entity": [{ "stop_id": "5975-c6cc5505" }],
+          "cause": "OTHER_CAUSE",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary bus stop closure - Swanson Market",
+                "language": "en"
+              }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "On Sunday 1 October 2023, from 7am to 12pm, Stop 5975 - Swanson Station is closed due to an event.\nDuring this closure, use Stop 1558 or 5397 at Swanson Village.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "3fcf20d3-afb4-46aa-9b06-72bf504649ed",
+        "alert": {
+          "active_period": [{ "start": 1696111200, "end": 1696159800 }],
+          "informed_entity": [
+            { "stop_id": "8692-a087b5ee" },
+            { "stop_id": "8179-17e3d76f" },
+            { "stop_id": "8177-8c8a0649" },
+            { "stop_id": "8174-966a1a5b" },
+            { "stop_id": "7997-35d9ad1e" },
+            { "stop_id": "1892-edef4dae" },
+            { "stop_id": "1855-13190b1f" }
+          ],
+          "cause": "OTHER_CAUSE",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              { "text": "Stop closed - Planned event", "language": "en" }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "On Sunday 1 October 2023, from 11am to end of services, the following stops will be closed due to an event:\n• Stop 1855 - 29 Station Road. Use temporary bus stop at 9 Walls Road.\n• Stop 1892 - Olive Road. Use temporary bus stop at 204 Rockfield Road.\n• Stop 7997 - Penrose Station/Station Road. Use temporary bus stop at 9 Walls Road.\n• Stop 8174 - Maurice Road. Use temporary bus stop at 204 Rockfield Road.\n• Stop 8177 - Olive Road. Use temporary bus stop at 165 Rockfield Road.\n• Stop 8179 - Maurice Road. Use temporary bus stop at 165 Rockfield Road.\n• Stop 8692 - Penrose Station/Station Road. Use temporary bus stop at 8 Walls Road.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "ffba7347-3ec0-4b52-8397-3ef720c4d135",
+        "alert": {
+          "active_period": [{ "start": 1696190400, "end": 1696226400 }],
+          "informed_entity": [{ "stop_id": "5104-041add31" }],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "On Monday 2 October 2023, from 9am to 7pm, Stop 5104 - Te Atatu Road/McLeod Road will be closed.\nDuring this time, use Stop 5102 - Roberts Road.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "8503a066-0021-4bae-8e9c-d7b2aec8f2ea",
+        "alert": {
+          "active_period": [{ "start": 1695970800, "end": 1696176000 }],
+          "informed_entity": [
+            { "stop_id": "7026-16a884b8" },
+            { "stop_id": "7024-8f2c650a" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [{ "text": "Stop closed", "language": "en" }]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "From 8pm on Friday 29 September to 5am on Monday 2 October 2023, the following stops will be closed due to roadworks:\n• Stop 7024 - Tyler Street\n• Stop 7026 - Galway Street\nDuring this closure, use Stop 1323 - Britomart Customs Street East.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "45efa0e3-5251-490d-82d9-98228e53aef5",
+        "alert": {
+          "active_period": [{ "start": 1695999600, "end": 1696172400 }],
+          "informed_entity": [{ "route_id": "EAST-201" }],
+          "cause": "MAINTENANCE",
+          "effect": "MODIFIED_SERVICE",
+          "header_text": {
+            "translation": [
+              { "text": "Buses replace trains this weekend", "language": "en" }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "On Saturday 30 September and Sunday 1 October 2023, buses will replace trains between Britomart and Ōtāhuhu stopping at all stations.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "49fc9b6d-8b54-4981-8949-9d47c1b6eb0c",
+        "alert": {
+          "active_period": [{ "start": 1695999600, "end": 1696172400 }],
+          "informed_entity": [{ "route_id": "ONE-201" }],
+          "cause": "MAINTENANCE",
+          "effect": "MODIFIED_SERVICE",
+          "header_text": {
+            "translation": [
+              { "text": "Buses replace trains", "language": "en" }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "On Saturday 30 September and Sunday 1 October 2023, buses will replace trains between Britomart and Newmarket, and between Penrose and Onehunga (from late Sunday evening).",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "fac6f4c1-6306-4435-abd2-c111ee2c1bf0",
+        "alert": {
+          "active_period": [{ "start": 1695999600, "end": 1696172400 }],
+          "informed_entity": [{ "route_id": "STH-201" }],
+          "cause": "MAINTENANCE",
+          "effect": "MODIFIED_SERVICE",
+          "header_text": {
+            "translation": [
+              { "text": "Buses replace trains", "language": "en" }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "On Saturday 30 September and Sunday 1 October 2023, buses replace trains between Britomart and Newmarket.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "59435c3d-46e1-44af-b553-c2437b29f3fc",
+        "alert": {
+          "active_period": [{ "start": 1695999600, "end": 1696172400 }],
+          "informed_entity": [{ "route_id": "WEST-201" }],
+          "cause": "MAINTENANCE",
+          "effect": "MODIFIED_SERVICE",
+          "header_text": {
+            "translation": [
+              { "text": "Buses replace trains", "language": "en" }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "On Saturday 30 September and Sunday 1 October 2023, buses replace trains between Britomart and Newmarket, and between Henderson and Swanson from late evening (Sunday only).",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "1acb45c7-eb83-4e08-a87a-b099d85eb8f3",
+        "alert": {
+          "active_period": [{ "start": 1695969900, "end": 1695972900 }],
+          "informed_entity": [
+            { "trip": { "trip_id": "733-93011-71100-2-1af24740" } }
+          ],
+          "cause": "OTHER_CAUSE",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Service Cancellation for Route GULF-209 [Schedule Start: 29-09-2023 19:45:00 - Schedule End: 29-09-2023 20:35:00 ]",
+                "language": "en"
+              }
+            ]
+          },
+          "description_text": {
+            "translation": [{ "text": "Trip Cancelled", "language": "en" }]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "8a472a9a-7f06-4187-ae67-bee36b03b9d3",
+        "alert": {
+          "active_period": [{ "start": 1696417260, "end": 1696633140 }],
+          "informed_entity": [{ "stop_id": "2412-64bbc6d1" }],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure - James Fletcher Dr, Favona",
+                "language": "en"
+              }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "From Thursday 5 until Saturday 7 October 2023, the following stops are closed at all times due to roadworks:\n•  Stop 2412 - Kahu Street. Use Temporary Bus Stop at 19 Tui Street.",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      },
+      {
+        "id": "a4e135aa-a04d-4050-ae6c-74347729e37a",
+        "alert": {
+          "active_period": [
+            { "start": 1696230000, "end": 1696262400 },
+            { "start": 1696316400, "end": 1696348800 }
+          ],
+          "informed_entity": [
+            { "stop_id": "6529-d1a0c6b1" },
+            { "stop_id": "6524-c4bfc46c" },
+            { "stop_id": "2201-28a457ff" }
+          ],
+          "cause": "CONSTRUCTION",
+          "effect": "NO_SERVICE",
+          "header_text": {
+            "translation": [
+              {
+                "text": "Temporary Bus Stop Closure - St George Street & Carruth Road, Papatoetoe",
+                "language": "en"
+              }
+            ]
+          },
+          "description_text": {
+            "translation": [
+              {
+                "text": "From Monday 2 until Tuesday 3 October 2023, between 8pm and 5am, the following stops are closed due to roadworks:\n•  Stop 2201 - Holy Cross School, Papatoetoe. Use Stop 6535 - Carruth Road/Fairview Road.\n•  Stop 6524 - Youthline, Manukau. Use Stop 6522 - Landscape Road.\n•  Stop 6529 - Youthline, Manukau. Use Stop 6527 - Landscape Road.\n",
+                "language": "en"
+              }
+            ]
+          }
+        },
+        "timestamp": "1695973658"
+      }
+    ]
+  },
+  "error": null
+}

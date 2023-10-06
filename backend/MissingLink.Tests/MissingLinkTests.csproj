@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="Moq" Version="4.20.69" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="3.1.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <ProjectReference Include="..\MissingLink.Api\missinglink.csproj" />
+    <Content Include="Samples\AT\routes.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Samples\AT\service_alerts.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Samples\AT\trip_updates.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Samples\AT\vehicle_locations.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Copy SourceFiles="Samples\AT\routes.json" DestinationFolder="$(OutDir)\AT\" />
+    <Copy SourceFiles="Samples\AT\service_alerts.json" DestinationFolder="$(OutDir)\AT\" />
+    <Copy SourceFiles="Samples\AT\trip_updates.json" DestinationFolder="$(OutDir)\AT\" />
+    <Copy SourceFiles="Samples\AT\vehicle_locations.json" DestinationFolder="$(OutDir)\AT\" />
+    <Copy SourceFiles="Samples\Metlink\routes.json" DestinationFolder="$(OutDir)\Metlink\" />
+    <Copy SourceFiles="Samples\Metlink\cancellations.json" DestinationFolder="$(OutDir)\Metlink\" />
+    <Copy SourceFiles="Samples\Metlink\trip_updates.json" DestinationFolder="$(OutDir)\Metlink\" />
+    <Copy SourceFiles="Samples\Metlink\trips.json" DestinationFolder="$(OutDir)\Metlink\" />
+    <Copy SourceFiles="Samples\Metlink\vehicle_positions.json" DestinationFolder="$(OutDir)\Metlink\" />
+  </Target>
+
+</Project>

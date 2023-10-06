@@ -17,10 +17,10 @@ type WorstPerformingServices = {
 async function getWorstPerformingServices(city: string) {
   try {
     const servicesRes = await fetch(
-      `${API_URL}/api/v1/updates/worstServices?providerId=${getServiceProviderFromCity(
+      `${API_URL}/api/v1/${getServiceProviderFromCity(
         city,
         true
-      )}`
+      )}/worstServices`
     );
 
     const services = await await servicesRes.json();

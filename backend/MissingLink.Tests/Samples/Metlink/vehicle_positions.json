@@ -1,0 +1,1787 @@
+{
+  "header": {
+    "gtfsRealtimeVersion": "2.0",
+    "incrementality": 0,
+    "timestamp": 1696122008
+  },
+  "entity": [
+    {
+      "id": "b05738b3-d393-4bc7-877d-fdd23981cc83",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:30:00",
+          "trip_id": "2__1__778__NBM__24__3__24__3_20230924",
+          "direction_id": 1,
+          "route_id": 20,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 114,
+          "latitude": -41.2929573,
+          "longitude": 174.7796631
+        },
+        "vehicle": { "id": "2161" },
+        "timestamp": 1696122001
+      }
+    },
+    {
+      "id": "143e3bc3-1ec9-45e7-a33d-dd43ffac3103",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:14:00",
+          "trip_id": "83__0__715__NBM__202__3__202__3_20230924",
+          "direction_id": 0,
+          "route_id": 830,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 192,
+          "latitude": -41.226532,
+          "longitude": 174.9057617
+        },
+        "vehicle": { "id": "2202" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "0a7bd406-5b5e-4534-970b-a63cae4b1680",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:45:00",
+          "trip_id": "3__0__749__NBM__203__3__203__3_20230924",
+          "direction_id": 0,
+          "route_id": 30,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 198,
+          "latitude": -41.2959328,
+          "longitude": 174.7769928
+        },
+        "vehicle": { "id": "2207" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "ecd98a0f-21e3-4f68-abc3-07d25b16b88a",
+      "vehicle": {
+        "trip": {
+          "start_time": "14:00:00",
+          "trip_id": "3__0__751__NBM__205__3__205__3_20230924",
+          "direction_id": 0,
+          "route_id": 30,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 228,
+          "latitude": -41.278862,
+          "longitude": 174.7785339
+        },
+        "vehicle": { "id": "2215" },
+        "timestamp": 1696122004
+      }
+    },
+    {
+      "id": "6260de2e-0e02-4d54-806e-e2c4ea0bd526",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:25:00",
+          "trip_id": "83__1__720__NBM__200__2__200__2_20230924",
+          "direction_id": 1,
+          "route_id": 830,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 288,
+          "latitude": -41.2259293,
+          "longitude": 174.8803253
+        },
+        "vehicle": { "id": "2495" },
+        "timestamp": 1696121993
+      }
+    },
+    {
+      "id": "98dc4a54-f866-4932-b1b2-e309a252d1e8",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:12:00",
+          "trip_id": "220__0__721__TZM__304__304_20230924",
+          "direction_id": 0,
+          "route_id": 2200,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 108,
+          "latitude": -41.1013222,
+          "longitude": 174.8377533
+        },
+        "vehicle": { "id": "3000" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "0c16de40-c859-4b06-9984-be5dae6b19d7",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:28:00",
+          "trip_id": "170__0__713__TZM__602__602_20230924",
+          "direction_id": 0,
+          "route_id": 1700,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 108,
+          "latitude": -41.2760048,
+          "longitude": 174.9538727
+        },
+        "vehicle": { "id": "3116" },
+        "timestamp": 1696122001
+      }
+    },
+    {
+      "id": "639e64b6-9501-4a1d-b729-a0f625ac191e",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:36:00",
+          "trip_id": "150__1__712__TZM__401__401_20230924",
+          "direction_id": 1,
+          "route_id": 1500,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 228,
+          "latitude": -41.2116241,
+          "longitude": 174.8941498
+        },
+        "vehicle": { "id": "3125" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "564dd692-bc76-419c-836a-64ef7aa1e096",
+      "vehicle": {
+        "trip": {
+          "start_time": "14:00:00",
+          "trip_id": "160__0__713__TZM__604__604_20230924",
+          "direction_id": 0,
+          "route_id": 1600,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 150,
+          "latitude": -41.21035,
+          "longitude": 174.9049377
+        },
+        "vehicle": { "id": "3132" },
+        "timestamp": 1696122004
+      }
+    },
+    {
+      "id": "d9083c72-60b1-4430-8781-f407c15d72a5",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:56:00",
+          "trip_id": "120__1__722__TZM__403__403_20230924",
+          "direction_id": 1,
+          "route_id": 1200,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 336,
+          "latitude": -41.191124,
+          "longitude": 174.9832458
+        },
+        "vehicle": { "id": "3137" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "b9ad9605-5a8c-4592-8f33-39baf2a3dbab",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:30:00",
+          "trip_id": "130__1__724__TZM__408__408_20230924",
+          "direction_id": 1,
+          "route_id": 1300,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 174,
+          "latitude": -41.2219315,
+          "longitude": 174.9070435
+        },
+        "vehicle": { "id": "3138" },
+        "timestamp": 1696121999
+      }
+    },
+    {
+      "id": "7fde4245-30a4-4218-bf00-4ccc4eadd452",
+      "vehicle": {
+        "trip": {
+          "start_time": "14:00:00",
+          "trip_id": "130__1__726__TZM__601__601_20230924",
+          "direction_id": 1,
+          "route_id": 1300,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 228,
+          "latitude": -41.1986122,
+          "longitude": 174.946106
+        },
+        "vehicle": { "id": "3148" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "f23ec016-718a-4e47-b423-f3f53192df19",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:30:00",
+          "trip_id": "150__0__711__TZM__406__406_20230924",
+          "direction_id": 0,
+          "route_id": 1500,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 102,
+          "latitude": -41.2134895,
+          "longitude": 174.9203339
+        },
+        "vehicle": { "id": "3152" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "fb478175-3a49-4138-aaa1-4a530d4c46f2",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:15:00",
+          "trip_id": "130__0__721__TZM__601__601_20230924",
+          "direction_id": 0,
+          "route_id": 1300,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 282,
+          "latitude": -41.2006264,
+          "longitude": 174.9618073
+        },
+        "vehicle": { "id": "3159" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "2036808d-c66e-44e3-8210-b55f41c3400b",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:12:00",
+          "trip_id": "220__1__720__TZM__306__306_20230924",
+          "direction_id": 1,
+          "route_id": 2200,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 348,
+          "latitude": -41.1215858,
+          "longitude": 174.8766479
+        },
+        "vehicle": { "id": "3160" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "92a4503c-1caa-495e-9791-88dcf3f1e202",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:45:00",
+          "trip_id": "1__1__748__TZM__202__202_20230924",
+          "direction_id": 1,
+          "route_id": 10,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 234,
+          "latitude": -41.2221298,
+          "longitude": 174.8062134
+        },
+        "vehicle": { "id": "3176" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "84a2c14e-2f03-45b2-a063-c5e3daf40d6d",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:40:00",
+          "trip_id": "236__0__709__TZM__302__302_20230924",
+          "direction_id": 0,
+          "route_id": 2360,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 324,
+          "latitude": -41.1050224,
+          "longitude": 174.8784027
+        },
+        "vehicle": { "id": "3183" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "ea1d2b5f-0ee6-4281-b6c3-fb6ddb7e2bb8",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:45:00",
+          "trip_id": "130__0__723__TZM__405__405_20230924",
+          "direction_id": 0,
+          "route_id": 1300,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 48,
+          "latitude": -41.2092209,
+          "longitude": 174.904953
+        },
+        "vehicle": { "id": "3185" },
+        "timestamp": 1696122004
+      }
+    },
+    {
+      "id": "3a98858f-fb4c-473f-bdbd-4ac68f41bfe7",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:42:00",
+          "trip_id": "220__0__723__TZM__307__307_20230924",
+          "direction_id": 0,
+          "route_id": 2200,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 306,
+          "latitude": -41.1399765,
+          "longitude": 174.8528137
+        },
+        "vehicle": { "id": "3197" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "cf2d1634-4005-4930-9681-d63300e2b51d",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:42:00",
+          "trip_id": "110__0__721__TZM__505__505_20230924",
+          "direction_id": 0,
+          "route_id": 1100,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 72,
+          "latitude": -41.2044983,
+          "longitude": 174.9132996
+        },
+        "vehicle": { "id": "3308" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "bca1725c-c029-4f4d-8af5-cdab73e8cf0d",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:01:00",
+          "trip_id": "110__1__724__TZM__501__501_20230924",
+          "direction_id": 1,
+          "route_id": 1100,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 222,
+          "latitude": -41.2116585,
+          "longitude": 174.9004059
+        },
+        "vehicle": { "id": "3311" },
+        "timestamp": 1696122001
+      }
+    },
+    {
+      "id": "9b548b2e-6156-4591-97a3-8d438b3ec75f",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:12:00",
+          "trip_id": "110__0__719__TZM__404__404_20230924",
+          "direction_id": 0,
+          "route_id": 1100,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 54,
+          "latitude": -41.1279259,
+          "longitude": 175.0496826
+        },
+        "vehicle": { "id": "3316" },
+        "timestamp": 1696122001
+      }
+    },
+    {
+      "id": "d44d3eae-99cd-429e-9c4b-f3724052dca8",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:31:00",
+          "trip_id": "110__1__726__TZM__504__504_20230924",
+          "direction_id": 1,
+          "route_id": 1100,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 240,
+          "latitude": -41.1487885,
+          "longitude": 174.9945374
+        },
+        "vehicle": { "id": "3320" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "b8e50aa3-38de-4048-9e67-d22d8d8124fb",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:20:00",
+          "trip_id": "23__1__710__TZM__214__214_20230924",
+          "direction_id": 1,
+          "route_id": 230,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 24,
+          "latitude": -41.2873878,
+          "longitude": 174.7756653
+        },
+        "vehicle": { "id": "3403" },
+        "timestamp": 1696122001
+      }
+    },
+    {
+      "id": "336b186d-b721-40f4-b366-b5d3adc18158",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:31:00",
+          "trip_id": "1__1__746__TZM__109__1__109__1_20230924",
+          "direction_id": 1,
+          "route_id": 10,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 174,
+          "latitude": -41.2840157,
+          "longitude": 174.7754974
+        },
+        "vehicle": { "id": "3409" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "83432d81-75a2-44f3-b056-24cbc8423628",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:34:00",
+          "trip_id": "27__1__710__TZM__119__1__119__1_20230924",
+          "direction_id": 1,
+          "route_id": 270,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 42,
+          "latitude": -41.278862,
+          "longitude": 174.7783051
+        },
+        "vehicle": { "id": "3421" },
+        "timestamp": 1696121992
+      }
+    },
+    {
+      "id": "0680d89d-359d-46a4-8074-8d38ddf967a7",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:42:00",
+          "trip_id": "210__0__711__TZM__308__308_20230924",
+          "direction_id": 0,
+          "route_id": 2100,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 348,
+          "latitude": -41.1121674,
+          "longitude": 174.8301544
+        },
+        "vehicle": { "id": "3423" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "2f328434-2194-4f04-8f8f-1d30e439bf82",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:45:00",
+          "trip_id": "230__0__711__TZM__305__305_20230924",
+          "direction_id": 0,
+          "route_id": 2300,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 66,
+          "latitude": -41.1138306,
+          "longitude": 174.8823242
+        },
+        "vehicle": { "id": "3440" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "e9413c99-aea8-4872-ae9d-7f95e8b94e54",
+      "vehicle": {
+        "trip": {
+          "start_time": "14:00:00",
+          "trip_id": "25__1__712__TZM__215__215_20230924",
+          "direction_id": 1,
+          "route_id": 250,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 240,
+          "latitude": -41.2473755,
+          "longitude": 174.7908936
+        },
+        "vehicle": { "id": "3442" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "5b27e0ee-15b6-40ff-83e0-73768849963c",
+      "vehicle": {
+        "trip": {
+          "start_time": "14:00:00",
+          "trip_id": "25__0__713__TZM__106__106_20230924",
+          "direction_id": 0,
+          "route_id": 250,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 60,
+          "latitude": -41.2939835,
+          "longitude": 174.7533264
+        },
+        "vehicle": { "id": "3444" },
+        "timestamp": 1696122002
+      }
+    },
+    {
+      "id": "74df7b3f-4b7b-4e5a-860f-bc16bb07acad",
+      "vehicle": {
+        "trip": {
+          "start_time": "12:45:00",
+          "trip_id": "24__1__708__TZM__105__105_20230924",
+          "direction_id": 1,
+          "route_id": 240,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 156,
+          "latitude": -41.2946091,
+          "longitude": 174.8278351
+        },
+        "vehicle": { "id": "3445" },
+        "timestamp": 1696122002
+      }
+    },
+    {
+      "id": "d8b29a19-1a98-46bd-8724-8dde0fcbddce",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:42:00",
+          "trip_id": "19__0__723__TZM__205__205_20230924",
+          "direction_id": 0,
+          "route_id": 190,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 198,
+          "latitude": -41.2123337,
+          "longitude": 174.8102264
+        },
+        "vehicle": { "id": "3450" },
+        "timestamp": 1696122001
+      }
+    },
+    {
+      "id": "ad031bb1-5cf3-4426-bdaf-099624017723",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:24:00",
+          "trip_id": "29__1__710__TZM__116__1__116__1_20230924",
+          "direction_id": 1,
+          "route_id": 290,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 342,
+          "latitude": -41.3082771,
+          "longitude": 174.7781677
+        },
+        "vehicle": { "id": "3452" },
+        "timestamp": 1696122004
+      }
+    },
+    {
+      "id": "b6191f2a-d2b1-4547-b86b-ded394243cfa",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:35:00",
+          "trip_id": "23__0__711__TZM__113__1__113__1_20230924",
+          "direction_id": 0,
+          "route_id": 230,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 192,
+          "latitude": -41.3056679,
+          "longitude": 174.7783966
+        },
+        "vehicle": { "id": "3454" },
+        "timestamp": 1696122001
+      }
+    },
+    {
+      "id": "59028a00-4abd-49f9-af71-42fcabb8bbd9",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:44:00",
+          "trip_id": "27__0__711__TZM__114__114_20230924",
+          "direction_id": 0,
+          "route_id": 270,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 204,
+          "latitude": -41.295578,
+          "longitude": 174.7770233
+        },
+        "vehicle": { "id": "3711" },
+        "timestamp": 1696122002
+      }
+    },
+    {
+      "id": "9fdc92d5-7698-4cf3-b77c-feaa6f932bea",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:44:00",
+          "trip_id": "7__1__724__TZM__111__1__111__1_20230924",
+          "direction_id": 1,
+          "route_id": 70,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 0,
+          "latitude": -41.2919312,
+          "longitude": 174.7731323
+        },
+        "vehicle": { "id": "3715" },
+        "timestamp": 1696122001
+      }
+    },
+    {
+      "id": "97534f7d-c18e-4883-af52-439e36a251d2",
+      "vehicle": {
+        "trip": {
+          "start_time": "14:00:00",
+          "trip_id": "7__0__725__TZM__117__1__117__1_20230924",
+          "direction_id": 0,
+          "route_id": 70,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 264,
+          "latitude": -41.2785568,
+          "longitude": 174.7793121
+        },
+        "vehicle": { "id": "3720" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "c47c53be-355d-43af-b31d-b4d26bf71c52",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:00:00",
+          "trip_id": "1__0__745__TZM__211__211_20230924",
+          "direction_id": 0,
+          "route_id": 10,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 342,
+          "latitude": -41.2132759,
+          "longitude": 174.8078156
+        },
+        "vehicle": { "id": "3721" },
+        "timestamp": 1696121999
+      }
+    },
+    {
+      "id": "b722d5a4-2d47-4240-bac3-d9d7b18b357c",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:15:00",
+          "trip_id": "1__1__744__TZM__209__209_20230924",
+          "direction_id": 1,
+          "route_id": 10,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 0,
+          "latitude": -41.2931252,
+          "longitude": 174.7800446
+        },
+        "vehicle": { "id": "3728" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "31176178-ba82-430d-b918-b343b9633135",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:30:00",
+          "trip_id": "1__0__749__TZM__216__216_20230924",
+          "direction_id": 0,
+          "route_id": 10,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 12,
+          "latitude": -41.2880402,
+          "longitude": 174.7753448
+        },
+        "vehicle": { "id": "3731" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "4096fee6-2cd8-403c-8b2a-2d264eef55ce",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:10:00",
+          "trip_id": "24__0__711__TZM__206__206_20230924",
+          "direction_id": 0,
+          "route_id": 240,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 48,
+          "latitude": -41.2785759,
+          "longitude": 174.7787476
+        },
+        "vehicle": { "id": "3736" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "e307e7ef-a909-4233-b5ea-4b35c87ee1ad",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:22:00",
+          "trip_id": "29__0__711__TZM__208__208_20230924",
+          "direction_id": 0,
+          "route_id": 290,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 24,
+          "latitude": -41.3428535,
+          "longitude": 174.7792664
+        },
+        "vehicle": { "id": "3739" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "e5788702-8959-4ca1-9f47-924051b03a6d",
+      "vehicle": {
+        "trip": {
+          "start_time": "14:00:00",
+          "trip_id": "JVL__1__9347__RAIL__Rail_SaSu+Hol_20230924",
+          "direction_id": 1,
+          "route_id": 6,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 12,
+          "latitude": -41.2232933,
+          "longitude": 174.8048248
+        },
+        "vehicle": { "id": "4157" },
+        "timestamp": 1696122004
+      }
+    },
+    {
+      "id": "53c235be-3509-454d-8fcb-a8e612b498f8",
+      "vehicle": {
+        "trip": {
+          "start_time": "14:02:00",
+          "trip_id": "JVL__0__9348__RAIL__Rail_SaSu+Hol_20230924",
+          "direction_id": 0,
+          "route_id": 6,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 192,
+          "latitude": -41.2783508,
+          "longitude": 174.7807465
+        },
+        "vehicle": { "id": "4159" },
+        "timestamp": 1696122004
+      }
+    },
+    {
+      "id": "b7148eeb-2309-42f2-8a2b-4171ce04068b",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:35:00",
+          "trip_id": "HVL__0__3840__RAIL__Rail_SaSu+Hol_20230924",
+          "direction_id": 0,
+          "route_id": 5,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 24,
+          "latitude": -41.2063675,
+          "longitude": 174.9319
+        },
+        "vehicle": { "id": "4222" },
+        "timestamp": 1696122004
+      }
+    },
+    {
+      "id": "b7e030c8-cf02-4cc0-a73e-c092d4e26acd",
+      "vehicle": {
+        "trip": {
+          "start_time": "14:00:00",
+          "trip_id": "HVL__1__3839__RAIL__Rail_SaSu+Hol_20230924",
+          "direction_id": 1,
+          "route_id": 5,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 42,
+          "latitude": -41.1261024,
+          "longitude": 175.0708618
+        },
+        "vehicle": { "id": "4259" },
+        "timestamp": 1696122004
+      }
+    },
+    {
+      "id": "8ece90be-507d-45d5-8803-06e2b2d9b07c",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:30:00",
+          "trip_id": "HVL__1__3837__RAIL__Rail_SaSu+Hol_20230924",
+          "direction_id": 1,
+          "route_id": 5,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 204,
+          "latitude": -41.2220535,
+          "longitude": 174.9097443
+        },
+        "vehicle": { "id": "4280" },
+        "timestamp": 1696122004
+      }
+    },
+    {
+      "id": "68d423ab-c2c4-42b0-a205-772c271fe9ba",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:20:00",
+          "trip_id": "2__1__776__NBM__7__2__7__2_20230924",
+          "direction_id": 1,
+          "route_id": 20,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 138,
+          "latitude": -41.3028412,
+          "longitude": 174.7928162
+        },
+        "vehicle": { "id": "5701" },
+        "timestamp": 1696122002
+      }
+    },
+    {
+      "id": "a84b9bfb-1fef-4a27-a905-a9a9dcc61a8a",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:50:00",
+          "trip_id": "2__0__779__NBM__22__3__22__3_20230924",
+          "direction_id": 0,
+          "route_id": 20,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 318,
+          "latitude": -41.3174858,
+          "longitude": 174.7958679
+        },
+        "vehicle": { "id": "5702" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "7249d53d-0636-49f9-94c2-0b1e646b0881",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:48:00",
+          "trip_id": "12__1__712__NBM__26__3__26__3_20230924",
+          "direction_id": 1,
+          "route_id": 120,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 300,
+          "latitude": -41.3174782,
+          "longitude": 174.8189087
+        },
+        "vehicle": { "id": "5704" },
+        "timestamp": 1696122001
+      }
+    },
+    {
+      "id": "4036322f-4fa0-4f61-b881-eaf82fc3aa96",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:15:00",
+          "trip_id": "2__0__773__NBM__6__2__6__2_20230924",
+          "direction_id": 0,
+          "route_id": 20,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 354,
+          "latitude": -41.2791824,
+          "longitude": 174.7769012
+        },
+        "vehicle": { "id": "5706" },
+        "timestamp": 1696122002
+      }
+    },
+    {
+      "id": "e134c5a9-c470-4444-ac2b-b77a4e0a0930",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:20:00",
+          "trip_id": "3__1__746__NBM__21__3__21__3_20230924",
+          "direction_id": 1,
+          "route_id": 30,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 318,
+          "latitude": -41.2893867,
+          "longitude": 174.7747955
+        },
+        "vehicle": { "id": "5710" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "787d7432-2a4a-4a91-b92a-155b2dfeae61",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:30:00",
+          "trip_id": "21__0__711__NBM__23__3__23__3_20230924",
+          "direction_id": 0,
+          "route_id": 210,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 246,
+          "latitude": -41.2845459,
+          "longitude": 174.7381439
+        },
+        "vehicle": { "id": "5711" },
+        "timestamp": 1696121891
+      }
+    },
+    {
+      "id": "10d0a216-82f0-4113-9470-6748d298b122",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:40:00",
+          "trip_id": "2__1__780__NBM__37__3__37__3_20230924",
+          "direction_id": 1,
+          "route_id": 20,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 228,
+          "latitude": -41.2798882,
+          "longitude": 174.7763214
+        },
+        "vehicle": { "id": "5714" },
+        "timestamp": 1696122002
+      }
+    },
+    {
+      "id": "fea195b4-724d-4fcb-9a98-65dc79309291",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:55:00",
+          "trip_id": "83__1__722__NBM__34__3__34__3_20230924",
+          "direction_id": 1,
+          "route_id": 830,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 24,
+          "latitude": -41.2907562,
+          "longitude": 174.897995
+        },
+        "vehicle": { "id": "5715" },
+        "timestamp": 1696122004
+      }
+    },
+    {
+      "id": "e52220ac-f77a-409c-b172-1f36ce966a67",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:35:00",
+          "trip_id": "3__1__748__NBM__3__3__3__3_20230924",
+          "direction_id": 1,
+          "route_id": 30,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 330,
+          "latitude": -41.3020325,
+          "longitude": 174.7741089
+        },
+        "vehicle": { "id": "5717" },
+        "timestamp": 1696122004
+      }
+    },
+    {
+      "id": "b71298f2-38ee-436d-9e12-260979d66bbf",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:35:00",
+          "trip_id": "2__0__777__NBM__11__2__11__2_20230924",
+          "direction_id": 0,
+          "route_id": 20,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 300,
+          "latitude": -41.295826,
+          "longitude": 174.7833099
+        },
+        "vehicle": { "id": "5718" },
+        "timestamp": 1696122001
+      }
+    },
+    {
+      "id": "a632eec5-047e-4bac-b267-3d4d4854c5e2",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:20:00",
+          "trip_id": "14__1__724__NBM__17__3__17__3_20230924",
+          "direction_id": 1,
+          "route_id": 140,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 138,
+          "latitude": -41.2879219,
+          "longitude": 174.8012085
+        },
+        "vehicle": { "id": "5720" },
+        "timestamp": 1696122002
+      }
+    },
+    {
+      "id": "97781a4e-7d52-4ffd-99f2-29409c785975",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:55:00",
+          "trip_id": "2__0__781__NBM__39__3__39__3_20230924",
+          "direction_id": 0,
+          "route_id": 20,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 252,
+          "latitude": -41.3247337,
+          "longitude": 174.8197479
+        },
+        "vehicle": { "id": "5724" },
+        "timestamp": 1696122002
+      }
+    },
+    {
+      "id": "627b5bf3-3590-487b-826b-4ed47000f187",
+      "vehicle": {
+        "trip": {
+          "start_time": "12:55:00",
+          "trip_id": "2__0__769__NBM__32__3__32__3_20230924",
+          "direction_id": 0,
+          "route_id": 20,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 84,
+          "latitude": -41.2788773,
+          "longitude": 174.7692871
+        },
+        "vehicle": { "id": "5726" },
+        "timestamp": 1696121997
+      }
+    },
+    {
+      "id": "48bcc132-fa33-449b-ac52-fecfbdd92d1a",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:53:00",
+          "trip_id": "14__0__729__NBM__33__3__33__3_20230924",
+          "direction_id": 0,
+          "route_id": 140,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 48,
+          "latitude": -41.3004646,
+          "longitude": 174.800354
+        },
+        "vehicle": { "id": "5727" },
+        "timestamp": 1696122001
+      }
+    },
+    {
+      "id": "c4bce81d-8496-49f1-abe5-c1cbf8d4212f",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:10:00",
+          "trip_id": "2__1__774__NBM__2__3__2__3_20230924",
+          "direction_id": 1,
+          "route_id": 20,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 30,
+          "latitude": -41.3133926,
+          "longitude": 174.8184509
+        },
+        "vehicle": { "id": "5728" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "7e949610-3ab5-4ed8-b31c-1a7792d46dce",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:50:00",
+          "trip_id": "14__1__726__NBM__14__3__14__3_20230924",
+          "direction_id": 1,
+          "route_id": 140,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 144,
+          "latitude": -41.2619781,
+          "longitude": 174.776123
+        },
+        "vehicle": { "id": "5730" },
+        "timestamp": 1696122002
+      }
+    },
+    {
+      "id": "1f373b89-fd34-42b7-93cc-19a8cd832af9",
+      "vehicle": {
+        "trip": {
+          "start_time": "12:55:00",
+          "trip_id": "83__1__718__NBM__31__3__31__3_20230924",
+          "direction_id": 1,
+          "route_id": 830,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 132,
+          "latitude": -41.290802,
+          "longitude": 174.7765198
+        },
+        "vehicle": { "id": "5731" },
+        "timestamp": 1696122004
+      }
+    },
+    {
+      "id": "7eef82ad-6c20-425c-ae61-9beae1b582f4",
+      "vehicle": {
+        "trip": {
+          "start_time": "14:00:00",
+          "trip_id": "2__1__784__NBM__27__3__27__3_20230924",
+          "direction_id": 1,
+          "route_id": 20,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 324,
+          "latitude": -41.2889175,
+          "longitude": 174.723175
+        },
+        "vehicle": { "id": "5732" },
+        "timestamp": 1696122004
+      }
+    },
+    {
+      "id": "8f8ef9fd-d0a5-41ee-9341-da9569621eb4",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:10:00",
+          "trip_id": "2__0__771__NBM__20__3__20__3_20230924",
+          "direction_id": 0,
+          "route_id": 20,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 246,
+          "latitude": -41.2848396,
+          "longitude": 174.7371216
+        },
+        "vehicle": { "id": "5734" },
+        "timestamp": 1696122001
+      }
+    },
+    {
+      "id": "94d64e4a-d37b-4329-befa-8ea08ac1ec5f",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:30:00",
+          "trip_id": "2__0__775__NBM__8__3__8__3_20230924",
+          "direction_id": 0,
+          "route_id": 20,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 330,
+          "latitude": -41.2891312,
+          "longitude": 174.7749786
+        },
+        "vehicle": { "id": "5740" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "fcaf162e-b3c6-4c6d-8057-84a7ff0ed7fe",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:30:00",
+          "trip_id": "3__0__747__NBM__29__3__29__3_20230924",
+          "direction_id": 0,
+          "route_id": 30,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 186,
+          "latitude": -41.327446,
+          "longitude": 174.7954102
+        },
+        "vehicle": { "id": "5741" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "9ea7c7ef-9a83-42a2-a83e-083a2fd9244d",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:44:00",
+          "trip_id": "83__0__717__NBM__13__3__13__3_20230924",
+          "direction_id": 0,
+          "route_id": 830,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 60,
+          "latitude": -41.2783394,
+          "longitude": 174.7790375
+        },
+        "vehicle": { "id": "5742" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "74857e45-ca04-4e22-8942-6a602d2ad93f",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:23:00",
+          "trip_id": "14__0__727__NBM__38__2__38__2_20230924",
+          "direction_id": 0,
+          "route_id": 140,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 348,
+          "latitude": -41.2741852,
+          "longitude": 174.777832
+        },
+        "vehicle": { "id": "5745" },
+        "timestamp": 1696122002
+      }
+    },
+    {
+      "id": "b7e48e64-5372-467c-a7d5-c7930a5fa29b",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:38:00",
+          "trip_id": "18__1__714__NBM__36__3__36__3_20230924",
+          "direction_id": 1,
+          "route_id": 180,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 276,
+          "latitude": -41.3075638,
+          "longitude": 174.7750092
+        },
+        "vehicle": { "id": "5746" },
+        "timestamp": 1696122002
+      }
+    },
+    {
+      "id": "f35dad81-edf5-47f3-bfc0-0772dd20c2bb",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:50:00",
+          "trip_id": "2__1__782__NBM__12__3__12__3_20230924",
+          "direction_id": 1,
+          "route_id": 20,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 48,
+          "latitude": -41.2810287,
+          "longitude": 174.7507935
+        },
+        "vehicle": { "id": "5749" },
+        "timestamp": 1696121993
+      }
+    },
+    {
+      "id": "267a8a87-1673-4ffa-bed3-ef26ec19fb53",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:50:00",
+          "trip_id": "3__1__750__NBM__40__2__40__2_20230924",
+          "direction_id": 1,
+          "route_id": 30,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 288,
+          "latitude": -41.3179359,
+          "longitude": 174.7947845
+        },
+        "vehicle": { "id": "5750" },
+        "timestamp": 1696122004
+      }
+    },
+    {
+      "id": "42d881ac-cddd-4e6e-9503-9b181eca100a",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:40:00",
+          "trip_id": "18__0__715__NBM__16__3__16__3_20230924",
+          "direction_id": 0,
+          "route_id": 180,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 114,
+          "latitude": -41.2938461,
+          "longitude": 174.7774506
+        },
+        "vehicle": { "id": "5751" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "009269ca-f936-422d-80fb-a7eb3c640d0a",
+      "vehicle": {
+        "trip": {
+          "start_time": "14:00:00",
+          "trip_id": "60__0__713__MNM__1051__1051_20230924",
+          "direction_id": 0,
+          "route_id": 600,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 48,
+          "latitude": -41.222847,
+          "longitude": 174.8050537
+        },
+        "vehicle": { "id": "7162" },
+        "timestamp": 1696122001
+      }
+    },
+    {
+      "id": "dcf91f2f-046f-4a78-b5ec-3c57b065d95f",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:30:00",
+          "trip_id": "52__1__712__MNM__1041__1041_20230924",
+          "direction_id": 1,
+          "route_id": 520,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 0,
+          "latitude": -41.2315331,
+          "longitude": 174.8122864
+        },
+        "vehicle": { "id": "7802" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "fbf5660a-94fb-4ac3-8937-f29ad9523b2e",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:30:00",
+          "trip_id": "52__0__711__MNM__1012__1012_20230924",
+          "direction_id": 0,
+          "route_id": 520,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 54,
+          "latitude": -41.2279816,
+          "longitude": 174.828537
+        },
+        "vehicle": { "id": "7804" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "cb4580f0-70f7-4db0-9bbe-35cf272fa2aa",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:45:00",
+          "trip_id": "AX__1__860__MNM__8071__8071_20230924",
+          "direction_id": 1,
+          "route_id": 7,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 108,
+          "latitude": -41.2980423,
+          "longitude": 174.7852783
+        },
+        "vehicle": { "id": "7810" },
+        "timestamp": 1696122001
+      }
+    },
+    {
+      "id": "50ea7dc5-c3fc-4ac3-a383-6589a3e2559d",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:30:00",
+          "trip_id": "AX__1__858__MNM__8032__8032_20230924",
+          "direction_id": 1,
+          "route_id": 7,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 126,
+          "latitude": -41.3275032,
+          "longitude": 174.8126678
+        },
+        "vehicle": { "id": "7811" },
+        "timestamp": 1696121919
+      }
+    },
+    {
+      "id": "4b059326-b30d-4565-adfe-661e4fc9c9af",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:55:00",
+          "trip_id": "AX__0__853__MNM__8052__8052_20230924",
+          "direction_id": 0,
+          "route_id": 7,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 300,
+          "latitude": -41.3181686,
+          "longitude": 174.796524
+        },
+        "vehicle": { "id": "7813" },
+        "timestamp": 1696122003
+      }
+    },
+    {
+      "id": "010b9d49-2b49-4f60-ac02-097870023c76",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:40:00",
+          "trip_id": "AX__0__851__MNM__8091__8091_20230924",
+          "direction_id": 0,
+          "route_id": 7,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": { "bearing": 0, "latitude": 0, "longitude": 0 },
+        "vehicle": { "id": "7815" },
+        "timestamp": 1696122002
+      }
+    },
+    {
+      "id": "e635c140-5ef5-48a0-8b7b-71b50bb31d84",
+      "vehicle": {
+        "trip": {
+          "start_time": "14:00:00",
+          "trip_id": "AX__1__862__MNM__8042__8042_20230924",
+          "direction_id": 1,
+          "route_id": 7,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 228,
+          "latitude": -41.2787971,
+          "longitude": 174.7784882
+        },
+        "vehicle": { "id": "7817" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "f147f198-388b-4c72-8e5e-ad69c8e85d93",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:27:00",
+          "trip_id": "290__0__707__UZM__151__1__151__1_20230924",
+          "direction_id": 0,
+          "route_id": 2900,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 18,
+          "latitude": -40.7533073,
+          "longitude": 175.1402588
+        },
+        "vehicle": { "id": "9007" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "49db0000-435a-4419-a84d-a097b77239e4",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:54:00",
+          "trip_id": "261__0__713__UZM__114__4__114__4_20230924",
+          "direction_id": 0,
+          "route_id": 2610,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 324,
+          "latitude": -40.9105339,
+          "longitude": 175.0017242
+        },
+        "vehicle": { "id": "9009" },
+        "timestamp": 1696122001
+      }
+    },
+    {
+      "id": "2c2d90d1-537d-42e8-af78-ae3557525a36",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:54:00",
+          "trip_id": "260__0__715__UZM__110__4__110__4_20230924",
+          "direction_id": 0,
+          "route_id": 2600,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 42,
+          "latitude": -40.9161072,
+          "longitude": 175.0032043
+        },
+        "vehicle": { "id": "9010" },
+        "timestamp": 1696122002
+      }
+    },
+    {
+      "id": "96a0c4db-061e-44a6-a218-13ec6a77db15",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:54:00",
+          "trip_id": "281__0__713__UZM__102__3__102__3_20230924",
+          "direction_id": 0,
+          "route_id": 2810,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 18,
+          "latitude": -40.875618,
+          "longitude": 175.0720825
+        },
+        "vehicle": { "id": "9014" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "9e6c53d5-cbda-4daf-ac79-cbaa96048eea",
+      "vehicle": {
+        "trip": {
+          "start_time": "13:24:00",
+          "trip_id": "250__0__713__UZM__106__3__106__3_20230924",
+          "direction_id": 0,
+          "route_id": 2500,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 30,
+          "latitude": -40.9178123,
+          "longitude": 175.0063782
+        },
+        "vehicle": { "id": "9015" },
+        "timestamp": 1696122000
+      }
+    },
+    {
+      "id": "6d85f58a-1b79-4655-98e8-f3f9ec8fd89a",
+      "vehicle": {
+        "trip": {
+          "start_time": "14:05:00",
+          "trip_id": "262__1__712__UZM__117__4__117__4_20230924",
+          "direction_id": 1,
+          "route_id": 2620,
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "position": {
+          "bearing": 0,
+          "latitude": -40.8935852,
+          "longitude": 174.9812317
+        },
+        "vehicle": { "id": "9018" },
+        "timestamp": 1696122002
+      }
+    },
+    {
+      "id": "WHF-CityCat",
+      "vehicle": {
+        "trip": {
+          "trip_id": "QMF__0__427__EBYW__EBW_SaSu+Hol_20230924",
+          "route_id": "14",
+          "schedule_relationship": 0,
+          "start_date": "20231001"
+        },
+        "current_stop_sequence": 1,
+        "stop_id": "9998",
+        "current_status": 2,
+        "position": {
+          "bearing": 77.2467041015625,
+          "speed": 7.769999980926514,
+          "latitude": -41.2727165222168,
+          "longitude": 174.83079528808594
+        },
+        "timestamp": 1696121985,
+        "vehicle": { "id": "WHF-CityCat" }
+      }
+    }
+  ]
+}
