@@ -10,11 +10,6 @@ jobs:
     steps:
       - name: Deploy to DigitalOcean Droplet
         uses: appleboy/ssh-action@master
-        env:
-          ATAPIKEY1: ${{ secrets.ATAPIKEY1 }}
-          ATAPIKEY2: ${{ secrets.ATAPIKEY2 }}
-          METLINK_API_KEY: ${{ secrets.METLINK_API_KEY }}
-          POSTGRES_CONNECTION_STRING: ${{ secrets.POSTGRES_CONNECTION_STRING }}
         with:
           host: ${{secrets.HOST}}
           username: ${{secrets.USERNAME}}
@@ -26,8 +21,8 @@ jobs:
             echo 'Deployment to digital ocean finished'
             cd ./missinglink/backend/MissingLink.Api
             dotnet publish
-            sed -i "s/Host=localhost;Database=<YOUR-DB-NAME-HERE>;Username=<YOUR-DB-USERNAME-HERE>;Password=<YOUR-DB-PASS-HERE>/$POSTGRES_CONNECTION_STRING/g" ./appsettings.json
-            sed -i "s/<METLINK-API-KEY>/$METLINK_API_KEY/g" ./appsettings.json
-            sed -i "s/<AT-API-KEY-1>/$ATAPIKEY1/g" ./appsettings.json
-            sed -i "s/<AT-API-KEY-2>/$ATAPIKEY2/g" ./appsettings.json
+            sed -i "s/Host=localhost;Database=<YOUR-DB-NAME-HERE>;Username=<YOUR-DB-USERNAME-HERE>;Password=<YOUR-DB-PASS-HERE>/${{ secrets.POSTGRES_CONNECTION_STRING }}/g" ./appsettings.json
+            sed -i "s/<METLINK-API-KEY>/${{ secrets.METLINK_API_KEY }}/g" ./appsettings.json
+            sed -i "s/<AT-API-KEY-1>/${{ secrets.ATAPIKEY1 }}/g" ./appsettings.json
+            sed -i "s/<AT-API-KEY-2>/${{ secrets.ATAPIKEY2 }}/g" ./appsettings.json
             # dotnet /home/deployer/missinglink/backend/MissingLink.Api/bin/Debug/net6.0/missinglink.dll
