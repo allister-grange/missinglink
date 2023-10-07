@@ -1,0 +1,38 @@
+name: Deploy to DigitalOcean Droplet
+"on":
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to DigitalOcean Droplet
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.HOST}}
+          username: ${{secrets.USERNAME}}
+          key: ${{secrets.KEY}}
+          command_timeout: 200m
+          script: |
+            rm -rf missinglink
+            mkdir missinglink
+            cd missinglink
+            git clone git@github.com:allister-grange/missinglink.git
+            echo 'Deployment to digital ocean finished'
+            cd ./missinglink/backend/MissingLink.Api
+            dotnet publish
+            # dotnet /home/deployer/missinglink/backend/MissingLink.Api/bin/Debug/net6.0/missinglink.dll
+
+      - name: Update appsettings.json
+        env:
+          ATAPIKEY1: ${{ secrets.ATAPIKEY1 }}
+          ATAPIKEY2: ${{ secrets.ATAPIKEY2 }}
+          METLINK_API_KEY: ${{ secrets.METLINK_API_KEY }}
+          POSTGRES_CONNECTION_STRING: ${{ secrets.POSTGRES_CONNECTION_STRING }}
+        run: |
+          sed -i 's/Host=localhost;Database=<YOUR-DB-NAME-HERE>;Username=<YOUR-DB-USERNAME-HERE>;Password=<YOUR-DB-PASS-HERE>/$POSTGRES_CONNECTION_STRING/g' /home/deployer/missinglink/backend/MissingLink.Api/appsettings.json
+          sed -i 's/<METLINK-API-KEY>/$METLINK_API_KEY/g' /home/deployer/missinglink/backend/MissingLink.Api/appsettings.json
+          sed -i 's/<AT-API-KEY-1>/$ATAPIKEY1/g' /home/deployer/missinglink/backend/MissingLink.Api/appsettings.json
+          sed -i 's/<AT-API-KEY-2>/$ATAPIKEY2/g' /home/deployer/missinglink/backend/MissingLink.Api/appsettings.json

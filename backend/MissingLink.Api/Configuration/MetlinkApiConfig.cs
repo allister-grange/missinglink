@@ -6,5 +6,5 @@ public class MetlinkApiConfig
   public string RoutesEndpoint { get; set; }
   public string VehiclePositionsEndpoint { get; set; }
   public string TripCancellationsEndpoint { get; set; }
-  public string ApiKey { get; set; }
+  public string MetlinkApiKey { get; set; }
 }

@@ -160,9 +160,7 @@ public class AtAPIServiceTests
             TripUpdatesEndpoint = "/realtime/legacy/tripupdates",
             ServiceAlertsEndpoint = "/realtime/legacy/servicealerts",
             VehicleLocationsEndpoint = "/realtime/legacy/vehiclelocations",
-            RoutesEndpoint = "/gtfs/v3/routes",
-            ApiKey1 = "XXX",
-            ApiKey2 = "XXX"
+            RoutesEndpoint = "/gtfs/v3/routes"
           });
 
     var mockHttpMessageHandler = new Mock<HttpMessageHandler>();

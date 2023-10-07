@@ -309,7 +309,7 @@ namespace missinglink.Services
       // We want to bounce between 2 api keys to keep the usage down
       Random random = new Random();
       int randomNumber = random.Next(2);
-      var metlinkApiKey = randomNumber == 0 ? _atApiConfig.ApiKey1 : _atApiConfig.ApiKey2;
+      var atApiKey = randomNumber == 0 ? _atApiConfig.AtApiKey1 : _atApiConfig.AtApiKey2;
 
       var attempts = 5;
 
@@ -320,7 +320,7 @@ namespace missinglink.Services
           var request = new HttpRequestMessage(
             HttpMethod.Get, url);
           request.Headers.Add("Accept", "application/json");
-          request.Headers.Add("Ocp-Apim-Subscription-Key", metlinkApiKey);
+          request.Headers.Add("Ocp-Apim-Subscription-Key", atApiKey);
           var response = await _httpClient.SendAsync(request);
 
           if (response.IsSuccessStatusCode)

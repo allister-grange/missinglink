@@ -5,6 +5,6 @@ public class AtApiConfig
   public string ServiceAlertsEndpoint { get; set; }
   public string VehicleLocationsEndpoint { get; set; }
   public string RoutesEndpoint { get; set; }
-  public string ApiKey1 { get; set; }
-  public string ApiKey2 { get; set; }
+  public string AtApiKey1 { get; set; }
+  public string AtApiKey2 { get; set; }
 }

@@ -244,7 +244,7 @@ namespace missinglink.Services
       }
       catch (Exception ex)
       {
-        _logger.LogError(ex, "An error occurred while fetching data from the AT api");
+        _logger.LogError(ex, "An error occurred while fetching data from the Metlink api");
         return defaultResultFactory();
       }
     }
@@ -289,10 +289,11 @@ namespace missinglink.Services
         try
         {
 
+          Uri uri = new Uri(url);
           var request = new HttpRequestMessage(
-            HttpMethod.Get, url);
+            HttpMethod.Get, uri);
           request.Headers.Add("Accept", "application/json");
-          request.Headers.Add("x-api-key", _apiConfig.ApiKey);
+          request.Headers.Add("x-api-key", _apiConfig.MetlinkApiKey);
           var response = await _httpClient.SendAsync(request);
 
           if (response.IsSuccessStatusCode)
