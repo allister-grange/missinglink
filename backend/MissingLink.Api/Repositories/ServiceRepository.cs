@@ -107,7 +107,7 @@ namespace missinglink.Repository
 
       var query = (from ss in _dbContext.ServiceStatistics
                    join s in _dbContext.Services on new { ss.BatchId, ss.ProviderId } equals new { s.BatchId, s.ProviderId }
-                   where ss.Timestamp >= lastWeek && ss.ProviderId == providerId
+                   where ss.Timestamp >= lastWeek && ss.ProviderId == providerId && !s.RouteLongName.Contains("school")
                    group s by new { s.ServiceName, s.RouteLongName } into g
                    orderby g.Average(s => s.Delay) descending
                    select new Service
