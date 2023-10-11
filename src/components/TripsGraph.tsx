@@ -6,8 +6,6 @@ import useServiceStatisticApi from "@/hooks/useServiceStatisticApi";
 import styles from "@/styles/Graph.module.css";
 import "chartjs-adapter-moment";
 import { Line } from "react-chartjs-2";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import { GraphColorLegend } from "./GraphColorLegend";
 import {
   Chart as ChartJS,
@@ -26,11 +24,20 @@ type GraphPageProps = {
   city: string;
 };
 
+function formatDateToLocalString(date: Date) {
+  const YYYY = date.getFullYear();
+  const MM = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-based
+  const DD = String(date.getDate()).padStart(2, "0");
+  const HH = String(date.getHours()).padStart(2, "0");
+  const MIN = String(date.getMinutes()).padStart(2, "0");
+  return `${YYYY}-${MM}-${DD}T${HH}:${MIN}`;
+}
+
 const Graph: React.FC<GraphPageProps> = ({ city }) => {
-  const { serviceStatistics, isLoading, getServiceStatsData } =
+  const { serviceStatistics, getServiceStatsData } =
     useServiceStatisticApi(city);
   const [startDate, setStartDate] = useState<Date>(yesterdayDate);
-  const [endDate, setEndDate] = useState<Date | null>(new Date());
+  const [endDate, setEndDate] = useState<Date>(new Date());
   const [hoveringLegendBadge, setHoveringLegendBadge] = useState<
     string | undefined
   >();
@@ -140,30 +147,30 @@ const Graph: React.FC<GraphPageProps> = ({ city }) => {
       <Line data={graphData} options={chartOptions} />
       <div className={styles.datepicker_wrapper}>
         <p>showing data from </p>
-        <DatePicker
-          wrapperClassName="date_picker"
-          selected={startDate}
-          dateFormat="dd/MM/yyyy p"
-          showTimeSelect
-          onChange={(date: Date | null) => {
+        <input
+          type="datetime-local"
+          value={formatDateToLocalString(startDate)}
+          onChange={(e) => {
+            const date = new Date(e.target.value);
             if (date && endDate) {
               getServiceStatsData(date, endDate);
               setStartDate(date);
             }
           }}
+          className={styles.date_picker}
         />
         <p>to</p>
-        <DatePicker
-          wrapperClassName="date_picker"
-          selected={endDate}
-          dateFormat="dd/MM/yyyy p"
-          showTimeSelect
-          onChange={(date: Date | null) => {
+        <input
+          type="datetime-local"
+          value={formatDateToLocalString(endDate)}
+          onChange={(e) => {
+            const date = new Date(e.target.value);
             if (date && startDate) {
               getServiceStatsData(startDate, date);
               setEndDate(date);
             }
           }}
+          className={styles.date_picker}
         />
       </div>
     </div>

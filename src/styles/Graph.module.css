@@ -26,9 +26,15 @@
   font-size: 1.9rem;
   margin-top: 1.5rem;
   color: var(--color-grey-light-1);
-  margin-left: 3rem;
+  margin-left: 1rem;
+  gap: 1rem;
 }
 
+.date_picker {
+  width: 21rem;
+  font-size: 1.6rem;
+  color: var(--color-grey-light-1);
+}
 
 @media (max-width: 500px) {
   .datepicker_wrapper {
