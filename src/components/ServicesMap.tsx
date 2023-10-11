@@ -38,7 +38,7 @@ function ChangeMapView({ coords }: { coords: LatLngExpression }) {
   return null;
 }
 
-const getMapMarker = (service: Service) => {
+const getMapMarker = (service: Service, index: number) => {
   let color = "black";
   let delayMessage = "I am on time!";
 
@@ -77,7 +77,7 @@ const getMapMarker = (service: Service) => {
   return (
     <Marker
       position={[service.lat, service.long]}
-      key={service.vehicleId}
+      key={service.vehicleId ? service.vehicleId : index}
       icon={icon}
     >
       <Popup>
@@ -124,7 +124,9 @@ const ServicesMap: React.FC<ServiceMapProps> = ({
       />
       <ZoomControl position="topright" />
       <ChangeMapView coords={centerLatLong!} />
-      {services.allServices.map((service: Service) => getMapMarker(service))}
+      {services.allServices.map((service: Service, index) =>
+        getMapMarker(service, index)
+      )}
     </MapContainer>
   );
 };

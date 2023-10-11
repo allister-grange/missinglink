@@ -9,6 +9,15 @@ import { Line } from "react-chartjs-2";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { GraphColorLegend } from "./GraphColorLegend";
+import {
+  Chart as ChartJS,
+  TimeScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+} from "chart.js";
+
+ChartJS.register(TimeScale, LinearScale, PointElement, LineElement);
 
 const yesterdayDate = new Date();
 yesterdayDate.setDate(yesterdayDate.getDate() - 1);
