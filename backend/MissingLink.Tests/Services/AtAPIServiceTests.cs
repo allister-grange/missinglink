@@ -5,7 +5,6 @@ using missinglink.Models;
 using missinglink.Services;
 using missinglink.Repository;
 using missinglink.Utils;
-using Microsoft.Extensions.Configuration;
 using Moq.Protected;
 using System.Net;
 using System.Text;
@@ -17,6 +16,7 @@ public class AtAPIServiceTests
   private readonly Mock<ILogger<AtAPIService>> _mockLogger;
   private readonly Mock<IServiceRepository> _mockServiceRepository;
   private Mock<IOptions<AtApiConfig>> _mockAtConfig;
+  private readonly Mock<ICacheRepository> _mockCacheRepository;
 
   public AtAPIServiceTests()
   {
@@ -24,6 +24,7 @@ public class AtAPIServiceTests
     _mockLogger = new Mock<ILogger<AtAPIService>>();
     _mockServiceRepository = new Mock<IServiceRepository>();
     _mockAtConfig = new Mock<IOptions<AtApiConfig>>();
+    _mockCacheRepository = new Mock<ICacheRepository>();
     PrepareMocks();
   }
 
@@ -35,7 +36,9 @@ public class AtAPIServiceTests
     // Arrange
     var mockDateTimeProvider = new Mock<IDateTimeProvider>();
     mockDateTimeProvider.Setup(dtp => dtp.UtcNow).Returns(new DateTime(2023, 9, 29, 23, 59, 59));
-    var atApiService = new AtAPIService(_mockLogger.Object, _mockHttpClientFactory.Object, _mockAtConfig.Object, _mockServiceRepository.Object, mockDateTimeProvider.Object);
+    var atApiService = new AtAPIService(_mockLogger.Object, _mockHttpClientFactory.Object,
+      _mockAtConfig.Object, _mockServiceRepository.Object,
+      mockDateTimeProvider.Object, _mockCacheRepository.Object);
 
     // Act
     var services = await atApiService.FetchLatestTripDataFromUpstreamService();
@@ -72,7 +75,9 @@ public class AtAPIServiceTests
     // Arrange
     var mockDateTimeProvider = new Mock<IDateTimeProvider>();
     mockDateTimeProvider.Setup(dtp => dtp.UtcNow).Returns(new DateTime(2023, 9, 29, 23, 59, 59));
-    var atApiService = new AtAPIService(_mockLogger.Object, _mockHttpClientFactory.Object, _mockAtConfig.Object, _mockServiceRepository.Object, mockDateTimeProvider.Object);
+    var atApiService = new AtAPIService(_mockLogger.Object, _mockHttpClientFactory.Object,
+      _mockAtConfig.Object, _mockServiceRepository.Object,
+      mockDateTimeProvider.Object, _mockCacheRepository.Object);
 
     // Act
     var services = await atApiService.FetchLatestTripDataFromUpstreamService();
@@ -95,7 +100,9 @@ public class AtAPIServiceTests
     // Arrange
     var mockDateTimeProvider = new Mock<IDateTimeProvider>();
     mockDateTimeProvider.Setup(dtp => dtp.UtcNow).Returns(new DateTime(2023, 9, 29, 22, 10, 00));
-    var atApiService = new AtAPIService(_mockLogger.Object, _mockHttpClientFactory.Object, _mockAtConfig.Object, _mockServiceRepository.Object, mockDateTimeProvider.Object);
+    var atApiService = new AtAPIService(_mockLogger.Object, _mockHttpClientFactory.Object,
+      _mockAtConfig.Object, _mockServiceRepository.Object,
+      mockDateTimeProvider.Object, _mockCacheRepository.Object);
 
     // Act
     var services = await atApiService.FetchLatestTripDataFromUpstreamService();
@@ -115,7 +122,9 @@ public class AtAPIServiceTests
     // Arrange
     var mockDateTimeProvider = new Mock<IDateTimeProvider>();
     mockDateTimeProvider.Setup(dtp => dtp.UtcNow).Returns(new DateTime(2023, 9, 29, 22, 10, 00));
-    var atApiService = new AtAPIService(_mockLogger.Object, _mockHttpClientFactory.Object, _mockAtConfig.Object, _mockServiceRepository.Object, mockDateTimeProvider.Object);
+    var atApiService = new AtAPIService(_mockLogger.Object, _mockHttpClientFactory.Object,
+      _mockAtConfig.Object, _mockServiceRepository.Object,
+      mockDateTimeProvider.Object, _mockCacheRepository.Object);
 
     // Act
     var services = await atApiService.FetchLatestTripDataFromUpstreamService();
@@ -140,7 +149,9 @@ public class AtAPIServiceTests
     PrepareHttpMockToFail();
     var mockDateTimeProvider = new Mock<IDateTimeProvider>();
     mockDateTimeProvider.Setup(dtp => dtp.UtcNow).Returns(new DateTime(2023, 9, 29, 22, 10, 00));
-    var atApiService = new AtAPIService(_mockLogger.Object, _mockHttpClientFactory.Object, _mockAtConfig.Object, _mockServiceRepository.Object, mockDateTimeProvider.Object);
+    var atApiService = new AtAPIService(_mockLogger.Object, _mockHttpClientFactory.Object,
+      _mockAtConfig.Object, _mockServiceRepository.Object,
+      mockDateTimeProvider.Object, _mockCacheRepository.Object);
 
     // Act
     var services = await atApiService.FetchLatestTripDataFromUpstreamService();

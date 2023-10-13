@@ -8,7 +8,7 @@ namespace missinglink.Services
   public interface IBaseServiceAPI
   {
     Task<List<Service>> FetchLatestTripDataFromUpstreamService();
-    Task<List<Service>> GetLatestServices();
+    List<Service> GetLatestServices();
     List<ServiceStatistic> GetServiceStatisticsByDate(DateTime startDate, DateTime endDate);
     List<Service> GetThreeWorstServicesForThisWeek();
   }

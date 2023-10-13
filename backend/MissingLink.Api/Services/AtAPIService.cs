@@ -21,16 +21,18 @@ namespace missinglink.Services
     private readonly IServiceRepository _serviceRepository;
     private readonly IDateTimeProvider _dateTimeProvider;
     private readonly AtApiConfig _atApiConfig;
+    private readonly ICacheRepository _cacheRepository;
 
     public AtAPIService(ILogger<AtAPIService> logger, IHttpClientFactory clientFactory,
                         IOptions<AtApiConfig> atApiConfigOptions, IServiceRepository serviceRepository,
-                        IDateTimeProvider dateTimeProvider)
+                        IDateTimeProvider dateTimeProvider, ICacheRepository cacheRepository)
     {
       _httpClient = clientFactory.CreateClient("ATService");
       _logger = logger;
       _serviceRepository = serviceRepository;
       _dateTimeProvider = dateTimeProvider;
       _atApiConfig = atApiConfigOptions.Value;
+      _cacheRepository = cacheRepository;
     }
     public async Task<List<Service>> FetchLatestTripDataFromUpstreamService()
     {
@@ -264,12 +266,11 @@ namespace missinglink.Services
       }
     }
 
-    public async Task<List<Service>> GetLatestServices()
+    public List<Service> GetLatestServices()
     {
       try
       {
-        var batchId = await _serviceRepository.GetLatestBatchId();
-        return _serviceRepository.GetByBatchIdAndProvider(batchId, "AT");
+        return _cacheRepository.Get<List<Service>>("AT");
       }
       catch (Exception ex)
       {

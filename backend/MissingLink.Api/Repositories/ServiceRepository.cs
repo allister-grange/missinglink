@@ -95,12 +95,6 @@ namespace missinglink.Repository
       return await batchIdsQuery.FirstOrDefaultAsync();
     }
 
-    public void DeleteAllServices()
-    {
-      _dbContext.Services.RemoveRange(_dbContext.Services);
-      _dbContext.SaveChanges();
-    }
-
     public List<Service> GetThreeWorstServicesForThisWeek(string providerId)
     {
       DateTime lastWeek = DateTime.Now.AddDays(-7);

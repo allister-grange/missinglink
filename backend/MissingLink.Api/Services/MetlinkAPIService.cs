@@ -5,7 +5,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using missinglink.Models.Metlink;
 using missinglink.Models.Metlink.VehiclePosition;
-using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Microsoft.Extensions.Logging;
 using missinglink.Repository;
@@ -20,14 +19,16 @@ namespace missinglink.Services
     private readonly ILogger<MetlinkAPIService> _logger;
     private readonly IServiceRepository _serviceRepository;
     private readonly MetlinkApiConfig _apiConfig;
+    private readonly ICacheRepository _cacheRepository;
 
     public MetlinkAPIService(ILogger<MetlinkAPIService> logger, IHttpClientFactory clientFactory,
-      IOptions<MetlinkApiConfig> apiConfig, IServiceRepository metlinkServiceRepository)
+      IOptions<MetlinkApiConfig> apiConfig, IServiceRepository metlinkServiceRepository, ICacheRepository cacheRepository)
     {
       _httpClient = clientFactory.CreateClient("metlinkService");
       _logger = logger;
       _apiConfig = apiConfig.Value;
       _serviceRepository = metlinkServiceRepository;
+      _cacheRepository = cacheRepository;
     }
 
     public async Task<List<Service>> FetchLatestTripDataFromUpstreamService()
@@ -249,12 +250,11 @@ namespace missinglink.Services
       }
     }
 
-    public async Task<List<Service>> GetLatestServices()
+    public List<Service> GetLatestServices()
     {
       try
       {
-        var batchId = await _serviceRepository.GetLatestBatchId();
-        return _serviceRepository.GetByBatchIdAndProvider(batchId, "Metlink");
+        return _cacheRepository.Get<List<Service>>("Metlink");
       }
       catch (Exception ex)
       {

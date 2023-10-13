@@ -14,6 +14,7 @@ using missinglink.Controllers;
 using missinglink.Repository;
 using missinglink.Services;
 using missinglink.Utils;
+using StackExchange.Redis;
 
 namespace missinglink
 {
@@ -59,6 +60,12 @@ namespace missinglink
 
     public void ConfigureContainer(ContainerBuilder builder)
     {
+
+      builder.Register(c => ConnectionMultiplexer.Connect(Configuration.GetConnectionString("Redis")))
+            .As<ConnectionMultiplexer>()
+            .SingleInstance();
+      builder.RegisterType<CacheRepository>().As<ICacheRepository>();
+
       builder.RegisterType<MetlinkAPIService>();
       builder.RegisterType<AtAPIService>();
       builder.RegisterType<ServiceAPI>();

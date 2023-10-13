@@ -1,13 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 using missinglink.Models;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using missinglink.Repository;
-using System.Text.Json;
 
 namespace missinglink.Services
 {
@@ -15,17 +12,15 @@ namespace missinglink.Services
   {
     private readonly ILogger<AtAPIService> _logger;
     private readonly IServiceRepository _serviceRepository;
-    private readonly JsonSerializerOptions options = new JsonSerializerOptions
-    {
-      PropertyNameCaseInsensitive = true
-    };
+    private readonly ICacheRepository _cacheRepository;
+    private readonly string[] providers = new string[] { "Metlink", "AT" };
 
-    public ServiceAPI(ILogger<AtAPIService> logger, IServiceRepository serviceRepository)
+    public ServiceAPI(ILogger<AtAPIService> logger, IServiceRepository serviceRepository, ICacheRepository cacheRepository)
     {
       _logger = logger;
       _serviceRepository = serviceRepository;
+      _cacheRepository = cacheRepository;
     }
-
 
     public async Task<int> GenerateNewBatchId()
     {
@@ -33,30 +28,16 @@ namespace missinglink.Services
       return lastBatchId + 1;
     }
 
-    public void DeleteAllServices()
-    {
-      _serviceRepository.DeleteAllServices();
-    }
-
     public async Task UpdateServicesWithLatestData(List<Service> allServices)
     {
       try
       {
+        foreach (string provider in providers)
+        {
+          var servicesThatMatchProvider = allServices.Where((service) => service.ProviderId == provider);
+          _cacheRepository.Set(provider, servicesThatMatchProvider);
+        }
         await _serviceRepository.AddServicesAsync(allServices);
-      }
-      catch (Exception ex)
-      {
-        _logger.LogError(ex, "An error occurred while updates services in the db");
-        throw ex;
-      }
-    }
-
-    public List<Service> GetWorstServicesForPastWeek(string providerId)
-    {
-      try
-      {
-        var services = _serviceRepository.GetThreeWorstServicesForThisWeek(providerId);
-        return services;
       }
       catch (Exception ex)
       {
@@ -73,8 +54,6 @@ namespace missinglink.Services
       {
         throw new ArgumentException("The service table must be empty");
       }
-
-      var providers = new string[] { "Metlink", "AT" };
 
       foreach (var provider in providers)
       {

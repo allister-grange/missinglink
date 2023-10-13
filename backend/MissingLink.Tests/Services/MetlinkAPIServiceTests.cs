@@ -15,12 +15,14 @@ public class MetlinkAPIServiceTests
   private Mock<IOptions<MetlinkApiConfig>> _mockMetlinkConfig;
   private readonly Mock<ILogger<MetlinkAPIService>> _mockLogger;
   private readonly Mock<IServiceRepository> _mockServiceRepository;
+  private readonly Mock<ICacheRepository> _mockCacheRepository;
   public MetlinkAPIServiceTests()
   {
     _mockHttpClientFactory = new Mock<IHttpClientFactory>();
     _mockLogger = new Mock<ILogger<MetlinkAPIService>>();
     _mockServiceRepository = new Mock<IServiceRepository>();
     _mockMetlinkConfig = new Mock<IOptions<MetlinkApiConfig>>();
+    _mockCacheRepository = new Mock<ICacheRepository>();
     PrepareMocks();
   }
 
@@ -29,7 +31,9 @@ public class MetlinkAPIServiceTests
   public async Task FetchLatestTripDataFromUpstreamService_ReturnsExpectedResultForFirstEntry()
   {
     // Arrange
-    var metlinkApiService = new MetlinkAPIService(_mockLogger.Object, _mockHttpClientFactory.Object, _mockMetlinkConfig.Object, _mockServiceRepository.Object);
+    var metlinkApiService = new MetlinkAPIService(_mockLogger.Object,
+      _mockHttpClientFactory.Object, _mockMetlinkConfig.Object,
+      _mockServiceRepository.Object, _mockCacheRepository.Object);
 
     // Act
     var services = await metlinkApiService.FetchLatestTripDataFromUpstreamService();
@@ -64,7 +68,9 @@ public class MetlinkAPIServiceTests
   public async Task FetchLatestTripDataFromUpstreamService_ReturnsCorrectStatusCount()
   {
     // Arrange
-    var metlinkApiService = new MetlinkAPIService(_mockLogger.Object, _mockHttpClientFactory.Object, _mockMetlinkConfig.Object, _mockServiceRepository.Object);
+    var metlinkApiService = new MetlinkAPIService(_mockLogger.Object,
+      _mockHttpClientFactory.Object, _mockMetlinkConfig.Object,
+      _mockServiceRepository.Object, _mockCacheRepository.Object);
 
     // Act
     var services = await metlinkApiService.FetchLatestTripDataFromUpstreamService();
@@ -88,7 +94,9 @@ public class MetlinkAPIServiceTests
   {
     // Arrange
     PrepareHttpMockToFail();
-    var metlinkApiService = new MetlinkAPIService(_mockLogger.Object, _mockHttpClientFactory.Object, _mockMetlinkConfig.Object, _mockServiceRepository.Object);
+    var metlinkApiService = new MetlinkAPIService(_mockLogger.Object,
+      _mockHttpClientFactory.Object, _mockMetlinkConfig.Object,
+      _mockServiceRepository.Object, _mockCacheRepository.Object);
 
     // Act
     var services = await metlinkApiService.FetchLatestTripDataFromUpstreamService();

@@ -16,7 +16,6 @@ namespace missinglink.Repository
     List<ServiceStatistic> GetServiceStatisticsByDateAndProvider(DateTime startDate, DateTime endDate, string serviceProviderId);
     Task AddStatisticAsync(ServiceStatistic statistic);
     Task AddServicesAsync(List<Service> services);
-    void DeleteAllServices();
     Task<int> GetLatestBatchId();
     List<Service> GetByBatchId(int batchId);
     List<Service> GetByBatchIdAndProvider(int batchId, string serviceProviderId);

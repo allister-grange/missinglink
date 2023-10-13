@@ -30,11 +30,11 @@ namespace YourTestProject.Tests.Controllers
                 new Service {  },
                 new Service {  }
             };
-      _metlinkApiServiceMock.Setup(api => api.GetLatestServices()).ReturnsAsync(expectedServices);
+      _metlinkApiServiceMock.Setup(api => api.GetLatestServices()).Returns(expectedServices);
       var controller = new MetlinkServicesController(_loggerMock.Object, _metlinkApiServiceMock.Object);
 
       // Act
-      var result = await controller.GetNewestServices();
+      var result = controller.GetNewestServices();
 
       // Assert
       Assert.NotNull(result);
@@ -45,11 +45,11 @@ namespace YourTestProject.Tests.Controllers
     public async Task GetNewestServices_ReturnsEmptyList_WhenDatabaseIsEmpty()
     {
       // Arrange
-      _metlinkApiServiceMock.Setup(api => api.GetLatestServices()).ReturnsAsync(new List<Service>());
+      _metlinkApiServiceMock.Setup(api => api.GetLatestServices()).Returns(new List<Service>());
       var controller = new MetlinkServicesController(_loggerMock.Object, _metlinkApiServiceMock.Object);
 
       // Act
-      var result = await controller.GetNewestServices();
+      var result = controller.GetNewestServices();
 
       // Assert
       Assert.NotNull(result);

@@ -22,7 +22,7 @@ namespace YourTestProject.Tests.Controllers
     }
 
     [Fact]
-    public async Task GetNewestServices_ReturnsPopulatedList()
+    public void GetNewestServices_ReturnsPopulatedList()
     {
       // Arrange
       var expectedServices = new List<Service>
@@ -30,11 +30,11 @@ namespace YourTestProject.Tests.Controllers
                 new Service {  },
                 new Service {  }
             };
-      _atApiServiceMock.Setup(api => api.GetLatestServices()).ReturnsAsync(expectedServices);
+      _atApiServiceMock.Setup(api => api.GetLatestServices()).Returns(expectedServices);
       var controller = new AtServicesController(_loggerMock.Object, _atApiServiceMock.Object);
 
       // Act
-      var result = await controller.GetNewestServices();
+      var result = controller.GetNewestServices();
 
       // Assert
       Assert.NotNull(result);
@@ -42,14 +42,14 @@ namespace YourTestProject.Tests.Controllers
     }
 
     [Fact]
-    public async Task GetNewestServices_ReturnsEmptyList_WhenDatabaseIsEmpty()
+    public void GetNewestServices_ReturnsEmptyList_WhenDatabaseIsEmpty()
     {
       // Arrange
-      _atApiServiceMock.Setup(api => api.GetLatestServices()).ReturnsAsync(new List<Service>());
+      _atApiServiceMock.Setup(api => api.GetLatestServices()).Returns(new List<Service>());
       var controller = new AtServicesController(_loggerMock.Object, _atApiServiceMock.Object);
 
       // Act
-      var result = await controller.GetNewestServices();
+      var result = controller.GetNewestServices();
 
       // Assert
       Assert.NotNull(result);
