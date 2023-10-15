@@ -5,13 +5,14 @@ import { WeatherData } from "@/types/weather";
 import { WeatherIconCloudy } from "./icons/WeatherIconCloudy";
 import { WeatherIconRainy } from "./icons/WeatherIconRainy";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/router";
+import { setCookie } from "nookies";
 
 interface TopNavProps {
   atAGlanceRef: RefObject<HTMLDivElement>;
   mapRef: RefObject<HTMLDivElement>;
   statsRef: RefObject<HTMLDivElement>;
   tablesRef: RefObject<HTMLDivElement>;
-  setCity: React.Dispatch<React.SetStateAction<string>>;
   city: string;
 }
 
@@ -36,8 +37,8 @@ export const TopNav: React.FC<TopNavProps> = ({
   statsRef,
   tablesRef,
   city,
-  setCity,
 }) => {
+  const router = useRouter();
   const innerNavBubbleRef = React.useRef<HTMLDivElement>(null);
   const cityNavDivRef = React.useRef<HTMLDivElement>(null);
   const [navPillBackgroundPosition, setNavPillBackgroundPosition] =
@@ -159,6 +160,15 @@ export const TopNav: React.FC<TopNavProps> = ({
       break;
   }
 
+  function changeCity(city: string) {
+    setCookie(null, "preferredCity", city, {
+      path: "/",
+      maxAge: 2147483647,
+      secure: true,
+    });
+    router.push("/" + city);
+  }
+
   return (
     <nav
       className={`${styles.nav_container} ${
@@ -237,7 +247,7 @@ export const TopNav: React.FC<TopNavProps> = ({
               " " +
               (city === "wellington" ? styles.city_button__active : "")
             }
-            onClick={() => setCity("wellington")}
+            onClick={() => changeCity("wellington")}
             onMouseOver={(e) => onLinkMouseEnter(e, true)}
           >
             Wellington
@@ -248,7 +258,7 @@ export const TopNav: React.FC<TopNavProps> = ({
               " " +
               (city === "auckland" ? styles.city_button__active : "")
             }
-            onClick={() => setCity("auckland")}
+            onClick={() => changeCity("auckland")}
             onMouseOver={(e) => onLinkMouseEnter(e, true)}
           >
             Auckland
