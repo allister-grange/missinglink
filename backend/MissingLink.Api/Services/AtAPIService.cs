@@ -11,6 +11,8 @@ using missinglink.Models.AT;
 using Newtonsoft.Json;
 using missinglink.Models.AT.ServiceAlert;
 using Microsoft.Extensions.Options;
+using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace missinglink.Services
 {
@@ -141,6 +143,16 @@ namespace missinglink.Services
           })
           .ToList();
 
+      var atRoutesFilePath = Path.Combine("Utils", "AT_routes.json");
+
+      if (!File.Exists(atRoutesFilePath))
+      {
+        _logger.LogError("AT Routes file not found.");
+      }
+
+      var atRoutesString = File.ReadAllText(atRoutesFilePath);
+      var atRoutesJson = JObject.Parse(atRoutesString);
+
       foreach (var trip in tripUpdatesOnlyToday)
       {
         var newService = new Service();
@@ -150,11 +162,14 @@ namespace missinglink.Services
 
         if (routeForTrip != null)
         {
+          var routeShortName = routeForTrip.Attributes.RouteShortName;
+          var value = atRoutesJson[routeShortName]?.ToString() ?? routeShortName;
+
           newService.RouteId = routeForTrip.Id;
-          newService.RouteDescription = routeForTrip.Attributes.RouteLongName;
-          newService.RouteShortName = routeForTrip.Attributes.RouteShortName;
-          newService.RouteLongName = routeForTrip.Attributes.RouteLongName;
-          newService.ServiceName = routeForTrip.Attributes.RouteShortName;
+          newService.RouteDescription = value;
+          newService.RouteShortName = routeShortName;
+          newService.RouteLongName = value;
+          newService.ServiceName = routeShortName;
         }
 
         // find the position of the service in the trip
