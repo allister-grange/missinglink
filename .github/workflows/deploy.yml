@@ -27,4 +27,4 @@ jobs:
             sed -i "s/<AT-API-KEY-1>/${{ secrets.ATAPIKEY1 }}/g" ./appsettings.json
             sed -i "s/<AT-API-KEY-2>/${{ secrets.ATAPIKEY2 }}/g" ./appsettings.json
             sed -i "s/<YOUR-REDIS-DB-HERE>/${{ secrets.REDIS_HOST }}/g" ./appsettings.json
-            service missinglink start
+            sudo service missinglink start
