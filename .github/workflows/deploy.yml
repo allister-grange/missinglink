@@ -16,6 +16,7 @@ jobs:
           key: ${{secrets.KEY}}
           command_timeout: 200m
           script: |
+            service missinglink stop
             rm -rf missinglink
             git clone git@github.com:allister-grange/missinglink.git
             echo 'Deployment to digital ocean finished'
@@ -26,3 +27,4 @@ jobs:
             sed -i "s/<AT-API-KEY-1>/${{ secrets.ATAPIKEY1 }}/g" ./appsettings.json
             sed -i "s/<AT-API-KEY-2>/${{ secrets.ATAPIKEY2 }}/g" ./appsettings.json
             sed -i "s/<YOUR-REDIS-DB-HERE>/${{ secrets.REDIS_HOST }}/g" ./appsettings.json
+            service missinglink start
