@@ -20,10 +20,9 @@ jobs:
             git clone git@github.com:allister-grange/missinglink.git
             echo 'Deployment to digital ocean finished'
             cd ./missinglink/backend/MissingLink.Api
-            dotnet publish
+            dotnet publish -c "Release"
             sed -i "s/Host=localhost;Database=<YOUR-DB-NAME-HERE>;Username=<YOUR-DB-USERNAME-HERE>;Password=<YOUR-DB-PASS-HERE>/${{ secrets.POSTGRES_CONNECTION_STRING }}/g" ./appsettings.json
             sed -i "s/<METLINK-API-KEY>/${{ secrets.METLINK_API_KEY }}/g" ./appsettings.json
             sed -i "s/<AT-API-KEY-1>/${{ secrets.ATAPIKEY1 }}/g" ./appsettings.json
             sed -i "s/<AT-API-KEY-2>/${{ secrets.ATAPIKEY2 }}/g" ./appsettings.json
             sed -i "s/<YOUR-REDIS-DB-HERE>/${{ secrets.REDIS_HOST }}/g" ./appsettings.json
-            # dotnet /home/deployer/missinglink/backend/MissingLink.Api/bin/Debug/net6.0/missinglink.dll
