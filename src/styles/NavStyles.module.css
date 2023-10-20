@@ -125,7 +125,7 @@
 }
 
 .nav_link:hover {
-  color: var(--color-grey-dark-1);
+  color: white;
   cursor: pointer;
 }
 

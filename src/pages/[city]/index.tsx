@@ -55,6 +55,7 @@ const Home: NextPage = () => {
           property="og:title"
           content="MissingLink - An overview of public transport in NZ"
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         <link
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
