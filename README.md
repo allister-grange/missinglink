@@ -52,11 +52,11 @@ There was an extended period of no data as I had to re-write the due to MetLink 
 
 **Auckland Transport**
 
-Auckland Transport's API data is a little funky (at least to me). They report trips that are going to happen in the future, and also report multiple trips for one vehicle. As a result of this, I have to "clean" the Auckland data somewhat. 
+Auckland Transport includes trip updates that are going to happen in the future, they also report multiple trips for one vehicle when there is a turnaround point for the service. As a result of this, I "clean" the Auckland data somewhat, to be more fair on them.
 
-I don't like muddling about with the data, as I want it to come straight from the horse's mouth. However, it wouldn't be genuine for me to say trips aren't reporting their time, when in fact they don't run for another 24 hours. Or to double report a vehicle that is running late if it appears on the list of trips twice.
+I don't like muddling about with the data, as I want it to come straight from the horse's mouth. However, it wouldn't be genuine for me to say trips aren't reporting their time, when in fact they don't run for another 24 hours. Or to double report a vehicle that is running late if it appears on the list of trips twice, as it is both late in it's current route, and will be late again when it turns around.
 
-As such, I follow these two steps: 1) I will only take the latest trip if it's 1 vehicle on 2 trips 2) no trip updates with a start date in the future are taken into account in the data.
+As such, I follow these two steps: 1) I will only take the most recent trip update if it's 1 vehicle represented by more than 1 trip 2) no trip updates with a start date in the future are taken into account in the data.
 
 ## Contributing
 
