@@ -34,6 +34,22 @@ public abstract class BaseServicesController<TService> : ControllerBase where TS
     return services;
   }
 
+  [HttpGet("serviceNames")]
+  public List<string> GetServiceNames()
+  {
+    _logger.LogInformation("Fetching list of services in the databases");
+    var services = _apiService.GetServiceNames();
+
+    if (services == null || services.Count == 0)
+    {
+      _logger.LogWarning("Services table in database not populated.");
+      return new List<string>();
+    }
+
+    _logger.LogInformation("Found " + services.Count + " services");
+    return services;
+  }
+
   [HttpGet("statistics")]
   public IActionResult GetServiceStatisticsByDate(string startDate, string endDate)
   {

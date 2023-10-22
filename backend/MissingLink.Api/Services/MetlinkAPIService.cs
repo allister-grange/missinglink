@@ -263,6 +263,19 @@ namespace missinglink.Services
       }
     }
 
+    public List<string> GetServiceNames()
+    {
+      try
+      {
+        return _serviceRepository.GetServiceNamesByProviderId("Metlink");
+      }
+      catch (Exception ex)
+      {
+        _logger.LogError(ex, "Failed to retrieve the names of the services for Metlink");
+        return new List<string>();
+      }
+    }
+
     public List<Service> GetThreeWorstServicesForThisWeek()
     {
       try

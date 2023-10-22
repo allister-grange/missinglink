@@ -320,6 +320,19 @@ namespace missinglink.Services
       }
     }
 
+    public List<string> GetServiceNames()
+    {
+      try
+      {
+        return _serviceRepository.GetServiceNamesByProviderId("AT");
+      }
+      catch (Exception ex)
+      {
+        _logger.LogError(ex, "Failed to retrieve the names of the services for AT");
+        return new List<string>();
+      }
+    }
+
     private async Task<HttpResponseMessage> MakeAPIRequest(string url)
     {
       // We want to bounce between 2 api keys to keep the usage down

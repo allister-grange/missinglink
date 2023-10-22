@@ -11,5 +11,6 @@ namespace missinglink.Services
     List<Service> GetLatestServices();
     List<ServiceStatistic> GetServiceStatisticsByDate(DateTime startDate, DateTime endDate);
     List<Service> GetThreeWorstServicesForThisWeek();
+    List<string> GetServiceNames();
   }
 }

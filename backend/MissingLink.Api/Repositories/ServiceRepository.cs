@@ -116,6 +116,15 @@ namespace missinglink.Repository
       return query.ToList();
     }
 
+    public List<string> GetServiceNamesByProviderId(string providerId)
+    {
+      return _dbContext.Services
+          .Where(s => s.ProviderId == providerId && s.ServiceName != null)
+          .Select(s => s.ServiceName)
+          .Distinct()
+          .ToList();
+    }
+
   }
 }
 
