@@ -276,6 +276,19 @@ namespace missinglink.Services
       }
     }
 
+    public List<Service> GetServicesByServiceNameAndTimeRange(string serviceName, TimeRange timeRange)
+    {
+      try
+      {
+        return _serviceRepository.GetServicesByServiceNameAndTimeRange("Metlink", serviceName, timeRange);
+      }
+      catch (Exception ex)
+      {
+        _logger.LogError(ex, "Failed to retrieve the names of the services for Metlink");
+        return new List<Service>();
+      }
+    }
+
     public List<Service> GetThreeWorstServicesForThisWeek()
     {
       try

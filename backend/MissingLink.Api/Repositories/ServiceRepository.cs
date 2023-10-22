@@ -125,6 +125,41 @@ namespace missinglink.Repository
           .ToList();
     }
 
+    public List<Service> GetServicesByServiceNameAndTimeRange(string providerId, string serviceName, TimeRange timeRange)
+    {
+      TimeZoneInfo nzTimeZone = TimeZoneInfo.FindSystemTimeZoneById("New Zealand Standard Time");
+      DateTime currentNZTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, nzTimeZone);
+
+      DateTime startDate = currentNZTime;
+
+      switch (timeRange)
+      {
+        case TimeRange.OneMonth:
+          startDate = startDate.AddMonths(-1);
+          break;
+        case TimeRange.OneWeek:
+          startDate = startDate.AddDays(-7);
+          break;
+        case TimeRange.OneDay:
+          startDate = startDate.AddDays(-1);
+          break;
+        case TimeRange.AllTime:
+        default:
+          startDate = DateTime.MinValue;
+          break;
+      }
+
+      return _dbContext.Services
+          .Where(s => s.ProviderId == providerId && s.ServiceName == serviceName)
+          .Join(_dbContext.ServiceStatistics,
+                service => service.BatchId,
+                stat => stat.BatchId,
+                (service, stat) => new { Service = service, Stat = stat })
+          .Where(joined => joined.Stat.Timestamp >= startDate)
+          .Select(joined => joined.Service)
+          .ToList();
+    }
+
   }
 }
 

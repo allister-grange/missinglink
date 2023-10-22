@@ -333,6 +333,19 @@ namespace missinglink.Services
       }
     }
 
+    public List<Service> GetServicesByServiceNameAndTimeRange(string serviceName, TimeRange timeRange)
+    {
+      try
+      {
+        return _serviceRepository.GetServicesByServiceNameAndTimeRange("AT", serviceName, timeRange);
+      }
+      catch (Exception ex)
+      {
+        _logger.LogError(ex, "Failed to retrieve the names of the services for AT");
+        return new List<Service>();
+      }
+    }
+
     private async Task<HttpResponseMessage> MakeAPIRequest(string url)
     {
       // We want to bounce between 2 api keys to keep the usage down
