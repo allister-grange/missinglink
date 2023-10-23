@@ -150,7 +150,7 @@ namespace missinglink.Repository
       }
 
       return _dbContext.Services
-          .Where(s => s.ProviderId == providerId && s.ServiceName == serviceName)
+          .Where(s => s.ProviderId == providerId && s.ServiceName == serviceName && s.ServiceName != null)
           .Join(_dbContext.ServiceStatistics,
                 service => service.BatchId,
                 stat => stat.BatchId,

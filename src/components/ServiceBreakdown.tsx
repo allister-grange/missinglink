@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import useSWR from "swr";
 import { API_URL } from "@/constants";
 import { getServiceProviderFromCity } from "@/helpers/convertors";
@@ -11,13 +11,28 @@ interface ServiceBreakdownProps {
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export const ServiceBreakdown: React.FC<ServiceBreakdownProps> = ({ city }) => {
-  const { data, error, isLoading } = useSWR<string[]>(
+  const [selectedService, setSelectedService] = React.useState("");
+  const serviceNamesResponse = useSWR<string[]>(
     `${API_URL}/api/v1/${getServiceProviderFromCity(city)}/serviceNames`,
     fetcher
   );
+  const serviceDataResponse = useSWR(
+    selectedService
+      ? `${API_URL}/api/v1/${getServiceProviderFromCity(
+          city
+        )}/servicesByNameAndTimeRange?serviceName=${selectedService}&timeRange=3`
+      : null, // This ensures the API is not called when the selectedService is empty
+    fetcher
+  );
 
-  const serviceNames = data;
+  const serviceNames = serviceNamesResponse.data;
   let toDisplay;
+
+  React.useEffect(() => {}, [selectedService]);
+
+  function onServiceNameSelectorChange(e: ChangeEvent<HTMLSelectElement>) {
+    setSelectedService(e.target.value);
+  }
 
   if (serviceNames && serviceNames.length > 0) {
     toDisplay = (
@@ -25,6 +40,7 @@ export const ServiceBreakdown: React.FC<ServiceBreakdownProps> = ({ city }) => {
         <select
           className={styles.serviceNameSelector}
           placeholder="Pick a service"
+          onChange={onServiceNameSelectorChange}
         >
           {serviceNames.map((name) => (
             <option value={name} key={name}>
