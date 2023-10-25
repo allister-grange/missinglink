@@ -1,7 +1,7 @@
 import { Footer } from "@/components/Footer";
-import { InfoCardsContainer } from "@/components/info_cards/InfoCardsContainer";
-import { PodiumContainer } from "@/components/podium/PodiumContainer";
-import { ServiceBreakdown } from "@/components/ServiceBreakdown";
+import { InfoCardsContainer } from "@/components/InfoCards/InfoCardsContainer";
+import { PodiumContainer } from "@/components/Podium/PodiumContainer";
+import { ServiceBreakdown } from "@/components/ServiceBreakdown/ServiceBreakdown";
 import { Timetable } from "@/components/Timetable";
 import useServiceApi from "@/hooks/useServiceApi";
 import styles from "@/styles/Home.module.css";
@@ -145,8 +145,7 @@ const Home: NextPage = () => {
             <div className={styles.table_title_container}>
               <h2 className={styles.sub_title}>Service Breakdown 🚌</h2>
               <p className={styles.description}>
-                To drill into the performance of a particular service, pick one
-                from the list below
+                Drill down into the performance of a single service
               </p>
             </div>
 
