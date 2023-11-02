@@ -27,6 +27,7 @@
   align-items: center;
   margin: 0;
   padding-inline: 2.2rem;
+  padding-block: 1.8em;
   justify-content: center;
   position: relative;
 }
@@ -36,6 +37,7 @@
   display: flex;
   align-items: center;
   align-content: center;
+  padding-block: .15em;
 }
 
 .nav_title {

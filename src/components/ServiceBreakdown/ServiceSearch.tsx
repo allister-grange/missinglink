@@ -4,6 +4,7 @@ import { API_URL } from "@/constants";
 import { getServiceProviderFromCity } from "@/helpers/convertors";
 import { fetcher } from "@/helpers/fetcher";
 import useSWR from "swr";
+import { ClipLoader } from "react-spinners";
 
 interface ServiceSearchProps {
   setSearchValue: React.Dispatch<React.SetStateAction<string>>;
@@ -11,6 +12,7 @@ interface ServiceSearchProps {
   city: string;
   setSelectedService: React.Dispatch<React.SetStateAction<string>>;
   setTimeRange: React.Dispatch<React.SetStateAction<number>>;
+  isLoading: boolean;
 }
 
 export const ServiceSearch: React.FC<ServiceSearchProps> = ({
@@ -18,6 +20,7 @@ export const ServiceSearch: React.FC<ServiceSearchProps> = ({
   setSearchValue,
   setSelectedService,
   setTimeRange,
+  isLoading,
   city,
 }) => {
   const [filteredServiceNames, setFilteredServiceNames] = useState<string[]>(
@@ -58,6 +61,7 @@ export const ServiceSearch: React.FC<ServiceSearchProps> = ({
 
   const triggerFetchServices = () => {
     setSelectedService(searchValue);
+    setShowDropdown(false);
   };
 
   const onTimeRangeSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -87,7 +91,10 @@ export const ServiceSearch: React.FC<ServiceSearchProps> = ({
           ))}
         </div>
       )}
-      <select onChange={onTimeRangeSelectChange}>
+      <select
+        onChange={onTimeRangeSelectChange}
+        className={styles.timeRangeSelector}
+      >
         <option value={3}>Today</option>
         <option value={2}>This week</option>
         <option value={1}>This month</option>
@@ -98,7 +105,11 @@ export const ServiceSearch: React.FC<ServiceSearchProps> = ({
         onClick={triggerFetchServices}
         disabled={!serviceNamesResponse.data}
       >
-        Load service
+        {isLoading ? (
+          <ClipLoader size={19} color={"var(--color-grey-light-3)"} />
+        ) : (
+          "Load statistics"
+        )}
       </button>
     </div>
   );

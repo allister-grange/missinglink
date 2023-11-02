@@ -2,7 +2,6 @@
   font-size: 2rem;
   width: 100%;
   display: flex;
-  /* justify-content: space-around; */
   flex-direction: row;
   position: relative;
   gap: 2rem;
@@ -51,7 +50,7 @@
   padding: .8em 1em;
   background-color: transparent;
   transition: all .2s;
-  box-shadow: .5rem .5rem 2rem rgba(0, 0, 0, .1);
+  min-width: 19rem;
 }
 
 .loadServicesButton:hover {
@@ -61,4 +60,45 @@
 
 .loadServicesButton:active {
   transform: translateY(-1px);
+}
+
+.timeRangeSelector {
+  border: 2px solid var(--color-secondary);
+  color: var(--color-grey-light-1);
+  border-radius: 7px;
+  font-size: 2.2rem;
+  padding: .8em .6em;
+}
+
+.dataCardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 6rem;
+  justify-content: center;
+}
+
+.dataCard {
+  border: 2px solid var(--color-secondary);
+  box-shadow: .5rem .5rem 2rem rgba(0, 0, 0, .1);
+  border-radius: 7px;
+  font-size: 1.8rem;
+  padding: 1em;
+  text-align: center;
+}
+
+.dataCardNumber {
+  font-size: 2.2rem;
+}
+
+.dataCardTitle {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+.dataCardDescription {
+  margin-top: .5em;
+  margin-bottom: .5em;
+  color: var(--color-grey-light-2);
 }
