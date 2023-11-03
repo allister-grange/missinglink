@@ -302,6 +302,19 @@ namespace missinglink.Services
       }
     }
 
+    public ServiceStatistic GetMostRecentStatistics()
+    {
+      try
+      {
+        return _serviceRepository.GetMostRecentStatisticsByProviderId("Metlink");
+      }
+      catch (Exception ex)
+      {
+        _logger.LogError(ex, "Failed to retrieve the service statistics for AT");
+        return null;
+      }
+    }
+
     public List<ServiceStatistic> GetServiceStatisticsByDate(DateTime startDate, DateTime endDate)
     {
       return _serviceRepository.GetServiceStatisticsByDateAndProvider(startDate, endDate, "Metlink");

@@ -101,6 +101,22 @@ public abstract class BaseServicesController<TService> : ControllerBase where TS
     return services;
   }
 
+  [HttpGet("mostRecentStatistics")]
+  public IActionResult GetMostRecentStatistics()
+  {
+    _logger.LogInformation("Fetching the most recent statistics");
+    var statistics = _apiService.GetMostRecentStatistics();
+
+    if (statistics == null)
+    {
+      _logger.LogWarning("Services table in database not populated");
+      StatusCode(500, "Internal Server Error: Services table in database not populated");
+    }
+
+    _logger.LogInformation("Returning statistics with batch id of " + statistics.BatchId);
+    return Ok(statistics);
+  }
+
   [HttpGet("servicesByNameAndTimeRange")]
   public List<Service> GetServicesByServiceNameAndTimeRange(string serviceName, TimeRange timeRange)
   {

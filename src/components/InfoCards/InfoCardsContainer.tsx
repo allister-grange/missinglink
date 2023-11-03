@@ -1,11 +1,14 @@
-import React from "react";
-import { ServiceContainer } from "@/types/ServiceTypes";
-import { InfoCard } from "./InfoCard";
+import { API_URL } from "@/constants";
+import { getServiceProviderFromCity } from "@/helpers/convertors";
+import { fetcher } from "@/helpers/fetcher";
 import styles from "@/styles/CardStyles.module.css";
+import { ServiceStatistic } from "@/types/ServiceTypes";
+import React from "react";
+import useSWR from "swr";
+import { InfoCard } from "./InfoCard";
 
 interface InfoCardsContainerProps {
-  services: ServiceContainer;
-  isLoadingInitialData: boolean;
+  city: string;
 }
 
 function getPercentage(denominator: number, numerator: number) {
@@ -14,17 +17,30 @@ function getPercentage(denominator: number, numerator: number) {
 }
 
 export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
-  services,
-  isLoadingInitialData,
+  city,
 }) => {
+  const { data, isLoading } = useSWR<ServiceStatistic>(
+    `${API_URL}/api/v1/${getServiceProviderFromCity(
+      city
+    )}/mostRecentStatistics`,
+    fetcher
+  );
+
+  let totalServices;
+  if (!data) {
+    totalServices = 0;
+  } else {
+    totalServices = data.totalServices;
+  }
+
   return (
     <>
       <InfoCard
         title={"Cancelled"}
-        servicesNumber={services.cancelledServices.length}
-        totalServicesNumber={services.allServices.length}
+        servicesNumber={data ? data.cancelledServices : 0}
+        totalServicesNumber={totalServices}
         includeSubNumber={false}
-        isLoading={isLoadingInitialData}
+        isLoading={isLoading}
         description={
           "How many services are reported on alerts as cancelled today"
         }
@@ -33,35 +49,35 @@ export const InfoCardsContainer: React.FC<InfoCardsContainerProps> = ({
         <InfoCard
           title={"Late"}
           blueColor={true}
-          servicesNumber={services.lateServices.length}
-          totalServicesNumber={services.allServices.length}
-          isLoading={isLoadingInitialData}
+          servicesNumber={data ? data.delayedServices : 0}
+          totalServicesNumber={totalServices}
+          isLoading={isLoading}
           description={`${getPercentage(
-            services.lateServices.length,
-            services.allServices.length
+            data ? data.delayedServices : 0,
+            totalServices
           )}% of trips are running over 2 and a half minutes late`}
         />
       </div>
       <InfoCard
         title={"Early"}
-        servicesNumber={services.earlyServices.length}
-        totalServicesNumber={services.allServices.length}
-        isLoading={isLoadingInitialData}
+        servicesNumber={data ? data.earlyServices : 0}
+        totalServicesNumber={totalServices}
+        isLoading={isLoading}
         description={`${getPercentage(
-          services.earlyServices.length,
-          services.allServices.length
+          data ? data.earlyServices : 0,
+          totalServices
         )}% of trips are running at least a minute and a half ahead of schedule`}
       />
       <div className={styles.card_move_up}>
         <InfoCard
           title={"Not Reporting"}
           blueColor={true}
-          servicesNumber={services.unknownServices.length}
-          isLoading={isLoadingInitialData}
-          totalServicesNumber={services.allServices.length}
+          servicesNumber={data ? data.notReportingTimeServices : 0}
+          isLoading={isLoading}
+          totalServicesNumber={totalServices}
           description={`${getPercentage(
-            services.unknownServices.length,
-            services.allServices.length
+            data ? data.notReportingTimeServices : 0,
+            totalServices
           )}% of trips are not reporting their delay or location`}
         />
       </div>

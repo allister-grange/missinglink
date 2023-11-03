@@ -160,6 +160,14 @@ namespace missinglink.Repository
           .ToList();
     }
 
+    public ServiceStatistic GetMostRecentStatisticsByProviderId(string providerId)
+    {
+      return _dbContext.ServiceStatistics
+          .Where(stat => stat.ProviderId == providerId)
+          .OrderByDescending(stat => stat.BatchId)
+          .FirstOrDefault();
+    }
+
   }
 }
 

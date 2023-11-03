@@ -307,6 +307,19 @@ namespace missinglink.Services
       }
     }
 
+    public ServiceStatistic GetMostRecentStatistics()
+    {
+      try
+      {
+        return _serviceRepository.GetMostRecentStatisticsByProviderId("AT");
+      }
+      catch (Exception ex)
+      {
+        _logger.LogError(ex, "Failed to retrieve the service statistics for AT");
+        return null;
+      }
+    }
+
     public List<Service> GetThreeWorstServicesForThisWeek()
     {
       try

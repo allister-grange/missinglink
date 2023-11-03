@@ -92,10 +92,7 @@ const Home: NextPage = () => {
           </div>
 
           <div className={styles.card_container}>
-            <InfoCardsContainer
-              services={services}
-              isLoadingInitialData={status === "LOADING"}
-            />
+            <InfoCardsContainer city={city} />
           </div>
 
           <div className={styles.podium_container}>

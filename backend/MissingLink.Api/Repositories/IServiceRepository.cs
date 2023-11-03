@@ -22,5 +22,6 @@ namespace missinglink.Repository
     List<Service> GetThreeWorstServicesForThisWeek(string providerId);
     List<string> GetServiceNamesByProviderId(string providerId);
     List<Service> GetServicesByServiceNameAndTimeRange(string providerId, string serviceName, TimeRange timeRange);
+    ServiceStatistic GetMostRecentStatisticsByProviderId(string providerId);
   }
 }
