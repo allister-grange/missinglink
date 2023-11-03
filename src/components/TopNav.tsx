@@ -1,9 +1,9 @@
 import styles from "@/styles/NavStyles.module.css";
 import React, { RefObject } from "react";
-import { WeatherIconSunny } from "./Icons/WeatherIconSunny";
 import { WeatherData } from "@/types/weather";
-import { WeatherIconCloudy } from "./Icons/WeatherIconCloudy";
-import { WeatherIconRainy } from "./Icons/WeatherIconRainy";
+import { WeatherIconSunny } from "@/components/Icons/WeatherIconSunny";
+import { WeatherIconCloudy } from "@/components/Icons/WeatherIconCloudy";
+import { WeatherIconRainy } from "@/components/Icons/WeatherIconRainy";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import { setCookie } from "nookies";
