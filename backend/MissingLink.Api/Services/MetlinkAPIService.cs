@@ -263,6 +263,32 @@ namespace missinglink.Services
       }
     }
 
+    public List<string> GetServiceNames()
+    {
+      try
+      {
+        return _serviceRepository.GetServiceNamesByProviderId("Metlink");
+      }
+      catch (Exception ex)
+      {
+        _logger.LogError(ex, "Failed to retrieve the names of the services for Metlink");
+        return new List<string>();
+      }
+    }
+
+    public List<Service> GetServicesByServiceNameAndTimeRange(string serviceName, TimeRange timeRange)
+    {
+      try
+      {
+        return _serviceRepository.GetServicesByServiceNameAndTimeRange("Metlink", serviceName, timeRange);
+      }
+      catch (Exception ex)
+      {
+        _logger.LogError(ex, "Failed to retrieve the names of the services for Metlink");
+        return new List<Service>();
+      }
+    }
+
     public List<Service> GetThreeWorstServicesForThisWeek()
     {
       try
@@ -273,6 +299,19 @@ namespace missinglink.Services
       {
         _logger.LogError(ex, "Failed to retrieve the service statistics for Metlink");
         return new List<Service>();
+      }
+    }
+
+    public ServiceStatistic GetMostRecentStatistics()
+    {
+      try
+      {
+        return _serviceRepository.GetMostRecentStatisticsByProviderId("Metlink");
+      }
+      catch (Exception ex)
+      {
+        _logger.LogError(ex, "Failed to retrieve the service statistics for AT");
+        return null;
       }
     }
 

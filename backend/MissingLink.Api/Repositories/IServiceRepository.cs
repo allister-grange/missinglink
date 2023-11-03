@@ -20,5 +20,8 @@ namespace missinglink.Repository
     List<Service> GetByBatchId(int batchId);
     List<Service> GetByBatchIdAndProvider(int batchId, string serviceProviderId);
     List<Service> GetThreeWorstServicesForThisWeek(string providerId);
+    List<string> GetServiceNamesByProviderId(string providerId);
+    List<Service> GetServicesByServiceNameAndTimeRange(string providerId, string serviceName, TimeRange timeRange);
+    ServiceStatistic GetMostRecentStatisticsByProviderId(string providerId);
   }
 }

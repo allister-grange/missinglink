@@ -39,7 +39,7 @@
 
 .sub_heading {
   font-size: 1.7rem;
-  color: var(--color-grey-light-2);
+  color: var(--color-grey-light-1);
   font-weight: 400;
   margin-top: 1rem;
 }
@@ -52,6 +52,10 @@
   margin-inline: auto;
   justify-items: center;
   padding-bottom: 12rem;
+}
+
+.breakdown_container {
+  padding-bottom: 10rem;
 }
 
 .map_container {

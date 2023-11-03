@@ -1,6 +1,7 @@
 import { Footer } from "@/components/Footer";
-import { InfoCardsContainer } from "@/components/info_cards/InfoCardsContainer";
-import { PodiumContainer } from "@/components/podium/PodiumContainer";
+import { InfoCardsContainer } from "@/components/InfoCards/InfoCardsContainer";
+import { PodiumContainer } from "@/components/Podium/PodiumContainer";
+import { ServiceBreakdown } from "@/components/ServiceBreakdown/ServiceBreakdown";
 import { Timetable } from "@/components/Timetable";
 import useServiceApi from "@/hooks/useServiceApi";
 import styles from "@/styles/Home.module.css";
@@ -39,6 +40,7 @@ const Home: NextPage = () => {
 
   const atAGlanceRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
+  const breakdownRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const tablesRef = useRef<HTMLDivElement>(null);
 
@@ -90,10 +92,7 @@ const Home: NextPage = () => {
           </div>
 
           <div className={styles.card_container}>
-            <InfoCardsContainer
-              services={services}
-              isLoadingInitialData={status === "LOADING"}
-            />
+            <InfoCardsContainer city={city} />
           </div>
 
           <div className={styles.podium_container}>
@@ -139,6 +138,17 @@ const Home: NextPage = () => {
             <TripsGraphClientSide city={city} />
           </div>
 
+          <div className={styles.breakdown_container} ref={breakdownRef}>
+            <div className={styles.table_title_container}>
+              <h2 className={styles.sub_title}>Service Breakdown 🚌</h2>
+              <p className={styles.description}>
+                Drill down into the performance of a single service
+              </p>
+            </div>
+
+            <ServiceBreakdown city={city} />
+          </div>
+
           <div className={styles.table_container} ref={tablesRef}>
             <div className={styles.table_title_container}>
               <h2 className={styles.sub_title}>Timetables 🔎</h2>
@@ -147,8 +157,8 @@ const Home: NextPage = () => {
                 is 0m:00s on a service, it usually means that it&apos;s not
                 reporting its time
               </p>
-              <Timetable serviceDataToDisplay={services.allServices} />
             </div>
+            <Timetable serviceDataToDisplay={services.allServices} />
           </div>
         </div>
       </main>
