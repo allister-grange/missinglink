@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import styles from "@/styles/ServiceBreakdown.module.css";
 import { API_URL } from "@/constants";
 import { getServiceProviderFromCity } from "@/helpers/convertors";
@@ -27,6 +27,13 @@ export const ServiceSearch: React.FC<ServiceSearchProps> = ({
     []
   );
   const [showDropdown, setShowDropdown] = useState(false);
+  const [inputWidth, setInputWidth] = useState("auto"); // Initialize with 'auto'
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  React.useEffect(() => {
+    setInputWidth(`${inputRef.current!.offsetWidth}px`);
+  }, []);
+
   const serviceNamesResponse = useSWR<string[]>(
     `${API_URL}/api/v1/${getServiceProviderFromCity(city)}/serviceNames`,
     fetcher
@@ -81,9 +88,13 @@ export const ServiceSearch: React.FC<ServiceSearchProps> = ({
         disabled={!serviceNamesResponse.data}
         onChange={onServiceNameSearchChange}
         onKeyDown={handleKeyDown}
+        ref={inputRef}
       />
       {searchValue && filteredServiceNames.length > 0 && showDropdown && (
-        <div className={styles.autocompleteDropdown}>
+        <div
+          className={styles.autocompleteDropdown}
+          style={{ minWidth: inputWidth }}
+        >
           {filteredServiceNames.map((name) => (
             <div key={name} onClick={() => onSelectService(name)}>
               {name}

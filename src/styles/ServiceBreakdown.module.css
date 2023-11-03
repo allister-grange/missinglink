@@ -1,41 +1,42 @@
 .serviceNameSelector_container {
-  font-size: 2rem;
+  font-size: 1.6rem;
   width: 100%;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   position: relative;
   gap: 2rem;
 }
 
 .serviceNameSelector {
   min-width: 10rem;
-  padding: 10px 15px;
-  font-size: 16px;
+  padding: 1.2rem 1.8rem;
+  font-size: 2rem;
   border: 2px solid var(--color-secondary);
   color: var(--color-grey-light-1);
-  border-radius: 7px;
+  border-radius: 1rem;
+  position: relative;
 }
 
 .autocompleteDropdown {
   position: absolute;
-  min-width: 10rem;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20%;
-  max-height: 200px;
+  left: 0;
+  max-height: 28rem;
   overflow-y: auto;
   border: 2px solid var(--color-secondary);
   border-top: none;
-  border-radius: 7px;
+  border-radius: 1rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   background-color: #fff;
   z-index: 2;
 }
 
 .autocompleteDropdown div {
-  padding: 10px 15px;
+  padding: 1.2rem 1.8rem;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 2.2rem;
 }
 
 .autocompleteDropdown div:hover {
@@ -45,7 +46,7 @@
 .loadServicesButton {
   border: 2px solid var(--color-secondary);
   color: var(--color-grey-light-1);
-  border-radius: 7px;
+  border-radius: 1rem;
   font-size: 2.2rem;
   padding: .8em 1em;
   background-color: transparent;
@@ -65,7 +66,7 @@
 .timeRangeSelector {
   border: 2px solid var(--color-secondary);
   color: var(--color-grey-light-1);
-  border-radius: 7px;
+  border-radius: 1rem;
   font-size: 2.2rem;
   padding: .8em .6em;
 }
@@ -82,7 +83,7 @@
 .dataCard {
   border: 2px solid var(--color-secondary);
   box-shadow: .5rem .5rem 2rem rgba(0, 0, 0, .1);
-  border-radius: 7px;
+  border-radius: 1rem;
   font-size: 1.8rem;
   padding: 1em;
   text-align: center;
@@ -101,4 +102,11 @@
   margin-top: .5em;
   margin-bottom: .5em;
   color: var(--color-grey-light-2);
+}
+
+
+@media (max-width: 600px) {
+  .serviceNameSelector_container {
+    justify-content: center;
+  }
 }

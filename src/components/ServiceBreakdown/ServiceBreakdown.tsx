@@ -1,16 +1,12 @@
 import { API_URL } from "@/constants";
-import {
-  calculateMAD,
-  convertTimeRangeEnumToString,
-  getServiceProviderFromCity,
-} from "@/helpers/convertors";
+import { calculateMAD, getServiceProviderFromCity } from "@/helpers/convertors";
 import { fetcher } from "@/helpers/fetcher";
+import styles from "@/styles/ServiceBreakdown.module.css";
 import { Service } from "@/types/ServiceTypes";
 import React, { useState } from "react";
 import useSWR from "swr";
-import { ServiceSearch } from "./ServiceSearch";
 import { ServiceDataCard } from "./ServiceDataCard";
-import styles from "@/styles/ServiceBreakdown.module.css";
+import { ServiceSearch } from "./ServiceSearch";
 
 interface ServiceBreakdownProps {
   city: string;
