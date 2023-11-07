@@ -13,9 +13,10 @@ import {
   LinearScale,
   PointElement,
   LineElement,
+  Tooltip,
 } from "chart.js";
 
-ChartJS.register(TimeScale, LinearScale, PointElement, LineElement);
+ChartJS.register(TimeScale, LinearScale, PointElement, LineElement, Tooltip);
 
 const yesterdayDate = new Date();
 yesterdayDate.setDate(yesterdayDate.getDate() - 1);

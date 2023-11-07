@@ -1,12 +1,14 @@
-import styles from "@/styles/NavStyles.module.css";
-import React, { RefObject } from "react";
-import { WeatherData } from "@/types/weather";
-import { WeatherIconSunny } from "@/components/Icons/WeatherIconSunny";
 import { WeatherIconCloudy } from "@/components/Icons/WeatherIconCloudy";
 import { WeatherIconRainy } from "@/components/Icons/WeatherIconRainy";
+import { WeatherIconSunny } from "@/components/Icons/WeatherIconSunny";
+import { fetcher } from "@/helpers/fetcher";
+import styles from "@/styles/NavStyles.module.css";
+import { WeatherData } from "@/types/weather";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import { setCookie } from "nookies";
+import React, { RefObject } from "react";
+import useSWR from "swr";
 
 interface TopNavProps {
   atAGlanceRef: RefObject<HTMLDivElement>;
@@ -15,21 +17,6 @@ interface TopNavProps {
   tablesRef: RefObject<HTMLDivElement>;
   city: string;
 }
-
-const fetcher = async (cityName: string) => {
-  try {
-    const res = await fetch(`/api/weather?city=${cityName}`);
-    let data = (await res.json()) as WeatherData;
-
-    if (Object.keys(data).length === 0) {
-      throw new Error("That city does not exists");
-    }
-
-    return data;
-  } catch (error) {
-    throw new Error(error as string);
-  }
-};
 
 export const TopNav: React.FC<TopNavProps> = ({
   atAGlanceRef,
@@ -55,10 +42,12 @@ export const TopNav: React.FC<TopNavProps> = ({
     });
   const [prevScrollPos, setPrevScrollPos] = React.useState(0);
   const [navBarVisible, setNavBarVisible] = React.useState(true);
-  const [weatherData, setWeatherData] = React.useState<
-    undefined | WeatherData
-  >();
   const { theme, setTheme } = useTheme();
+  const { data, isLoading } = useSWR<WeatherData>(
+    city ? `/api/weather?city=${city}` : null,
+    fetcher
+  );
+  const weatherData = data;
 
   const atAGlanceScroll = () => {
     handleLinkClick();
@@ -76,15 +65,6 @@ export const TopNav: React.FC<TopNavProps> = ({
     handleLinkClick();
     tablesRef.current!.scrollIntoView({ behavior: "smooth" });
   };
-
-  React.useEffect(() => {
-    const fetchWeatherData = async () => {
-      const weatherData = await fetcher(city);
-      setWeatherData(weatherData);
-    };
-
-    fetchWeatherData();
-  }, [city]);
 
   const onLinkMouseEnter = (
     e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement, MouseEvent>,
