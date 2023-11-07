@@ -335,14 +335,18 @@ namespace missinglink.Services
 
     public List<string> GetServiceNames()
     {
-      try
+      var serviceNames = _cacheRepository.Get<List<string>>("ATServiceNames");
+
+      if (serviceNames != null)
       {
-        return _serviceRepository.GetServiceNamesByProviderId("AT");
+        return serviceNames;
       }
-      catch (Exception ex)
+      else
       {
-        _logger.LogError(ex, "Failed to retrieve the names of the services for AT");
-        return new List<string>();
+        // Populate the cache if there's no hit from Redis
+        var servicesNamesFromDb = _serviceRepository.GetServiceNamesByProviderId("AT");
+        _cacheRepository.Set("ATServiceNames", servicesNamesFromDb);
+        return servicesNamesFromDb;
       }
     }
 
