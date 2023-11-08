@@ -13,6 +13,6 @@ namespace missinglink.Services
     ServiceStatistic GetMostRecentStatistics();
     List<Service> GetThreeWorstServicesForThisWeek();
     List<string> GetServiceNames();
-    List<Service> GetServicesByServiceNameAndTimeRange(string serviceName, TimeRange timeRange);
+    ServiceAverageTimesDTO GetServicesByServiceNameAndTimeRange(string serviceName, TimeRange timeRange);
   }
 }

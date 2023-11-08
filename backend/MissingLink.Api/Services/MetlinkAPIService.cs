@@ -280,7 +280,7 @@ namespace missinglink.Services
       }
     }
 
-    public List<Service> GetServicesByServiceNameAndTimeRange(string serviceName, TimeRange timeRange)
+    public ServiceAverageTimesDTO GetServicesByServiceNameAndTimeRange(string serviceName, TimeRange timeRange)
     {
       try
       {
@@ -289,7 +289,7 @@ namespace missinglink.Services
       catch (Exception ex)
       {
         _logger.LogError(ex, "Failed to retrieve the names of the services for Metlink");
-        return new List<Service>();
+        return new ServiceAverageTimesDTO();
       }
     }
 

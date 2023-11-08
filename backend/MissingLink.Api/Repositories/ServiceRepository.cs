@@ -125,7 +125,7 @@ namespace missinglink.Repository
           .ToList();
     }
 
-    public List<Service> GetServicesByServiceNameAndTimeRange(string providerId, string serviceName, TimeRange timeRange)
+    public ServiceAverageTimesDTO GetServicesByServiceNameAndTimeRange(string providerId, string serviceName, TimeRange timeRange)
     {
       TimeZoneInfo nzTimeZone = TimeZoneInfo.FindSystemTimeZoneById("New Zealand Standard Time");
       DateTime currentNZTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, nzTimeZone);
@@ -149,7 +149,7 @@ namespace missinglink.Repository
           break;
       }
 
-      return _dbContext.Services
+      var services = _dbContext.Services
           .Where(s => s.ProviderId == providerId && s.ServiceName == serviceName && s.ServiceName != null)
           .Join(_dbContext.ServiceStatistics,
                 service => service.BatchId,
@@ -158,6 +158,18 @@ namespace missinglink.Repository
           .Where(joined => joined.Stat.Timestamp >= startDate)
           .Select(joined => joined.Service)
           .ToList();
+
+      var latestService = services.Max(s => s.Delay);
+      var earliestService = services.Min(s => s.Delay);
+      var sumOfDelays = services.Sum(item => Math.Abs(item.Delay));
+      int totalAbsoluteDeviation = (int)Math.Floor((double)sumOfDelays / services.Count);
+
+      return new ServiceAverageTimesDTO()
+      {
+        LatestTime = latestService,
+        EarliestTime = earliestService,
+        AverageDisruptionTime = totalAbsoluteDeviation
+      };
     }
 
     public ServiceStatistic GetMostRecentStatisticsByProviderId(string providerId)

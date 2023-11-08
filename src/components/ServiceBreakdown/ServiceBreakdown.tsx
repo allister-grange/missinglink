@@ -1,8 +1,8 @@
 import { API_URL } from "@/constants";
-import { calculateMAD, getServiceProviderFromCity } from "@/helpers/convertors";
+import { getServiceProviderFromCity } from "@/helpers/convertors";
 import { fetcher } from "@/helpers/fetcher";
 import styles from "@/styles/ServiceBreakdown.module.css";
-import { Service } from "@/types/ServiceTypes";
+import { ServiceAverageTimesDTO } from "@/types/ServiceTypes";
 import React, { useState } from "react";
 import useSWR from "swr";
 import { ServiceDataCard } from "./ServiceDataCard";
@@ -17,7 +17,7 @@ export const ServiceBreakdown: React.FC<ServiceBreakdownProps> = ({ city }) => {
   const [searchValue, setSearchValue] = useState("");
   const [timeRange, setTimeRange] = useState(3);
 
-  const { data, isLoading } = useSWR<Service[]>(
+  const { data, isLoading } = useSWR<ServiceAverageTimesDTO>(
     selectedService
       ? `${API_URL}/api/v1/${getServiceProviderFromCity(
           city
@@ -25,11 +25,6 @@ export const ServiceBreakdown: React.FC<ServiceBreakdownProps> = ({ city }) => {
       : null, // This ensures the API is not called when the selectedService is empty
     fetcher
   );
-
-  let delays: number[] | undefined;
-  if (data) {
-    delays = data.map((service) => service.delay);
-  }
 
   return (
     <div>
@@ -41,22 +36,22 @@ export const ServiceBreakdown: React.FC<ServiceBreakdownProps> = ({ city }) => {
         setTimeRange={setTimeRange}
         isLoading={isLoading}
       />
-      {delays && (
+      {data && (
         <div className={styles.dataCardContainer}>
           <ServiceDataCard
             title="Earliest"
             description="The earliest this service was recorded"
-            number={Math.min(...delays)}
+            number={data?.earliestTime}
           />
           <ServiceDataCard
             title="Average disruption time"
             description="The average time this service was late or early"
-            number={calculateMAD(delays)}
+            number={data?.averageDisruptionTime}
           />
           <ServiceDataCard
             title="Latest"
             description="The latest this service was recorded"
-            number={Math.max(...delays)}
+            number={data?.latestTime}
           />
         </div>
       )}

@@ -118,18 +118,18 @@ public abstract class BaseServicesController<TService> : ControllerBase where TS
   }
 
   [HttpGet("servicesByNameAndTimeRange")]
-  public List<Service> GetServicesByServiceNameAndTimeRange(string serviceName, TimeRange timeRange)
+  public ServiceAverageTimesDTO GetServicesByServiceNameAndTimeRange(string serviceName, TimeRange timeRange)
   {
     _logger.LogInformation($"Fetching services with name ${serviceName} with time range of ${timeRange}");
     var services = _apiService.GetServicesByServiceNameAndTimeRange(serviceName, timeRange);
 
-    if (services == null || services.Count() == 0)
+    if (services == null)
     {
       _logger.LogWarning("Services table in database not populated.");
-      return new List<Service>();
+      return new ServiceAverageTimesDTO();
     }
 
-    _logger.LogInformation("Found " + services.Count() + " services");
+    _logger.LogInformation("Success on fetching average time of services");
     return services;
   }
 }

@@ -73,4 +73,10 @@ export type ServiceType =
   | "notReportingTimeServices"
   | "totalDisruptedServices";
 
+export type ServiceAverageTimesDTO = {
+  earliestTime: number;
+  averageDisruptionTime: number;
+  latestTime: number;
+};
+
 export default ServiceStop;
