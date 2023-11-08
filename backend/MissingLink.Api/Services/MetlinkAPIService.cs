@@ -295,14 +295,18 @@ namespace missinglink.Services
 
     public List<Service> GetThreeWorstServicesForThisWeek()
     {
-      try
+      var services = _cacheRepository.Get<List<Service>>("MetlinkWorstServicesThisWeek");
+
+      // Populate the cache if there's no hit from Redis
+      if (services != null)
       {
-        return _serviceRepository.GetThreeWorstServicesForThisWeek("Metlink");
+        return services;
       }
-      catch (Exception ex)
+      else
       {
-        _logger.LogError(ex, "Failed to retrieve the service statistics for Metlink");
-        return new List<Service>();
+        var servicesNamesFromDb = _serviceRepository.GetThreeWorstServicesForThisWeek("Metlink");
+        _cacheRepository.Set("MetlinkWorstServicesThisWeek", servicesNamesFromDb, TimeSpan.FromHours(12));
+        return servicesNamesFromDb;
       }
     }
 
