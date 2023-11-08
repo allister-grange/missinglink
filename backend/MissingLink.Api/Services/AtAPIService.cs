@@ -332,7 +332,7 @@ namespace missinglink.Services
       else
       {
         var servicesNamesFromDb = _serviceRepository.GetThreeWorstServicesForThisWeek("AT");
-        _cacheRepository.Set("ATServiceNames", servicesNamesFromDb, TimeSpan.FromHours(12));
+        _cacheRepository.Set("AtWorstServicesThisWeek", servicesNamesFromDb, TimeSpan.FromHours(12));
         return servicesNamesFromDb;
       }
     }
