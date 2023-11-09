@@ -86,10 +86,10 @@ public abstract class BaseServicesController<TService> : ControllerBase where TS
   }
 
   [HttpGet("worstServices")]
-  public IEnumerable<dynamic> GetThreeWorstServicesForThisWeek()
+  public IEnumerable<dynamic> GetWorstServicesForThisWeek()
   {
     _logger.LogInformation("Fetching three worst services for this week");
-    var services = _apiService.GetThreeWorstServicesForThisWeek();
+    var services = _apiService.GetWorstServicesForThisWeek();
 
     if (services == null || services.Count() == 0)
     {

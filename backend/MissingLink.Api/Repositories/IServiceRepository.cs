@@ -19,7 +19,7 @@ namespace missinglink.Repository
     Task<int> GetLatestBatchId();
     List<Service> GetByBatchId(int batchId);
     List<Service> GetByBatchIdAndProvider(int batchId, string serviceProviderId);
-    List<Service> GetThreeWorstServicesForThisWeek(string providerId);
+    List<Service> GetWorstServicesForThisWeek(string providerId, int numberOfServicesToReturn);
     List<string> GetServiceNamesByProviderId(string providerId);
     ServiceAverageTimesDTO GetServicesByServiceNameAndTimeRange(string providerId, string serviceName, TimeRange timeRange);
     ServiceStatistic GetMostRecentStatisticsByProviderId(string providerId);

@@ -293,7 +293,7 @@ namespace missinglink.Services
       }
     }
 
-    public List<Service> GetThreeWorstServicesForThisWeek()
+    public List<Service> GetWorstServicesForThisWeek()
     {
       var services = _cacheRepository.Get<List<Service>>("MetlinkWorstServicesThisWeek");
 
@@ -304,7 +304,7 @@ namespace missinglink.Services
       }
       else
       {
-        var servicesNamesFromDb = _serviceRepository.GetThreeWorstServicesForThisWeek("Metlink");
+        var servicesNamesFromDb = _serviceRepository.GetWorstServicesForThisWeek("Metlink", 3);
         _cacheRepository.Set("MetlinkWorstServicesThisWeek", servicesNamesFromDb, TimeSpan.FromHours(12));
         return servicesNamesFromDb;
       }

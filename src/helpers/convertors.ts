@@ -88,16 +88,6 @@ export const convertSecondsToMinutesSentence = (seconds: number): string => {
 
 export default convertSecondsToMinutes;
 
-// Mean absolute deviation
-export const calculateMAD = (data: number[]): number => {
-  const totalAbsoluteDeviation = data.reduce(
-    (sum, delay) => sum + Math.abs(delay),
-    0
-  );
-
-  return Math.floor(totalAbsoluteDeviation / data.length);
-};
-
 export const convertTimeRangeEnumToString = (timeRange: number) => {
   switch (timeRange) {
     case 0:
