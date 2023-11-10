@@ -2,7 +2,7 @@ import { API_URL } from "@/constants";
 import { useEffect, useState, useCallback } from "react";
 import { ServiceStatistic } from "@/types/ServiceTypes";
 import { getServiceProviderFromCity } from "@/helpers/convertors";
-import { formatDateToIsoString } from "@/helpers/time";
+import { formatDateForBackend } from "@/helpers/time";
 
 const useMetlinkApi = (city: string) => {
   const [serviceStatistics, setServiceStatistics] = useState<
@@ -14,16 +14,17 @@ const useMetlinkApi = (city: string) => {
   const fetchServiceStatistics = useCallback(async () => {
     setIsLoading(true);
 
-    const yesterdayDate = new Date();
+    let yesterdayDate = new Date();
     yesterdayDate.setDate(yesterdayDate.getDate() - 1);
-    const todaysDate = new Date();
+    let todaysDate = new Date();
+
+    const todaysDateString = formatDateForBackend(todaysDate);
+    const yesterdayDateString = formatDateForBackend(yesterdayDate);
 
     let res: any;
     try {
       res = await fetch(
-        `${API_URL}/api/v1/${servicerProvider}/statistics?startDate=${formatDateToIsoString(
-          yesterdayDate
-        )}&endDate=${formatDateToIsoString(todaysDate)}`
+        `${API_URL}/api/v1/${servicerProvider}/statistics?startDate=${yesterdayDateString}&endDate=${todaysDateString}`
       );
     } catch {
       return;
@@ -38,9 +39,9 @@ const useMetlinkApi = (city: string) => {
     let res: any;
     try {
       res = await fetch(
-        `${API_URL}/api/v1/${servicerProvider}/statistics?startDate=${formatDateToIsoString(
+        `${API_URL}/api/v1/${servicerProvider}/statistics?startDate=${formatDateForBackend(
           startDate
-        )}&endDate=${formatDateToIsoString(endDate)}`
+        )}&endDate=${formatDateForBackend(endDate)}`
       );
     } catch {
       return;

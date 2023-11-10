@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -66,14 +67,14 @@ public abstract class BaseServicesController<TService> : ControllerBase where TS
 
     try
     {
-      startDateInput = DateTime.Parse(startDate);
-      endDateInput = DateTime.Parse(endDate);
+      startDateInput = DateTime.ParseExact(startDate, "yyyy/MM/dd HH:mm:ss", CultureInfo.InvariantCulture);
+      endDateInput = DateTime.ParseExact(endDate, "yyyy/MM/dd HH:mm:ss", CultureInfo.InvariantCulture);
 
       stats = _apiService.GetServiceStatisticsByDate(startDateInput, endDateInput);
     }
     catch (System.FormatException e)
     {
-      _logger.LogError($"Your date inputs were formatted incorrectly {e.ToString()}");
+      _logger.LogError($"Your date inputs were formatted incorrectly {e}");
       return BadRequest("Your date inputs were formatted incorrectly");
     }
     _logger.LogInformation("Parsed dates: " + startDateInput + " " + endDateInput);

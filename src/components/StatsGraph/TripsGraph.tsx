@@ -15,7 +15,7 @@ import {
   LineElement,
   Tooltip,
 } from "chart.js";
-import { formatDateToLocalString } from "@/helpers/time";
+import { formateDateForInput } from "@/helpers/time";
 
 ChartJS.register(TimeScale, LinearScale, PointElement, LineElement, Tooltip);
 
@@ -142,7 +142,7 @@ const Graph: React.FC<GraphPageProps> = ({ city }) => {
         <p>showing data from </p>
         <input
           type="datetime-local"
-          value={formatDateToLocalString(startDate)}
+          value={formateDateForInput(startDate)}
           onChange={(e) => {
             const date = new Date(e.target.value);
             if (date && endDate) {
@@ -155,7 +155,7 @@ const Graph: React.FC<GraphPageProps> = ({ city }) => {
         <p>to</p>
         <input
           type="datetime-local"
-          value={formatDateToLocalString(endDate)}
+          value={formateDateForInput(endDate)}
           onChange={(e) => {
             const date = new Date(e.target.value);
             if (date && startDate) {
