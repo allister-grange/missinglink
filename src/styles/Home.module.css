@@ -212,4 +212,8 @@
     width: 100%;
     padding-inline: .5rem;
   }
+
+  .sub_title {
+    font-size: 5.5rem;
+  }
 }
