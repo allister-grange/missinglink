@@ -5,10 +5,9 @@ import { ServiceBreakdown } from "@/components/ServiceBreakdown/ServiceBreakdown
 import { Timetable } from "@/components/Timetable";
 import useServiceApi from "@/hooks/useServiceApi";
 import styles from "@/styles/Home.module.css";
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import React, { useRef } from "react";
 const ServicesMapClientSide = dynamic(
   () => import("@/components/ServicesMap"),
@@ -29,15 +28,11 @@ const ToastClientSide = dynamic(() => import("@/components/Toast"), {
   ssr: false,
 });
 
-const Home: NextPage = () => {
-  const router = useRouter();
-  React.useEffect(() => {
-    if (!router.isReady) return;
+interface HomeProps {
+  city: string;
+}
 
-    setCity(router.query.city as string);
-  }, [router.isReady, router.query.city]);
-
-  const [city, setCity] = React.useState("wellington");
+const Home: NextPage<HomeProps> = ({ city }) => {
   const { services, refreshAPIServicesData, error, status, dispatch } =
     useServiceApi(city);
 
@@ -101,8 +96,8 @@ const Home: NextPage = () => {
           <div className={styles.podium_container}>
             <h2 className={styles.sub_title}>Leaderboard 🏅</h2>
             <p className={styles.description}>
-              The leading services this week for the highest average delay, this
-              is checked every 15 minutes
+              The leading services this week for the highest average disruption,
+              this is checked every 15 minutes
             </p>
             {city === "wellington" && (
               <p className={styles.sub_description}>
@@ -170,6 +165,19 @@ const Home: NextPage = () => {
       <Footer />
     </div>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<HomeProps> = async (
+  context
+) => {
+  const { query } = context;
+  const city = (query.city as string) || "wellington";
+
+  return {
+    props: {
+      city,
+    },
+  };
 };
 
 export default Home;

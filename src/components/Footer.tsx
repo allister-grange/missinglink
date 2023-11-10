@@ -10,7 +10,9 @@ export const Footer: React.FC = () => {
         </h2>
         <h3 className={styles.copyright_name}>
           There is some minor interpretation for the data from the APIs, as such
-          this website is not perfectly accurate
+          this website is not perfectly accurate <br />
+          All disruption averages are calculated using the mean average
+          deviation from 0
         </h3>
       </div>
       <ul className={styles.footer_list}>
