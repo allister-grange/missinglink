@@ -19,9 +19,12 @@ const ServicesMapClientSide = dynamic(
 const TopNavClientSide = dynamic(() => import("@/components/TopNav"), {
   ssr: false,
 });
-const TripsGraphClientSide = dynamic(() => import("@/components/TripsGraph"), {
-  ssr: false,
-});
+const TripsGraphClientSide = dynamic(
+  () => import("@/components/StatsGraph/TripsGraph"),
+  {
+    ssr: false,
+  }
+);
 const ToastClientSide = dynamic(() => import("@/components/Toast"), {
   ssr: false,
 });
@@ -123,7 +126,8 @@ const Home: NextPage = () => {
               </p>
               <p className={styles.sub_description}>
                 Data for {city.charAt(0).toUpperCase() + city.slice(1)} begins
-                from {city === "auckland" ? "20-06-2023" : "12-08-2021"}
+                from {city === "auckland" ? "20-06-2023" : "12-08-2021"}, all
+                times displayed are in NZST
               </p>
               <p className={styles.sub_description__minor}>
                 {city === "wellington" && (

@@ -2,6 +2,7 @@ import { API_URL } from "@/constants";
 import { useEffect, useState, useCallback } from "react";
 import { ServiceStatistic } from "@/types/ServiceTypes";
 import { getServiceProviderFromCity } from "@/helpers/convertors";
+import { formatDateToIsoString } from "@/helpers/time";
 
 const useMetlinkApi = (city: string) => {
   const [serviceStatistics, setServiceStatistics] = useState<
@@ -13,19 +14,16 @@ const useMetlinkApi = (city: string) => {
   const fetchServiceStatistics = useCallback(async () => {
     setIsLoading(true);
 
-    const tzoffset = new Date().getTimezoneOffset() * 60000; // offset in milliseconds
-    const laterDateString = new Date(Date.now() - tzoffset)
-      .toISOString()
-      .slice(0, -1);
-
-    const earlierDate = new Date(Date.now() - tzoffset);
-    earlierDate.setDate(earlierDate.getDate() - 1);
-    const earlierDateString = earlierDate.toISOString().slice(0, -1);
+    const yesterdayDate = new Date();
+    yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+    const todaysDate = new Date();
 
     let res: any;
     try {
       res = await fetch(
-        `${API_URL}/api/v1/${servicerProvider}/statistics?startDate=${earlierDateString}&endDate=${laterDateString}`
+        `${API_URL}/api/v1/${servicerProvider}/statistics?startDate=${formatDateToIsoString(
+          yesterdayDate
+        )}&endDate=${formatDateToIsoString(todaysDate)}`
       );
     } catch {
       return;
@@ -37,19 +35,12 @@ const useMetlinkApi = (city: string) => {
   }, [servicerProvider]);
 
   const getServiceStatsData = async (startDate: Date, endDate: Date) => {
-    const tzoffset = new Date().getTimezoneOffset() * 60000; // offset in milliseconds
-
-    const startDateString = new Date(startDate.getTime() - tzoffset)
-      .toISOString()
-      .slice(0, -1);
-    const endDateString = new Date(endDate.getTime() - tzoffset)
-      .toISOString()
-      .slice(0, -1);
-
     let res: any;
     try {
       res = await fetch(
-        `${API_URL}/api/v1/${servicerProvider}/statistics?startDate=${startDateString}&endDate=${endDateString}`
+        `${API_URL}/api/v1/${servicerProvider}/statistics?startDate=${formatDateToIsoString(
+          startDate
+        )}&endDate=${formatDateToIsoString(endDate)}`
       );
     } catch {
       return;
