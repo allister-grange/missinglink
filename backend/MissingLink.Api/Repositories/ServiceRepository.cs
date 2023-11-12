@@ -102,7 +102,9 @@ public class ServiceRepository : IServiceRepository
     var services = (from ss in _dbContext.ServiceStatistics
                     join s in _dbContext.Services on new { ss.BatchId, ss.ProviderId } equals new { s.BatchId, s.ProviderId }
                     where ss.Timestamp >= lastWeek && ss.ProviderId == providerId
-                        && !s.RouteLongName.Contains("school") && !s.RouteLongName.Contains("School") && !s.RouteLongName.Contains("College")
+                        && !s.RouteLongName.Contains("school") && !s.RouteLongName.Contains("School")
+                        && !s.RouteLongName.Contains("College") && !s.RouteLongName.Contains("college")
+                        && !s.RouteLongName.Contains("Intermediate") && !s.RouteLongName.Contains("intermediate")
                     select new Service
                     {
                       ServiceName = s.ServiceName,
