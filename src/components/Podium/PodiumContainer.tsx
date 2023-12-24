@@ -3,6 +3,8 @@ import styles from "@/styles/PodiumStyles.module.css";
 import { PodiumCard } from "./PodiumCard";
 import { API_URL } from "@/constants";
 import { getServiceProviderFromCity } from "@/helpers/convertors";
+import useSWR from "swr";
+import { fetcher } from "@/helpers/fetcher";
 
 interface PodiumContainerProps {
   city: string;
@@ -14,40 +16,27 @@ type WorstPerformingServices = {
   routeLongName: string;
 };
 
-async function getWorstPerformingServices(city: string) {
-  try {
-    const servicesRes = await fetch(
-      `${API_URL}/api/v1/${getServiceProviderFromCity(
-        city,
-        true
-      )}/worstServices`
-    );
-
-    const services = await await servicesRes.json();
-    return services;
-  } catch {
-    console.error("Error fetching worst performing services from API");
-  }
-}
-
 export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
-  const [worstServices, setWorstServices] = React.useState<
-    WorstPerformingServices[] | undefined
-  >();
+  const { data } = useSWR<WorstPerformingServices[]>(
+    city
+      ? `${API_URL}/api/v1/${getServiceProviderFromCity(
+          city,
+          true
+        )}/worstServices`
+      : null,
+    fetcher
+  );
 
-  React.useEffect(() => {
-    const fetchData = async () => {
-      const services = (await getWorstPerformingServices(
-        city
-      )) as WorstPerformingServices[];
-      const roundedDownServices = services.map((thing) => {
-        return { ...thing, delay: Math.floor(thing.delay) };
-      });
-      setWorstServices(roundedDownServices);
-    };
+  let worstServicesLoaded = false;
+  let worstServices: WorstPerformingServices[] = [];
 
-    fetchData();
-  }, [city]);
+  if (data && data.length > 0) {
+    // round down the delay
+    worstServices = data.map((service) => {
+      return { ...service, delay: Math.floor(service.delay) };
+    });
+    worstServicesLoaded = true;
+  }
 
   return (
     <div className={styles.podium_container}>
@@ -59,11 +48,11 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
           maxWidth: "30rem",
         }}
         place={2}
-        delay={worstServices ? worstServices[1].delay : undefined}
+        delay={worstServicesLoaded ? worstServices[1].delay : undefined}
         routeLongName={
-          worstServices ? worstServices[1].routeLongName : undefined
+          worstServicesLoaded ? worstServices[1].routeLongName : undefined
         }
-        serviceName={worstServices ? worstServices[1].serviceName : ""}
+        serviceName={worstServicesLoaded ? worstServices[1].serviceName : ""}
       />
       <PodiumCard
         style={{
@@ -72,11 +61,11 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
           background: "var(--color-podium-1)",
         }}
         place={1}
-        delay={worstServices ? worstServices[0].delay : undefined}
+        delay={worstServicesLoaded ? worstServices[0].delay : undefined}
         routeLongName={
-          worstServices ? worstServices[0].routeLongName : undefined
+          worstServicesLoaded ? worstServices[0].routeLongName : undefined
         }
-        serviceName={worstServices ? worstServices[0].serviceName : ""}
+        serviceName={worstServicesLoaded ? worstServices[0].serviceName : ""}
       />
       <PodiumCard
         style={{
@@ -86,11 +75,11 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
           maxWidth: "30rem",
         }}
         place={3}
-        delay={worstServices ? worstServices[2].delay : undefined}
+        delay={worstServicesLoaded ? worstServices[2].delay : undefined}
         routeLongName={
-          worstServices ? worstServices[2].routeLongName : undefined
+          worstServicesLoaded ? worstServices[2].routeLongName : undefined
         }
-        serviceName={worstServices ? worstServices[2].serviceName : ""}
+        serviceName={worstServicesLoaded ? worstServices[2].serviceName : ""}
       />
     </div>
   );
