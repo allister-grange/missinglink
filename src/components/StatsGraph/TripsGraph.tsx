@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import { API_URL } from "@/constants";
 import chartOptions, {
   parseServiceStatsIntoTimeArrays,
 } from "@/helpers/chartHelpers";
-import useServiceStatisticApi from "@/hooks/useServiceStatisticApi";
+import { getServiceProviderFromCity } from "@/helpers/convertors";
+import { fetcher } from "@/helpers/fetcher";
+import { formatDateForBackend, formateDateForInput } from "@/helpers/time";
 import styles from "@/styles/Graph.module.css";
-import "chartjs-adapter-moment";
-import { Line } from "react-chartjs-2";
-import { GraphColorLegend } from "./GraphColorLegend";
+import { ServiceStatistic } from "@/types/ServiceTypes";
 import {
   Chart as ChartJS,
-  TimeScale,
+  LineElement,
   LinearScale,
   PointElement,
-  LineElement,
+  TimeScale,
   Tooltip,
 } from "chart.js";
-import { formateDateForInput } from "@/helpers/time";
+import "chartjs-adapter-moment";
+import React, { useState } from "react";
+import { Line } from "react-chartjs-2";
+import useSWR from "swr";
+import { GraphColorLegend } from "./GraphColorLegend";
 
 ChartJS.register(TimeScale, LinearScale, PointElement, LineElement, Tooltip);
 
@@ -27,13 +31,21 @@ type GraphPageProps = {
 };
 
 const Graph: React.FC<GraphPageProps> = ({ city }) => {
-  const { serviceStatistics, getServiceStatsData } =
-    useServiceStatisticApi(city);
   const [startDate, setStartDate] = useState<Date>(yesterdayDate);
   const [endDate, setEndDate] = useState<Date>(new Date());
   const [hoveringLegendBadge, setHoveringLegendBadge] = useState<
     string | undefined
   >();
+  const servicerProvider = getServiceProviderFromCity(city);
+
+  let { data: serviceStatistics } = useSWR<ServiceStatistic[]>(
+    city
+      ? `${API_URL}/api/v1/${servicerProvider}/statistics?startDate=${formatDateForBackend(
+          startDate
+        )}&endDate=${formatDateForBackend(endDate)}`
+      : null,
+    fetcher
+  );
 
   const {
     totalTrips,
@@ -146,7 +158,6 @@ const Graph: React.FC<GraphPageProps> = ({ city }) => {
           onChange={(e) => {
             const date = new Date(e.target.value);
             if (date && endDate) {
-              getServiceStatsData(date, endDate);
               setStartDate(date);
             }
           }}
@@ -159,7 +170,6 @@ const Graph: React.FC<GraphPageProps> = ({ city }) => {
           onChange={(e) => {
             const date = new Date(e.target.value);
             if (date && startDate) {
-              getServiceStatsData(startDate, date);
               setEndDate(date);
             }
           }}

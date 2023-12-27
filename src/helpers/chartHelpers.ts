@@ -23,7 +23,7 @@ export const chartOptions: any = {
 };
 
 export const parseServiceStatsIntoTimeArrays = (
-  serviceStatistics: ServiceStatistic[]
+  serviceStatistics?: ServiceStatistic[]
 ) => {
   type ServiceKey = keyof ServiceStatistic;
 
@@ -35,7 +35,7 @@ export const parseServiceStatsIntoTimeArrays = (
   const onTimeTrips = [] as DataPoint[];
   const totalDisruptedTrips = [] as DataPoint[];
 
-  serviceStatistics.forEach((stat: ServiceStatistic) => {
+  serviceStatistics?.forEach((stat: ServiceStatistic) => {
     totalTrips.push({
       x: stat.timestamp,
       y: stat["totalServices" as ServiceKey] as number,
