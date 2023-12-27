@@ -3,12 +3,16 @@ import { InfoCardsContainer } from "@/components/InfoCards/InfoCardsContainer";
 import { PodiumContainer } from "@/components/Podium/PodiumContainer";
 import { ServiceBreakdown } from "@/components/ServiceBreakdown/ServiceBreakdown";
 import { Timetable } from "@/components/Timetable";
-import useServiceApi from "@/hooks/useServiceApi";
+import { API_URL } from "@/constants";
+import { getServiceProviderFromCity } from "@/helpers/convertors";
+import { sortServicesResponseByStatus } from "@/helpers/sorters";
 import styles from "@/styles/Home.module.css";
+import { Service, ServiceContainer } from "@/types/ServiceTypes";
 import type { GetServerSideProps, NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import React, { useRef } from "react";
+import { useRef } from "react";
+import useSWR from "swr";
 const ServicesMapClientSide = dynamic(
   () => import("@/components/ServicesMap"),
   {
@@ -32,9 +36,20 @@ interface HomeProps {
   city: string;
 }
 
+const fetcher = async (url: string) => {
+  const res = await fetch(url);
+  const json = (await res.json()) as Service[];
+  const sortedServices = sortServicesResponseByStatus(json);
+  return sortedServices;
+};
+
 const Home: NextPage<HomeProps> = ({ city }) => {
-  const { services, refreshAPIServicesData, error, status, dispatch } =
-    useServiceApi(city);
+  let { data: services, error } = useSWR<ServiceContainer>(
+    city
+      ? `${API_URL}/api/v1/${getServiceProviderFromCity(city)}/services`
+      : null,
+    fetcher
+  );
 
   const atAGlanceRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
@@ -63,7 +78,7 @@ const Home: NextPage<HomeProps> = ({ city }) => {
         />
       </Head>
       <main className={styles.main}>
-        <ToastClientSide error={error} dispatch={dispatch} />
+        <ToastClientSide error={error} />
         <div className={styles.nav_top_container}>
           <TopNavClientSide
             atAGlanceRef={atAGlanceRef}
@@ -157,7 +172,7 @@ const Home: NextPage<HomeProps> = ({ city }) => {
                 reporting its time
               </p>
             </div>
-            <Timetable serviceDataToDisplay={services.allServices} />
+            <Timetable serviceDataToDisplay={services?.allServices} />
           </div>
         </div>
       </main>

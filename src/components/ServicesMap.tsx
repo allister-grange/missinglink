@@ -14,7 +14,7 @@ import {
 } from "react-leaflet";
 
 interface ServiceMapProps {
-  services: ServiceContainer;
+  services?: ServiceContainer;
   city: string;
 }
 
@@ -124,7 +124,7 @@ const ServicesMap: React.FC<ServiceMapProps> = ({
       />
       <ZoomControl position="topright" />
       <ChangeMapView coords={centerLatLong!} />
-      {services.allServices.map((service: Service, index) =>
+      {services?.allServices.map((service: Service, index) =>
         getMapMarker(service, index)
       )}
     </MapContainer>

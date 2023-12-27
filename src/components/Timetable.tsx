@@ -5,7 +5,7 @@ import convertSecondsToMinutes from "@/helpers/convertors";
 import { useTable, useSortBy, usePagination } from "react-table";
 
 interface TimetableProps {
-  serviceDataToDisplay: Service[];
+  serviceDataToDisplay?: Service[];
 }
 
 interface DisplayServiceData {
@@ -17,15 +17,17 @@ interface DisplayServiceData {
 export const Timetable: React.FC<TimetableProps> = ({
   serviceDataToDisplay,
 }) => {
-  const data: DisplayServiceData[] = React.useMemo(
-    () =>
-      serviceDataToDisplay.map((service) => ({
+  const data: DisplayServiceData[] = React.useMemo(() => {
+    if (serviceDataToDisplay) {
+      return serviceDataToDisplay.map((service) => ({
         delay: convertSecondsToMinutes(service.delay, true),
         routeLongName: service.routeLongName,
         routeShortName: service.routeShortName,
-      })),
-    [serviceDataToDisplay]
-  );
+      }));
+    } else {
+      return [];
+    }
+  }, [serviceDataToDisplay]);
 
   const columns = React.useMemo(
     () => [
