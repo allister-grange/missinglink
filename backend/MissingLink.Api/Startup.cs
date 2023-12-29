@@ -43,6 +43,7 @@ namespace missinglink
 
       services.Configure<MetlinkApiConfig>(Configuration.GetSection("MetlinkApiConfig"));
       services.Configure<AtApiConfig>(Configuration.GetSection("AtApiConfig"));
+      services.Configure<MetroApiConfig>(Configuration.GetSection("MetroApiConfig"));
 
       services.AddDbContext<ServiceContext>(options =>
         options.UseNpgsql(Configuration.GetConnectionString("Postgres")));
@@ -67,10 +68,12 @@ namespace missinglink
       builder.RegisterType<CacheRepository>().As<ICacheRepository>();
 
       builder.RegisterType<MetlinkAPIService>();
+      builder.RegisterType<MetroAPIService>();
       builder.RegisterType<AtAPIService>();
       builder.RegisterType<ServiceAPI>();
 
       builder.Register(c => new AtServicesController(c.Resolve<ILogger<AtServicesController>>(), c.Resolve<AtAPIService>())).InstancePerLifetimeScope();
+      builder.Register(c => new MetroServicesController(c.Resolve<ILogger<MetroServicesController>>(), c.Resolve<MetroAPIService>())).InstancePerLifetimeScope();
       builder.Register(c => new MetlinkServicesController(c.Resolve<ILogger<MetlinkServicesController>>(), c.Resolve<MetlinkAPIService>())).InstancePerLifetimeScope();
       builder.RegisterType<UpdateServicesController>().InstancePerLifetimeScope();
     }

@@ -10,19 +10,20 @@ using Microsoft.Extensions.Logging;
 using missinglink.Repository;
 using missinglink.Models;
 using Microsoft.Extensions.Options;
+using Grpc.Net.Client;
 
 namespace missinglink.Services
 {
-  public class MetlinkAPIService : IBaseServiceAPI
+  public class MetroAPIService : IBaseServiceAPI
   {
     private readonly HttpClient _httpClient;
-    private readonly ILogger<MetlinkAPIService> _logger;
+    private readonly ILogger<MetroAPIService> _logger;
     private readonly IServiceRepository _serviceRepository;
-    private readonly MetlinkApiConfig _apiConfig;
+    private readonly MetroApiConfig _apiConfig;
     private readonly ICacheRepository _cacheRepository;
 
-    public MetlinkAPIService(ILogger<MetlinkAPIService> logger, IHttpClientFactory clientFactory,
-      IOptions<MetlinkApiConfig> apiConfig, IServiceRepository metlinkServiceRepository, ICacheRepository cacheRepository)
+    public MetroAPIService(ILogger<MetroAPIService> logger, IHttpClientFactory clientFactory,
+      IOptions<MetroApiConfig> apiConfig, IServiceRepository metlinkServiceRepository, ICacheRepository cacheRepository)
     {
       _httpClient = clientFactory.CreateClient("metlinkService");
       _logger = logger;
@@ -35,37 +36,31 @@ namespace missinglink.Services
     {
       var cancelledServicesTask = GetCancelledServicesFromMetlink();
 
-      var tripUpdatesTask = FetchDataFromMetlinkApi(
+      var tripUpdatesTask = FetchDataFromMetroApi(
         $"{_apiConfig.BaseUrl}{_apiConfig.TripUpdatesEndpoint}",
         () => new MetlinkTripUpdatesResponse()
       );
 
-      var tripsTask = FetchDataFromMetlinkApi(
-        $"{_apiConfig.BaseUrl}{_apiConfig.TripsEndpoint}",
-        () => new List<MetlinkTripResponse>()
-      );
-
-      var routesTask = FetchDataFromMetlinkApi(
-        $"{_apiConfig.BaseUrl}{_apiConfig.RoutesEndpoint}",
+      var routesTask = FetchDataFromMetroApi(
+        $"{_apiConfig.BaseUrl}{_apiConfig.ServiceAlertsEndpoint}",
         () => new List<RouteResponse>()
       );
 
-      var positionsTask = FetchDataFromMetlinkApi(
+      var positionsTask = FetchDataFromMetroApi(
         $"{_apiConfig.BaseUrl}{_apiConfig.VehiclePositionsEndpoint}",
         () => new VehiclePositionResponse()
       );
 
-      await Task.WhenAll(tripUpdatesTask, tripsTask, routesTask, positionsTask, cancelledServicesTask);
+      await Task.WhenAll(tripUpdatesTask, routesTask, positionsTask, cancelledServicesTask);
 
       var tripUpdates = tripUpdatesTask.Result.Trips;
-      var trips = tripsTask.Result;
       var routes = routesTask.Result;
       var positions = positionsTask.Result.VehiclePositions;
       var cancelledServices = cancelledServicesTask.Result;
 
       var allServices = ParseServicesFromTripUpdates(tripUpdates);
 
-      allServices = MergeServicesWithRoutesAndPositions(allServices, trips, routes, positions);
+      allServices = MergeServicesWithRoutesAndPositions(allServices, routes, positions);
 
       var cancelledServicesToBeAdded = GetCancelledServicesToBeAdded(cancelledServices, routes);
 
@@ -153,39 +148,39 @@ namespace missinglink.Services
       return allServices;
     }
 
-    private List<Service> MergeServicesWithRoutesAndPositions(List<Service> services, List<MetlinkTripResponse> trips, List<RouteResponse> routes, List<VehiclePositionHolder> positions)
+    private List<Service> MergeServicesWithRoutesAndPositions(List<Service> services, List<RouteResponse> routes, List<VehiclePositionHolder> positions)
     {
       var updatedServices = new List<Service>(services);
 
-      foreach (var service in services)
-      {
-        var tripThatServiceIsOn = trips.Find(trip => trip.TripId == service.TripId);
-        var positionForService = positions.Find(pos => pos.VehiclePosition.Vehicle.Id == service.VehicleId);
-        var routeThatServiceIsOn = routes.Find(route => route.RouteId == tripThatServiceIsOn?.RouteId);
+      // foreach (var service in services)
+      // {
+      //   var tripThatServiceIsOn = trips.Find(trip => trip.TripId == service.TripId);
+      //   var positionForService = positions.Find(pos => pos.VehiclePosition.Vehicle.Id == service.VehicleId);
+      //   var routeThatServiceIsOn = routes.Find(route => route.RouteId == tripThatServiceIsOn?.RouteId);
 
-        if (routeThatServiceIsOn != null)
-        {
-          service.RouteId = routeThatServiceIsOn.RouteId;
-          service.RouteDescription = routeThatServiceIsOn.RouteDesc;
-          service.RouteShortName = routeThatServiceIsOn.RouteShortName;
-          service.RouteLongName = routeThatServiceIsOn.RouteLongName;
-        }
-        else
-        {
-          _logger.LogError($"Route that the service {service.VehicleId} is on is null");
-        }
+      //   if (routeThatServiceIsOn != null)
+      //   {
+      //     service.RouteId = routeThatServiceIsOn.RouteId;
+      //     service.RouteDescription = routeThatServiceIsOn.RouteDesc;
+      //     service.RouteShortName = routeThatServiceIsOn.RouteShortName;
+      //     service.RouteLongName = routeThatServiceIsOn.RouteLongName;
+      //   }
+      //   else
+      //   {
+      //     _logger.LogError($"Route that the service {service.VehicleId} is on is null");
+      //   }
 
-        if (positionForService != null)
-        {
-          service.Bearing = positionForService.VehiclePosition.Position.Bearing;
-          service.Lat = positionForService.VehiclePosition.Position.Latitude;
-          service.Long = positionForService.VehiclePosition.Position.Longitude;
-        }
-        else
-        {
-          _logger.LogError($"Position for service {service.VehicleId} is null");
-        }
-      }
+      //   if (positionForService != null)
+      //   {
+      //     service.Bearing = positionForService.VehiclePosition.Position.Bearing;
+      //     service.Lat = positionForService.VehiclePosition.Position.Latitude;
+      //     service.Long = positionForService.VehiclePosition.Position.Longitude;
+      //   }
+      //   else
+      //   {
+      //     _logger.LogError($"Position for service {service.VehicleId} is null");
+      //   }
+      // }
 
       return updatedServices;
     }
@@ -224,7 +219,7 @@ namespace missinglink.Services
       }
     }
 
-    private async Task<T> FetchDataFromMetlinkApi<T>(string url, Func<T> defaultResultFactory)
+    private async Task<T> FetchDataFromMetroApi<T>(string url, Func<T> defaultResultFactory)
     {
       try
       {
@@ -252,6 +247,35 @@ namespace missinglink.Services
 
     public async Task<List<Service>> GetLatestServices()
     {
+      using var httpClient = new HttpClient();
+      httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "c5ecf71cae68423398e830f26221ed4c");
+
+      // var content = new ByteArrayContent();
+      // content.Headers.Add("Content-Type", "application/protobuf");
+
+      var response = await httpClient.GetAsync("https://apis.metroinfo.co.nz/rti/gtfsrt/v1/trip-updates.pb");
+      if (response.IsSuccessStatusCode)
+      {
+        // Read the response bytes
+        var responseBytes = await response.Content.ReadAsByteArrayAsync();
+
+        // Parse the repeated field
+        var feedMessage = TransitRealtime.FeedMessage.Parser.ParseFrom(responseBytes);
+
+        // Now vehiclePositions is a RepeatedField<TransitRealtime.VehiclePosition>
+        foreach (var feedEntity in feedMessage.Entity)
+        {
+          // Process each vehicle position as needed
+          if (feedEntity.TripUpdate.HasDelay)
+          {
+            Console.WriteLine(feedEntity.TripUpdate.Delay);
+          }
+        }
+      }
+      else
+      {
+        // Handle non-successful response
+      }
       try
       {
         return _cacheRepository.Get<List<Service>>("Metlink");
@@ -340,7 +364,7 @@ namespace missinglink.Services
           var request = new HttpRequestMessage(
             HttpMethod.Get, uri);
           request.Headers.Add("Accept", "application/json");
-          request.Headers.Add("x-api-key", _apiConfig.MetlinkApiKey);
+          request.Headers.Add("x-api-key", _apiConfig.MetroApiKey1);
           var response = await _httpClient.SendAsync(request);
 
           if (response.IsSuccessStatusCode)

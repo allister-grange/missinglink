@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using missinglink.Models;
@@ -20,10 +21,10 @@ public abstract class BaseServicesController<TService> : ControllerBase where TS
   }
 
   [HttpGet("services")]
-  public List<Service> GetNewestServices()
+  public async Task<List<Service>> GetNewestServices()
   {
     _logger.LogInformation("Fetching services request");
-    var services = _apiService.GetLatestServices();
+    var services = await _apiService.GetLatestServices();
 
     if (services == null || services.Count == 0)
     {

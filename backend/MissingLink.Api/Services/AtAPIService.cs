@@ -281,7 +281,7 @@ namespace missinglink.Services
       }
     }
 
-    public List<Service> GetLatestServices()
+    public async Task<List<Service>> GetLatestServices()
     {
       try
       {
