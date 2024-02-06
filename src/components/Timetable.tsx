@@ -48,7 +48,20 @@ export const Timetable: React.FC<TimetableProps> = ({
   );
 
   const tableInstance = useTable(
-    { columns, data, initialState: { pageIndex: 0, pageSize: 15 } },
+    {
+      columns,
+      data,
+      initialState: {
+        pageIndex: 0,
+        pageSize: 15,
+        sortBy: [
+          {
+            id: "delay",
+            desc: true,
+          },
+        ],
+      },
+    },
     useSortBy,
     usePagination
   );
