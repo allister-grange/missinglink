@@ -47,6 +47,21 @@ export const TopNav: React.FC<TopNavProps> = ({
     city ? `/api/weather?city=${city}` : null,
     fetcher
   );
+  // needs to be set into state as I need to set the value based off of a system theme on the first load
+  const [themeIcon, setThemeIcon] = React.useState("🌚");
+
+  React.useEffect(() => {
+    if (
+      theme === "dark" ||
+      (theme === "system" &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      setThemeIcon("☀️");
+    } else {
+      setThemeIcon("🌚");
+    }
+  }, [theme]);
+
   const weatherData = data;
 
   const atAGlanceScroll = () => {
@@ -206,7 +221,7 @@ export const TopNav: React.FC<TopNavProps> = ({
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               onMouseOver={(e) => onLinkMouseEnter(e, false)}
             >
-              {theme === "dark" ? "🌚" : "☀️"}
+              {themeIcon}
             </a>
           </div>
           <span
