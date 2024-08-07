@@ -9,6 +9,7 @@ public interface IBaseServiceController
   List<ServiceStatistic> GetServiceStatisticsByDate(DateTime start, DateTime end);
   ServiceStatistic GetMostRecentStatistics();
   List<Service> GetWorstServicesForThisWeek();
+  List<Service> GetBestServicesForThisWeek();
   List<string> GetServiceNames();
   List<Service> GetServicesByServiceNameAndTimeRange(string serviceName, TimeRange timeRange);
 }

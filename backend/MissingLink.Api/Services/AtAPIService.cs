@@ -337,6 +337,23 @@ namespace missinglink.Services
       }
     }
 
+    public List<Service> GetBestServicesForThisWeek()
+    {
+      var services = _cacheRepository.Get<List<Service>>("AtBestServicesThisWeek");
+
+      // Populate the cache if there's no hit from Redis
+      if (services != null)
+      {
+        return services;
+      }
+      else
+      {
+        var servicesNamesFromDb = _serviceRepository.GetBestServicesForThisWeek("AT", 3);
+        _cacheRepository.Set("AtBestServicesThisWeek", servicesNamesFromDb, TimeSpan.FromHours(12));
+        return servicesNamesFromDb;
+      }
+    }
+
     public List<string> GetServiceNames()
     {
       var serviceNames = _cacheRepository.Get<List<string>>("ATServiceNames");

@@ -102,9 +102,9 @@ public class ServiceRepository : IServiceRepository
     var services = (from ss in _dbContext.ServiceStatistics
                     join s in _dbContext.Services on new { ss.BatchId, ss.ProviderId } equals new { s.BatchId, s.ProviderId }
                     where ss.Timestamp >= lastWeek && ss.ProviderId == providerId
-                        && !s.RouteLongName.Contains("school") && !s.RouteLongName.Contains("School")
-                        && !s.RouteLongName.Contains("College") && !s.RouteLongName.Contains("college")
-                        && !s.RouteLongName.Contains("Intermediate") && !s.RouteLongName.Contains("intermediate")
+                        && !s.RouteLongName.ToLower().Contains("school")
+                        && !s.RouteLongName.ToLower().Contains("college")
+                        && !s.RouteLongName.ToLower().Contains("intermediate")
                     select new Service
                     {
                       ServiceName = s.ServiceName,
@@ -139,6 +139,54 @@ public class ServiceRepository : IServiceRepository
     }).ToList();
 
     return worstServices;
+  }
+  public List<Service> GetBestServicesForThisWeek(string providerId, int numberOfServicesToReturn = 3)
+  {
+    DateTime lastWeek = DateTime.Now.AddDays(-7);
+
+    // Fetch all services in the past week that aren't schools and have a non-zero delay
+    var services = (from ss in _dbContext.ServiceStatistics
+                    join s in _dbContext.Services on new { ss.BatchId, ss.ProviderId } equals new { s.BatchId, s.ProviderId }
+                    where ss.Timestamp >= lastWeek && ss.ProviderId == providerId
+                        && !s.RouteLongName.ToLower().Contains("school")
+                        && !s.RouteLongName.ToLower().Contains("college")
+                        && !s.RouteLongName.ToLower().Contains("intermediate")
+                        && s.Delay != 0
+                    select new Service
+                    {
+                      ServiceName = s.ServiceName,
+                      RouteLongName = s.RouteLongName,
+                      Delay = s.Delay
+                    }).ToList();
+
+    // Group all services into a list of matching services names
+    var servicesGroupedByServiceName = services.GroupBy(s => s.ServiceName).Select(group => new GroupedService
+    {
+      ServiceName = group.Key,
+      Services = group.ToList(),
+      MAD = 0
+    }).ToList();
+
+    // Calculate the mean average deviation for each service 
+    foreach (var serviceGroup in servicesGroupedByServiceName)
+    {
+      double averageDelay = serviceGroup.Services.Average(s => s.Delay);
+      // Handle the case where only a single service is in the group
+      int mad = serviceGroup.Services.Count > 1
+          ? (int)Math.Floor(serviceGroup.Services.Average(s => Math.Abs(s.Delay - averageDelay)))
+          : Math.Abs(serviceGroup.Services.First().Delay);
+      serviceGroup.MAD = mad;
+    }
+
+    // Get the services with the best MAD scores
+    var bestServices = servicesGroupedByServiceName.OrderBy(kv => kv.MAD).Take(numberOfServicesToReturn).Select(kv => new Service
+    {
+      ServiceName = kv.ServiceName,
+      Delay = kv.MAD,
+      RouteLongName = kv.Services[0].RouteLongName
+    }).ToList();
+
+    return bestServices;
   }
 
   public List<string> GetServiceNamesByProviderId(string providerId)

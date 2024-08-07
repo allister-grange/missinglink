@@ -12,6 +12,7 @@ namespace missinglink.Services
     List<ServiceStatistic> GetServiceStatisticsByDate(DateTime startDate, DateTime endDate);
     ServiceStatistic GetMostRecentStatistics();
     List<Service> GetWorstServicesForThisWeek();
+    List<Service> GetBestServicesForThisWeek();
     List<string> GetServiceNames();
     ServiceAverageTimesDTO GetServicesByServiceNameAndTimeRange(string serviceName, TimeRange timeRange);
   }

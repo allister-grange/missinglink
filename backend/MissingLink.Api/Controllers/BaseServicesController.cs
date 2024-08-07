@@ -102,6 +102,22 @@ public abstract class BaseServicesController<TService> : ControllerBase where TS
     return services;
   }
 
+  [HttpGet("bestServices")]
+  public IEnumerable<dynamic> GetBestServicesForThisWeek()
+  {
+    _logger.LogInformation("Fetching three best services for this week");
+    var services = _apiService.GetBestServicesForThisWeek();
+
+    if (services == null || services.Count() == 0)
+    {
+      _logger.LogWarning("Services table in database not populated.");
+      return new List<Service>();
+    }
+
+    _logger.LogInformation("Found " + services.Count() + " services");
+    return services;
+  }
+
   [HttpGet("mostRecentStatistics")]
   public IActionResult GetMostRecentStatistics()
   {
