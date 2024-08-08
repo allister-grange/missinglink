@@ -8,6 +8,7 @@ interface PodiumCardProps {
   delay?: number;
   serviceName?: string;
   routeLongName?: string;
+  isSmallerCard: boolean;
 }
 
 export const PodiumCard: React.FC<PodiumCardProps> = ({
@@ -16,9 +17,17 @@ export const PodiumCard: React.FC<PodiumCardProps> = ({
   delay,
   routeLongName,
   serviceName,
+  isSmallerCard,
 }) => {
   return (
-    <div className={styles.podium_card} style={{ ...style }}>
+    <div
+      className={`
+        ${styles.podium_card} 
+        ${
+          isSmallerCard ? styles.podium_card__small : styles.podium_card__large
+        }`}
+      style={{ ...style }}
+    >
       <h3 className={styles.podium_card__number}>{place}</h3>
 
       <span className={styles.podium_card__line}></span>

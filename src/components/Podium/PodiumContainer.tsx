@@ -65,7 +65,6 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
         <div className={styles.podium_container__cards}>
           <PodiumCard
             style={{
-              width: "25%",
               background: "var(--color-podium-2)",
             }}
             place={2}
@@ -74,11 +73,10 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
               bestServicesLoaded ? bestServices[1].routeLongName : undefined
             }
             serviceName={bestServicesLoaded ? bestServices[1].serviceName : ""}
+            isSmallerCard={true}
           />
           <PodiumCard
             style={{
-              width: "40%",
-              fontSize: "1rem",
               background: "var(--color-podium-1)",
             }}
             place={1}
@@ -87,10 +85,10 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
               bestServicesLoaded ? bestServices[0].routeLongName : undefined
             }
             serviceName={bestServicesLoaded ? bestServices[0].serviceName : ""}
+            isSmallerCard={false}
           />
           <PodiumCard
             style={{
-              width: "25%",
               background: "var(--color-podium-3)",
             }}
             place={3}
@@ -99,6 +97,7 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
               bestServicesLoaded ? bestServices[2].routeLongName : undefined
             }
             serviceName={bestServicesLoaded ? bestServices[2].serviceName : ""}
+            isSmallerCard={true}
           />
         </div>
       </div>
@@ -106,12 +105,11 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
         <h3 className={styles.podium_container__title}>Losers </h3>
         <div
           className={styles.podium_container__cards}
-          style={{ marginTop: "-1rem" }}
+          style={{ marginTop: "-0.5rem" }}
         >
           <PodiumCard
             style={{
               transform: "scale(0.9)",
-              width: "25%",
               background: "var(--color-podium-5)",
             }}
             place={2}
@@ -122,12 +120,11 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
             routeLongName={
               worstServicesLoaded ? worstServices[0].routeLongName : undefined
             }
+            isSmallerCard={true}
           />
           <PodiumCard
             style={{
               transform: "scale(0.9)",
-              width: "40%",
-              fontSize: "1rem",
               background: "var(--color-podium-4)",
             }}
             place={1}
@@ -138,11 +135,11 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
             serviceName={
               worstServicesLoaded ? worstServices[0].serviceName : ""
             }
+            isSmallerCard={false}
           />
           <PodiumCard
             style={{
               transform: "scale(0.9)",
-              width: "25%",
               background: "var(--color-podium-6)",
             }}
             place={3}
@@ -153,6 +150,7 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
             routeLongName={
               worstServicesLoaded ? worstServices[0].routeLongName : undefined
             }
+            isSmallerCard={true}
           />
         </div>
       </div>

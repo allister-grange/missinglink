@@ -9,6 +9,16 @@
   justify-content: center;
 }
 
+.podium_card__small {
+  width: 25%;
+
+}
+
+.podium_card__large {
+  width: 40%;
+  font-size: 1rem;
+}
+
 .podium_container__title {
   color: var(--color-grey-light-1);
   font-size: 2.4rem;
@@ -66,8 +76,20 @@
 
 /* 1100px or down */
 @media (max-width: 1000px) {
-  .podium_container {
+  .podium_container__cards {
     display: flex;
     flex-direction: column;
+  }
+
+  .podium_card__large {
+    width: 85%
+  }
+
+  .podium_card__small {
+    width: 65%
+  }
+
+  .podium_container__title {
+    font-size: 4rem;
   }
 }
