@@ -144,6 +144,9 @@ p, h1, h2, h3, h4, h5, h6 {
   --color-podium-1: #FFD01E;
   --color-podium-2: #C1C1C1;
   --color-podium-3: #FFAB68;
+  --color-podium-4: #D4B718;
+  --color-podium-5: #A6A6A6;
+  --color-podium-6: #D4915A;
 }
 
 [data-theme='dark'] {
@@ -172,4 +175,7 @@ p, h1, h2, h3, h4, h5, h6 {
   --color-podium-1: #8B6E01;
   --color-podium-2: #3B4042;
   --color-podium-3: #8E3F00;
+  --color-podium-4: #675101;
+  --color-podium-5: #2C2F30;
+  --color-podium-6: #6A2F00;
 }

@@ -65,8 +65,7 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
         <div className={styles.podium_container__cards}>
           <PodiumCard
             style={{
-              flexBasis: "23%",
-              flexShrink: "0",
+              width: "25%",
               background: "var(--color-podium-2)",
             }}
             place={2}
@@ -78,8 +77,7 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
           />
           <PodiumCard
             style={{
-              flexBasis: "40%",
-              flexShrink: "0",
+              width: "40%",
               fontSize: "1rem",
               background: "var(--color-podium-1)",
             }}
@@ -92,8 +90,7 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
           />
           <PodiumCard
             style={{
-              flexBasis: "23%",
-              flexShrink: "0",
+              width: "25%",
               background: "var(--color-podium-3)",
             }}
             place={3}
@@ -107,28 +104,31 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
       </div>
       <div className={styles.podium_container}>
         <h3 className={styles.podium_container__title}>Losers </h3>
-        <div className={styles.podium_container__cards}>
+        <div
+          className={styles.podium_container__cards}
+          style={{ marginTop: "-1rem" }}
+        >
           <PodiumCard
             style={{
-              flexBasis: "23%",
-              flexShrink: "0",
-              background: "var(--color-podium-2)",
+              transform: "scale(0.9)",
+              width: "25%",
+              background: "var(--color-podium-5)",
             }}
             place={2}
             delay={worstServicesLoaded ? worstServices[1].delay : undefined}
-            routeLongName={
-              worstServicesLoaded ? worstServices[1].routeLongName : undefined
-            }
             serviceName={
               worstServicesLoaded ? worstServices[1].serviceName : ""
+            }
+            routeLongName={
+              worstServicesLoaded ? worstServices[0].routeLongName : undefined
             }
           />
           <PodiumCard
             style={{
-              flexBasis: "40%",
-              flexShrink: "0",
+              transform: "scale(0.9)",
+              width: "40%",
               fontSize: "1rem",
-              background: "var(--color-podium-1)",
+              background: "var(--color-podium-4)",
             }}
             place={1}
             delay={worstServicesLoaded ? worstServices[0].delay : undefined}
@@ -141,17 +141,17 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
           />
           <PodiumCard
             style={{
-              flexBasis: "20%",
-              flexShrink: "0",
-              background: "var(--color-podium-3)",
+              transform: "scale(0.9)",
+              width: "25%",
+              background: "var(--color-podium-6)",
             }}
             place={3}
             delay={worstServicesLoaded ? worstServices[2].delay : undefined}
-            routeLongName={
-              worstServicesLoaded ? worstServices[2].routeLongName : undefined
-            }
             serviceName={
               worstServicesLoaded ? worstServices[2].serviceName : ""
+            }
+            routeLongName={
+              worstServicesLoaded ? worstServices[0].routeLongName : undefined
             }
           />
         </div>
