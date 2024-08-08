@@ -29,8 +29,6 @@ export function formatDateForBackend(inputDate: Date) {
     .toLocaleString("en-NZ", nzstOptions)
     .replaceAll(" ", "");
 
-  console.log(inputTime);
-
   // Split the input time into date and time parts
   const parts = inputTime.split(",");
   let datePart = parts[0];
