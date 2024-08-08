@@ -1,8 +1,18 @@
 .podium_container {
-  display: flex;
   color: white;
+  margin-top: 5rem;
+}
+
+.podium_container__cards {
+  display: flex;
   align-items: center;
-  margin-top: 4rem;
+  justify-content: center;
+}
+
+.podium_container__title {
+  color: var(--color-grey-light-1);
+  font-size: 2.4rem;
+  text-align: center;
 }
 
 .podium_card {

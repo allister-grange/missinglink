@@ -26,7 +26,7 @@ export const PodiumCard: React.FC<PodiumCardProps> = ({
       <div className={styles.podium_card__container}>
         <h3 className={styles.podium_card__title}>{serviceName}</h3>
         <p className={styles.podium_card__delay}>
-          Average disruption of: {delay ? formatDelay(delay) : ""}
+          Average delay of: {delay ? formatDelay(delay) : ""}
         </p>
         <p className={styles.podium_card__route_name}>
           {routeLongName === serviceName ? "" : routeLongName}

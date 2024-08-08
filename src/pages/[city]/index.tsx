@@ -111,8 +111,7 @@ const Home: NextPage<HomeProps> = ({ city }) => {
           <div className={styles.podium_container}>
             <h2 className={styles.sub_title}>Leaderboard 🏅</h2>
             <p className={styles.description}>
-              The leading services this week for the highest average disruption,
-              this is checked every 15 minutes
+              The leading services this week, updated every 15 minutes
             </p>
             {city === "wellington" && (
               <p className={styles.sub_description}>
