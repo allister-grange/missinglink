@@ -74,6 +74,7 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
             }
             serviceName={bestServicesLoaded ? bestServices[1].serviceName : ""}
             isSmallerCard={true}
+            isLoadingData={!bestServicesLoaded}
           />
           <PodiumCard
             style={{
@@ -86,6 +87,7 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
             }
             serviceName={bestServicesLoaded ? bestServices[0].serviceName : ""}
             isSmallerCard={false}
+            isLoadingData={!bestServicesLoaded}
           />
           <PodiumCard
             style={{
@@ -98,6 +100,7 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
             }
             serviceName={bestServicesLoaded ? bestServices[2].serviceName : ""}
             isSmallerCard={true}
+            isLoadingData={!bestServicesLoaded}
           />
         </div>
       </div>
@@ -121,6 +124,7 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
               worstServicesLoaded ? worstServices[0].routeLongName : undefined
             }
             isSmallerCard={true}
+            isLoadingData={!worstServicesLoaded}
           />
           <PodiumCard
             style={{
@@ -136,6 +140,7 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
               worstServicesLoaded ? worstServices[0].serviceName : ""
             }
             isSmallerCard={false}
+            isLoadingData={!worstServicesLoaded}
           />
           <PodiumCard
             style={{
@@ -151,6 +156,7 @@ export const PodiumContainer: React.FC<PodiumContainerProps> = ({ city }) => {
               worstServicesLoaded ? worstServices[0].routeLongName : undefined
             }
             isSmallerCard={true}
+            isLoadingData={!worstServicesLoaded}
           />
         </div>
       </div>

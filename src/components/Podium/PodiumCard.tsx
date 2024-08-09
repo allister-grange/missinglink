@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "@/styles/PodiumStyles.module.css";
 import { formatDelay } from "@/helpers/convertors";
+import { ClipLoader } from "react-spinners";
 
 interface PodiumCardProps {
   style?: React.CSSProperties;
@@ -9,6 +10,7 @@ interface PodiumCardProps {
   serviceName?: string;
   routeLongName?: string;
   isSmallerCard: boolean;
+  isLoadingData: boolean;
 }
 
 export const PodiumCard: React.FC<PodiumCardProps> = ({
@@ -18,6 +20,7 @@ export const PodiumCard: React.FC<PodiumCardProps> = ({
   routeLongName,
   serviceName,
   isSmallerCard,
+  isLoadingData,
 }) => {
   return (
     <div
@@ -33,7 +36,13 @@ export const PodiumCard: React.FC<PodiumCardProps> = ({
       <span className={styles.podium_card__line}></span>
 
       <div className={styles.podium_card__container}>
-        <h3 className={styles.podium_card__title}>{serviceName}</h3>
+        <h3 className={styles.podium_card__title}>
+          {isLoadingData ? (
+            <ClipLoader size={isSmallerCard ? 35 : 60} color="white" />
+          ) : (
+            serviceName
+          )}
+        </h3>
         <p className={styles.podium_card__delay}>
           Average delay of: {delay ? formatDelay(delay) : ""}
         </p>

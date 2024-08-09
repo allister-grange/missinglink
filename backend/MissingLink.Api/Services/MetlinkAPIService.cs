@@ -312,19 +312,19 @@ namespace missinglink.Services
 
     public List<Service> GetBestServicesForThisWeek()
     {
-      // var services = _cacheRepository.Get<List<Service>>("MetlinkBestServicesThisWeek");
+      var services = _cacheRepository.Get<List<Service>>("MetlinkBestServicesThisWeek");
 
-      // // Populate the cache if there's no hit from Redis
-      // if (services != null)
-      // {
-      //   return services;
-      // }
-      // else
-      // {
-      var servicesNamesFromDb = _serviceRepository.GetBestServicesForThisWeek("Metlink", 3);
-      // _cacheRepository.Set("MetlinkBestServicesThisWeek", servicesNamesFromDb, TimeSpan.FromHours(12));
-      return servicesNamesFromDb;
-      // }
+      // Populate the cache if there's no hit from Redis
+      if (services != null)
+      {
+        return services;
+      }
+      else
+      {
+        var servicesNamesFromDb = _serviceRepository.GetBestServicesForThisWeek("Metlink", 3);
+        _cacheRepository.Set("MetlinkBestServicesThisWeek", servicesNamesFromDb, TimeSpan.FromHours(12));
+        return servicesNamesFromDb;
+      }
     }
 
     public ServiceStatistic GetMostRecentStatistics()
