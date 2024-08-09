@@ -44,7 +44,8 @@ export const PodiumCard: React.FC<PodiumCardProps> = ({
           )}
         </h3>
         <p className={styles.podium_card__delay}>
-          Average delay of: {delay ? formatDelay(delay) : ""}
+          Average delay of:
+          {delay === 0 ? "0s" : delay ? formatDelay(delay) : ""}
         </p>
         <p className={styles.podium_card__route_name}>
           {routeLongName === serviceName ? "" : routeLongName}
