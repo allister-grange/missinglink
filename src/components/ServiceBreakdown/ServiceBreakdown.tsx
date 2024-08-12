@@ -50,7 +50,7 @@ export const ServiceBreakdown: React.FC<ServiceBreakdownProps> = ({ city }) => {
           />
           <ServiceDataCard
             title="Latest"
-            description="The latest this service was recorded"
+            description="The furthest behind scheduled recorded"
             number={data?.latestTime}
           />
         </div>
