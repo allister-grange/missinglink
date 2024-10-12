@@ -12,7 +12,7 @@ namespace missinglink
       var host = WebHost.CreateDefaultBuilder(args)
         .ConfigureServices(services => services.AddAutofac())
         .UseStartup<Startup>()
-        .UseUrls("http://localhost:5002", "https://localhost:5001")
+        .UseUrls("http://localhost:5002")
         .Build();
 
       host.Run();
