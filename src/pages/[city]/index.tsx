@@ -12,7 +12,7 @@ import type { GetServerSideProps, NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import useSWR from "swr";
 const ServicesMapClientSide = dynamic(
   () => import("@/components/ServicesMap"),
@@ -51,6 +51,20 @@ const Home: NextPage<HomeProps> = ({ city }) => {
       : null,
     fetcher
   );
+
+  const [showEmoji, setShowEmoji] = useState(false);
+
+  useEffect(() => {
+    const userAgent =
+      navigator.userAgent || navigator.vendor || (window as any).opera;
+
+    const isIOS = /iPad|iPhone|Macintosh|iPod/.test(userAgent);
+    const isChrome = /Chrome/.test(userAgent) && !/Edge|OPR/.test(userAgent);
+
+    if (!isIOS && !isChrome) {
+      setShowEmoji(true);
+    }
+  }, []);
 
   const atAGlanceRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
@@ -94,17 +108,21 @@ const Home: NextPage<HomeProps> = ({ city }) => {
           <div className={styles.heading_container}>
             <h1 className={styles.heading}>
               Missing Link{" "}
-              <Image
-                src="/victory.svg"
-                alt="Victory Emoji"
-                width={1}
-                height={1}
-                style={{
-                  display: "inline",
-                  height: "1em",
-                  width: "auto",
-                }}
-              />
+              {showEmoji ? (
+                <Image
+                  src="/victory.svg"
+                  alt="Victory Emoji"
+                  width={1}
+                  height={1}
+                  style={{
+                    display: "inline",
+                    height: "1em",
+                    width: "auto",
+                  }}
+                />
+              ) : (
+                "✌️"
+              )}
             </h1>
             <h3 className={styles.sub_heading}>
               A site to provide you with statistics, graphs and maps on how New
