@@ -11,6 +11,7 @@ import { Service, ServiceContainer } from "@/types/ServiceTypes";
 import type { GetServerSideProps, NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import Image from "next/image";
 import { useRef } from "react";
 import useSWR from "swr";
 const ServicesMapClientSide = dynamic(
@@ -91,7 +92,20 @@ const Home: NextPage<HomeProps> = ({ city }) => {
 
         <div className={styles.center_container}>
           <div className={styles.heading_container}>
-            <h1 className={styles.heading}>Missing Link ✌</h1>
+            <h1 className={styles.heading}>
+              Missing Link{" "}
+              <Image
+                src="/victory.svg"
+                alt="Victory Emoji"
+                width={1}
+                height={1}
+                style={{
+                  display: "inline",
+                  height: "1em",
+                  width: "auto",
+                }}
+              />
+            </h1>
             <h3 className={styles.sub_heading}>
               A site to provide you with statistics, graphs and maps on how New
               Zealand&apos;s public transport services are doing, today and in
@@ -108,29 +122,11 @@ const Home: NextPage<HomeProps> = ({ city }) => {
             <InfoCardsContainer city={city} />
           </div>
 
-          <div className={styles.podium_container}>
-            <h2 className={styles.sub_title}>Leaderboard 🏅</h2>
-            <p className={styles.description}>
-              The leading services this week, updated every 15 minutes
-            </p>
-            {city === "wellington" && (
-              <p className={styles.sub_description}>
-                This excludes school buses (which are always the worst, they run
-                infrequently and at high traffic times)
-              </p>
-            )}
-            <PodiumContainer city={city} />
-          </div>
-
-          <div className={styles.map_container} ref={mapRef}>
-            <ServicesMapClientSide services={services} city={city} />
-          </div>
-
           <div className={styles.graph_container} ref={statsRef}>
             <div className={styles.graph_title_container}>
               <h2 className={styles.sub_title}>Statistics ✍️</h2>
               <p className={styles.description}>
-                Every 20 minutes I take a sit-rep of how Metlink&apos;s services
+                Every 15 minutes I take a sit-rep of how Metlink&apos;s services
                 are doing
               </p>
               <p className={styles.sub_description}>
@@ -149,6 +145,24 @@ const Home: NextPage<HomeProps> = ({ city }) => {
               </p>
             </div>
             <TripsGraphClientSide city={city} />
+          </div>
+
+          <div className={styles.map_container} ref={mapRef}>
+            <ServicesMapClientSide services={services} city={city} />
+          </div>
+
+          <div className={styles.podium_container}>
+            <h2 className={styles.sub_title}>Leaderboard 🏅</h2>
+            <p className={styles.description}>
+              The leading services this week, updated every 15 minutes
+            </p>
+            {city === "wellington" && (
+              <p className={styles.sub_description}>
+                This excludes school buses (which are always the worst, they run
+                infrequently and at high traffic times)
+              </p>
+            )}
+            <PodiumContainer city={city} />
           </div>
 
           <div className={styles.breakdown_container} ref={breakdownRef}>
