@@ -6,12 +6,12 @@ export const Footer: React.FC = () => {
     <footer className={styles.footer}>
       <div>
         <h2 className={styles.copyright}>
-          &copy; 2021-2023; all rights reserved
+          &copy; 2021-2025; all rights reserved
         </h2>
         <h3 className={styles.copyright_name}>
           There is some minor interpretation for the data from the APIs, as such
           this website is not perfectly accurate <br />
-          All disruption averages are calculated using the mean average
+          All disruption averages are calculated using the mean absolute
           deviation from 0
         </h3>
       </div>
