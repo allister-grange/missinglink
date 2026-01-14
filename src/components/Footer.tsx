@@ -6,7 +6,7 @@ export const Footer: React.FC = () => {
     <footer className={styles.footer}>
       <div>
         <h2 className={styles.copyright}>
-          &copy; 2021-2025; all rights reserved
+          &copy; 2021-2026; all rights reserved
         </h2>
         <h3 className={styles.copyright_name}>
           There is some minor interpretation for the data from the APIs, as such
