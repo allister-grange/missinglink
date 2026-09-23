@@ -11,10 +11,10 @@ import React, { RefObject } from "react";
 import useSWR from "swr";
 
 interface TopNavProps {
-  atAGlanceRef: RefObject<HTMLDivElement>;
-  mapRef: RefObject<HTMLDivElement>;
-  statsRef: RefObject<HTMLDivElement>;
-  tablesRef: RefObject<HTMLDivElement>;
+  atAGlanceRef: RefObject<HTMLDivElement | null>;
+  mapRef: RefObject<HTMLDivElement | null>;
+  statsRef: RefObject<HTMLDivElement | null>;
+  tablesRef: RefObject<HTMLDivElement | null>;
   city: string;
 }
 
