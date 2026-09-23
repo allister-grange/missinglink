@@ -25,7 +25,7 @@ namespace missinglink.Repository
     public void Set<T>(string key, T value, TimeSpan? expiry = null)
     {
       var jsonData = JsonConvert.SerializeObject(value);
-      _database.StringSet(key, jsonData, expiry);
+      _database.StringSet(key, jsonData, expiry, When.Always);
     }
 
     public void Remove(string key)
