@@ -96,7 +96,7 @@ public class ServiceRepository : IServiceRepository
 
   public List<Service> GetWorstServicesForThisWeek(string providerId, int numberOfServicesToReturn = 3)
   {
-    DateTime lastWeek = DateTime.Now.AddDays(-7);
+    DateTime lastWeek = DateTime.UtcNow.AddDays(-7);
 
     // Fetch all services in the past week that aren't schools
     var services = (from ss in _dbContext.ServiceStatistics
@@ -142,7 +142,7 @@ public class ServiceRepository : IServiceRepository
   }
   public List<Service> GetBestServicesForThisWeek(string providerId, int numberOfServicesToReturn = 3)
   {
-    DateTime lastWeek = DateTime.Now.AddDays(-7);
+    DateTime lastWeek = DateTime.UtcNow.AddDays(-7);
 
     // Fetch all services in the past week that aren't schools and have a non-zero delay
     var services = (from ss in _dbContext.ServiceStatistics
@@ -200,10 +200,7 @@ public class ServiceRepository : IServiceRepository
 
   public ServiceAverageTimesDTO GetServicesByServiceNameAndTimeRange(string providerId, string serviceName, TimeRange timeRange)
   {
-    TimeZoneInfo nzTimeZone = TimeZoneInfo.FindSystemTimeZoneById("New Zealand Standard Time");
-    DateTime currentNZTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, nzTimeZone);
-
-    DateTime startDate = currentNZTime;
+    DateTime startDate = DateTime.UtcNow;
 
     switch (timeRange)
     {
@@ -218,7 +215,7 @@ public class ServiceRepository : IServiceRepository
         break;
       case TimeRange.AllTime:
       default:
-        startDate = DateTime.MinValue;
+        startDate = DateTime.SpecifyKind(DateTime.MinValue, DateTimeKind.Utc);
         break;
     }
 

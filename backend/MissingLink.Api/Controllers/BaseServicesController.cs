@@ -70,6 +70,10 @@ public abstract class BaseServicesController<TService> : ControllerBase where TS
       startDateInput = DateTime.ParseExact(startDate, "yyyy/MM/dd HH:mm:ss", CultureInfo.InvariantCulture);
       endDateInput = DateTime.ParseExact(endDate, "yyyy/MM/dd HH:mm:ss", CultureInfo.InvariantCulture);
 
+      TimeZoneInfo nzTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Pacific/Auckland");
+      startDateInput = TimeZoneInfo.ConvertTimeToUtc(startDateInput, nzTimeZone);
+      endDateInput = TimeZoneInfo.ConvertTimeToUtc(endDateInput, nzTimeZone);
+
       stats = _apiService.GetServiceStatisticsByDate(startDateInput, endDateInput);
     }
     catch (System.FormatException e)

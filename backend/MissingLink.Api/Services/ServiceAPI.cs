@@ -63,10 +63,7 @@ namespace missinglink.Services
         newServiceStatistic.OnTimeServices = allServices.Where(service => service.Status == "ONTIME" && service.ProviderId == provider).Count();
         newServiceStatistic.CancelledServices = allServices.Where(service => service.Status == "CANCELLED" && service.ProviderId == provider).Count();
         newServiceStatistic.TotalServices = allServices.Where(service => service.Status != "CANCELLED" && service.ProviderId == provider).Count();
-        DateTime utcTime = DateTime.UtcNow;
-        TimeZoneInfo serverZone = TimeZoneInfo.FindSystemTimeZoneById("NZ");
-        DateTime currentDateTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, serverZone);
-        newServiceStatistic.Timestamp = currentDateTime;
+        newServiceStatistic.Timestamp = DateTime.UtcNow;
         newServiceStatistic.BatchId = newBatchId;
         newServiceStatistic.ProviderId = provider;
         await _serviceRepository.AddStatisticAsync(newServiceStatistic);
