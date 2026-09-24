@@ -1,6 +1,22 @@
 import { ServiceStatistic } from "@/types/ServiceTypes";
 import { DataPoint } from "@/types/types";
 
+const newZealandTimeZone = "Pacific/Auckland";
+const graphTickDateFormatter = new Intl.DateTimeFormat("en-NZ", {
+  timeZone: newZealandTimeZone,
+  day: "2-digit",
+  month: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  hourCycle: "h23",
+});
+const graphTooltipDateFormatter = new Intl.DateTimeFormat("en-NZ", {
+  timeZone: newZealandTimeZone,
+  dateStyle: "medium",
+  timeStyle: "short",
+  hourCycle: "h23",
+});
+
 export const chartOptions: any = {
   scales: {
     x: {
@@ -12,12 +28,22 @@ export const chartOptions: any = {
         font: {
           size: 15,
         },
+        callback: (value: string | number) =>
+          graphTickDateFormatter.format(Number(value)),
       },
     },
   },
   plugins: {
     legend: {
       display: false,
+    },
+    tooltip: {
+      callbacks: {
+        title: (items: Array<{ parsed: { x: number } }>) =>
+          items.length
+            ? graphTooltipDateFormatter.format(items[0].parsed.x)
+            : "",
+      },
     },
   },
 };
