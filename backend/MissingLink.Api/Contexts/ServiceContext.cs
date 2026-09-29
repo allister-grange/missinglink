@@ -18,6 +18,9 @@ namespace missinglink.Contexts
       modelBuilder.Entity<Service>().ToTable("services");
       modelBuilder.Entity<ServiceStatistic>().ToTable("service_statistics")
       .HasKey(m => new { m.BatchId, m.ProviderId });
+      modelBuilder.Entity<ServiceStatistic>()
+        .Property(statistic => statistic.Timestamp)
+        .HasColumnType("timestamp without time zone");
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

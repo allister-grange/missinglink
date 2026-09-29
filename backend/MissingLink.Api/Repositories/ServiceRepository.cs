@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using missinglink.Repository;
+using missinglink.Utils;
 
 public class ServiceRepository : IServiceRepository
 {
@@ -96,7 +97,7 @@ public class ServiceRepository : IServiceRepository
 
   public List<Service> GetWorstServicesForThisWeek(string providerId, int numberOfServicesToReturn = 3)
   {
-    DateTime lastWeek = DateTime.UtcNow.AddDays(-7);
+    DateTime lastWeek = NewZealandTime.FromUtc(DateTime.UtcNow).AddDays(-7);
 
     // Fetch all services in the past week that aren't schools
     var services = (from ss in _dbContext.ServiceStatistics
@@ -142,7 +143,7 @@ public class ServiceRepository : IServiceRepository
   }
   public List<Service> GetBestServicesForThisWeek(string providerId, int numberOfServicesToReturn = 3)
   {
-    DateTime lastWeek = DateTime.UtcNow.AddDays(-7);
+    DateTime lastWeek = NewZealandTime.FromUtc(DateTime.UtcNow).AddDays(-7);
 
     // Fetch all services in the past week that aren't schools and have a non-zero delay
     var services = (from ss in _dbContext.ServiceStatistics
@@ -200,7 +201,7 @@ public class ServiceRepository : IServiceRepository
 
   public ServiceAverageTimesDTO GetServicesByServiceNameAndTimeRange(string providerId, string serviceName, TimeRange timeRange)
   {
-    DateTime startDate = DateTime.UtcNow;
+    DateTime startDate = NewZealandTime.FromUtc(DateTime.UtcNow);
 
     switch (timeRange)
     {
@@ -215,7 +216,7 @@ public class ServiceRepository : IServiceRepository
         break;
       case TimeRange.AllTime:
       default:
-        startDate = DateTime.SpecifyKind(DateTime.MinValue, DateTimeKind.Utc);
+        startDate = DateTime.SpecifyKind(DateTime.MinValue, DateTimeKind.Unspecified);
         break;
     }
 

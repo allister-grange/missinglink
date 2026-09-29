@@ -8,8 +8,8 @@ export type ShowingInfoHolder = {
 
 export default FetchStatus;
 
-// {x: "date", y: "value"}
+// {x: timestamp in milliseconds, y: value}
 export type DataPoint = {
-  x: string;
+  x: number;
   y: number;
 };

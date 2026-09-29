@@ -63,31 +63,31 @@ export const parseServiceStatsIntoTimeArrays = (
 
   serviceStatistics?.forEach((stat: ServiceStatistic) => {
     totalTrips.push({
-      x: stat.timestamp,
+      x: Date.parse(stat.timestamp),
       y: stat["totalServices" as ServiceKey] as number,
     });
     cancelledTrips.push({
-      x: stat.timestamp,
+      x: Date.parse(stat.timestamp),
       y: stat["cancelledServices" as ServiceKey] as number,
     });
     delayedTrips.push({
-      x: stat.timestamp,
+      x: Date.parse(stat.timestamp),
       y: stat["delayedServices" as ServiceKey] as number,
     });
     earlyTrips.push({
-      x: stat.timestamp,
+      x: Date.parse(stat.timestamp),
       y: stat["earlyServices" as ServiceKey] as number,
     });
     notReportingTimeTrips.push({
-      x: stat.timestamp,
+      x: Date.parse(stat.timestamp),
       y: stat["notReportingTimeServices" as ServiceKey] as number,
     });
     onTimeTrips.push({
-      x: stat.timestamp,
+      x: Date.parse(stat.timestamp),
       y: stat["onTimeServices" as ServiceKey] as number,
     });
     totalDisruptedTrips.push({
-      x: stat.timestamp,
+      x: Date.parse(stat.timestamp),
       y: stat.cancelledServices + stat.delayedServices + stat.earlyServices,
     });
   });

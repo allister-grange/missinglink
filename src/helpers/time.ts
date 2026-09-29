@@ -1,50 +1,66 @@
-const nzstOptions = { timeZone: "Pacific/Auckland", hour12: false };
+const newZealandTimeZone = "Pacific/Auckland";
 
-export function formateDateForInput(date: Date) {
-  const inputTime = date
-    .toLocaleString("en-NZ", nzstOptions)
-    .replaceAll(" ", "");
+const newZealandDateTimeFormatter = new Intl.DateTimeFormat("en-NZ", {
+  timeZone: newZealandTimeZone,
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  hourCycle: "h23",
+});
 
-  // Split the input time into date and time parts
-  const parts = inputTime.split(",");
-  let datePart = parts[0];
-  let timePart = parts[1];
+function getNewZealandDateTimeParts(date: Date) {
+  const parts = Object.fromEntries(
+    newZealandDateTimeFormatter
+      .formatToParts(date)
+      .map(({ type, value }) => [type, value])
+  );
 
-  // Split the date part into day, month, and year
-  const dateComponents = datePart.split("/");
-  let day = dateComponents[0].padStart(2, "0");
-  let month = dateComponents[1].padStart(2, "0");
-  let year = dateComponents[2];
-
-  // Split the time part into hours, minutes, and seconds
-  const timeComponents = timePart.split(":");
-  let hours = timeComponents[0].padStart(2, "0");
-  let minutes = timeComponents[1].padStart(2, "0");
-
-  return `${year}-${month}-${day}T${hours}:${minutes}`;
+  return {
+    year: parts.year,
+    month: parts.month,
+    day: parts.day,
+    hour: parts.hour,
+    minute: parts.minute,
+  };
 }
 
-export function formatDateForBackend(inputDate: Date) {
-  const inputTime = inputDate
-    .toLocaleString("en-NZ", nzstOptions)
-    .replaceAll(" ", "");
+export function formatDateForInput(date: Date) {
+  const { year, month, day, hour, minute } = getNewZealandDateTimeParts(date);
+  return `${year}-${month}-${day}T${hour}:${minute}`;
+}
 
-  // Split the input time into date and time parts
-  const parts = inputTime.split(",");
-  let datePart = parts[0];
-  let timePart = parts[1];
+export function formatDateTimeDaysAgoForInput(daysAgo: number) {
+  const now = getNewZealandDateTimeParts(new Date());
+  const date = new Date(
+    Date.UTC(
+      Number(now.year),
+      Number(now.month) - 1,
+      Number(now.day) - daysAgo,
+      Number(now.hour),
+      Number(now.minute)
+    )
+  );
+  const pad = (value: number) => String(value).padStart(2, "0");
 
-  // Split the date part into day, month, and year
-  const dateComponents = datePart.split("/");
-  let day = dateComponents[0].padStart(2, "0");
-  let month = dateComponents[1].padStart(2, "0");
-  let year = dateComponents[2];
+  return `${date.getUTCFullYear()}-${pad(date.getUTCMonth() + 1)}-${pad(
+    date.getUTCDate()
+  )}T${pad(date.getUTCHours())}:${pad(date.getUTCMinutes())}`;
+}
 
-  // Split the time part into hours, minutes, and seconds
-  const timeComponents = timePart.split(":");
-  let hours = timeComponents[0].padStart(2, "0");
-  let minutes = timeComponents[1].padStart(2, "0");
-  let seconds = timeComponents[2].padStart(2, "0");
+export function formatDateForBackend(
+  inputDateTime: string,
+  endOfMinute = false
+) {
+  if (!inputDateTime) {
+    return "";
+  }
 
-  return `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
+  const [date, time] = inputDateTime.split("T");
+  const timeWithSeconds = time.length === 5
+    ? `${time}:${endOfMinute ? "59" : "00"}`
+    : time;
+
+  return `${date.replaceAll("-", "/")} ${timeWithSeconds}`;
 }

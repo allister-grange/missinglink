@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using missinglink.Models;
 using missinglink.Services;
+using missinglink.Utils;
 
 [ApiController]
 public abstract class BaseServicesController<TService> : ControllerBase where TService : IBaseServiceAPI
@@ -69,10 +70,8 @@ public abstract class BaseServicesController<TService> : ControllerBase where TS
     {
       startDateInput = DateTime.ParseExact(startDate, "yyyy/MM/dd HH:mm:ss", CultureInfo.InvariantCulture);
       endDateInput = DateTime.ParseExact(endDate, "yyyy/MM/dd HH:mm:ss", CultureInfo.InvariantCulture);
-
-      TimeZoneInfo nzTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Pacific/Auckland");
-      startDateInput = TimeZoneInfo.ConvertTimeToUtc(startDateInput, nzTimeZone);
-      endDateInput = TimeZoneInfo.ConvertTimeToUtc(endDateInput, nzTimeZone);
+      startDateInput = DateTime.SpecifyKind(startDateInput, DateTimeKind.Unspecified);
+      endDateInput = DateTime.SpecifyKind(endDateInput, DateTimeKind.Unspecified);
 
       stats = _apiService.GetServiceStatisticsByDate(startDateInput, endDateInput);
     }
@@ -87,7 +86,7 @@ public abstract class BaseServicesController<TService> : ControllerBase where TS
       throw new Exception("ServiceStatistic table in database not populated.");
     }
 
-    return Ok(stats);
+    return Ok(stats.Select(ServiceStatisticDto.From).ToList());
   }
 
   [HttpGet("worstServices")]
@@ -131,11 +130,11 @@ public abstract class BaseServicesController<TService> : ControllerBase where TS
     if (statistics == null)
     {
       _logger.LogWarning("Services table in database not populated");
-      StatusCode(500, "Internal Server Error: Services table in database not populated");
+      return StatusCode(500, "Internal Server Error: Services table in database not populated");
     }
 
     _logger.LogInformation("Returning statistics with batch id of " + statistics.BatchId);
-    return Ok(statistics);
+    return Ok(ServiceStatisticDto.From(statistics));
   }
 
   [HttpGet("servicesByNameAndTimeRange")]

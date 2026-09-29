@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using missinglink.Models;
 using Microsoft.Extensions.Logging;
 using missinglink.Repository;
+using missinglink.Utils;
 
 namespace missinglink.Services
 {
@@ -13,13 +14,16 @@ namespace missinglink.Services
     private readonly ILogger<AtAPIService> _logger;
     private readonly IServiceRepository _serviceRepository;
     private readonly ICacheRepository _cacheRepository;
+    private readonly IDateTimeProvider _dateTimeProvider;
     private readonly string[] providers = new string[] { "Metlink", "AT" };
 
-    public ServiceAPI(ILogger<AtAPIService> logger, IServiceRepository serviceRepository, ICacheRepository cacheRepository)
+    public ServiceAPI(ILogger<AtAPIService> logger, IServiceRepository serviceRepository,
+      ICacheRepository cacheRepository, IDateTimeProvider dateTimeProvider)
     {
       _logger = logger;
       _serviceRepository = serviceRepository;
       _cacheRepository = cacheRepository;
+      _dateTimeProvider = dateTimeProvider;
     }
 
     public async Task<int> GenerateNewBatchId()
@@ -63,7 +67,7 @@ namespace missinglink.Services
         newServiceStatistic.OnTimeServices = allServices.Where(service => service.Status == "ONTIME" && service.ProviderId == provider).Count();
         newServiceStatistic.CancelledServices = allServices.Where(service => service.Status == "CANCELLED" && service.ProviderId == provider).Count();
         newServiceStatistic.TotalServices = allServices.Where(service => service.Status != "CANCELLED" && service.ProviderId == provider).Count();
-        newServiceStatistic.Timestamp = DateTime.UtcNow;
+        newServiceStatistic.Timestamp = NewZealandTime.FromUtc(_dateTimeProvider.UtcNow);
         newServiceStatistic.BatchId = newBatchId;
         newServiceStatistic.ProviderId = provider;
         await _serviceRepository.AddStatisticAsync(newServiceStatistic);

@@ -4,7 +4,11 @@ import chartOptions, {
 } from "@/helpers/chartHelpers";
 import { getServiceProviderFromCity } from "@/helpers/convertors";
 import { fetcher } from "@/helpers/fetcher";
-import { formatDateForBackend, formateDateForInput } from "@/helpers/time";
+import {
+  formatDateForBackend,
+  formatDateTimeDaysAgoForInput,
+  formatDateForInput,
+} from "@/helpers/time";
 import styles from "@/styles/Graph.module.css";
 import { ServiceStatistic } from "@/types/ServiceTypes";
 import {
@@ -23,26 +27,27 @@ import { GraphColorLegend } from "./GraphColorLegend";
 
 ChartJS.register(TimeScale, LinearScale, PointElement, LineElement, Tooltip);
 
-const yesterdayDate = new Date();
-yesterdayDate.setDate(yesterdayDate.getDate() - 1);
-
 type GraphPageProps = {
   city: string;
 };
 
 const Graph: React.FC<GraphPageProps> = ({ city }) => {
-  const [startDate, setStartDate] = useState<Date>(yesterdayDate);
-  const [endDate, setEndDate] = useState<Date>(new Date());
+  const [startDate, setStartDate] = useState<string>(() =>
+    formatDateTimeDaysAgoForInput(1)
+  );
+  const [endDate, setEndDate] = useState<string>(() =>
+    formatDateForInput(new Date())
+  );
   const [hoveringLegendBadge, setHoveringLegendBadge] = useState<
     string | undefined
   >();
   const servicerProvider = getServiceProviderFromCity(city);
 
   let { data: serviceStatistics } = useSWR<ServiceStatistic[]>(
-    city
-      ? `${API_URL}/api/v1/${servicerProvider}/statistics?startDate=${formatDateForBackend(
-          startDate
-        )}&endDate=${formatDateForBackend(endDate)}`
+    city && startDate && endDate
+      ? `${API_URL}/api/v1/${servicerProvider}/statistics?startDate=${encodeURIComponent(
+          formatDateForBackend(startDate)
+        )}&endDate=${encodeURIComponent(formatDateForBackend(endDate, true))}`
       : null,
     fetcher
   );
@@ -154,25 +159,15 @@ const Graph: React.FC<GraphPageProps> = ({ city }) => {
         <p>showing data from </p>
         <input
           type="datetime-local"
-          value={formateDateForInput(startDate)}
-          onChange={(e) => {
-            const date = new Date(e.target.value);
-            if (date && endDate) {
-              setStartDate(date);
-            }
-          }}
+          value={startDate}
+          onChange={(e) => setStartDate(e.target.value)}
           className={styles.date_picker}
         />
         <p>to</p>
         <input
           type="datetime-local"
-          value={formateDateForInput(endDate)}
-          onChange={(e) => {
-            const date = new Date(e.target.value);
-            if (date && startDate) {
-              setEndDate(date);
-            }
-          }}
+          value={endDate}
+          onChange={(e) => setEndDate(e.target.value)}
           className={styles.date_picker}
         />
       </div>

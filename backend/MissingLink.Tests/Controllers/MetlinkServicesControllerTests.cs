@@ -57,16 +57,14 @@ namespace YourTestProject.Tests.Controllers
     }
 
     [Theory]
-    [InlineData("2023-08-01", "2023-08-31")]
+    [InlineData("2023/08/01 00:00:00", "2023/08/31 23:59:00")]
     public void GetServiceStatisticsByDate_ValidInputs_ReturnsStatistics(string startDate, string endDate)
     {
       // Arrange
-      var date1 = new DateTime(2023, 8, 01);
-      var date2 = new DateTime(2023, 8, 31);
-      var stat1 = new ServiceStatistic();
-      var stat2 = new ServiceStatistic();
-      stat1.Timestamp = new DateTime(2023, 8, 20);
-      stat2.Timestamp = new DateTime(2023, 8, 22);
+      var date1 = new DateTime(2023, 8, 01, 0, 0, 0, DateTimeKind.Unspecified);
+      var date2 = new DateTime(2023, 8, 31, 23, 59, 0, DateTimeKind.Unspecified);
+      var stat1 = new ServiceStatistic { Timestamp = new DateTime(2023, 8, 20) };
+      var stat2 = new ServiceStatistic { Timestamp = new DateTime(2023, 8, 22) };
 
       var expectedStatistics = new List<ServiceStatistic> { stat1, stat2 };
       _metlinkApiServiceMock.Setup(service => service.GetServiceStatisticsByDate(date1, date2)).Returns(expectedStatistics);
@@ -78,12 +76,15 @@ namespace YourTestProject.Tests.Controllers
       Assert.IsType<OkObjectResult>(actionResult);
       var result = (OkObjectResult)actionResult;
       Assert.NotNull(result.Value);
-      Assert.Equal(expectedStatistics, result.Value);
+      var returnedStatistics = Assert.IsType<List<ServiceStatisticDto>>(result.Value);
+      Assert.Equal(2, returnedStatistics.Count);
+      Assert.Equal(TimeSpan.FromHours(12), returnedStatistics[0].Timestamp.Offset);
+      Assert.Equal(stat1.Timestamp, returnedStatistics[0].Timestamp.DateTime);
     }
 
     [Theory]
-    [InlineData(null, "2023-08-31")]
-    [InlineData("2023-08-01", null)]
+    [InlineData(null, "2023/08/31 23:59:00")]
+    [InlineData("2023/08/01 00:00:00", null)]
     public void GetServiceStatisticsByDate_MissingInputs_ReturnsBadRequest(string startDate, string endDate)
     {
       // Act
@@ -95,8 +96,8 @@ namespace YourTestProject.Tests.Controllers
     }
 
     [Theory]
-    [InlineData("invalid-date", "2023-08-31")]
-    [InlineData("2023-08-01", "invalid-date")]
+    [InlineData("invalid-date", "2023/08/31 23:59:00")]
+    [InlineData("2023/08/01 00:00:00", "invalid-date")]
     public void GetServiceStatisticsByDate_InvalidDateInputs_ReturnsBadRequest(string startDate, string endDate)
     {
       // Act
